@@ -110,8 +110,8 @@ ol {
 	list-style:none;
 }
 
-/* 媛쒖씤�젙蹂� �뙘�뾽! start*/
-#popup {
+/* 揶쏆뮇�뵥占쎌젟癰귨옙 占쎈솚占쎈씜! start*/
+#popup, #popup1, #popup2 {
 	display: flex; 
 	justify-content: center; 
 	align-items: center; 
@@ -124,11 +124,11 @@ ol {
 	overflow: auto;
 }
 
-#popup.hide {
+#popup.hide, #popup1.hide, #popup2.hide {
 	display: none;
 }
 
-#popup .content {
+#popup .content, #popup1 .content, #popup2 .content {
 	overflow-y: scroll; 
 	width:900px; 
 	height:500px;
@@ -166,13 +166,13 @@ ol {
 	color:#ff7b27;
 }
 
-/* 媛쒖씤�젙蹂� �뙘�뾽! end*/
+/* 揶쏆뮇�뵥占쎌젟癰귨옙 占쎈솚占쎈씜! end*/
 
 /*---------------------
   Helper CSS
 -----------------------*/
 
-/* 메뉴 색상 테스트! */
+/* 硫붾돱 �깋�긽 �뀒�뒪�듃! */
 #color_f.on{
 	color:#ff7b27;
 }
@@ -2149,7 +2149,7 @@ ol {
 }
 
 .product__details__text ul {
-	/* �샃�뀡 �븘�옒 以� �엫�떆 二쇱꽍 */
+	/* 占쎌긿占쎈�� 占쎈툡占쎌삋 餓ο옙 占쎌뿫占쎈뻻 雅뚯눘苑� */
 	/* border-bottom: 1px solid #ebebeb;
 	padding-bottom: 40px; */
 	margin-bottom: 20px;
