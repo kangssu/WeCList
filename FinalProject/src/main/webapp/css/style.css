@@ -168,6 +168,11 @@ ol {
   Helper CSS
 -----------------------*/
 
+/* 메뉴 색상 테스트! */
+.color_f>a.on{
+	color:#ff7b27;
+}
+
 .clicked{
 	color:#ff7b27;
 }
@@ -1322,6 +1327,24 @@ ol {
 	font-weight: 700;
 }
 
+.shop_rank_number.first{
+	background-color:#ff7b27;
+}
+
+.shop_rank_number{
+	width:50px;
+	height:50px;
+	background-color:#616161;
+	position: absolute;
+	color:white;
+	top:0;
+	left:0;
+	font-size:20px;
+	text-align:center;
+	line-height:50px;
+	opacity:0.8;
+}
+
 /*---------------------
   Form BLog
 -----------------------*/
@@ -1703,6 +1726,14 @@ ol {
 	font-weight: 400;
 	text-decoration: line-through;
 	margin-left: 10px;
+}
+
+.commingsoon__class{
+	background-color:#f5f5f5;
+}
+
+.commingsoon__class__title{
+	margin-top:50px;
 }
 
 .product__discount__slider .col-lg-4 {

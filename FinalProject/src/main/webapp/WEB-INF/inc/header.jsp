@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+	$(function(){
+		<!-- 상단 색감 고정하기 위한 스크립트! -->
+		$("li .color_f").click(function(){
+			$("li .color_f").removeClass();
+			$(this).addClass("on");
+		});
+	});
+</script>
 <!-- Page Preloder (이거 넣으면 계속 무한루프만돔..!)-->
 <!-- <div id="preloder">
 	<div class="loader"></div>
@@ -69,7 +78,7 @@
 <header class="header">
 	<a href="#">
 		<div class="header__high__top">
-			<span>WE C2 LIST의 다양한 작품과 클래스를 구경해보세요!<i class="fa fa-angle-right"></i></span>
+			<span>WE C LIST의 다양한 작품과 클래스를 구경해보세요!<i class="fa fa-angle-right"></i></span>
 		</div>
 	</a>
 	<div class="header__top">
@@ -99,7 +108,7 @@
 					<nav class="header__menu">
 						<ul>
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li class="active"><a href="${root}/">작품</a>
+							<li><a href="${root}/" class="color_f">작품</a>
 								<%-- <ul class="header__menu__dropdown">
 									<li><a href="${root}/shop/list">전체작품</a></li>
 									<li><a href="${root}/shop/list">식품</a></li>
@@ -107,7 +116,7 @@
 									<li><a href="${root}/shop/list">생활용품</a></li>
 								</ul> --%>
 							</li>
-							<li class="div2"><a href="${root}/class">온라인 클래스</a>
+							<li><a href="${root}/class" class="color_f">온라인 클래스</a>
 								<%-- <ul class="header__menu__dropdown">
 									<li><a href="${root}/class/list">전체클래스</a></li>
 									<li><a href="${root}/class/list">디지털</a></li>

@@ -22,7 +22,7 @@
 		<div class="row">
 			<div class="col-lg-12 section-title_top">
 				<div class="section-title">
-					<h2>인기 작품</h2>
+					<h2>TOP 15 인기 작품</h2>
 					<span class="fa fa-angle-right"></span>
 				</div>
 			</div>
@@ -33,6 +33,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number first">1</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -47,6 +48,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">2</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -61,6 +63,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">3</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -75,6 +78,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">4</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -89,6 +93,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">5</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -103,6 +108,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">6</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -117,6 +123,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">7</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -131,6 +138,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">8</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -145,6 +153,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">9</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -159,6 +168,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">10</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -173,6 +183,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">11</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -187,6 +198,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">12</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -201,6 +213,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">13</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -215,6 +228,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">14</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
@@ -229,6 +243,7 @@
 					<a href="#">	
 						<div class="featured__item__pic set-bg">
 							<img src="img/featured/main_con1.jpg" alt="">
+							<span class="shop_rank_number">15</span>
 						</div>
 						<div class="featured__item__text">
 							<h6>제이라운드</h6>
