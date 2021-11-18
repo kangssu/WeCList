@@ -3,15 +3,42 @@
  <!-- Hero Section Begin -->
 <section class="hero">
 	<div class="main_container">
-		<div class="hero__item set-bg" id="slider-div" data-setbg="img/hero/main3.jpg">
-			<!-- 아래 메인 위 텍스트 임시 주석! -->
-			<!-- <div class="hero__text">
-					<span>FRUIT FRESH</span>
-					<h2>Vegetable <br />100% Organic</h2>
-					<p>Free Pickup and Delivery Available</p>
-					<a href="#" class="primary-btn">SHOP NOW</a>
-				</div> -->
+		<!-- Start Banner Hero -->
+		<div class="banner-wrapper bg-light">
+
+			<div id="demo" class="carousel slide" data-ride="carousel">
+
+				<!-- Indicators -->
+				<ul class="carousel-indicators">
+					<li data-target="#demo" data-slide-to="0" class="active"></li>
+					<li data-target="#demo" data-slide-to="1"></li>
+					<li data-target="#demo" data-slide-to="2"></li>
+				</ul>
+
+				<!-- The slideshow -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="img/hero/main3.jpg" alt="Los Angeles">
+					</div>
+					<div class="carousel-item">
+						<img src="img/hero/main3.jpg" alt="Chicago">
+					</div>
+					<div class="carousel-item">
+						<img src="img/hero/main3.jpg" alt="New York">
+					</div>
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="carousel-control-prev" href="#demo" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+
+			</div>
+
 		</div>
+		<!-- End Banner Hero -->
 	</div>
 </section>
 <!-- Hero Section End -->

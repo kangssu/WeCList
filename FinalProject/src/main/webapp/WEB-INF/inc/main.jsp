@@ -4,7 +4,7 @@
 <section class="hero">
 	<div class="main_container">
 		<!-- Start Banner Hero -->
-		<div class="banner-wrapper bg-light">ㄴ
+		<div class="banner-wrapper bg-light">
 
 			<div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -18,13 +18,13 @@
 				<!-- The slideshow -->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="img/hero/main_1.jpg" alt="Los Angeles">
+						<img src="img/hero/main2.jpg" alt="Los Angeles">
 					</div>
 					<div class="carousel-item">
-						<img src="img/hero/main_1.jpg" alt="Chicago">
+						<img src="img/hero/main2.jpg" alt="Chicago">
 					</div>
 					<div class="carousel-item">
-						<img src="img/hero/main_1.jpg" alt="New York">
+						<img src="img/hero/main2.jpg" alt="New York">
 					</div>
 				</div>
 
