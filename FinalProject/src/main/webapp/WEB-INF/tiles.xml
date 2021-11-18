@@ -5,10 +5,8 @@
 <tiles-definitions>
 	<definition name="layout" template="/WEB-INF/inc/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
-		<put-attribute name="sub_header_shop" value="/WEB-INF/inc/sub_header_shop.jsp"/>
-		<put-attribute name="sub_header_class" value="/WEB-INF/inc/sub_header_class.jsp"/>
+		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/inc/main.jsp"/>
-		<put-attribute name="body" value="/WEB-INF/inc/class.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
 	</definition>
 	
@@ -19,6 +17,6 @@
 	<definition name="/2/*/*" extends="layout">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/inc/class.jsp"/>
-		<put-attribute name="sub_header_class" value="/WEB-INF/inc/sub_header_class.jsp"/>
+		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_class.jsp"/>
 	</definition>
 </tiles-definitions>

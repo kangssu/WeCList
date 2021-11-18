@@ -27,8 +27,8 @@
 		<div class="header">
 			<tiles:insertAttribute name="header"/>
 		</div>
-		<div class="sub_header_shop">
-			<tiles:insertAttribute name="sub_header_shop"/>
+		<div class="sub_header">
+			<tiles:insertAttribute name="sub_header"/>
 		</div>
 		<div class="main">
 			<tiles:insertAttribute name="main"/>
