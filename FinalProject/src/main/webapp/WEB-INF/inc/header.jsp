@@ -66,6 +66,9 @@
 <!-- Humberger End -->
 
 <!-- Header Section Begin -->
+
+
+
 <header class="header">
 	<a href="#">
 		<div class="header__high__top">
@@ -99,7 +102,7 @@
 					<nav class="header__menu">
 						<ul>
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li><a href="${root}/" id="color_f">작품</a>
+							<li><a href="${root}/" id="btn_item_page" class="color_f">작품</a>
 								<%-- <ul class="header__menu__dropdown">
 									<li><a href="${root}/shop/list">전체작품</a></li>
 									<li><a href="${root}/shop/list">식품</a></li>
@@ -107,7 +110,7 @@
 									<li><a href="${root}/shop/list">생활용품</a></li>
 								</ul> --%>
 							</li>
-							<li><a href="${root}/class" id="color_f">온라인 클래스</a>
+							<li><a href="${root}/class" id="btn_class_page" class="color_f">온라인 클래스</a>
 								<%-- <ul class="header__menu__dropdown">
 									<li><a href="${root}/class/list">전체클래스</a></li>
 									<li><a href="${root}/class/list">디지털</a></li>
@@ -151,11 +154,11 @@
 <!-- Header Section End -->
 <script type="text/javascript">
 	<!-- 상단 색감 고정하기 위한 스크립트! -->
-	$("#color_f").click(function(){
-		var color_change=$(this).css("color");
-		console.log(color_change);
-		sessionStorage.setItem("color_change", color_change);
-		$(color_change).addClass(".on");
+	$(".color_f").click(function(){
+		$(".color_f").closest("li").addClass("active");
+
+		//sessionStorage.setItem("color_change", color_change);
+		//$(color_change).addClass(".on");
 	});
 	
 	/* $("#color_f").on("click", function() {
