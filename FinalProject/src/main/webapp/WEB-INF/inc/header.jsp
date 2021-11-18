@@ -67,81 +67,85 @@
 
 <!-- Header Section Begin -->
 <header class="header">
+	<a href="#">
+		<div class="header__high__top">
+			<span>WE C2 LIST의 다양한 작품과 클래스를 구경해보세요!<i class="fa fa-angle-right"></i></span>
+		</div>
+	</a>
 	<div class="header__top">
 		<div class="container">
-			<div>
-				<div>
-					<div class="header__top__right">
-						<span class="header_text1">WE C LIST의 다양한 작품과 클래스를 구경해보세요!</span>
-						<button type="button" class="header_btn1">GO</button>
-						<div class="header__top__right__auth">
-							<a href="#">로그인</a><span class="header_login_1">|</span>
-							<a href="#">회원가입</a><span class="header_login_1">|</span>
-							<a href="#">장바구니</a>
-						</div>
-					</div>
+			<div class="header__top__right">
+				<!-- <span class="header_text1">WE C2 LIST의 다양한 작품과 클래스를 구경해보세요!</span>
+				<button type="button" class="header_btn1">GO</button> -->
+				<button type="button" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
+				<div class="header__top__right__auth">
+					<a href="#">로그인</a><span class="header_login_1">|</span>
+					<a href="#">회원가입</a><span class="header_login_1">|</span>
+					<a href="#">고객센터</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container">
-		<div class="row">
-  			<div class="col-lg-3">
-				<div class="header__logo">
-					<!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
-					<a href="${root}/" class="logo">WE C LIST</a>
+	<div class="header__middle">
+		<div class="container">
+			<div class="row">
+	  			<div class="col-lg-3">
+					<div class="header__logo">
+						<!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
+						<a href="${root}/" class="logo">WE C LIST</a>
+					</div>
 				</div>
-			</div>
-			<div>
-				<nav class="header__menu">
-					<ul>
-						<c:set var="root" value="<%=request.getContextPath() %>"/>
-						<li class="active"><a href="${root}/">Home</a></li>
-						<li><a href="${root}/shop/list">작품</a>
-							<ul class="header__menu__dropdown">
-								<li><a href="${root}/shop/list">전체작품</a></li>
-								<li><a href="${root}/shop/list">식품</a></li>
-								<li><a href="${root}/shop/list">공예</a></li>
-								<li><a href="${root}/shop/list">생활용품</a></li>
-							</ul>
-						</li>
-						<li><a href="${root}/shop/hotlist">인기작품</a></li>
-						<li><a href="${root}/class/list">온라인 클래스</a>
-							<ul class="header__menu__dropdown">
-								<li><a href="${root}/class/list">전체클래스</a></li>
-								<li><a href="${root}/class/all">디지털</a></li>
-								<li><a href="${root}/class/list">미술</a></li>
-								<li><a href="${root}/class/list">코딩</a></li>
-							</ul>	
-						</li>
-						<li><a href="#">작가구경</a>
-							<ul class="header__menu__dropdown">
-								<li><a href="./shop-details.html">작가 모아보기</a></li>
-								<li><a href="./shoping-cart.html">작가 스토리</a></li>
-							</ul>
-						</li>
-						<li><a href="#">고객센터</a>
-							<ul class="header__menu__dropdown">
-								<li><a href="./shop-details.html">공지사항</a></li>
-								<li><a href="./shoping-cart.html">FAQ</a></li>
-								<li><a href="./shoping-cart.html">문의사항</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-			</div>
+				<div>
+					<nav class="header__menu">
+						<ul>
+							<c:set var="root" value="<%=request.getContextPath() %>"/>
+							<li class="active"><a href="${root}/">작품</a>
+								<%-- <ul class="header__menu__dropdown">
+									<li><a href="${root}/shop/list">전체작품</a></li>
+									<li><a href="${root}/shop/list">식품</a></li>
+									<li><a href="${root}/shop/list">공예</a></li>
+									<li><a href="${root}/shop/list">생활용품</a></li>
+								</ul> --%>
+							</li>
+							<li class="div2"><a href="${root}/class">온라인 클래스</a>
+								<%-- <ul class="header__menu__dropdown">
+									<li><a href="${root}/class/list">전체클래스</a></li>
+									<li><a href="${root}/class/list">디지털</a></li>
+									<li><a href="${root}/class/list">미술</a></li>
+									<li><a href="${root}/class/list">코딩</a></li>
+								</ul> --%>
+							</li>
+						</ul>
+					</nav>
+				</div>
 				<div class="hero__search ">
 					<div class="hero__search__form">
 						<form action="#">
 							<input type="text" placeholder="검색어를 입력해주세요.">
-							<button type="submit" class="site-btn">SEARCH</button>
+							<button type="submit" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</form>
 					</div>
 				</div>
+				<div class="hero__mypage">
+					<div class="hero__mypage__1">
+						<a href="">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<p>마이페이지</p>
+						</a>
+					</div>
+					<div class="hero__mypage__2">
+						<a href="">
+							<span>0</span>
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							<p>장바구니</p>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="humberger__open">
-			<i class="fa fa-bars"></i>
-		</div>
+	</div>	
+	<div class="humberger__open">
+		<i class="fa fa-bars"></i>
 	</div>
 </header>
 <!-- Header Section End -->

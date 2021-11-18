@@ -27,10 +27,13 @@
 		<div class="header">
 			<tiles:insertAttribute name="header"/>
 		</div>
+		<div class="sub_header_shop">
+			<tiles:insertAttribute name="sub_header_shop"/>
+		</div>
 		<div class="main">
 			<tiles:insertAttribute name="main"/>
 		</div>
-		<div class="footer1">
+		<div class="footer">
 			<tiles:insertAttribute name="footer"/>
 		</div>
 	</div>
