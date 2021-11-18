@@ -109,10 +109,10 @@
 						<li><a href="${root}/class/list">온라인 클래스</a>
 							<ul class="header__menu__dropdown">
 								<li><a href="${root}/class/list">전체클래스</a></li>
-								<li><a href="${root}/class/list">디지털</a></li>
+								<li><a href="${root}/class/all">디지털</a></li>
 								<li><a href="${root}/class/list">미술</a></li>
 								<li><a href="${root}/class/list">코딩</a></li>
-							</ul>
+							</ul>	
 						</li>
 						<li><a href="#">작가구경</a>
 							<ul class="header__menu__dropdown">
