@@ -168,9 +168,14 @@ ol {
   Helper CSS
 -----------------------*/
 
+.clicked{
+	color:#ff7b27;
+}
+
 .section-title {
 	margin-bottom: 30px;
 	text-align: center;
+	display:inline-block;
 }
 
 .section-title h2 {
@@ -178,6 +183,14 @@ ol {
 	font-weight: 700;
 	position: relative;
 	margin-bottom:10px;
+	font-size:30px;
+	text-align:left;
+	display:inline-block;
+}
+
+.section-title span{
+	margin-left:15px;
+	font-size:30px;
 }
 
 /* .section-title h2:after {
@@ -193,6 +206,7 @@ ol {
 } */
 
 .set-bg {
+	background-image:url("../img/hero/main2.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top center;
@@ -235,13 +249,13 @@ ol {
 
 .site-btn {
 	font-size: 14px;
-	color: #ffffff;
 	font-weight: 800;
 	text-transform: uppercase;
 	display: inline-block;
-	background: #ff7b27;
+	background: none;
 	border: none;
 	width:70px;
+	margin-right:10px;
 }
 
 .heart-btn{
@@ -360,8 +374,31 @@ ol {
 	margin:0px 10px 0px 10px;
 }
 
-.header__top {
-	background: #f5f5f5;
+.header__high__top{
+	background-color: #ff7b27;
+	height:42px;
+	text-align:center;
+	color:white;
+	line-height:40px;
+	font-size:14px;
+}
+
+.header__high__top i{
+	margin-left:10px;
+}
+
+.header__middle{
+	border-bottom:1px solid #d9d9d9;
+}
+
+.header__bottom{
+	position:absolute;
+	padding:10px 0px 10px 0px;
+	-webkit-box-shadow: 0 4px 4px 0 rgb(0 0 0 / 20%), 0 1px 0 0 #d9d9d9;
+	box-shadow:0 4px 4px 0 rgb(0 0 0 / 20%), 0 1px 0 0 #d9d9d9;
+	z-index:99;
+	width:100%;
+	/* background-color:white; */
 }
 
 .header_text1{
@@ -372,15 +409,14 @@ ol {
 
 .header_btn1{
 	float:left;
-	border:1px solid #ff7b27;
+	border:1px solid #b2b2b2;
 	border-radius:100px;
-	font-size:13px;
-	background-color:#ff7b27;
-	color:white;
-	margin-left:7px;
-	width:50px;
+	font-size:12px;
+	width:130px;
+	height:25px;
 	margin-top:2px;
-	
+	color:#1c1c1c;
+	background-color:white;
 }
 
 .header__top__left {
@@ -419,9 +455,21 @@ ol {
 	margin-right: 5px;
 }
 
+.header__top__left{
+	text-align: left;
+}
+
 .header__top__right {
 	text-align: right;
-	padding: 10px 0 13px;
+	padding: 10px 0 3px;
+}
+
+.header__top__right i{
+	margin-left:5px;
+}
+
+.header__top__right b{
+	color:#ff7b27;
 }
 
 .header__top__right__social {
@@ -526,8 +574,13 @@ ol {
 	display: inline-block;
 }
 
+.header__top__right__auth span{
+	color:#d9d9d9;
+	font-weight:300;
+}
+
 .header__top__right__auth a {
-	font-size: 14px;
+	font-size: 12px;
 	color: #1c1c1c;
 }
 
@@ -546,6 +599,19 @@ ol {
 .header__menu {
 	padding: 24px 0;
 	margin-top:13px;
+}
+
+.header__menu__2 a{
+	color:#1c1c1c;
+}
+
+.header__menu__2 .menu__home{
+	margin-left:230px;
+}
+
+.header__menu__2 ul li{
+	display:inline-block;
+	margin-left:40px;
 }
 
 .header__menu ul li {
@@ -590,6 +656,15 @@ ol {
 
 .header__menu ul li.active a {
 	color: #ff7b27;
+} 
+
+
+.header__menu__2 ul li.active a{
+	color: #ff7b27;
+}
+
+.header__menu__2 ul li:hover>a {
+	color: #ff7b27;
 }
 
 .header__menu ul li:hover .header__menu__dropdown {
@@ -607,7 +682,7 @@ ol {
 }
 
 .header__menu ul li a {
-	font-size: 17px;
+	font-size: 18px;
 	color: #252525;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -770,13 +845,62 @@ ol {
 	margin-left:65px;
 }
 
+.hero__mypage {
+	padding: 16px 0;
+	margin-left:200px;
+	font-size:35px;
+}
+
+.hero__mypage a{
+	color:#252525;
+}
+
+.hero__mypage span{
+	position:absolute;
+	background-color:#ff7b27;
+	width:17px;
+	height:17px;
+	border-radius:50px;
+	color:white;
+	text-align:center;
+	line-height:18px;
+	font-size:5px;
+	top:100px;
+	right:87px;
+}
+
+.hero__mypage__1 p{
+	position:absolute;
+	font-size:10px;
+	margin-top:-10px;
+	color:#1c1c1c;
+	margin-left:-12px;
+}
+
+.hero__mypage__2 p{
+	position:absolute;
+	font-size:10px;
+	margin-top:-10px;
+	color:#1c1c1c;
+}
+
+.hero__mypage__1{
+	display:inline-block;
+}
+
+.hero__mypage__2{
+	display:inline-block;
+	margin-left:25px;
+}
+
 .hero__search__form {
-	width: 300px;
+	width: 400px;
 	height: 50px;
-	border: 1px solid #ebebeb;
+	border: 1px solid #ff7b27;
 	position: relative;
 	float: left;
 	margin-top:20px;
+	border-radius:25px;
 }
 
 .hero__search__form form .hero__search__categories {
@@ -813,7 +937,8 @@ ol {
 	height: 48px;
 	font-size: 16px;
 	color: #b2b2b2;
-	padding-left: 10px;
+	padding-left: 20px;
+	border-radius:25px;
 }
 
 .hero__search__form form input::placeholder {
@@ -825,6 +950,7 @@ ol {
 	right: 0;
 	top: -1px;
 	height: 50px;
+	width:42px;
 }
 
 .hero__search__phone {
@@ -860,11 +986,12 @@ ol {
 }
 
 .hero__item {
-	height: 510px;
+	height: 480px;
 	display: flex;
 	align-items: center;
 	padding-left: 520px;
 	text-align:center;
+	margin-top:45px;
 }
 
 .hero__text span {
@@ -888,7 +1015,8 @@ ol {
 }
 
 .main_banner_1{
-	height:300px;
+	height:250px;
+	margin-bottom:50px;
 }
 
 /*---------------------
@@ -953,7 +1081,7 @@ ol {
 -----------------------*/
 
 .featured {
-	padding-top: 80px;
+	padding-top: 0px;
 	padding-bottom: 40px;
 }
 
@@ -1106,6 +1234,15 @@ ol {
 	font-weight: 700;
 }
 
+.main__hot__shop__1{
+	border:1px solid #b2b2b2;
+	background-color:white;
+	border-radius:25px;
+	height:45px;
+	width:300px;
+	margin-left:465px;
+}
+
 /*---------------------
   Latest Product
 -----------------------*/
@@ -1190,16 +1327,17 @@ ol {
 -----------------------*/
 
 .from-blog {
-	padding-top: 50px;
+	padding-top: 0px;
 	padding-bottom: 50px;
+	background-color:#f5f5f5;
 }
 
 .from-blog .blog__item {
 	margin-bottom: 30px;
 }
 
-.from-blog__title {
-	margin-bottom: 50px;
+.from-blog__title{
+	margin-top:50px;
 }
 
 /*---------------------
@@ -1212,6 +1350,7 @@ ol {
 	padding: 45px 0 40px;
 	background:url("../img/breadcrumb.jpg") center;
 	background-repeat:no-repeat;
+	margin-top:37px;
 }
 
 .breadcrumb__text h2 {
@@ -1856,7 +1995,7 @@ ol {
 }
 
 .view_option_select .nice-select{
-	width:425px;
+	width:406px;
 	float:none;
 	display:inline-block;
 	margin-top:10px;
@@ -2029,7 +2168,7 @@ ol {
 	background: white;
 	margin-bottom: 5px;
 	border:1px solid #6f6f6f;
-	margin-right:292px;
+	margin-right:272px;
 }
 
 .pro-qty{
@@ -2378,7 +2517,7 @@ ol {
 }
 
 .buy_su{
-	margin-left:600px;
+	margin-left:570px;
 }
 
 .buy_dan{
@@ -2506,7 +2645,7 @@ ol {
 	font-size:25px;
 	color:#ff7b27;
 	font-weight:700;
-	margin-left:970px;
+	margin-left:940px;
 }
 
 .checkout__input input.checkout__input__add {
@@ -2670,7 +2809,7 @@ ol {
 
 .blog__item__text p{
 	display: inline-block; 
-	width: 390px; 
+	width: 387px; 
 	white-space: nowrap; 
 	overflow: hidden; 
 	text-overflow: ellipsis; 
@@ -2711,7 +2850,7 @@ ol {
 .blog__item__text h5 a {
 	font-size: 20px;
 	color: #1c1c1c;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 .blog__item__text p {
@@ -3017,13 +3156,16 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #F3F6FA;
-	padding-top: 70px;
+	padding-top: 0px;
 	padding-bottom: 0;
 }
 
+.footer .spad{
+	border-top:1px solid #f5f5f5;
+}
+
 .footer__about {
-	margin-bottom: 30px;
+	margin:40px 0px 30px 0px;
 }
 
 .footer__about ul li {
@@ -3041,23 +3183,16 @@ ol {
 	display: inline-block;
 }
 
-.footer__about__2 {
-	margin-bottom: 30px;
+.footer__btn>button{
+	background-color:white;
+	border:1px solid #b2b2b2;
+	margin:5px 10px 0px 0px;
+	font-size:12px;
+	width:105px;
+	height:35px;
+	line-height:20px;
+	text-align: center;
 }
-
-.footer__about__2 h6{
-	font-weight: 700;
-	margin-bottom: 30px;
-}
-
-.footer__about__2 ul li {
-	font-size: 15px;
-	color: #1c1c1c;
-	line-height: 30px;
-	list-style: none;
-}
-
-.footer__about__2 ul li:nth-child(5){font-size:13px; line-height: 20px;}
 
 .footer__widget {
 	margin-bottom: 30px;
@@ -3166,9 +3301,7 @@ ol {
 
 .footer__copyright {
 	border-top: 1px solid #ebebeb;
-	padding: 15px 0;
 	overflow: hidden;
-	margin-top: 20px;
 }
 
 .footer__copyright__text {
@@ -3176,6 +3309,10 @@ ol {
 	color: #1c1c1c;
 	float: left;
 	line-height: 25px;
+}
+
+.footer__copyright__text p{
+	margin-top:15px;
 }
 
 .footer__copyright__payment {
@@ -3343,7 +3480,7 @@ ol {
 
 @media only screen and (min-width: 1200px) {
 	.container {
-		max-width: 1260px;
+		max-width: 1220px;
 	}
 }
 
