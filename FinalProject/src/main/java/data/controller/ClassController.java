@@ -15,4 +15,9 @@ public class ClassController {
   public String view() {
     return "/class/class_view";
   }
+  
+  @GetMapping("/class/all")
+  public String all() {
+    return "/class/class_all";
+  }
 }
