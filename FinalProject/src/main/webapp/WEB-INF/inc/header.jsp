@@ -76,7 +76,7 @@
 						<button type="button" class="header_btn1">GO</button>
 						<div class="header__top__right__auth">
 							<a href="#">로그인</a><span class="header_login_1">|</span>
-							<a href="#">회원가입</a><span class="header_login_1">|</span>
+							<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 							<a href="#">장바구니</a>
 						</div>
 					</div>

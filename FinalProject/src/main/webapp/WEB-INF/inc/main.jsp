@@ -3,18 +3,14 @@
  <!-- Hero Section Begin -->
 <section class="hero">
 	<div class="main_container">
-		<div class="row">
-			<div class="col-lg-9">
-				<div class="hero__item set-bg" data-setbg="img/hero/main_2.jpg">
-					<!-- 아래 메인 위 텍스트 임시 주석! -->
-					<!-- <div class="hero__text">
-						<span>FRUIT FRESH</span>
-						<h2>Vegetable <br />100% Organic</h2>
-						<p>Free Pickup and Delivery Available</p>
-						<a href="#" class="primary-btn">SHOP NOW</a>
-					</div> -->
-				</div>
-			</div>
+		<div class="hero__item set-bg" data-setbg="img/hero/main_2.jpg">
+			<!-- 아래 메인 위 텍스트 임시 주석! -->
+			<!-- <div class="hero__text">
+					<span>FRUIT FRESH</span>
+					<h2>Vegetable <br />100% Organic</h2>
+					<p>Free Pickup and Delivery Available</p>
+					<a href="#" class="primary-btn">SHOP NOW</a>
+				</div> -->
 		</div>
 	</div>
 </section>
