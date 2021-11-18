@@ -25,4 +25,9 @@ public class ShopController {
   public String hotlist() {
     return "/shop/shop_hot_list";
   }
+  
+  @GetMapping("/shop/writeform")
+  public String writeform() {
+    return "/shop/shop_write_form";
+  }
 }
