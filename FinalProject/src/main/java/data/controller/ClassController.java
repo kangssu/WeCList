@@ -8,14 +8,14 @@ public class ClassController {
 
   @GetMapping("/class/list")
   public String list() {
-    return "/class/class_list";
+    return "/2/class/class_list";
   }
 
   @GetMapping("/class/view")
   public String view() {
     return "/class/class_view";
   }
-  
+
   @GetMapping("/class/all")
   public String all() {
     return "/class/class_all";

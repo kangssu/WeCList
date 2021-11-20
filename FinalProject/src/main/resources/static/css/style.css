@@ -49,7 +49,6 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Cairo", sans-serif;
 }
 
 h1 {
@@ -78,7 +77,6 @@ h6 {
 
 p {
 	font-size: 16px;
-	font-family: "Cairo", sans-serif;
 	color: #6f6f6f;
 	font-weight: 400;
 	line-height: 26px;
@@ -173,9 +171,22 @@ ol {
 	color:#ff7b27;
 }
 
+.header__menu ul li a.on{
+	color:#ff7b27;
+}
+
+.on{
+	color:#ff7b27;
+}
+
 .clicked{
 	color:#ff7b27;
 }
+
+.active{
+	color:rgb(255, 123, 39);
+}
+/* 메뉴 색상 테스트! */
 
 .section-title {
 	margin-bottom: 30px;
@@ -663,6 +674,10 @@ ol {
 	color: #ff7b27;
 } 
 
+.header__menu ul li:hover>a {
+	color: #ff7b27;
+} 
+
 
 .header__menu__2 ul li.active a{
 	color: #ff7b27;
@@ -679,7 +694,7 @@ ol {
 }
 
 .header__menu ul li:hover>a {
-	color: #ff7b27;
+	/* color: #ff7b27; */
 }
 
 .header__menu ul li:last-child {
@@ -700,6 +715,10 @@ ol {
 	padding: 5px 0;
 	display: block;
 	margin:-5px;
+}
+
+.header__menu ul li a .on{
+	color:#ff7b27;
 }
 
 .header__cart {
@@ -3505,6 +3524,185 @@ ol {
 .contact-form form button {
 	font-size: 18px;
 	letter-spacing: 2px;
+}
+
+/*---------------------
+  작가
+-----------------------*/
+
+.profile_img img{
+	width:80px;
+	height:80px;
+	border-radius:100px;
+	margin-bottom:10px;
+	display: inline-block;
+}
+
+.profile_img span{
+	color:#1c1c1c;
+	margin-left:20px;
+	font-size:22px;
+	font-weight:500;
+}
+
+.profile_btn button{
+	border:1px solid #f5f5f5;
+	background-color:#f5f5f5;
+	width:130px;
+	height:35px;
+	margin:32px 7px 0px 7px;
+	color:#333;
+	border-radius:100px;
+	font-size:14px;
+}
+
+.mypage__top{
+	background-color:#f5f5f5;
+	width:100%;
+	height:320px;
+	padding:50px 0px 50px 0px;
+}
+
+.grade_user{
+	width:360px;
+	padding:30px;
+	background-color:white;
+	height:220px;
+	display:inline-block;
+	margin-left:15px;
+}
+
+.grade_shopbox{
+	width:197px;
+	height:220px;
+	background-color:white;
+	padding:30px;
+	display:inline-block;
+	margin-left:10px;
+	font-size:14px;
+}
+
+.grade_shopbox p{
+	margin-bottom:5px;
+	color:#1c1c1c;
+	font-weight:500;
+	font-size:18px;
+}
+
+.shop_box_text{
+	margin-top:60px;
+}
+
+.mypage__side_menu{
+	padding-top:65px;
+	width:210px;
+}
+
+.mypage__side_menu h2{
+	font-size:28px;
+	font-weight:500;
+	padding-bottom:30px;
+}
+
+.author-details-top {
+	padding-top: 45px;
+}
+
+.mypage__snb_all{
+	border:1px solid #f5f5f5;
+	border-bottom:none;
+}
+
+.mypage__snb li{
+	border-bottom:1px solid #f5f5f5;
+	padding:14px 0 16px 20px;
+	font-size:14px;
+}
+
+.mypage__snb li a{
+	color:#1c1c1c;
+	display:block;
+}
+
+.mypage__snb li.on{
+	background-color:#ff7b27;
+}
+
+.mypage__snb li.on a{
+	color:white;
+	font-weight:500;
+}
+
+.mypage__snb i:nth-child(1){margin-left:25px;}
+
+.mypage__profile{
+	padding-top:65px;
+	margin-left:30px;
+}
+
+.mypage__profile h2{
+	font-size:24px;
+}
+
+.mypage__profile__form{
+	margin-top:35px;
+	border-collapse:collapse;
+}
+
+.mypage__profile__form th{
+	width:955px;
+	border:1px solid #b2b2b2;
+	border-collapse:collapse;
+	background-color:#f5f5f5;
+	font-weight:500;
+	font-size:20px;
+	padding:10px;
+}
+
+.mypage__profile__form td{
+	width:950px;
+	border:1px solid #b2b2b2;
+	border-collapse:collapse;
+}
+
+.profile__form__table textarea{
+	width:952px;
+	height:130px;
+	margin:3px;
+	margin-bottom:-3px;
+	border:none;
+	padding:5px;
+}
+
+.profile__form__table input{
+	display:none;
+}
+
+.input_file_btn{
+	width:76px;
+	height:76px;
+	padding:6px 25px;
+	background-color:#ff7b27;
+	cursor:pointer;
+	color:white;
+	font-size:25px;
+	line-height:68px;
+	text-align:center;
+	margin:5px 0px 5px 5px;
+}
+
+.profile_btn_all{
+	text-align:center;
+}
+
+.profile_btn_all button{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	padding:16px 28px 14px;
+	color:white;
+	font-weight:500;
+	width:150px;
+	margin:50px 0px 50px 0px;
 }
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/

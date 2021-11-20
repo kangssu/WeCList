@@ -73,7 +73,7 @@
 				<nav class="header__menu__2">
 					<ul>
 						<li class="active menu__home"><a href="${root}/">홈</a></li>
-						<li><a href="">작품 구경하기</a></li>
+						<li><a href="/shop/list">작품 구경하기</a></li>
 						<li><a href="">인기작품</a></li>
 						<li><a href="">최신작품</a></li>
 						<li><a href="">인기작가</a></li>
