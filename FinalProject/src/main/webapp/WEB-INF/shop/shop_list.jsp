@@ -11,7 +11,7 @@
 					<h2>작품</h2>
 					<div class="breadcrumb__option">
 						<a href="./index.html">Home</a>
-						<span>작품</span>
+						<span>상품 리스트</span>
 					</div>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-5">
 							<div class="filter__found">
-								<h6>총 <span>16</span>개의 작품</h6>
+								<h6>총 <span>n</span>개의 작품</h6>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-3">
