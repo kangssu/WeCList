@@ -474,57 +474,75 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="blog__item">
-					<div class="blog__item__pic">
-						<img src="img/blog/main_con3.jpg" alt="">
-					</div>
-					<div class="blog__item__text">
-						<ul>
-							<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-							<li><i class="fa fa-comment-o"></i> 5</li>
-						</ul>
-						<h5>
-							<a href="#">대구 신세계 백화점 8층 클래스 오픈입니다!</a>
-						</h5>
-						<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-							아웃백 옆 취미상점 카페입니다!</p>
-					</div>
+				<div class="story__item__main">
+					<a href="#">
+						<div class="story_img">
+							<img src="/img/pro.jpg">
+							<span>제이라운드</span>
+						</div>
+						<div class="story__item__pic">
+							<img src="${root}/img/blog/main_con3.jpg" alt="">
+						</div>
+						<div class="story__item__text">
+							<h5>
+								대구 신세계 백화점 8층 클래스 오픈입니다!
+							</h5>
+							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
+								아웃백 옆 취미상점 카페입니다!</p>
+							<ul>
+								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
+								<li><i class="fa fa-comment-o"></i> 5</li>
+							</ul>
+						</div>
+					</a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="blog__item">
-					<div class="blog__item__pic">
-						<img src="img/blog/main_con3.jpg" alt="">
-					</div>
-					<div class="blog__item__text">
-						<ul>
-							<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-							<li><i class="fa fa-comment-o"></i> 5</li>
-						</ul>
-						<h5>
-							<a href="#">대구 신세계 백화점 8층 클래스 오픈입니다!</a>
-						</h5>
-						<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-							아웃백 옆 취미상점 카페입니다!</p>
-					</div>
+				<div class="story__item__main">
+					<a href="#">
+						<div class="story_img">
+							<img src="/img/pro.jpg">
+							<span>제이라운드</span>
+						</div>
+						<div class="story__item__pic">
+							<img src="${root}/img/blog/main_con3.jpg" alt="">
+						</div>
+						<div class="story__item__text">
+							<h5>
+								대구 신세계 백화점 8층 클래스 오픈입니다!
+							</h5>
+							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
+								아웃백 옆 취미상점 카페입니다!</p>
+							<ul>
+								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
+								<li><i class="fa fa-comment-o"></i> 5</li>
+							</ul>
+						</div>
+					</a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="blog__item">
-					<div class="blog__item__pic">
-						<img src="img/blog/main_con3.jpg" alt="">
-					</div>
-					<div class="blog__item__text">
-						<ul>
-							<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-							<li><i class="fa fa-comment-o"></i> 5</li>
-						</ul>
-						<h5>
-							<a href="#">대구 신세계 백화점 8층 클래스 오픈입니다!</a>
-						</h5>
-						<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-							아웃백 옆 취미상점 카페입니다!</p>
-					</div>
+				<div class="story__item__main">
+					<a href="#">
+						<div class="story_img">
+							<img src="/img/pro.jpg">
+							<span>제이라운드</span>
+						</div>
+						<div class="story__item__pic">
+							<img src="${root}/img/blog/main_con3.jpg" alt="">
+						</div>
+						<div class="story__item__text">
+							<h5>
+								대구 신세계 백화점 8층 클래스 오픈입니다!
+							</h5>
+							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
+								아웃백 옆 취미상점 카페입니다!</p>
+							<ul>
+								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
+								<li><i class="fa fa-comment-o"></i> 5</li>
+							</ul>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>

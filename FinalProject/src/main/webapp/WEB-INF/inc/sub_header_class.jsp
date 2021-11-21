@@ -77,7 +77,7 @@
 						<li><a href="">인기클래스</a></li>
 						<li><a href="">신규클래스</a></li>
 						<li><a href="">작가 구경하기</a></li>
-						<li><a href="">작가스토리</a></li>
+						<li><a href="">스토리</a></li>
 					</ul>
 				</nav>
 			</div>

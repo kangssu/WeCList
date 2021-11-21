@@ -102,7 +102,8 @@ a:focus {
 }
 
 ul,
-ol {
+ol,
+li {
 	padding: 0;
 	margin: 0;
 	list-style:none;
@@ -1985,7 +1986,7 @@ ol {
 
 .product__pagination,
 .blog__pagination {
-	padding-top: 10px;
+	padding-top: 75px;
 	text-align:center;
 }
 
@@ -2010,8 +2011,8 @@ ol {
 
 .product__pagination a:hover,
 .blog__pagination a:hover {
-	background: #7fad39;
-	border-color: #7fad39;
+	background: #ff7b27;
+	border-color: #ff7b27;
 	color: #ffffff;
 }
 
@@ -2863,7 +2864,6 @@ ol {
 	white-space: nowrap; 
 	overflow: hidden; 
 	text-overflow: ellipsis; 
-	
 	white-space: normal; 
 	line-height: 1.2; 
 	height: 2.4em; 
@@ -3527,7 +3527,7 @@ ol {
 }
 
 /*---------------------
-  작가
+  마이페이지 작가 프로필
 -----------------------*/
 
 .profile_img img{
@@ -3596,6 +3596,7 @@ ol {
 .mypage__side_menu{
 	padding-top:65px;
 	width:210px;
+	display:inline-block;
 }
 
 .mypage__side_menu h2{
@@ -3703,6 +3704,310 @@ ol {
 	font-weight:500;
 	width:150px;
 	margin:50px 0px 50px 0px;
+}
+
+.profile__form__inp{
+	position:relative;
+	margin:5px;
+	display: inline-block;
+}
+
+.image__preview__all img{
+	width:76px;
+	height:76px;
+	border:1px solid #f5f5f5;
+}
+
+.image__preview__all{
+	display: inline-flex;
+}
+
+.profile__form__inp button{
+	width:25px;
+	height:25px;
+	background-color:#616161;
+	position: absolute;
+	top:0;
+	left:0;
+	text-align:center;
+	opacity:0.8;
+	border:none;
+	overflow:hidden;
+}
+
+.profile__form__inp i{
+	line-height:10px;
+	color:white;
+	font-size:15px;
+}
+
+/*---------------------
+  마이페이지 작가 스토리
+-----------------------*/
+.mypage__story__list{
+	margin-top:35px;	
+}
+
+.story__table{
+	width:965px;
+	text-align:center;
+	table-layout: fixed;
+}
+
+.story__table th{
+	height:60px;
+	border-top: 2px solid #1c1c1c;
+	border-bottom: 1px solid #1c1c1c;
+	font-weight:500;
+	color:#1c1c1c;
+}
+
+.story__table th:nth-child(1){width:50px;}
+.story__table th:nth-child(2){width:550px;}
+
+.story__table td a{
+	display:block;
+	color:#1c1c1c;
+}
+
+.story__table td{
+	height:55px;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.story__table td:nth-child(2){
+	text-align:left; 
+	padding-left:30px;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+}
+
+.story__table button{
+	width:60px;
+	height:35px;
+	font-weight:400;
+}
+
+.story_mod_btn{
+	border:1px solid #ff7b27;
+	background-color:white;
+	color:#ff7b27;
+}
+
+.story_del_btn{
+	border:1px solid #1c1c1c;
+	background-color:white;
+	color:#1c1c1c;
+}
+
+.story__insert__bottom button{
+	float: right;
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	color:white;
+	width:150px;
+	padding:16px 28px 14px;
+	margin-top:15px;
+}
+
+/* 스토리 등록폼 스타일 */
+.mypage__story__form{
+	margin-top:35px;	
+}
+
+.story__table__form{
+	width:965px;
+}
+
+.story__table__form th{
+	border:1px solid #b2b2b2;
+	background-color:#f5f5f5;
+	font-weight:500;
+	width:200px;
+	height:50px;
+	text-align:center;
+}
+
+.story__table__form td{
+	border:1px solid #b2b2b2;
+	padding:5px;
+}
+
+.story__table__form td input{
+	width:650px;
+	border:none;
+}
+
+.story__table__form td textarea{
+	display:none; 
+	width:100%; 
+	height:400px;
+}
+
+.story_write_form_btn_all{
+	text-align:center;
+	margin-top:50px;
+}
+
+.story_list_btn{
+	border:1px solid #ff7b27;
+	background-color:white;
+	width: 150px;
+	padding:16px 28px 14px;
+	color:#ff7b27;
+}
+
+.story_insert_btn{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	padding:16px 28px 14px;
+	width: 150px;
+	color:white;
+}
+
+/*---------------------
+  작가 스토리
+-----------------------*/
+.mypage__story{
+	padding-top:65px;
+	margin-left:30px;
+	margin-bottom:80px;
+	display:inline-block;
+}
+
+.mypage__story h2{
+	font-size:24px;
+}
+
+.story__list{
+	margin-top:15px;
+}
+
+.story__item {
+	border:1px solid #f5f5f5;
+	padding:15px;
+	margin-top:30px;
+}
+
+.story_img{
+	margin-bottom:15px;
+}
+
+.story_img img{
+	width:40px;
+	height:40px;
+	border-radius:100px;
+	display: inline-block;
+}
+
+.story_img span{
+	color:#1c1c1c;
+	margin-left:10px;
+	font-size:15px;
+	font-weight:400;
+}
+
+.story__item__pic img {
+	width:442px;
+	height:258px;
+	object-fit:cover;
+}
+
+.story__item__text {
+	padding-top: 25px;
+}
+
+.story__item__text p{
+	display: inline-block; 
+	width: 350px; 
+	white-space: nowrap; 
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	white-space: normal; 
+	line-height: 1.2; 
+	height: 2.4em; 
+	text-align: left; 
+	word-wrap: break-word; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;
+}
+
+.story__item__text ul {
+	margin-bottom: 15px;
+}
+
+.story__item__text ul li {
+	font-size: 16px;
+	color: #b2b2b2;
+	list-style: none;
+	display: inline-block;
+	margin-right: 15px;
+}
+
+.story__item__text ul li:last-child {
+	margin-right: 0;
+}
+
+.story__item__text h5 {
+	margin-bottom: 12px;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+}
+
+.story__item__text h5{
+	font-size: 20px;
+	color: #1c1c1c;
+	font-weight: 500;
+}
+
+.story__item__text p {
+	margin-bottom: 25px;
+}
+
+.story__item__text .blog__btn {
+	display: inline-block;
+	font-size: 14px;
+	color: #1c1c1c;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: 1px solid #b2b2b2;
+	padding: 14px 20px 12px;
+	border-radius: 25px;
+}
+
+.story__item__text .blog__btn span {
+	position: relative;
+	top: 1px;
+	margin-left: 5px;
+}
+
+.story__pagination {
+	padding-top: 5px;
+	position: relative;
+	text-align:center;
+}
+
+.story__pagination:before {
+	position: absolute;
+	left: 0;
+	top: -29px;
+	height: 1px;
+	width: 100%;
+	background: #000000;
+	opacity: 0.1;
+	content: "";
+}
+
+/*---------------------
+  작가 스토리 메인
+-----------------------*/
+.story__item__main {
+	border:1px solid #ebebeb;
+	padding:15px;
+	background-color:white;
 }
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
