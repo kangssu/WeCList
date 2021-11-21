@@ -7,8 +7,8 @@
 		<caption style="caption-side: top;"><b>작가의 글작성</b></caption>
 		<tr>
 			<th width="120" bgcolor="#ddd">옵 션</th>
-			<td name="shop_op">
-				<select  style="width: 500px" class="shop_op_select">
+			<td>
+				<select  style="width: 500px"  name="shopop" class="shop_op_select">
 					<option>디저트</option>
 					<option>음료</option>
 					<option>악세사리</option>
@@ -21,7 +21,7 @@
 		<tr>
 			<th width="120" bgcolor="#ddd">제 목</th>
 			<td>
-				<input type="text" name="subject" class="form-control"
+				<input type="text" name="title" class="form-control"
 				required="required" autofocus="autofocus">
 			
 			</td>
@@ -29,7 +29,7 @@
 		<tr>
 			<th width="120" bgcolor="#ddd">가 격</th>
 			<td>
-				<input type="text" name="shop_price" class="form-control"
+				<input type="text" name="shopprice" class="form-control"
 				required="required" autofocus="autofocus">
 			
 			</td>
@@ -37,9 +37,20 @@
 		<tr>
 			<th width="120" bgcolor="#ddd">태 그</th>
 			<td>
-				<input type="text" name="shop_tag1" class="inline-control"
+				<input type="text" name="shoptag" class="inline-control"
 				required="required" autofocus="autofocus">
 			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd" colspan="2">상품 설명</th>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<textarea style="width: 700px;height: 100px;"
+				class="form-control"
+				name = "shopsub" required="required"></textarea>
+			</td>
+			
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd" colspan="2">제품 정보</th>
@@ -49,7 +60,7 @@
 			<td colspan="2">
 				<textarea style="width: 700px;height: 200px;"
 				class="form-control"
-				name = "shop_content" required="required"></textarea>
+				name = "shopcontent" required="required"></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -59,13 +70,13 @@
 			<td colspan="2">
 				<textarea style="width: 700px;height: 100px;"
 				class="form-control"
-				name = "shop_delivery" required="required"></textarea>
+				name = "shopdelivery" required="required"></textarea>
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">사진</th>
 			<td>
-				<input type="file" name="upload" class="form-control" >
+				<input type="file" name="upload" class="form-control" multiple>
 			
 			</td>
 		</tr>
@@ -75,6 +86,8 @@
 				class="btn btn-default" style="width: 100px;"
 				>등록</button>
 			</td>
+			
+			
 		</tr>
 	</table>
 </form>

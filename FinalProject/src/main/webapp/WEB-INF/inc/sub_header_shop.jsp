@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+ <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Page Preloder (이거 넣으면 계속 무한루프만돔..!)-->
@@ -73,10 +73,10 @@
 				<nav class="header__menu__2">
 					<ul>
 						<li class="active menu__home"><a href="${root}/">홈</a></li>
-						<li><a href="${root}/shop/list">작품 구경하기</a></li>
+						<li><a href="/shop/list">작품 구경하기</a></li>
 						<li><a href="">인기작품</a></li>
 						<li><a href="">최신작품</a></li>
-						<li><a href="">작가 구경하기</a></li>
+						<li><a href="">인기작가</a></li>
 						<li><a href="">작가스토리</a></li>
 						<li><a href="/shop/writeform">글쓰기</a></li>
 					</ul>
