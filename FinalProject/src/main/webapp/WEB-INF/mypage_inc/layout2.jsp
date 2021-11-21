@@ -34,8 +34,14 @@
 		<div class="sub_header">
 			<tiles:insertAttribute name="sub_header"/>
 		</div>
-		<div class="main">
-			<tiles:insertAttribute name="main"/>
+		<div class="body_top">
+			<tiles:insertAttribute name="body_top"/>
+		</div>
+		<div class="body_left">
+			<tiles:insertAttribute name="body_left"/>
+		</div>
+		<div class="body_right">
+			<tiles:insertAttribute name="body_right"/>
 		</div>
 		<div class="footer">
 			<tiles:insertAttribute name="footer"/>
