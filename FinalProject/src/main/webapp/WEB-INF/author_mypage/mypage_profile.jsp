@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="<%=request.getContextPath()%>" />
 <div class="mypage__profile">
 	<h2>프로필 관리</h2>
 	<div class="mypage__profile__1">
 		<h4>History</h4>
-		<p>아직 등록된 History가 없습니다.</p>
+		<c:if test="apdto.length==0">
+			<p>아직 등록된 History가 없습니다.</p>
+		</c:if>
+		<c:if test="apdto.length!=0">
+			<p>${apdto.getHistory}</p>
+		</c:if>
 	</div>
 	<div class="mypage__profile__1">
 		<h4>Idea</h4>
