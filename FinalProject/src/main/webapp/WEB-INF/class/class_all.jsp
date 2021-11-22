@@ -35,22 +35,8 @@
 			</div>
 	<div>
 	<div class="filter__item" style="margin-left: 300px;">
-		<div class="row">
-			<div class="col-lg-4 col-md-5">
-				<div class="filter__found">
-					<h6>
-						총 <span>16</span>개의 온라인 클래스
-					</h6>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3">
-				<div class="filter__sort">
-					<select>
-						<option value="0">최신순</option>
-						<option value="0">인기순</option>
-					</select>
-				</div>
-			</div>
+		<div class="way">
+			<b>Category>세부>세부</b>
 		</div>
 	</div>
 	<div class="row" style="margin-left: 300px;">
