@@ -65,6 +65,13 @@
 			</td>
 		</tr>
 		<tr>
+			<th width="120" bgcolor="#ddd">사진</th>
+			<td>
+				<input type="file" name="upload" class="form-control" multiple>
+			
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2" align="center">
 				<button type="submit"
 				class="btn btn-default" style="width: 100px;"

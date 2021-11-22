@@ -92,4 +92,134 @@
 </section>
 <!-- Product Section End -->
 
+<!-- Featured Section Begin -->
+<section class="featured spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 section-title_top">
+				<div class="section-title">
+					<h2>신규 온라인 클래스</h2>
+					<span class="fa fa-angle-right"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row featured__filter">
+ 			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="featured__item">
+					<a href="#">
+						<div class="product__item__pic set-bg">
+							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+						</div>
+						<div class="product__discount__item__text">
+							<span>달콩작가의 그림작업실</span>
+							<h5>바퀴달린집2 출연진이 배운,</h5>
+							<div class="product__item__price">16,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<button type="button" class="main__hot__shop__1" onclick="location.href='class/news'">신규 온라인 클래스 더보기</button>
+		</div>
+	</div>
+</section>
+<!-- Featured Section End -->
+
 
