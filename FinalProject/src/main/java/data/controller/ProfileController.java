@@ -16,14 +16,19 @@ public class ProfileController {
 
   @GetMapping("/mypage/profile")
   public String mypage() {
-    return "/author_mypage/author_mypage_profile";
+    return "/1/author_mypage/mypage_profile";
+  }
+
+  @GetMapping("/mypage/profile/form")
+  public String mypageForm() {
+    return "/1/author_mypage/mypage_profile_write_form";
   }
 
   @PostMapping("/mypage/pinsert")
   public String profileInsert(@ModelAttribute AuthorProfileDto dto) {
 
     service.insertProfile(dto);
-    return "/author_mypage/author_mypage_profile";
+    return "/1/author_mypage/mypage_profile";
   }
 
 }

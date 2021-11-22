@@ -1,6 +1,7 @@
 package data.dto;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -8,20 +9,38 @@ import org.springframework.web.multipart.MultipartFile;
 public class AuthorProfileDto {
   private String num;
   private String history;
-  private MultipartFile upload;
+  private ArrayList<MultipartFile> upload1;
   private String history_file;
   private String idea;
+  private ArrayList<MultipartFile> upload2;
   private String idea_file;
   private String identity;
+  private ArrayList<MultipartFile> upload3;
   private String identity_file;
   private Timestamp writeday;
 
-  public MultipartFile getUpload() {
-    return upload;
+  public ArrayList<MultipartFile> getUpload1() {
+    return upload1;
   }
 
-  public void setUpload(MultipartFile upload) {
-    this.upload = upload;
+  public void setUpload1(ArrayList<MultipartFile> upload1) {
+    this.upload1 = upload1;
+  }
+
+  public ArrayList<MultipartFile> getUpload2() {
+    return upload2;
+  }
+
+  public void setUpload2(ArrayList<MultipartFile> upload2) {
+    this.upload2 = upload2;
+  }
+
+  public ArrayList<MultipartFile> getUpload3() {
+    return upload3;
+  }
+
+  public void setUpload3(ArrayList<MultipartFile> upload3) {
+    this.upload3 = upload3;
   }
 
   public String getNum() {

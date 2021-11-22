@@ -35,6 +35,36 @@
 		    $("#preview").empty();
 		    $("#uploadFile").val("");
 		});
+		
+		$("#uploadFile_2").change(function(e){
+
+			//div 내용 비워주기
+			$("#preview_2").empty();
+	
+			var files = e.target.files;
+			var arr =Array.prototype.slice.call(files);
+	      
+			//업로드 가능 파일인지 체크
+			for(var i=0;i<files.length;i++){
+				if(!checkExtension(files[i].name,files[i].size)){
+					return false;
+				}
+			}
+	      
+			//이미지 파일 개수 제한!(3장까지)
+			if(files.length>3){
+				alert("이미지 파일은 3장까지 업로드 가능합니다!");
+				return false;
+			}
+			
+			preview2(arr);
+		});
+		
+		//미리보기 삭제하기 위한 이벤트!
+		$(document).on("click",".preview-del_2",function(){
+		    $("#preview_2").empty();
+		    $("#uploadFile_2").val("");
+		});
     
 		function checkExtension(fileName,fileSize){
 
@@ -74,6 +104,29 @@
 		        }else{
 					str += "<img src='/resources/img/fileImg.png' title='"+f.name+"' width=100 height=100 />";
 					$(str).appendTo("#preview");
+		        }
+			});
+		}
+		
+		function preview2(arr){
+			arr.forEach(function(f){
+        
+		        //div에 이미지 추가
+		        var str = "<li class='profile__form__inp'>";
+	        
+		        //이미지 파일 미리보기
+				if(f.type.match("image.*")){
+					var reader = new FileReader(); //파일을 읽기 위한 FileReader객체 생성
+					reader.onload = function (e) { //파일 읽어들이기를 성공했을때 호출되는 이벤트 핸들러
+			            str += "<img src='"+e.target.result+"' title='"+f.name+"' width=100 height=100 />";
+			            str += "<button type='button' class='preview-del_2'><i class='fa fa-times' aria-hidden='true'></i></button>"
+			            str += "</li>";
+			            $(str).appendTo("#preview_2");
+		          	} 
+		          	reader.readAsDataURL(f);
+		        }else{
+					str += "<img src='/resources/img/fileImg.png' title='"+f.name+"' width=100 height=100 />";
+					$(str).appendTo("#preview_2");
 		        }
 			});
 		}
@@ -165,10 +218,10 @@
 									<textarea name="idea" required="required"
 									placeholder="※ 작품만의 Idea를 자세히 적어주세요."></textarea>
 									<div class="image__preview__all">
-										<ul id="preview"></ul> <!-- 여기 안에 li로 image가 추가됨 -->
+										<ul id="preview_2"></ul> <!-- 여기 안에 li로 image가 추가됨 -->
 										<div class="preview__inp">
-											<label class="input_file_btn" for="uploadFile"><i class="fa fa-plus" aria-hidden="true"></i></label>
-											<input type="file" name="uploadFile" id="uploadFile" multiple/>
+											<label class="input_file_btn" for="uploadFile_2"><i class="fa fa-plus" aria-hidden="true"></i></label>
+											<input type="file" name="uploadFile" id="uploadFile_2" multiple/>
 										</div>
 									</div>
 								</td>
@@ -181,10 +234,10 @@
 									<textarea name="identity" required="required"
 									placeholder="※ 작품만의 Identity를 자세히 적어주세요."></textarea>
 									<div class="image__preview__all">
-										<ul id="preview"></ul> <!-- 여기 안에 li로 image가 추가됨 -->
+										<ul id="preview_3"></ul> <!-- 여기 안에 li로 image가 추가됨 -->
 										<div class="preview__inp">
-											<label class="input_file_btn" for="uploadFile"><i class="fa fa-plus" aria-hidden="true"></i></label>
-											<input type="file" name="uploadFile" id="uploadFile" multiple/>
+											<label class="input_file_btn" for="uploadFile_3"><i class="fa fa-plus" aria-hidden="true"></i></label>
+											<input type="file" name="uploadFile" id="uploadFile_3" multiple/>
 										</div>
 									</div>
 								</td>
