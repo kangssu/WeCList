@@ -11,7 +11,7 @@
 					<h2>작품</h2>
 					<div class="breadcrumb__option">
 						<a href="./index.html">Home</a>
-						<span>작품</span>
+						<span>스토리?</span>
 					</div>
 				</div>
 			</div>

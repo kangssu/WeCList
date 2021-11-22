@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+$(document).ready(function (){
+	$(".header__menu ul li a").click(function(){
+		$(this).removeClass("color_f");
+		$(this).addClass("on");
+	});
+ });
+ </script>
 <!-- Page Preloder (이거 넣으면 계속 무한루프만돔..!)-->
 <!-- <div id="preloder">
 	<div class="loader"></div>
@@ -99,7 +107,7 @@
 					<nav class="header__menu">
 						<ul>
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li><a href="${root}/" id="color_f">작품</a>
+							<li><a href="${root}/" class="color_f">작품</a>
 								<%-- <ul class="header__menu__dropdown">
 									<li><a href="${root}/shop/list">전체작품</a></li>
 									<li><a href="${root}/shop/list">식품</a></li>
@@ -107,7 +115,7 @@
 									<li><a href="${root}/shop/list">생활용품</a></li>
 								</ul> --%>
 							</li>
-							<li><a href="${root}/class" id="color_f">온라인 클래스</a>
+							<li><a href="${root}/class" class="color_f">온라인 클래스</a>
 								<%-- <ul class="header__menu__dropdown">
 									<li><a href="${root}/class/list">전체클래스</a></li>
 									<li><a href="${root}/class/list">디지털</a></li>
@@ -128,7 +136,7 @@
 				</div>
 				<div class="hero__mypage">
 					<div class="hero__mypage__1">
-						<a href="">
+						<a href="${root}/mypage/profile">
 							<i class="fa fa-user" aria-hidden="true"></i>
 							<p>마이페이지</p>
 						</a>
@@ -149,19 +157,3 @@
 	</div>
 </header>
 <!-- Header Section End -->
-<script type="text/javascript">
-	<!-- 상단 색감 고정하기 위한 스크립트! -->
-	$("#color_f").click(function(){
-		var color_change=$(this).css("color");
-		console.log(color_change);
-		sessionStorage.setItem("color_change", color_change);
-		$(color_change).addClass(".on");
-	});
-	
-	/* $("#color_f").on("click", function() {
-		var color_change=$(this).css("color");
-		console.log(color_change);
-		sessionStorage.setItem("color_change", color_change);
-		$(color_change).addClass(".on");
-	}); */
-</script>
