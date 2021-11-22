@@ -88,7 +88,7 @@ $(document).ready(function (){
 				<button type="button" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
 				<div class="header__top__right__auth">
 					<a href="#">로그인</a><span class="header_login_1">|</span>
-					<a href="#">회원가입</a><span class="header_login_1">|</span>
+					<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 					<a href="#">고객센터</a>
 				</div>
 			</div>

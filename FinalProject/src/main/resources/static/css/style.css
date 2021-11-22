@@ -109,8 +109,8 @@ li {
 	list-style:none;
 }
 
-/* 개인정보 팝업! start*/
-#popup {
+/* 媛쒖씤�젙蹂� �뙘�뾽! start*/
+#popup, #popup1, #popup2 {
 	display: flex; 
 	justify-content: center; 
 	align-items: center; 
@@ -120,18 +120,21 @@ li {
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
 	z-index: 1; 
-	overflow: auto;
+	
 }
 
-#popup.hide {
+#popup.hide, #popup1.hide, #popup2.hide {
 	display: none;
 }
 
-#popup .content {
+#popup .content, #popup1 .content, #popup2 .content {
 	background: #fff; 
 	border-radius: 5px; 
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 	padding:50px 50px 30px 50px;
+	overflow-y: scroll;
+	width:900px;
+	height:500px;
 }
 
 .popup_info_check{
@@ -161,13 +164,13 @@ li {
 	height:35px;
 	color:#ff7b27;
 }
-/* 개인정보 팝업! end*/
+/* 媛쒖씤�젙蹂� �뙘�뾽! end*/
 
 /*---------------------
   Helper CSS
 -----------------------*/
 
-/* 메뉴 색상 테스트! */
+/* 硫붾돱 �깋�긽 �뀒�뒪�듃! */
 #color_f.on{
 	color:#ff7b27;
 }
@@ -187,7 +190,7 @@ li {
 .active{
 	color:rgb(255, 123, 39);
 }
-/* 메뉴 색상 테스트! */
+/* 硫붾돱 �깋�긽 �뀒�뒪�듃! */
 
 .section-title {
 	margin-bottom: 30px;
@@ -2165,7 +2168,7 @@ li {
 }
 
 .product__details__text ul {
-	/* 옵션 아래 줄 임시 주석 */
+	/* �샃�뀡 �븘�옒 以� �엫�떆 二쇱꽍 */
 	/* border-bottom: 1px solid #ebebeb;
 	padding-bottom: 40px; */
 	margin-bottom: 20px;
@@ -3527,7 +3530,7 @@ li {
 }
 
 /*---------------------
-  마이페이지 작가 프로필
+  留덉씠�럹�씠吏� �옉媛� �봽濡쒗븘
 -----------------------*/
 
 .profile_img img{
@@ -3783,7 +3786,7 @@ li {
 }
 
 /*---------------------
-  마이페이지 작가 스토리
+  留덉씠�럹�씠吏� �옉媛� �뒪�넗由�
 -----------------------*/
 .mypage__story__list{
 	margin-top:35px;	
@@ -3859,7 +3862,7 @@ li {
 	margin-top:15px;
 }
 
-/* 스토리 등록폼 스타일 */
+/* �뒪�넗由� �벑濡앺뤌 �뒪���씪 */
 .mypage__story__form{
 	margin-top:35px;	
 }
@@ -3915,7 +3918,7 @@ li {
 }
 
 /*---------------------
-  작가 스토리
+  �옉媛� �뒪�넗由�
 -----------------------*/
 .mypage__story{
 	padding-top:65px;
@@ -4050,7 +4053,7 @@ li {
 }
 
 /*---------------------
-  작가 스토리 메인
+  �옉媛� �뒪�넗由� 硫붿씤
 -----------------------*/
 .story__item__main {
 	border:1px solid #ebebeb;
