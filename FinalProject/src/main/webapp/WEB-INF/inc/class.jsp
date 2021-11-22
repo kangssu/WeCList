@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
  <!-- Hero Section Begin -->
+<script>
+	$(document).ready(function (){
+		$("#btn_class_page").closest("li").addClass("active");
+	})
+</script>
 <section class="hero">
 	<div class="main_container">
 		<!-- Start Banner Hero -->

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="data.mapper.UsersJoinMapper"> 
+
+	<insert id="insertUsers" parameterType="ujdto">
+		insert into usersjoin (id,pass,name,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday)
+		values (#{id},#{pass},#{name},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now())
+	</insert>
+
+</mapper>
