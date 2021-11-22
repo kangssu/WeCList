@@ -110,7 +110,7 @@ li {
 }
 
 /* 媛쒖씤�젙蹂� �뙘�뾽! start*/
-#popup, #popup1.hide, #popup2.hide {
+#popup, #popup1, #popup2 {
 	display: flex; 
 	justify-content: center; 
 	align-items: center; 
@@ -120,7 +120,7 @@ li {
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
 	z-index: 1; 
-	overflow: auto;
+	
 }
 
 #popup.hide, #popup1.hide, #popup2.hide {
@@ -132,6 +132,9 @@ li {
 	border-radius: 5px; 
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 	padding:50px 50px 30px 50px;
+	overflow-y: scroll;
+	width:900px;
+	height:500px;
 }
 
 .popup_info_check{

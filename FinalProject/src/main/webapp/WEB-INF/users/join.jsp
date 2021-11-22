@@ -7,24 +7,23 @@
 function showPopup1() {
 	const popup = document.querySelector('#popup1');
 	 popup.classList.remove('hide');
-	}
+}
 function closePopup1() {
 	const popup = document.querySelector('#popup1');
 	popup.classList.add('hide');
-	}
-	
+}
+
 /* 개인정보 취급방침 팝업 */
 function showPopup2() {
 	const popup = document.querySelector('#popup2');
 	 popup.classList.remove('hide');
-	}
+}
 function closePopup2() {
 	const popup = document.querySelector('#popup2');
 	popup.classList.add('hide');
-	}
-	
+}
+
 /* 하위 항목 숨기기 */
-$("#id_check").hide();
 </script>
 
 <!-- Breadcrumb Section Begin -->
@@ -269,7 +268,7 @@ eXpert 서비스 및 eXpert 센터 가입 등록정보 : 신청일로부터 6개
 참고로 WeCList는 ‘개인정보 유효기간제’에 따라 1년간 서비스를 이용하지 않은 회원의 개인정보를 별도로 분리 보관하여 관리하고 있습니다.<br><br>
 4. 개인정보 수집 및 이용 동의를 거부할 권리
 이용자는 개인정보의 수집 및 이용 동의를 거부할 권리가 있습니다. 회원가입 시 수집하는 최소한의 개인정보, 즉, 필수 항목에 대한 수집 및 이용 동의를 거부하실 경우, 회원가입이 어려울 수 있습니다.
-</span>
+		</span>
 		<div class="popup_info_btn">
 			<button type="button" id="btn_submit_1" onclick="closePopup2()">확인</button>
 		</div>
