@@ -42,6 +42,60 @@
 			</td>
 		</tr>
 		<tr>
+			<th width="120" bgcolor="#ddd">1번 가격, 이름</th>
+			<td>
+				<input type="text" name="suboption1" class="form-control"
+				required="required" autofocus="autofocus">
+				<input type="text" name="subprice1" class="form-control"
+				required="required" autofocus="autofocus">
+			
+				
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">2번 가격, 이름</th>
+			<td>
+			
+				<input type="text" name="suboption2" class="form-control"
+				required="required" autofocus="autofocus">
+				
+				<input type="text" name="subprice2" class="form-control"
+				required="required" autofocus="autofocus">
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">3번 가격, 이름</th>
+			<td>
+			
+				<input type="text" name="suboption3" class="form-control"
+				required="required" autofocus="autofocus">
+				
+				<input type="text" name="subprice3" class="form-control"
+				required="required" autofocus="autofocus">
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">4번 가격, 이름</th>
+			<td>
+			
+				<input type="text" name="suboption4" class="form-control"
+				required="required" autofocus="autofocus">
+				
+				<input type="text" name="subprice4" class="form-control"
+				required="required" autofocus="autofocus">
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">5번 가격, 이름</th>
+			<td>
+			
+				<input type="text" name="suboption5" class="form-control"
+				required="required" autofocus="autofocus">
+				<input type="text" name="subprice5" class="form-control"
+				required="required" autofocus="autofocus">
+			</td>
+		</tr>
+		<tr>
 			<th width="120" bgcolor="#ddd" colspan="2">상품 설명</th>
 		</tr>
 		<tr>
@@ -77,6 +131,41 @@
 			<th width="120" bgcolor="#ddd">사진</th>
 			<td>
 				<input type="file" name="upload" class="form-control" multiple>
+			
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">사진1</th>
+			<td>
+				<input type="file" name="upload1" class="form-control" multiple>
+			
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">사진2</th>
+			<td>
+				<input type="file" name="upload2" class="form-control" multiple>
+			
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">사진3</th>
+			<td>
+				<input type="file" name="upload3" class="form-control" multiple>
+			
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">사진4</th>
+			<td>
+				<input type="file" name="upload4" class="form-control" multiple>
+			
+			</td>
+		</tr>
+		<tr>
+			<th width="120" bgcolor="#ddd">사진5</th>
+			<td>
+				<input type="file" name="upload5" class="form-control" multiple>
 			
 			</td>
 		</tr>
