@@ -10,7 +10,8 @@
 	<script src="/js/jquery-3.3.1.min.js"></script>
 	<!-- 네이버 에디터 -->
 	<script type="text/javascript" src="/se2/js/HuskyEZCreator.js" charset="utf-8"></script> 
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
+	charset="utf-8"></script>
 	
 	<!-- 아이콘 사용하기 위한 CDN 경로 -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,12 +38,18 @@
 		<div class="body_top">
 			<tiles:insertAttribute name="body_top"/>
 		</div>
-		<div class="body_left">
-			<tiles:insertAttribute name="body_left"/>
-		</div>
-		<div class="body_right">
-			<tiles:insertAttribute name="body_right"/>
-		</div>
+		<section class="author-details-middle">
+			<div class="container">
+				<div class="row">
+					<div class="body_left">
+						<tiles:insertAttribute name="body_left"/>
+					</div>
+					<div class="body_right">
+						<tiles:insertAttribute name="body_right"/>
+					</div>
+				</div>
+			</div>
+		</section>
 		<div class="footer">
 			<tiles:insertAttribute name="footer"/>
 		</div>
