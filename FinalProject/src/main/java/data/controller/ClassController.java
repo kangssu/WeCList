@@ -46,7 +46,8 @@ public class ClassController {
 	public ModelAndView view(@RequestParam String num)
 	{
 		ModelAndView mview=new ModelAndView();
-
+		
+		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
 		//업로드파일의 확장자 얻기
@@ -59,14 +60,22 @@ public class ClassController {
 		else
 			mview.addObject("bupload", false);
 
+		mview.addObject("classlist", classlist);
 		mview.addObject("dto", dto);
+		
 		mview.setViewName("/2/class/class_view");
 		return mview;
 	}
 
 	@GetMapping("/class/popul")
-	public String popul() {
-		return "/2/class/class_popular";
+	public ModelAndView getPopular()
+	{
+		ModelAndView mview=new ModelAndView();
+		List<ClassBoardDto> listpopul=mapper.getPopular();
+		
+		mview.addObject("listpopul", listpopul);
+		mview.setViewName("/2/class/class_popular");//tiles 는 /폴더명/파일명 구조이다
+		return mview;
 	}
 
 	@GetMapping("/class/news")

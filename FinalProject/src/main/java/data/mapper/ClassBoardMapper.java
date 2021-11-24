@@ -13,6 +13,7 @@ public interface ClassBoardMapper {
   public ClassBoardDto getData(String num);
   public int getMaxNum();
   public List<ClassBoardDto> getAlllist();
+  public List<ClassBoardDto> getPopular();
 //  public List<ClassBoardDto> getCate();
   public void insertBoard(ClassBoardDto dto);
   public void updateBoard(ClassBoardDto dto);

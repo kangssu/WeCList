@@ -14,6 +14,9 @@
 	<select id="getAlllist" resultType="cdto">
 		select * from classboarder order by num asc
 	</select>
+	<select id="getPopular" resultType="cdto">
+		select * from classboarder order by classheart desc
+	</select>
 <!-- 	<select id="getCate" resultType="cdto">
 		select * from classboarder where class_op_cate = ???? order by num asc
 	</select> -->
