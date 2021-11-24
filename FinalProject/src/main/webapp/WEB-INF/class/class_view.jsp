@@ -28,17 +28,17 @@
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
-                                src="${root}/img/product/details/main_con3.jpg" alt="">
+                                src="../photo/${dto.uploadfile}" alt="">
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
 						<img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                src="${root}/img/product/details/main_con3.jpg" alt="">
+                                src="../photo/${dto.uploadfile}" alt="">
 						<img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                src="${root}/img/product/details/main_con3.jpg" alt="">
+                                src="../photo/${dto.uploadfile}" alt="">
 						<img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                src="${root}/img/product/details/main_con3.jpg" alt="">
+                                src="../photo/${dto.uploadfile}" alt="">
 						<img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                src="${root}/img/product/details/main_con3.jpg" alt="">
+                                src="../photo/${dto.uploadfile}" alt="">
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 					<a href="#">	
 						<span><img src="${root}/img/pro2.jpg" >달콩작가의 그림작업실<i class="fa fa-angle-right"></i></span>
 					</a>
-					<h3>바퀴달린집2 출연진이 배운, 달콩이의 아이패드 드로잉</h3>
+					<h3>${dto.title}</h3>
 					<div class="product__details__rating">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -56,9 +56,8 @@
 						<i class="fa fa-star-half-o"></i>
 						<span>(15개의 리뷰)</span>
 					</div>
-					<div class="product__details__price">149,000원</div>
-					<p>2021년의 수능 합격 기원을 위한 수제카라멜 선물세트로 공부하는 수험생들에게 힘을 주기 위한 선물세트 입니다.
-					건강에도 좋은 성분으로 만든 카라멜을 직접 만들어서 선물해보세요!!!</p>
+					<div class="product__details__price">${dto.classprice}</div>
+					<p>${dto.classinfo}</p>
 					
 					<div class="class_view_text_1">
 						<dl>

@@ -7,8 +7,8 @@
 		<caption style="caption-side: top;"><b>작가의 Class 추가</b></caption>
 		<tr>
 			<th width="120" bgcolor="#ddd">옵 션</th>
-			<td name="class_op">
-				<select  style="width: 500px" class="class_op_select">
+			<td>
+				<select  style="width: 500px" class="class_op_select"  name="class_op_cate">
 					<option>디저트</option>
 					<option>음료</option>
 					<option>악세사리</option>
@@ -21,22 +21,22 @@
 		<tr>
 			<th width="120" bgcolor="#ddd">제 목</th>
 			<td>
-				<input type="text" name="subject" class="form-control"
+				<input type="text" name="title" class="form-control"
 				required="required" autofocus="autofocus">
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">가 격</th>
 			<td>
-				<input type="text" name="class_price" class="form-control"
+				<input type="text" name="classprice" class="form-control"
 				required="required" autofocus="autofocus">
 			
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">준비물 선택</th>
-			<td name="class_op">
-				<select  style="width: 500px" class="class_op_detail_select">
+			<td>
+				<select  style="width: 500px" class="class_op_detail_select" name="class_op_detail">
 					<option>기본 준비물 패키지</option>
 					<option>올인원 준비물 패키지</option>
 				</select>
@@ -50,7 +50,7 @@
 			<td colspan="2">
 				<textarea style="width: 700px;height: 200px;"
 				class="form-control"
-				name = "class_content" required="required"></textarea>
+				name = "classinfo" required="required"></textarea>
 			</td>
 		</tr>
 		<tr>

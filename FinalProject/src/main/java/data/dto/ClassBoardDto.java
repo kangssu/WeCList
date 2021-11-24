@@ -13,8 +13,8 @@ public class ClassBoardDto {
 	private String title;
 	private String class_op_cate;
 	private String class_op_detail;
-	private String price;
-	private String info;
+	private String classprice;
+	private String classinfo;
 	private String class_process;
 	private String uploadfile;
   	private MultipartFile upload;
@@ -66,17 +66,17 @@ public class ClassBoardDto {
 	public void setClass_op_detail(String class_op_detail) {
 		this.class_op_detail = class_op_detail;
 	}
-	public String getPrice() {
-		return price;
+	public String getClassprice() {
+		return classprice;
 	}
-	public void setPrice(String price) {
-		this.price = price;
+	public void setClassprice(String classprice) {
+		this.classprice = classprice;
 	}
-	public String getInfo() {
-		return info;
+	public String getClassinfo() {
+		return classinfo;
 	}
-	public void setInfo(String info) {
-		this.info = info;
+	public void setClassinfo(String classinfo) {
+		this.classinfo = classinfo;
 	}
 	public String getClass_process() {
 		return class_process;
