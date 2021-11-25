@@ -355,10 +355,10 @@ function check(f) {
 						</td>
 					</tr>
 					<tr class="checkout__input">
-						<td>프로필 사진</td>
+						<td><span style="color:red">※</span>프로필 사진</td>
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
-							 class="checkout__input__add" value="">
+							 class="checkout__input__add" value="" required="required">
 							<input type="file" name="profileimg" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value">
 							<button type="button" class="addr-btn_rev" onclick="jQuery('#profileimg').click()">사진선택</button>

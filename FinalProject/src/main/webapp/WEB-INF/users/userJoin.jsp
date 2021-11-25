@@ -24,6 +24,8 @@ function closePopup2() {
 	popup.classList.add('hide');
 }
 
+/* 하위 항목 숨기기 */
+
 
 $(function(){    
 	var pw_passed = true; // 유효성검사 확인처리용 변수  
@@ -50,22 +52,6 @@ $(function(){
 	    } else {
 	    	alert("아이디 중복확인을 진행해주세요.");
 	    }
-	    
-	    $.ajax({
-            type:"get",
-            dataType:"json",
-            data:{"id":id},
-            url:"/users/idcheck",
-            success:function(data){
-               if(data.check==1){
-                  $("b.idmsg").html("<font color='red'>이미 등록된 아이디 입니다!</font>");
-                  $("#id").val("");
-                  $("#id").focus();
-               }else{
-                  $("b.idmsg").html("<font color='blue'>사용가능한 아이디 입니다!</font>");
-               }
-            }
-         });
 	});
 	
 	
@@ -230,7 +216,6 @@ $(function(){
 		 }).open();
 	});
 	
-	
 	//약관 전체동의
 	$("#agreeAll").click(function() {
 		//체크 true
@@ -302,11 +287,8 @@ function check(f) {
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>아이디</td>
 						<td>
-							<input type="text" name="id" id="id" required="required"
-							 placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" class="checkout__input__add">
+							<input type="text" name="id" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" class="checkout__input__add">
 							<button type="button" id="idCheck" class="addr-btn" onclick="">중복확인</button><br>
-							<!-- 아래에는 맞는지,틀린지 문구 출력하는 코드! -->
-             				<b class="idmsg"></b><br>
 							<p id="id_check">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
 								<span style="font-size:13px; color:#6f6f6f">6자 이상의 영문 또는 영문과 숫자를 조합</span><br>

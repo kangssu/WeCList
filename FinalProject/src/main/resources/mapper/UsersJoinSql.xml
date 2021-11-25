@@ -4,8 +4,8 @@
 <mapper namespace="data.mapper.UsersJoinMapper"> 
 
 	<insert id="insertUsers" parameterType="ujdto">
-		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg)
-		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg})
+		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category)
+		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category})
 	</insert>
 	
 	<select id="getIdCheck" parameterType="String" resultType="int">
