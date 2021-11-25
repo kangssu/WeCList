@@ -1993,16 +1993,29 @@ li {
 	text-align:center;
 }
 
+.product__pagination li{
+	display:inline-table;
+}
+
+.product__pagination li.select{
+	background-color:#ff7b27; 
+}
+
+.product__pagination a.select2{
+	color:white;
+	border: 1px solid #ff7b27;
+}
+
 .product__pagination a,
 .blog__pagination a {
 	display: inline-block;
-	width: 30px;
-	height: 30px;
+	width: 45px;
+	height: 45px;
 	border: 1px solid #b2b2b2;
-	font-size: 14px;
+	font-size: 18px;
 	color: #b2b2b2;
-	font-weight: 700;
-	line-height: 28px;
+	font-weight: 500;
+	line-height: 45px;
 	text-align: center;
 	margin-right: 16px;
 	-webkit-transition: all, 0.3s;
@@ -3729,6 +3742,12 @@ li {
 	border-collapse:collapse;
 }
 
+.profile__form__table th span{
+	font-size:13px;
+	margin-left:10px;
+	color:#ff7b27;
+}
+
 .profile__form__table textarea{
 	width:952px;
 	height:130px;
@@ -3743,16 +3762,21 @@ li {
 }
 
 .input_file_btn{
+	display:inline-block;
 	width:76px;
 	height:76px;
-	padding:6px 25px;
 	background-color:#ff7b27;
 	cursor:pointer;
 	color:white;
 	font-size:25px;
 	line-height:68px;
 	text-align:center;
-	margin:5px 0px 5px 5px;
+	/* margin:5px 0px 5px 5px; */
+	border:1px solid #ff7b27;
+}
+
+.input_wrap i{
+	margin-top:26px;
 }
 
 .profile_btn_all{
@@ -3771,8 +3795,11 @@ li {
 
 .profile__form__inp{
 	position:relative;
-	margin:5px;
 	display: inline-block;
+}
+
+.profile__form__inp img{
+	margin-right:5px;
 }
 
 .image__preview__all img{
@@ -3783,9 +3810,24 @@ li {
 
 .image__preview__all{
 	display: inline-flex;
+	margin-left:8px;
+	margin-bottom:8px;
 }
 
 .profile__form__inp button{
+	width:25px;
+	height:25px;
+	background-color:#616161;
+	position: absolute;
+	top:0;
+	left:0;
+	text-align:center;
+	opacity:0.8;
+	border:none;
+	overflow:hidden;
+}
+
+.imgs_wrap button{
 	width:25px;
 	height:25px;
 	background-color:#616161;
@@ -3802,6 +3844,14 @@ li {
 	line-height:10px;
 	color:white;
 	font-size:15px;
+}
+
+.profile_btn_all .list_btn{
+	border:1px solid #1c1c1c;
+	background-color:white;
+	width: 150px;
+	padding:16px 28px 14px;
+	color:#1c1c1c;
 }
 
 /* 프로필 홈 추가! */
@@ -3824,24 +3874,41 @@ li {
 	margin:20px 0px 0px 0px;
 }
 
+.mypage__profile__1 img{
+	margin:20px 3px 0px 0px;
+	width:295px;
+	height:195px;
+}
+
 .profile_home_btn_all{
 	text-align:right;	
 }
 
 .profile_home_btn_all button{
-	border:1px solid #ff7b27;
-	background-color:#ff7b27;
 	padding:16px 28px 14px;
-	color:white;
-	font-weight:500;
 	width:150px;
 	margin:50px 0px 50px 0px;
 }
 
-.profile_home_btn_all .delte_btn{
+.profile_home_btn_all .insert_btn{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	color:white;
+	font-weight:500;
+}
+
+.profile_home_btn_all .delte_btn,.list_btn{
 	border:1px solid #252525;
 	color:#252525;
 	background-color:white;
+	font-weight:500;
+}
+
+.profile_home_btn_all .update_btn{
+	border:1px solid #ff7b27;
+	color:#ff7b27;
+	background-color:white;
+	font-weight:500;
 }
 
 /*---------------------
@@ -3919,6 +3986,11 @@ li {
 	width:150px;
 	padding:16px 28px 14px;
 	margin-top:15px;
+}
+
+/* 스토리 상세 스타일 */
+.mypage__story__view{
+	margin-top:35px;
 }
 
 /* 스토리 등록폼 스타일 */
