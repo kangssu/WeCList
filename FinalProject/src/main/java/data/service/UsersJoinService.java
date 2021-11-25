@@ -18,5 +18,7 @@ public class UsersJoinService {
 	public void insertUsers(UsersJoinDto dto) {
 		mapper.insertUsers(dto);
 	}
+	
+	
 
 }

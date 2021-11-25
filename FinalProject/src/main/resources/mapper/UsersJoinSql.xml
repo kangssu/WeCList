@@ -4,8 +4,12 @@
 <mapper namespace="data.mapper.UsersJoinMapper"> 
 
 	<insert id="insertUsers" parameterType="ujdto">
-		insert into usersjoin (id,pass,name,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday)
-		values (#{id},#{pass},#{name},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now())
+		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg)
+		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg})
 	</insert>
+	
+	<select id="getIdCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where id=#{id}
+	</select>
 
 </mapper>
