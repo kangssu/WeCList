@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
 
-@Alias("cndto")
-public class ClassBoardDto {
+@Alias("cdto")
+public class ClassNewBoardDto {
 
 	private String num;
 	private String name;

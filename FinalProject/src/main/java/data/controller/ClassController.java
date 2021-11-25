@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.ClassBoardDto;
+import data.dto.ClassNewBoardDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
 
@@ -66,6 +67,17 @@ public class ClassController {
 		mview.setViewName("/2/class/class_view");
 		return mview;
 	}
+	
+	@GetMapping("/class/news")
+	public ModelAndView getAllnewlist()
+	{
+		ModelAndView mview=new ModelAndView();
+		List<ClassNewBoardDto> listnews=mapper.getAllnewlist();
+		
+		mview.addObject("listnews", listnews);
+		mview.setViewName("/2/class/class_news");//tiles 는 /폴더명/파일명 구조이다
+		return mview;
+	}
 
 	@GetMapping("/class/popul")
 	public ModelAndView getPopular()
@@ -78,11 +90,16 @@ public class ClassController {
 		return mview;
 	}
 
-	@GetMapping("/class/news")
-	public String news() {
-		return "/2/class/class_news";
-	}
+//	@GetMapping("/class/news")
+//	public String news() {
+//		return "/2/class/class_news";
+//	}
 
+	@GetMapping("/class/addnewform")
+	public String addnewform() {
+		return "/2/class/class_addnewform";
+	}
+	
 	@GetMapping("/class/addform")
 	public String addform() {
 		return "/2/class/class_addform";
@@ -119,6 +136,34 @@ public class ClassController {
 
 		service.insertBoard(cdto);
 		return "redirect:/class/addform";
+	}
+	
+	@PostMapping("/class/insertnew")
+	public String insertnew(@ModelAttribute ClassNewBoardDto cndto, HttpSession session) {
+
+		String path = session.getServletContext().getRealPath("/photo");
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		if(cndto.getUpload().getOriginalFilename().equals("")) {
+			cndto.setUploadfile("no");
+		}else {
+			String uploadfile  = "f"+ sdf.format(new Date())+cndto.getUpload().getOriginalFilename();
+			cndto.setUploadfile(uploadfile);
+
+			try {
+				cndto.getUpload().transferTo(new File(path+"\\"+uploadfile));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	
+		String myid = (String) session.getAttribute("myid");
+		cndto.setMyid(myid);
+
+		service.insertNewBoard(cndto);
+		return "redirect:/class/addnewform";
 	}
 	
 	

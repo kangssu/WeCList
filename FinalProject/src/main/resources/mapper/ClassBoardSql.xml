@@ -14,6 +14,9 @@
 	<select id="getAlllist" resultType="cdto">
 		select * from classboarder order by num asc
 	</select>
+	<select id="getAllnewlist" resultType="cndto">
+		select * from classnewboarder order by num asc
+	</select>
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>
@@ -22,6 +25,10 @@
 	</select> -->
 	<insert id="insertBoard" parameterType="cdto">
 		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
+		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
+	</insert>
+	<insert id="insertNewBoard" parameterType="cndto">
+		insert into classnewboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
 		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
 	</insert>
 	<delete id="deleteBoard" parameterType="String">
