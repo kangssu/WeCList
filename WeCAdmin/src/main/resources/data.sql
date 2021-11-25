@@ -1,0 +1,1 @@
+insert into user_info (auth, email, password) values('ROLE_ADMIN,ROLE_USER', 'admin', '$2a$10$9Ut//BR5rVFNXwqxS288vefFsvhgzHEpzOJaTz2NUG4w5Vn9nA/oy');
