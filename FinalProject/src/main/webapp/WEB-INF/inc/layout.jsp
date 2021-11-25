@@ -9,9 +9,9 @@
 <title>We C List</title>
 	<script src="/js/jquery-3.3.1.min.js"></script>
 	<!-- 네이버 에디터 -->
-	<script type="text/javascript" src="/se2/js/HuskyEZCreator.js" charset="utf-8"></script> 
+	<!-- <script type="text/javascript" src="/se2/js/HuskyEZCreator.js" charset="utf-8"></script> 
 	<script type="text/javascript" src="/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
-	charset="utf-8"></script>	
+	charset="utf-8"></script>	 -->
 	
 	<!-- 아이콘 사용하기 위한 CDN 경로 -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

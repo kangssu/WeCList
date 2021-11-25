@@ -5,6 +5,7 @@
 <script type="text/javascript">
 	/* 이미지 여러개 미리보기(디자인 다른 형식!) */
 	$(document).ready(function (e){
+		
 		//미리보기 이벤트 첫번째!!!
 		$("#uploadFile").change(function(e){
 
@@ -30,11 +31,22 @@
 			preview(arr);
 		});
 		
-		//미리보기 삭제하기 위한 이벤트!
+		//미리보기 삭제하기 위한 이벤트! (전부 다 삭제되버림 ㅠㅠ)
 		$(document).on("click",".preview-del",function(){
 		    $("#preview").empty();
 		    $("#uploadFile").val("");
 		});
+		
+		//미리보기 삭제할때 한개씩 삭제! (아직 안됨 ㅠㅠ)
+		/* function deleteImageAction(index) {
+            console.log("index : "+index); //안나옴
+            console.log("sel length : "+sel_files.length); //안나옴
+
+            sel_files.splice(index, 1);
+
+            var img_id = "#img_id_"+index;
+            $(img_id).remove(); 
+        } */
 		
 		function preview(arr){
 			arr.forEach(function(f){
@@ -45,6 +57,7 @@
 		        //이미지 파일 미리보기
 				if(f.type.match("image.*")){
 					var reader = new FileReader(); //파일을 읽기 위한 FileReader객체 생성
+					
 					reader.onload = function (e) { //파일 읽어들이기를 성공했을때 호출되는 이벤트 핸들러
 			            str += "<img src='"+e.target.result+"' title='"+f.name+"' width=100 height=100 />";
 			            str += "<button type='button' class='preview-del'><i class='fa fa-times' aria-hidden='true'></i></button>"
@@ -193,13 +206,14 @@
 </script>
 <!-- 프로필 입력 및수정폼! -->
 <form action="/mypage/pinsert" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="myid" value="angel"/>
 	<!-- 여기 수정해야함!(임시) -->
 	<div class="mypage__profile">
 		<h2>프로필 관리</h2>
 		<div class="mypage__profile__form">
 			<table class="profile__form__table">
 				<tr>
-					<th>History</th>
+					<th>History<span>※이미지 적정사이즈:295*195 (꼭 지켜주세요!)</span></th>
 				</tr>
 				<tr>
 					<td>
@@ -218,7 +232,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>Idea</th>
+					<th>Idea<span>※이미지 적정사이즈:295*195 (꼭 지켜주세요!)</span></th>
 				</tr>
 				<tr>
 					<td>
@@ -237,7 +251,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>Identity</th>
+					<th>Identity<span>※이미지 적정사이즈:295*195 (꼭 지켜주세요!)</span></th>
 				</tr>
 				<tr>
 					<td>
@@ -257,6 +271,8 @@
 				</tr>
 			</table>
 			<div class="profile_btn_all">
+				<button type="button" onclick="location.href='/mypage/profile'"
+				class="list_btn">목록</button>
 				<button type="submit" class="insert_btn">등록하기</button>
 			</div>
 		</div>

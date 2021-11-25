@@ -17,6 +17,9 @@ spring:
     username: guest
     password: 1234qwer
     driver-class-name: org.mariadb.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 5MB
     
 #type을 data.*로 해도 다됨!
 mybatis:

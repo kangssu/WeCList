@@ -2,7 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.AuthorProfileMapper"> 
 	<insert id="insertProfile" parameterType="apdto">
-		insert into author_profile (history,history_file,idea,idea_file,identity,identity_file,writeday)
-		values (#{history},#{history_file},#{idea},#{idea_file},#{identity},#{identity_file},now())
+		insert into author_profile (myid,history,history_file,idea,idea_file,identity,identity_file,writeday)
+		values (#{myid},#{history},#{history_file},#{idea},#{idea_file},#{identity},#{identity_file},now())
 	</insert>
+	
+	<select id="GetIdData" parameterType="String" resultType="apdto">
+		select * from author_profile where myid=#{myid}
+	</select>
+	
+	<select id="getTotalCount" parameterType="String" resultType="int">
+		select count(*) from author_profile where myid=#{myid}
+	</select>
+	
+	<update id="updateProfile" parameterType="apdto">
+		update author_profile set history=#{history},idea=#{idea},identity=#{identity}
+		<choose>
+			<when test="history_file!='no'">
+				,history_file=#{history_file}
+			</when>
+			<when test="idea_file!='no'">
+				,idea_file=#{idea_file}
+			</when>
+			<when test="identity_file!='no'">
+				,identity_file=#{identity_file}
+			</when>
+		</choose>
+		where myid=#{myid}
+	</update>
+	
+	<delete id="deleteProfile" parameterType="String">
+		delete from author_profile where myid=#{myid}
+	</delete>
 </mapper>

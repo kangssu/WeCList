@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Alias("apdto")
 public class AuthorProfileDto {
   private String num;
+  private String myid;
   private String history;
   private ArrayList<MultipartFile> upload1;
   private String history_file;
@@ -18,6 +19,14 @@ public class AuthorProfileDto {
   private ArrayList<MultipartFile> upload3;
   private String identity_file;
   private Timestamp writeday;
+
+  public String getMyid() {
+    return myid;
+  }
+
+  public void setMyid(String myid) {
+    this.myid = myid;
+  }
 
   public ArrayList<MultipartFile> getUpload1() {
     return upload1;
