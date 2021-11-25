@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="data.mapper.ClassBoardMapper"> 
+	<select id="getTotalCount" resultType="int">
+		select count(*) from classboarder
+	</select>
+	<update id="updateReadCount" parameterType="String">
+		update classboarder set readcount = readcount+1 where num=#{num}
+	</update>
+	<select id="getData" parameterType="String" resultType="cdto">
+		select * from classboarder where num =#{num}
+	</select>
+	<select id="getAlllist" resultType="cdto">
+		select * from classboarder order by num asc
+	</select>
+	<select id="getPopular" resultType="cdto">
+		select * from classboarder order by classheart desc
+	</select>
+<!-- 	<select id="getCate" resultType="cdto">
+		select * from classboarder where class_op_cate = ???? order by num asc
+	</select> -->
+	<insert id="insertBoard" parameterType="cdto">
+		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
+		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
+	</insert>
+	<delete id="deleteBoard" parameterType="String">
+		delete from classboarder where num=#{num}
+	</delete>
+</mapper>

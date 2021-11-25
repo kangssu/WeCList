@@ -109,7 +109,7 @@ li {
 	list-style:none;
 }
 
-/* 媛쒖씤�젙蹂� �뙘�뾽! start*/
+/* 개인정보 팝업! start*/
 #popup, #popup1, #popup2 {
 	display: flex; 
 	justify-content: center; 
@@ -120,7 +120,7 @@ li {
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
 	z-index: 1; 
-	
+
 }
 
 #popup.hide, #popup1.hide, #popup2.hide {
@@ -164,13 +164,13 @@ li {
 	height:35px;
 	color:#ff7b27;
 }
-/* 媛쒖씤�젙蹂� �뙘�뾽! end*/
+/* 개인정보 팝업! end*/
 
 /*---------------------
   Helper CSS
 -----------------------*/
 
-/* 硫붾돱 �깋�긽 �뀒�뒪�듃! */
+/* 메뉴 색상 테스트! */
 #color_f.on{
 	color:#ff7b27;
 }
@@ -190,7 +190,7 @@ li {
 .active{
 	color:rgb(255, 123, 39);
 }
-/* 硫붾돱 �깋�긽 �뀒�뒪�듃! */
+/* 메뉴 색상 테스트! */
 
 .section-title {
 	margin-bottom: 30px;
@@ -2168,7 +2168,7 @@ li {
 }
 
 .product__details__text ul {
-	/* �샃�뀡 �븘�옒 以� �엫�떆 二쇱꽍 */
+	/* 옵션 아래 줄 임시 주석 */
 	/* border-bottom: 1px solid #ebebeb;
 	padding-bottom: 40px; */
 	margin-bottom: 20px;
@@ -3589,7 +3589,7 @@ li {
 }
 
 /*---------------------
-  留덉씠�럹�씠吏� �옉媛� �봽濡쒗븘
+  마이페이지 작가 프로필
 -----------------------*/
 
 .profile_img img{
@@ -3687,13 +3687,14 @@ li {
 	display:block;
 }
 
-.mypage__snb li.on{
+.mypage__snb li:hover{
 	background-color:#ff7b27;
 }
 
-.mypage__snb li.on a{
+.mypage__snb li a:hover{
 	color:white;
 	font-weight:500;
+	display:block;
 }
 
 .mypage__snb i:nth-child(1){margin-left:25px;}
@@ -3803,8 +3804,48 @@ li {
 	font-size:15px;
 }
 
+/* 프로필 홈 추가! */
+.mypage__profile__1{
+	margin-top:35px;
+	border:1px solid #f5f5f5;
+	width:965px; 
+	height:auto;
+	box-shadow: 3px 3px 3px 3px #f5f5f5;
+	padding:30px;
+}
+
+.mypage__profile__1 h4{
+	font-size:20px;
+	font-weight:400;
+}
+
+.mypage__profile__1 p{
+	color:#1c1c1c;
+	margin:20px 0px 0px 0px;
+}
+
+.profile_home_btn_all{
+	text-align:right;	
+}
+
+.profile_home_btn_all button{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	padding:16px 28px 14px;
+	color:white;
+	font-weight:500;
+	width:150px;
+	margin:50px 0px 50px 0px;
+}
+
+.profile_home_btn_all .delte_btn{
+	border:1px solid #252525;
+	color:#252525;
+	background-color:white;
+}
+
 /*---------------------
-  留덉씠�럹�씠吏� �옉媛� �뒪�넗由�
+  마이페이지 작가 스토리
 -----------------------*/
 .mypage__story__list{
 	margin-top:35px;	
@@ -3825,11 +3866,14 @@ li {
 }
 
 .story__table th:nth-child(1){width:50px;}
-.story__table th:nth-child(2){width:550px;}
+.story__table th:nth-child(3){width:400px;}
 
 .story__table td a{
 	display:block;
 	color:#1c1c1c;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
 }
 
 .story__table td{
@@ -3837,18 +3881,22 @@ li {
 	border-bottom: 1px solid #b2b2b2;
 }
 
-.story__table td:nth-child(2){
+.story__table td:nth-child(3){
 	text-align:left; 
 	padding-left:30px;
-	text-overflow: ellipsis; 
-	white-space: nowrap; 
-	overflow: hidden;
+	
 }
 
 .story__table button{
 	width:60px;
 	height:35px;
 	font-weight:400;
+}
+
+.story__table img{
+	width:100px;
+	height:100px;
+	margin:10px;
 }
 
 .story_mod_btn{
@@ -3873,7 +3921,7 @@ li {
 	margin-top:15px;
 }
 
-/* �뒪�넗由� �벑濡앺뤌 �뒪���씪 */
+/* 스토리 등록폼 스타일 */
 .mypage__story__form{
 	margin-top:35px;	
 }
@@ -3913,11 +3961,11 @@ li {
 }
 
 .story_list_btn{
-	border:1px solid #ff7b27;
+	border:1px solid #1c1c1c;
 	background-color:white;
 	width: 150px;
 	padding:16px 28px 14px;
-	color:#ff7b27;
+	color:#1c1c1c;
 }
 
 .story_insert_btn{
@@ -3929,7 +3977,7 @@ li {
 }
 
 /*---------------------
-  �옉媛� �뒪�넗由�
+  작가 스토리
 -----------------------*/
 .mypage__story{
 	padding-top:65px;
@@ -4064,7 +4112,7 @@ li {
 }
 
 /*---------------------
-  �옉媛� �뒪�넗由� 硫붿씤
+  작가 스토리 메인
 -----------------------*/
 .story__item__main {
 	border:1px solid #ebebeb;

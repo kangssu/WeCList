@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-5">
 							<div class="filter__found">
-								<h6>총 <span>n</span>개의 작품</h6>
+								<h6>총 <span>${totalCount}</span>개의 작품</h6>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-3">
@@ -42,184 +42,55 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="${root}/shop/view">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
+				<c:if test="${totalCount==0}">
+						<div colspan="5" align="center">
+							<h3>
+								<b>등록된게시글이 없습니다</b>
+							</h3>
 						</div>
+					
+				</c:if>
+
+				<c:if test="${totalCount>0}">
+					<div class="row">
+						<c:forEach var="a" items="${list}">
+							<div class="col-lg-4 col-md-6 col-sm-6">
+								<div class="product__item">
+									<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
+										<div class="product__item__pic set-bg">
+										<img src="../photo/${a.uploadfile1}" alt="" >
+										</div>
+										<div class="product__item__text">
+										<h6>${a.name}</h6>
+										<h6>${a.title}</h6>
+										<h5>${a.shopprice}</h5>
+										</div>
+									</a>
+								</div>
+								</div>
+						</c:forEach>
 					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="product__item">
-							<a href="#">	
-								<div class="product__item__pic set-bg">
-									<img src="${root}/img/featured/main_con1.jpg" alt="">
-								</div>
-								<div class="product__item__text">
-									<h6>제이라운드</h6>
-									<h6>[수능선물]수제카라멜 선물세트</h6>
-									<h5>11,000원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
+				</c:if>
 				<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
-				<div class="product__pagination">
-					<a href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+					<div class="product__pagination">
+						<c:if test="${startPage>1}">
+							<a href="list?currentPage=${startPage-1}">이전</a>
+						</c:if>
+
+						<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+							<c:if test="${currentPage==pp}">
+								<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
+							</c:if>
+							<c:if test="${currentPage!=pp}">
+								<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
+							</c:if>
+						</c:forEach>
+						<!-- 다음 -->
+						<c:if test="${endPage<totalPage}">
+							<a href="list?currentPage=${endPage+1}">다음</a>
+						</c:if>
+					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 </section>
