@@ -259,6 +259,10 @@ function check(f) {
 		alert("만 14세 이상만 가입하실 수 있습니다.");
 		return false;
 	}
+	if(f.profilename.value == "") {
+		alert("작가 프로필 사진을 등록해주세요.");
+		return false;
+	}
 	return true;
 }
 </script>
@@ -287,6 +291,7 @@ function check(f) {
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>아이디</td>
 						<td>
+							<input type="hidden" name="category" id="category" value="2">
 							<input type="text" name="id" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" class="checkout__input__add">
 							<button type="button" id="idCheck" class="addr-btn_rev" onclick="">중복확인</button><br>
 							<p id="id_check">
@@ -358,7 +363,7 @@ function check(f) {
 						<td><span style="color:red">※</span>프로필 사진</td>
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
-							 class="checkout__input__add" value="" required="required">
+							 class="checkout__input__add" value="">
 							<input type="file" name="profileimg" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value">
 							<button type="button" class="addr-btn_rev" onclick="jQuery('#profileimg').click()">사진선택</button>

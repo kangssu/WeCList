@@ -287,6 +287,7 @@ function check(f) {
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>아이디</td>
 						<td>
+							<input type="hidden" name="category" id="category" value="1">
 							<input type="text" name="id" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" class="checkout__input__add">
 							<button type="button" id="idCheck" class="addr-btn" onclick="">중복확인</button><br>
 							<p id="id_check">
