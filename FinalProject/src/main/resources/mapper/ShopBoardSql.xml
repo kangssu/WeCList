@@ -14,7 +14,7 @@
 	<select id="getMaxNum" resultType="int">
 		select ifnull(max(num),0) from shopboarder
 	</select>
-	<select id="getList" parameterType="HashMap" resultType="cdto">
+	<select id="getList" parameterType="HashMap" resultType="sdto">
 		select * from shopboarder order by num desc limit #{start},#{perpage}
 	</select>
 	<insert id="insertBoard" parameterType="sdto">
