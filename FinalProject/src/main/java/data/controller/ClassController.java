@@ -73,11 +73,25 @@ public class ClassController {
 	{
 		ModelAndView mview=new ModelAndView();
 		List<ClassNewBoardDto> listnews=mapper.getAllnewlist();
+		//List<ClassNewBoardDto> listnewsunder=mapper.getAllnewlistUnder();
+		
 		
 		mview.addObject("listnews", listnews);
+		//mview.addObject("listnewsunder", listnewsunder);
 		mview.setViewName("/2/class/class_news");//tiles 는 /폴더명/파일명 구조이다
 		return mview;
 	}
+	
+//	@GetMapping("/class/news")
+//	public ModelAndView getAllnewlistUnder()
+//	{
+//		ModelAndView mview=new ModelAndView();
+//		List<ClassNewBoardDto> listnewsunder=mapper.getAllnewlistUnder();
+//		
+//		mview.addObject("listnewsunder", listnewsunder);
+//		mview.setViewName("/2/class/class_news");//tiles 는 /폴더명/파일명 구조이다
+//		return mview;
+//	}
 
 	@GetMapping("/class/popul")
 	public ModelAndView getPopular()

@@ -15,8 +15,11 @@
 		select * from classboarder order by num asc
 	</select>
 	<select id="getAllnewlist" resultType="cndto">
-		select * from classnewboarder order by num asc
+	select * from classnewboarder order by num asc
 	</select>
+<!-- 	<select id="getAllnewlistUnder" resultType="cndto">
+	select * from classnewboarder where classheart < 150
+	</select> -->
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>

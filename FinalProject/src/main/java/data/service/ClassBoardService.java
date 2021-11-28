@@ -29,6 +29,7 @@ public class ClassBoardService {
 	public ClassBoardDto getData(String num) {
 		return mapper.getData(num);
 	}
+	
 	public int getMaxNum(){
 		return mapper.getMaxNum();
 	}
@@ -42,6 +43,11 @@ public class ClassBoardService {
 	{
 		return mapper.getAllnewlist();
 	}
+	
+//	public List<ClassNewBoardDto> getAllnewlistUnder()
+//	{
+//		return mapper.getAllnewlistUnder();
+//	}
 
 	public void insertBoard(ClassBoardDto dto) {
 		mapper.insertBoard(dto);

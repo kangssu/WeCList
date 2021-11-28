@@ -15,11 +15,11 @@ public interface ClassBoardMapper {
   public int getMaxNum();
   public List<ClassBoardDto> getAlllist();
   public List<ClassNewBoardDto> getAllnewlist();
+  //public List<ClassNewBoardDto> getAllnewlistUnder();
   public List<ClassBoardDto> getPopular();
 //  public List<ClassBoardDto> getCate();
   public void insertBoard(ClassBoardDto dto);
   public void insertNewBoard(ClassNewBoardDto dto);
   public void updateBoard(ClassBoardDto dto);
   public void deleteBoard(String num);
-
 }
