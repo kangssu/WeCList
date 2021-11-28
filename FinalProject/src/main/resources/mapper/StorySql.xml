@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.StoryMapper">
+	<select id="getATotalCount" resultType="int">
+		select count(*) from author_story
+	</select>
+	
+	<update id="updateReadCount" parameterType="String">
+		update author_story set read_count=read_count+1 where num=#{num}
+	</update>
+	
+	<select id="getAData" parameterType="String" resultType="asdto">
+		select * from author_story where num=#{num}
+	</select>
+	
+	<select id="getAList" parameterType="HashMap" resultType="asdto">
+		select * from author_story order by num desc limit #{start},#{perpage}
+	</select>
+</mapper>

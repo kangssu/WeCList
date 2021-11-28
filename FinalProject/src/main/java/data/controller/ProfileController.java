@@ -237,18 +237,12 @@ public class ProfileController {
   @GetMapping("/mypage/pdelete")
   public String delete(@RequestParam(required = false) String myid, HttpSession session) {
 
-    // 실제 업로드 폴더의 경로
     String path = session.getServletContext().getRealPath("/photo");
 
-    // 경로:D:\bitjava0719\javawork\BootMybatisTilesEx4\src\main\webapp\photo(아래로 확인)
-    // System.out.println(path);
-
-    // 업로드된 파일명
     ArrayList<MultipartFile> uploadfile1 = service.GetIdData("angel").getUpload1();
     ArrayList<MultipartFile> uploadfile2 = service.GetIdData("angel").getUpload2();
     ArrayList<MultipartFile> uploadfile3 = service.GetIdData("angel").getUpload3();
 
-    // File 객체 생성
     File file1 = new File(path + "\\" + uploadfile1);
     File file2 = new File(path + "\\" + uploadfile2);
     File file3 = new File(path + "\\" + uploadfile3);
