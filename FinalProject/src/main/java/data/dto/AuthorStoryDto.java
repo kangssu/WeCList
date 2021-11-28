@@ -12,7 +12,16 @@ public class AuthorStoryDto {
   private String content;
   private MultipartFile upload;
   private String thumbnail_file;
+  private int read_count;
   private Timestamp writeday;
+
+  public int getRead_count() {
+    return read_count;
+  }
+
+  public void setRead_count(int read_count) {
+    this.read_count = read_count;
+  }
 
   public MultipartFile getUpload() {
     return upload;
