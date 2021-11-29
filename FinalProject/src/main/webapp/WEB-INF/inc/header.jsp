@@ -136,7 +136,7 @@ $(document).ready(function (){
 				</div>
 				<div class="hero__mypage">
 					<div class="hero__mypage__1">
-						<a href="${root}/mypage/profile">
+						<a href="${root}/mypage/shop/list">
 							<i class="fa fa-user" aria-hidden="true"></i>
 							<p>마이페이지</p>
 						</a>

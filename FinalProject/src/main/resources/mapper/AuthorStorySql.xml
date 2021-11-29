@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.AuthortStoryMapper">
-	<select id="getTotalCount" resultType="int">
-		select count(*) from author_story
+	<select id="getTotalCount" parameterType="String" resultType="int">
+		select count(*) from author_story where myid=#{myid}
+	</select>
+	
+	<select id="getMaxNum" resultType="int">
+		select ifnull(max(num),0) from author_story 
+	</select>
+	
+	<select id="getData" parameterType="String" resultType="asdto">
+		select * from author_story where num=#{num}
 	</select>
 	
 	<insert id="insertStory" parameterType="asdto">
@@ -11,6 +19,18 @@
 	</insert>
 	
 	<select id="getList" parameterType="HashMap" resultType="asdto">
-		select * from author_story order by num desc limit #{start},#{perpage}
+		select * from author_story where myid=#{myid} order by num desc limit #{start},#{perpage}
 	</select>
+	
+	<update id="updateStory" parameterType="asdto">
+		update author_story set title=#{title},content=#{content}
+		<if test="thumbnail_file!='no'">
+			,thumbnail_file=#{thumbnail_file}
+		</if>
+		where num=#{num}
+	</update>
+	
+	<delete id="deleteStory" parameterType="String">
+		delete from author_story where num=#{num}
+	</delete>
 </mapper>

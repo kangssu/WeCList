@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
@@ -23,230 +24,59 @@
 <!-- Product Section Begin -->
 <section class="product spad">
 	<div class="container">
-		<div class="row story__list">
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="/story/view">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
+		<div class="story__list">
+			<c:if test="${atotalCount==0}">
+				<div align="center" class="all_story_total">
+					<h3>등록된 게시글이 없습니다!</h3>
 				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
+			</c:if>
+			<c:if test="${atotalCount>0}">
+				<div class="row">
+					<c:forEach var="dto" items="${list}">
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="story__item">
+								<a href="/story/view?num=${dto.num}&currentPage=${currentPage}&key=list">
+									<div class="story_img">
+										<img src="/img/pro.jpg">
+										<span>제이라운드</span>
+									</div>
+									<div class="story__item__pic">
+										<img src="/photo/${dto.thumbnail_file}" alt="">
+									</div>
+									<div class="story__item__text">
+										<h5>${dto.title}</h5>
+										<!-- 이미 content에 p태그가 존재해서 아래에 p태그 제거함! -->
+										${dto.content}
+										<ul>
+											<li class="cal_icon_margin"><i class="fa fa-calendar-o"></i><fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd"/></li>
+											<li><i class="fa fa-comment-o"></i> 5</li>
+										</ul>
+									</div>
+								</a>
+							</div>
 						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
+					</c:forEach>
 				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="story__item">
-					<a href="#">
-						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
-						</div>
-						<div class="story__item__pic">
-							<img src="${root}/img/blog/main_con3.jpg" alt="">
-						</div>
-						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
-							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
-								아웃백 옆 취미상점 카페입니다!</p>
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> 2021.11.11</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-						</div>
-					</a>
-				</div>
-			</div>
+			</c:if>
 		</div>
 		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 		<div class="product__pagination">
-			<a href="#">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+			<c:if test="${startPage>1}">
+				<a href="list?currentPage=${startPage-1}">이전</a>
+			</c:if>
+
+			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+				<c:if test="${currentPage==pp}">
+					<li class="select"><a class="select2" href="list?currentPage=${pp}">${pp}</a></li>
+				</c:if>
+				<c:if test="${currentPage!=pp}">
+					<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
+				</c:if>
+			</c:forEach>
+			<!-- 다음 -->
+			<c:if test="${endPage<totalPage}">
+				<a href="list?currentPage=${endPage+1}">다음</a>
+			</c:if>
 		</div>
 	</div>
 </section>
