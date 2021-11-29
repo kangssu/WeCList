@@ -12,4 +12,5 @@
 		select count(*) from usersjoin where id=#{id}
 	</select>
 
+
 </mapper>

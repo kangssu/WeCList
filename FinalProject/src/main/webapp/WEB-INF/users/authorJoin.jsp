@@ -45,19 +45,38 @@ $(function(){
 		// 아이디 유효성 검사
 		var pattern1 = /[a-zA-Z]/;
 	    var pattern2 = /[0-9]/;
+	    var pattern3 = /[`~!@#$%^&*()/?-_=+]/;
 		
-	    if(!pattern1.test(i) || i.length<6 || !pattern1.test(i) && !pattern2.test(i) && i.length<6) {
+	    if(!pattern1.test(i) || i.length<6  || pattern3.test(i) || !pattern1.test(i) && !pattern2.test(i) && i.length<6) {
 	    	alert("아이디는 영문 또는 영문+숫자 조합으로 6자리 이상 입력해주세요.");
 	    	return false;
 	    } else {
 	    	alert("아이디 중복확인을 진행해주세요.");
 	    }
+	    
 	});
 	
 	
 	// 아이디 중복확인
 	$("#idCheck").click(function(){
-		alert("아이디 중복확인");
+		//alert("아이디 중복확인");
+		var id = $("#id").val();
+		
+		$.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"id":id},
+            url:"/users/idcheck",
+            success:function(data){
+               if(data.check!=0){
+            	  alert("이미 등록된 아이디입니다.");
+                  $("#id").val("");
+                  //$("#id").focus();
+               }else{
+            	  alert("사용가능한 아이디 입니다!");
+               }
+            }
+         });
 	});
 	
 	

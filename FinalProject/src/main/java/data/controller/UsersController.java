@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -47,16 +49,28 @@ public class UsersController {
 		return "redirect:join";
 	}
 	
+//	@GetMapping("/users/idcheck")
+//	public @ResponseBody Map<String, Integer> idCheckProcess(@RequestParam String id) {
+//		// id 체크
+//		int check = mapper.getIdCheck(id);
+//		
+//		Map<String, Integer> map = new HashMap<String, Integer>();
+//		map.put("check", check); // 0 or 1
+//		
+//		return map;
+//	}
+	
 	@GetMapping("/users/idcheck")
-	public @ResponseBody Map<String, Integer> idCheckProcess(@RequestParam String id) {
-		// id 체크
-		int check = mapper.getIdCheck(id);
-		
-		Map<String, Integer> map = new HashMap<String, Integer>();
+	@ResponseBody
+	public Map<String, Integer> idCheck(@RequestParam String id){
+		// ID 체크
+        int check = mapper.getIdCheck(id);
+        
+        Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("check", check); // 0 or 1
-		
-		return map;
-	}
+        
+        return map;
+    }
 
 
 }
