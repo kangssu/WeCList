@@ -229,25 +229,25 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="product__details__price__total">
 						<p>총 작품금액 :</p>
 						<span> </span>
 					</div>
 					<script type="text/javascript">
 					$(function() {
-	
+
 					    $("#selectoption").change(function() {
 					    	var v = $("#selectoption option:selected").text();
-					    	document.getElementById("result").innerHTML ="상품 종류  : " + v;
-					    	document.getElementById("quantity-del-dan").innerHTML = $("#subnum").val()*$("#selectoption").val();
-					    	
+					    	document.getElementById("result").innerText ="상품 종류  : " + v;
+					    	document.getElementById("quantity-del-dan").innerText = $("#subnum").val()*$("#selectoption").val();
+
 					    });
-					    
-					    
-					    $(".qtybtn").click( function() {
-					    	document.getElementById("quantity-del-dan").innerHTML = $("#subnum").val()*$("#selectoption").val();
-					    	
+
+						// 막무가내 리스너 붙이기
+					    $(".pro-qty").on("change keyup paste input click", function() {
+					    	document.getElementById("quantity-del-dan").innerText = $("#subnum").val()*$("#selectoption").val();
+
 					    	});
 
 					});

@@ -39,7 +39,7 @@ public class ClassController {
 		
 		mview.addObject("list", list);
 		//mview.setViewName("shoplist");
-		mview.setViewName("/2/class/class_list");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
+		mview.setViewName("/2/class/class_list");//tiles ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
 		return mview;
 	}
 	
@@ -63,9 +63,9 @@ public class ClassController {
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
-		//¾÷·ÎµåÆÄÀÏÀÇ È®ÀåÀÚ ¾ò±â
-		int dotLoc=dto.getUploadfile().lastIndexOf(".");//¸¶Áö¸· .ÀÇ À§Ä¡
-		String ext=dto.getUploadfile().substring(dotLoc+1);//. ´ÙÀ½±ÛÀÚºÎÅÍ ³¡±îÁö Ãâ·Â
+		//ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		int dotLoc=dto.getUploadfile().lastIndexOf(".");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ .ï¿½ï¿½ ï¿½ï¿½Ä¡
+		String ext=dto.getUploadfile().substring(dotLoc+1);//. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
 		if(ext.equalsIgnoreCase("jpg")||ext.equalsIgnoreCase("gif")||
 				ext.equalsIgnoreCase("png")||ext.equalsIgnoreCase("jpeg"))
@@ -101,7 +101,7 @@ public class ClassController {
 		List<ClassBoardDto> listpopul=mapper.getPopular();
 		
 		mview.addObject("listpopul", listpopul);
-		mview.setViewName("/2/class/class_popular");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
+		mview.setViewName("/2/class/class_popular");//tiles ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
 		return mview;
 	}
 

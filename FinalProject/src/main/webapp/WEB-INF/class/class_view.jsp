@@ -145,7 +145,6 @@
 		</div>
 		
 		<div class="row">
-		<div class="categories__slider owl-carousel">
 			<c:forEach var="cdto" items="${classlist}">
 
 				<div style="float: left;">
@@ -161,7 +160,6 @@
 								<h5>${cdto.classprice}원</h5>
 							</div>
 						</a>
-					</div>
 				</div>
 
 			</c:forEach>
