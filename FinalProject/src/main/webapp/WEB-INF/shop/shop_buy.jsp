@@ -12,6 +12,10 @@ function closePopup() {
 	const popup = document.querySelector('#popup');
 	popup.classList.add('hide');
 	}
+
+function getCartList(){
+	let cartList = "";
+}
 </script>
 
 <!-- Breadcrumb Section Begin -->
@@ -33,11 +37,16 @@ function closePopup() {
 <!-- Breadcrumb Section End -->
 
 <!-- Checkout Section Begin -->
-<section class="checkout spad">
+<section class="checkout spad cart">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 view_buy_1">
 				<h6>주문상품</h6>
+				<c:choose>
+					<c:when test="${map.count == 0}">
+						cart is empty
+					</c:when>
+					<c:otherwise>
 				<ul>
 					<li>
 						<img src="${root}/img/featured/main_con1.jpg" alt="">
@@ -45,13 +54,9 @@ function closePopup() {
 						<span class="buy_su">1개</span>
 						<span class="buy_dan">11,000원</span>
 					</li>
-					<li>
-						<img src="${root}/img/featured/main_con1.jpg" alt="">
-						<span>[수능선물]수제카라멜 선물세트</span>
-						<span class="buy_su">1개</span>
-						<span class="buy_dan">11,000원</span>
-					</li>
 				</ul>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div class="checkout__form">

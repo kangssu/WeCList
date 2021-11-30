@@ -27,8 +27,8 @@ public class ShopController {
 
     @GetMapping("/shop/content")
     public ModelAndView content(@RequestParam String num,
-                                @RequestParam(defaultValue = "1") int currentPage,
-                                @RequestParam(required = false) String key) {
+        @RequestParam(defaultValue = "1") int currentPage,
+        @RequestParam(required = false) String key) {
         ModelAndView mview = new ModelAndView();
 
         //목록에서 key에 list를 보낼 경우에 만 조회수 증가
@@ -96,7 +96,6 @@ public class ShopController {
         mview.addObject("totalPage", totalPage);
         mview.addObject("no", no);
 
-
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
@@ -124,10 +123,9 @@ public class ShopController {
         return "/shop/shop_write_form";
     }
 
-
     @GetMapping("/shop/list")
     public ModelAndView list(
-            @RequestParam(defaultValue = "1") int currentPage
+        @RequestParam(defaultValue = "1") int currentPage
     ) {
         ModelAndView mview = new ModelAndView();
 
@@ -175,7 +173,6 @@ public class ShopController {
 
         return mview;
     }
-
 
     @PostMapping("/shop/insert")
     public String insert(@ModelAttribute ShopBoardDto sdto, HttpSession session) {
@@ -275,6 +272,5 @@ public class ShopController {
         service.insertBoard(sdto);
         return "redirect:content?num=" + service.getMaxNum();
     }
-
 
 }

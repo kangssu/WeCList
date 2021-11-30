@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.CartMapper">
+  <insert id="insertCart" parameterType="cartdto">
+    INSERT INTO bit_final.cart (user_idx,shop_num,shop_option,shop_qty)
+     VALUES(#{userIdx}, #{shopNum}, #{shopOption}, #{shopQty})
+  </insert>
+  <select id="listCart" parameterType="int" resultType="cartdto">
+    SELECT s.title, s.name,
+           c.shop_option,
+           s.uploadfile1,
+           s.subprice1,
+           c.shop_qty
+    from cart c left join shopboarder s on c.shop_num = s.num
+    where c.user_idx = #{userIdx};
+  </select>
+  <delete id="deleteCart" parameterType="cartdto">
+    DELETE FROM bit_final.cart WHERE user_idx = #{userIdx} &amp;&amp; shop_option like #{shop_option};
+  </delete>
+  <delete id="deleteAllCart" parameterType="int">
+    DELETE FROM bit_final.cart WHERE user_idx = #{userIdx};
+  </delete>
+</mapper>

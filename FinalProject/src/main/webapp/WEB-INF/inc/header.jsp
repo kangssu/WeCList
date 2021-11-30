@@ -8,6 +8,8 @@ $(document).ready(function (){
 		$(this).addClass("on");
 	});
  });
+
+// TODO: 장바구니 카운트
  </script>
 <!-- Page Preloder (이거 넣으면 계속 무한루프만돔..!)-->
 <!-- <div id="preloder">
@@ -142,7 +144,7 @@ $(document).ready(function (){
 						</a>
 					</div>
 					<div class="hero__mypage__2">
-						<a href="">
+						<a href="${root}/shop/buy">
 							<span>0</span>
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<p>장바구니</p>
