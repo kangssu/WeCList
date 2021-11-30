@@ -10,8 +10,8 @@ public class UsersJoinDto {
 
 	private String idx;
 	private String id;
-	private String pass;
-	private String name;
+	private String pass1;
+	private String irum;
 	private String email;
 	private String hp;
 	private String addr1;
@@ -19,6 +19,26 @@ public class UsersJoinDto {
 	private String useterms;
 	private String personterms;
 	private String ageterms;
+	private String profileimg;
+	private String category;
+	
+	
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getProfileimg() {
+		return profileimg;
+	}
+
+	public void setProfileimg(String profileimg) {
+		this.profileimg = profileimg;
+	}
 
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	private Timestamp gaipday;
@@ -39,20 +59,20 @@ public class UsersJoinDto {
 		this.id = id;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getPass1() {
+		return pass1;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass1(String pass1) {
+		this.pass1 = pass1;
 	}
 
-	public String getName() {
-		return name;
+	public String getIrum() {
+		return irum;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setIrum(String irum) {
+		this.irum = irum;
 	}
 
 	public String getEmail() {
@@ -62,6 +82,7 @@ public class UsersJoinDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 
 	public String getHp() {
 		return hp;
