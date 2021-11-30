@@ -27,8 +27,6 @@ public class ShopBoardDto {
   private String shopsub;
   private String shopcontent;
   private String shopdelivery;
-  private String uploadfile;
-  private MultipartFile upload;
   private String uploadfile1;
   private MultipartFile upload1;
   private String uploadfile2;
@@ -284,21 +282,6 @@ public class ShopBoardDto {
     this.shopdelivery = shopdelivery;
   }
 
-  public String getUploadfile() {
-    return uploadfile;
-  }
-
-  public void setUploadfile(String uploadfile) {
-    this.uploadfile = uploadfile;
-  }
-
-  public MultipartFile getUpload() {
-    return upload;
-  }
-
-  public void setUpload(MultipartFile upload) {
-    this.upload = upload;
-  }
 
   public int getReadcount() {
     return readcount;

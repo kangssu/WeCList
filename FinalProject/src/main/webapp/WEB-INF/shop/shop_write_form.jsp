@@ -1,6 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="container"> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="<%=request.getContextPath()%>" />
+<!--summernote :S -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+
+		$('#summernote').summernote({
+			placeholder : 'Write contents',
+			height : 400, 
+			minHeight : null, // set minimum height of editor
+			maxHeight : null, // set maximum height of editor
+		});
+      
+		//에디터에서 p를 br로 바꾸기 위함!
+		$("#summernote").on("summernote.enter", function(we, e) {
+    	     $(this).summernote("pasteHTML", "<br><br>");
+    	     e.preventDefault();
+		});
+      
+		
+   });
+</script>
 <form action="insert" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="num" value="${dto.num}">
 	<table class="table table-bordered" style="margin:100px 100px; width: 700px;">
@@ -38,7 +66,7 @@
 			<th width="120" bgcolor="#ddd">태 그</th>
 			<td>
 				<input type="text" name="shoptag" class="inline-control"
-				required="required" autofocus="autofocus">
+				>
 			</td>
 		</tr>
 		<tr>
@@ -57,10 +85,10 @@
 			<td>
 			
 				<input type="text" name="suboption2" class="form-control"
-				required="required" autofocus="autofocus">
+				>
 				
 				<input type="text" name="subprice2" class="form-control"
-				required="required" autofocus="autofocus">
+				>
 			</td>
 		</tr>
 		<tr>
@@ -68,10 +96,10 @@
 			<td>
 			
 				<input type="text" name="suboption3" class="form-control"
-				required="required" autofocus="autofocus">
+				>
 				
 				<input type="text" name="subprice3" class="form-control"
-				required="required" autofocus="autofocus">
+				>
 			</td>
 		</tr>
 		<tr>
@@ -79,10 +107,10 @@
 			<td>
 			
 				<input type="text" name="suboption4" class="form-control"
-				required="required" autofocus="autofocus">
+				 >
 				
 				<input type="text" name="subprice4" class="form-control"
-				required="required" autofocus="autofocus">
+				 >
 			</td>
 		</tr>
 		<tr>
@@ -90,31 +118,29 @@
 			<td>
 			
 				<input type="text" name="suboption5" class="form-control"
-				required="required" autofocus="autofocus">
+				>
 				<input type="text" name="subprice5" class="form-control"
-				required="required" autofocus="autofocus">
+				>
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd" colspan="2">상품 설명</th>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<textarea style="width: 700px;height: 100px;"
+				<td colspan="2">
+				<textarea style="width: 700px;height: 200px;"
 				class="form-control"
-				name = "shopsub" required="required"></textarea>
+				name = "shopsub" autofocus="autofocus" required="required"></textarea>
 			</td>
-			
-		</tr>
 		<tr>
-			<th width="120" bgcolor="#ddd" colspan="2">제품 정보</th>
+			<th width="120" bgcolor="#ddd" colspan="2">제품 상세 정보</th>
 		</tr>
 		
 		<tr>
 			<td colspan="2">
 				<textarea style="width: 700px;height: 200px;"
-				class="form-control"
-				name = "shopcontent" required="required"></textarea>
+				class="form-control" id="summernote"
+				name = "shopcontent" autofocus="autofocus" required="required"></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -124,46 +150,41 @@
 			<td colspan="2">
 				<textarea style="width: 700px;height: 100px;"
 				class="form-control"
-				name = "shopdelivery" required="required"></textarea>
+				name = "shopdelivery" autofocus="autofocus" required="required"></textarea>
 			</td>
 		</tr>
+		
 		<tr>
-			<th width="120" bgcolor="#ddd">사진</th>
+			<th width="120" bgcolor="#ddd">섬네일사진</th>
 			<td>
-				<input type="file" name="upload" class="form-control" multiple>
+				<input type="file" name="upload1" class="form-control" multiple
+				autofocus="autofocus" required="required" >
 			
 			</td>
 		</tr>
 		<tr>
-			<th width="120" bgcolor="#ddd">사진1</th>
-			<td>
-				<input type="file" name="upload1" class="form-control" multiple>
-			
-			</td>
-		</tr>
-		<tr>
-			<th width="120" bgcolor="#ddd">사진2</th>
+			<th width="120" bgcolor="#ddd">추가 사진</th>
 			<td>
 				<input type="file" name="upload2" class="form-control" multiple>
 			
 			</td>
 		</tr>
 		<tr>
-			<th width="120" bgcolor="#ddd">사진3</th>
+			<th width="120" bgcolor="#ddd">추가 사진 2</th>
 			<td>
 				<input type="file" name="upload3" class="form-control" multiple>
 			
 			</td>
 		</tr>
 		<tr>
-			<th width="120" bgcolor="#ddd">사진4</th>
+			<th width="120" bgcolor="#ddd">추가 사진 3</th>
 			<td>
 				<input type="file" name="upload4" class="form-control" multiple>
 			
 			</td>
 		</tr>
 		<tr>
-			<th width="120" bgcolor="#ddd">사진5</th>
+			<th width="120" bgcolor="#ddd">추가 사진 4</th>
 			<td>
 				<input type="file" name="upload5" class="form-control" multiple>
 			
@@ -177,6 +198,10 @@
 			</td>
 			
 			
+			
+		</tr>
+		<tr>
+		<td class="form_image_size_text" colspan="3">* 이미지는 442*258로 고정됩니다</td>
 		</tr>
 	</table>
 </form>

@@ -10,5 +10,4 @@ import data.dto.UsersJoinDto;
 @Mapper
 public interface UsersJoinMapper {
 	public void insertUsers(UsersJoinDto dto);
-	public int getIdCheck(String id);
 }

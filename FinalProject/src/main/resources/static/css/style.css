@@ -2708,15 +2708,6 @@ li {
 	color:#ff7b27;
 }
 
-.addr-btn_rev{
-	margin-left:10px;
-	border:1px solid white;
-	background-color:#ff7b27;
-	width:100px;
-	height:44px;
-	color:white;
-}
-
 .view_order_btn{
 	text-align:center;
 }
@@ -2727,56 +2718,6 @@ li {
 	width:200px;
 	height:44px;
 	color:white;
-}
-
-.user_join_btn button{
-	border:1px solid #ff7b27;
-	background-color:#ff7b27;
-	width:300px;
-	height:200px;
-	color:white;
-	font-size: 23px;
-}
-
-.author_join_btn button{
-	border:1px solid #ff7b27;
-	background-color:white;
-	width:300px;
-	height:200px;
-	color:#ff7b27;
-	font-size: 23px;
-}
-
-.user_join_btn2 button{
-	border:1px solid #ff7b27;
-	background-color:#ff7b27;
-	width:300px;
-	height:100px;
-	color:white;
-	font-size: 23px;
-}
-
-.author_join_btn2 button{
-	border:1px solid #ff7b27;
-	background-color:white;
-	width:300px;
-	height:100px;
-	color:#ff7b27;
-	font-size: 23px;
-}
-
-
-.login_input {
-    width: 100%;
-    height: 44px;
-    border-radius: 2px;
-    border: 1px solid #b4b4b4;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
-    font-size: 14px;
-    outline: none;
 }
 
 .checkout__input p {

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.ShopBoardDto;
@@ -43,8 +44,8 @@ public class ShopController {
         String name = "as";
         sdto.setName(name);
         //업로드 파일의 확장자 얻기
-        int dotLoc = sdto.getUploadfile().lastIndexOf('.');
-        String ext = sdto.getUploadfile().substring(dotLoc + 1);
+        int dotLoc = sdto.getUploadfile1().lastIndexOf('.');
+        String ext = sdto.getUploadfile1().substring(dotLoc + 1);
         if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif") || ext.equalsIgnoreCase("png")) {
             mview.addObject("bupload", true);
         } else {
@@ -120,7 +121,7 @@ public class ShopController {
     }
 
     @GetMapping("/shop/writeform")
-    public String writeform() {
+    public String writform() {
         return "/shop/shop_write_form";
     }
 
@@ -185,20 +186,7 @@ public class ShopController {
         //업로드할 파일  명
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 
-        if (sdto.getUpload().getOriginalFilename().equals("")) {
-            sdto.setUploadfile("no");
-        } else {
-            String uploadfile = "f" + sdf.format(new Date()) + sdto.getUpload().getOriginalFilename();
-            sdto.setUploadfile(uploadfile);
-
-            try {
-                sdto.getUpload().transferTo(new File(path + "\\" + uploadfile));
-            } catch (IllegalStateException | IOException e) {
-                // TODO: handle exception
-                e.printStackTrace();
-            }
-        }
-
+      
         if (sdto.getUpload1().getOriginalFilename().equals("")) {
             sdto.setUploadfile1("no");
         } else {
