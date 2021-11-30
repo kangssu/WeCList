@@ -81,7 +81,7 @@
 							</div>
 						</div>
 					</div> -->
-					<button type="button" class="primary-btn" onclick="#">구매하기</button>
+					<button type="button" class="primary-btn" onclick="#">장바구니</button>
 					<button type="button" class="heart-btn" onclick="">찜하기</button>
 					<button type="button" class="list-btn"
 						onclick="location.href='list'">목록보기</button>

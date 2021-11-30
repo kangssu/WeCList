@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <script type="text/javascript">
 /* 개인정보 취급방침 클릭시 팝업!!! */
@@ -42,18 +43,20 @@ function getCartList(){
 		<div class="row">
 			<div class="col-lg-12 view_buy_1">
 				<h6>주문상품</h6>
+				<ul>
 				<c:choose>
-					<c:when test="${map.count == 0}">
+					<c:when test="${cartdto.count == 0}">
 						cart is empty
 					</c:when>
 					<c:otherwise>
-				<ul>
+				<c:forEach var="row" items="${cartdto.list}">
 					<li>
-						<img src="${root}/img/featured/main_con1.jpg" alt="">
-						<span>[수능선물]수제카라멜 선물세트</span>
-						<span class="buy_su">1개</span>
-						<span class="buy_dan">11,000원</span>
+						<img src="${root}/img/featured/${row.itemImage}">
+						<span>${row.name}</span>
+						<span class="buy_su">${row.shop_qty}</span>
+						<span class="buy_dan"><fmt:formatNumber value="${row.itemPrice}" pattern="#,###,###"/></span>
 					</li>
+				</c:forEach>
 				</ul>
 					</c:otherwise>
 				</c:choose>
