@@ -31,13 +31,15 @@
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
 						<img data-imgbigurl="img/product/details/product-details-2.jpg"
-							src="../photo/${dto.uploadfile}" alt=""> <img
+							src="../photo/${dto.uploadfile1}" alt=""> <img
 							data-imgbigurl="img/product/details/product-details-3.jpg"
-							src="../photo/${dto.uploadfile}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-5.jpg"
-							src="../photo/${dto.uploadfile}" alt=""> <img
+							src="../photo/${dto.uploadfile2}" alt=""> <img
 							data-imgbigurl="img/product/details/product-details-4.jpg"
-							src="../photo/${dto.uploadfile}" alt="">
+							src="../photo/${dto.uploadfile3}" alt=""> <img
+							data-imgbigurl="img/product/details/product-details-5.jpg"
+							src="../photo/${dto.uploadfile4}" alt=""> <img
+							data-imgbigurl="img/product/details/product-details-6.jpg"
+							src="../photo/${dto.uploadfile5}" alt="">
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,11 @@
+<%@page import="data.dto.ClassNewBoardDto"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>" />
+<fmt:formatDate var="date" value="${date}" pattern="yyyy-MM-dd"/>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
@@ -70,8 +74,27 @@
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter">
-			
+		<div class="row">
+			<div class="categories__slider owl-carousel">
+				<c:forEach var="cdto" items="${list}" end="5">
+						<div style="float: left;">
+							<div class="product__item">
+								<a href="${root}/class/view_news?num=${cdto.num}">
+									<div class="product__item__pic set-bg">
+										<img src="../photo/${cdto.uploadfile}"
+											style="width: 300px; height: 300px;">
+									</div>
+									<div class="product__item__text">
+										<h6>${cdto.title}</h6>
+										<h6>${cdto.class_op_cate}</h6>
+										<h5>${cdto.classprice}원</h5>
+									</div>
+								</a>
+							</div>
+						</div>
+				</c:forEach>
+
+			</div>
 		</div>
 	</div>
 

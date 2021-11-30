@@ -39,15 +39,16 @@ public class ClassBoardService {
 		return mapper.getAlllist();
 	}
 	
+	public List<ClassBoardDto> getCategory(String class_op_cate)
+	{
+		return mapper.getCategory(class_op_cate);
+	}
+	
 	public List<ClassNewBoardDto> getAllnewlist()
 	{
 		return mapper.getAllnewlist();
 	}
 	
-//	public List<ClassNewBoardDto> getAllnewlistUnder()
-//	{
-//		return mapper.getAllnewlistUnder();
-//	}
 
 	public void insertBoard(ClassBoardDto dto) {
 		mapper.insertBoard(dto);

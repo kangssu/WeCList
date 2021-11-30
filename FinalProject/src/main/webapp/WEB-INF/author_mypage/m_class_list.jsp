@@ -30,9 +30,10 @@
 						<button type="button" class="story_del_btn">삭제</button>
 					</td>
 				</tr>
+				
 		</table>
 		<div class="story__insert__bottom">
-			<button type="submit" onclick="">등록하기</button>
+			<button type="submit" onclick="location.href='/mypage/class/addform'">등록하기</button>
 		</div>
 		
 		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->

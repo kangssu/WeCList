@@ -17,18 +17,15 @@
 	<select id="getAllnewlist" resultType="cndto">
 	select * from classnewboarder order by num asc
 	</select>
-<!-- 	<select id="getAllnewlistUnder" resultType="cndto">
-	select * from classnewboarder where classheart < 150
-	</select> -->
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>
-<!-- 	<select id="getCate" resultType="cdto">
-		select * from classboarder where class_op_cate = ???? order by num asc
-	</select> -->
+	<select id="getCategory" parameterType="String" resultType="cdto">
+		select * from classboarder where class_op_cate = #{class_op_cate} order by num desc
+	</select>
 	<insert id="insertBoard" parameterType="cdto">
-		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
-		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
+		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
+		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	<insert id="insertNewBoard" parameterType="cndto">
 		insert into classnewboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)

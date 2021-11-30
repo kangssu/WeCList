@@ -7,20 +7,20 @@ import data.dto.AuthorStoryDto;
 import data.dto.ClassBoardDto;
 
 @Mapper
-public interface AuthortStoryMapper {
+public interface AuthortClassMapper {
 
   public int getTotalCount(String myid);
 
   public int getMaxNum();
 
-  public AuthorStoryDto getData(String num);
+  public ClassBoardDto getData(String num);
 
-  public void insertStory(AuthorStoryDto dto);
+  public List<ClassBoardDto> getList(HashMap<String, Object> map);
 
-  public List<AuthorStoryDto> getList(HashMap<String, Object> map);
-
-  public void updateStory(AuthorStoryDto dto);
+  public void updateStory(ClassBoardDto dto);
 
   public void deleteStory(String num);
+
+  public void insertBoard(ClassBoardDto dto);
 
 }

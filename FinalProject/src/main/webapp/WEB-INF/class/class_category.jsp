@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	<div class="row" style="margin-left: 250px;">
-		<c:forEach var="cdto" items="${list}"> 
+		<c:forEach var="cdto" items="${listcate}"> 
 		
 			<div style="float:left;">
 			<div class="product__item" >
