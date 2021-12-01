@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.AuthorStoryDto;
-import data.dto.ShopBoardDto;
-import data.service.ShopBoardService;
 import data.service.StoryService;
 
 @Controller
@@ -17,7 +15,6 @@ public class StoryController {
 
   @Autowired
   StoryService service;
-
 
   @GetMapping("/story/list")
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
@@ -81,7 +78,5 @@ public class StoryController {
     mview.setViewName("/story/story_view");
     return mview;
   }
-
-  
 
 }

@@ -13,7 +13,7 @@
 	</insert>
 	
 	<select id="getAllComment" parameterType="String" resultType="scdto">
-		select * from story_comment order by regroup desc, reidx asc
+		select * from story_comment where num=#{num} order by regroup desc, reidx asc
 	</select>
 	
 	<select id="getMaxRegroup" resultType="int">
@@ -23,10 +23,6 @@
 	<select id="getAndRegroup" resultType="int">
 		select regroup from story_comment where idx=#{idx}
 	</select>
-	
-	<update id="updateReidx" parameterType="HashMap">
-		update story_comment set reidx=#{reidx}+1 where regroup=#{regroup} and reidx>#{reidx}
-	</update>
 	
 	<select id="getComment" parameterType="String" resultType="scdto">
 		select * from story_comment where idx=#{idx}

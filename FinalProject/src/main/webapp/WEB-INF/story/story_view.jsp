@@ -54,7 +54,7 @@
 					if(dto.reidx==1){
 						com+="<div><img src='/img/re.png' class='author_re'>";
 					}
-					com+="<img src='/img/pro.jpg' class='profile_img'>"+dto.writer;
+					com+="<img src='/img/pro.jpg' class='profile_re'>"+dto.writer;
 					if(dto.reidx==1){
 						com+="<i class='fa fa-star' aria-hidden='true'></i>";
 					}
@@ -84,7 +84,7 @@
 	  		$("#reg").val(regroup); 
 	  		regroup=$("#reg").val(); 
 			content=$("#re_content").val();
-			var num=$("#num").val();
+			//var num=$("#num").val();
 	  		document.getElementById("reg").value = regroup;
 			
 			$.ajax({
@@ -271,20 +271,6 @@
 
 <!-- 수정 클릭시 팝업! -->
 <div id="update_popup" class="hide">
-	<div class="content">
-		<p class="popup_info_check">댓글 수정하기</p>
-		<input type="hidden" name="idx" id="idx" value=""/>
-		<textarea class="comment__form" id="up_content" name="content"
-		required="required" placeholder="수정할 댓글을 입력해주세요."></textarea>
-		<div class="popup_info_btn">
-			<button type="submit" id="btn_submit_2">확인</button>
-			<button type="button" id="btn_close_2" onclick="upPopupClose()" >닫기</button>
-		</div>
-	</div>
-</div>
-
-<!-- 삭제 클릿기 팝업! -->
-<div id="author_del_popup" class="hide">
 	<div class="content">
 		<p class="popup_info_check">댓글 수정하기</p>
 		<input type="hidden" name="idx" id="idx" value=""/>
