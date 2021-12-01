@@ -46,22 +46,22 @@
 			</c:if>
 			
 			<c:if test="${totalCount>0}">
-				<c:forEach var="cdto" items="${list}" varStatus="i">
+				<c:forEach var="sdto" items="${list}" varStatus="i">
 				<tr>
 					<td align="center">${i.count}</td>
-					<td><img src="/photo/${cdto.uploadfile}"></td>
+					<td><img src="/photo/${sdto.thumbnail_file}"></td>
 					<td>
-						<a href="/mypage/story/view?num=${cdto.num}&currentPage=${currentPage}&key=list" style="color:black;">
+						<a href="/mypage/story/view?num=${sdto.num}&currentPage=${currentPage}&key=list" style="color:black;">
 						${sdto.title}</a>
 					</td>
 					<td>
-						<fmt:formatDate value="${cdto.writeday}" pattern="yyyy-MM-dd"/>
+						<fmt:formatDate value="${sdto.writeday}" pattern="yyyy-MM-dd"/>
 					</td>
 					<td>
 						<button type="button" class="story_mod_btn" 
-						onclick="location.href='/mypage/story/updateform?num=${cdto.num}&currentPage=${currentPage}'">수정</button>
+						onclick="location.href='/mypage/story/updateform?num=${sdto.num}&currentPage=${currentPage}'">수정</button>
 						<button type="button" class="story_del_btn"
-						onclick="showDelPopup(${cdto.num})">삭제</button>
+						onclick="showDelPopup(${sdto.num})">삭제</button>
 					</td>
 				</tr>
 				</c:forEach>

@@ -17,10 +17,10 @@ public interface AuthortClassMapper {
 
   public List<ClassBoardDto> getList(HashMap<String, Object> map);
 
-  public void updateStory(ClassBoardDto dto);
-
-  public void deleteStory(String num);
+  public void updateBoard(ClassBoardDto dto);
 
   public void insertBoard(ClassBoardDto dto);
+
+  public void deleteBoard(int num);
 
 }

@@ -31,7 +31,7 @@ public class AuthorShopController {
                               @RequestParam(required = false) String key) {
       ModelAndView mview = new ModelAndView();
 
-      //목록에서 key에 list를 보낼 경우에 만 조회수 증가
+      //紐⑸줉�뿉�꽌 key�뿉 list瑜� 蹂대궪 寃쎌슦�뿉 留� 議고쉶�닔 利앷�
       if (key != null) {
           service.updateReadCount(num);
       }
@@ -39,10 +39,8 @@ public class AuthorShopController {
       ShopBoardDto sdto = service.getData(num);
 
       System.out.println(sdto.getMyid());
-      //dto의 name에 작성자 이름 넣기
       String name = "as";
       sdto.setName(name);
-      //업로드 파일의 확장자 얻기
       int dotLoc = sdto.getUploadfile1().lastIndexOf('.');
       String ext = sdto.getUploadfile1().substring(dotLoc + 1);
       if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif") || ext.equalsIgnoreCase("png")) {
@@ -56,31 +54,27 @@ public class AuthorShopController {
       /////////////////////////////////////////////////////
       /////////////////////////////////////////////////////
 
-      int perPage = 4;//한페이지에 보여질 글의 갯수
+      int perPage = 4;
       int totalCount = service.getTotalCount();
 
-      int totalPage;//총페이지
-      int start;//각페이젱서 불러올 시작 번호
-      int perBlock = 5;//몇개의 페이지 번호씩 표현할것인가
-      int startPage;//각블럭에 표시할 시작페이지
-      int endPage;//각블럭에 표시할 마지막페이지
-
-      //총 갯수
+      int totalPage;
+      int start;
+      int perBlock = 5;
+      int startPage;
+      int endPage;
 
       totalCount = service.getTotalCount();
-      //현재 페이지 번호 읽기(단 null 일 경우 1페이지로 설정)
 
       totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
-      //각 블럭의 시작페이지
       startPage = (currentPage - 1) / perBlock * perBlock + 1;
 
       endPage = startPage + perBlock - 1;
       if (endPage > totalPage) {
           endPage = totalPage;
       }
-      //각 페이지에서 불러올 시작번호
+   
       start = (currentPage - 1) * perPage;
-      //각페이지에서 필요한 게시글 가져오기
+      
       List<ShopBoardDto> list = service.getList(start, perPage);
 
       System.out.println(list.size());
@@ -108,37 +102,32 @@ public class AuthorShopController {
       mview.setViewName("/shop/shop_view");
       return mview;
   }
-  // 게시판 전체 출력
+  
   @GetMapping("/mypage/shop/list")
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage, HttpSession session
       ) {
     ModelAndView mview = new ModelAndView();
-    int perPage = 8;//한페이지에 보여질 글의 갯수
+    int perPage = 8;
     int totalCount = service.getTotalCount();
 
-    int totalPage;//총페이지
-    int start;//각페이젱서 불러올 시작 번호
-    int perBlock = 5;//몇개의 페이지 번호씩 표현할것인가
-    int startPage;//각블럭에 표시할 시작페이지
-    int endPage;//각블럭에 표시할 마지막페이지
+    int totalPage;
+    int start;
+    int perBlock = 5;
+    int startPage;
+    int endPage;
 
-    //총 갯수
 
     totalCount = service.getTotalCount();
-    //현재 페이지 번호 읽기(단 null 일 경우 1페이지로 설정)
 
     session.setAttribute("ttcount",totalCount);
     totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
-    //각 블럭의 시작페이지
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
 
     endPage = startPage + perBlock - 1;
     if (endPage > totalPage) {
         endPage = totalPage;
     }
-    //각 페이지에서 불러올 시작번호
     start = (currentPage - 1) * perPage;
-    //각페이지에서 필요한 게시글 가져오기
     List<ShopBoardDto> list = service.getList(start, perPage);
 
     System.out.println(list.size());
@@ -181,7 +170,7 @@ public class AuthorShopController {
     MultipartFile uploadfile5 = service.getData(num).getUpload5();
     File file5 = new File(path + "\\" + uploadfile5);
 
-    // 파일삭제
+    //사진 삭제
     file1.delete();
     file2.delete();
     file3.delete();

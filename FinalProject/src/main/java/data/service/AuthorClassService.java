@@ -35,16 +35,16 @@ public class AuthorClassService {
     return mapper.getList(map);
   }
 
-  public void updateStory(ClassBoardDto dto) {
-    mapper.updateStory(dto);
-  }
-
-  public void deleteStory(String num) {
-    mapper.deleteStory(num);
+  public void updateBoard(ClassBoardDto dto) {
+    mapper.updateBoard(dto);
   }
   
   public void insertBoard(ClassBoardDto dto) {
 	mapper.insertBoard(dto);
+  }
+
+  public void deleteBoard(int num) {
+	    mapper.deleteBoard(num);
   }
 
 }

@@ -9,7 +9,7 @@
 		select ifnull(max(num),0) from classboarder 
 	</select>
 	
-	<select id="getData" parameterType="String" resultType="asdto">
+	<select id="getData" parameterType="String" resultType="cdto">
 		select * from classboarder where num=#{num}
 	</select>
 	
@@ -18,19 +18,19 @@
 		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	
-	<select id="getList" parameterType="HashMap" resultType="asdto">
+	<select id="getList" parameterType="HashMap" resultType="cdto">
 		select * from classboarder where myid=#{myid} order by num desc limit #{start},#{perpage}
 	</select>
 	
-	<update id="updateStory" parameterType="asdto">
-		update author_story set title=#{title},content=#{content}
+	<update id="updateStory" parameterType="cdto">
+		update classboarder set title=#{title},content=#{content}
 		<if test="thumbnail_file!='no'">
 			,thumbnail_file=#{thumbnail_file}
 		</if>
 		where num=#{num}
 	</update>
 	
-	<delete id="deleteStory" parameterType="String">
+	<delete id="deleteBoard" parameterType="int">
 		delete from classboarder where num=#{num}
 	</delete>
 </mapper>
