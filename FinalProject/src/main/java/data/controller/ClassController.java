@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.ClassBoardDto;
+import data.dto.ClassNewBoardDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
 
@@ -38,7 +39,19 @@ public class ClassController {
 		
 		mview.addObject("list", list);
 		//mview.setViewName("shoplist");
-		mview.setViewName("/2/class/class_list");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
+		mview.setViewName("/2/class/class_list");//tiles ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
+		return mview;
+	}
+	
+	@GetMapping("/class/category")
+	public ModelAndView getCategory(@RequestParam (value="class_op_cate" , required = false) String class_op_cate)
+	{
+		ModelAndView mview=new ModelAndView();
+		List<ClassBoardDto> listcate=mapper.getCategory(class_op_cate);
+		
+		mview.addObject("listcate", listcate);
+		//mview.setViewName("shoplist");
+		mview.setViewName("/2/class/class_category");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
 		return mview;
 	}
 
@@ -50,9 +63,9 @@ public class ClassController {
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
-		//¾÷·ÎµåÆÄÀÏÀÇ È®ÀåÀÚ ¾ò±â
-		int dotLoc=dto.getUploadfile().lastIndexOf(".");//¸¶Áö¸· .ÀÇ À§Ä¡
-		String ext=dto.getUploadfile().substring(dotLoc+1);//. ´ÙÀ½±ÛÀÚºÎÅÍ ³¡±îÁö Ãâ·Â
+		//ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		int dotLoc=dto.getUploadfile().lastIndexOf(".");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ .ï¿½ï¿½ ï¿½ï¿½Ä¡
+		String ext=dto.getUploadfile().substring(dotLoc+1);//. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
 		if(ext.equalsIgnoreCase("jpg")||ext.equalsIgnoreCase("gif")||
 				ext.equalsIgnoreCase("png")||ext.equalsIgnoreCase("jpeg"))
@@ -66,6 +79,20 @@ public class ClassController {
 		mview.setViewName("/2/class/class_view");
 		return mview;
 	}
+	
+	@GetMapping("/class/news")
+	public ModelAndView getAllnewlist()
+	{
+		ModelAndView mview=new ModelAndView();
+		List<ClassNewBoardDto> listnews=mapper.getAllnewlist();
+		//List<ClassNewBoardDto> listnewsunder=mapper.getAllnewlistUnder();
+		
+		
+		mview.addObject("listnews", listnews);
+		//mview.addObject("listnewsunder", listnewsunder);
+		mview.setViewName("/2/class/class_news");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
+		return mview;
+	}
 
 	@GetMapping("/class/popul")
 	public ModelAndView getPopular()
@@ -74,18 +101,23 @@ public class ClassController {
 		List<ClassBoardDto> listpopul=mapper.getPopular();
 		
 		mview.addObject("listpopul", listpopul);
-		mview.setViewName("/2/class/class_popular");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
+		mview.setViewName("/2/class/class_popular");//tiles ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
 		return mview;
 	}
 
-	@GetMapping("/class/news")
-	public String news() {
-		return "/2/class/class_news";
-	}
+//	@GetMapping("/class/news")
+//	public String news() {
+//		return "/2/class/class_news";
+//	}
 
+	@GetMapping("/class/addnewform")
+	public String addnewform() {
+		return "/2/class/class_addnewform";
+	}
+	
 	@GetMapping("/class/addform")
 	public String addform() {
-		return "/2/class/class_addform";
+		return "/2/class/class_write_form";
 	}
 
 	@GetMapping("/class/view_news")
@@ -113,12 +145,110 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
+		
+		if(cdto.getUpload1().getOriginalFilename().equals("")) {
+			cdto.setUploadfile("no");
+		}else {
+			String uploadfile1  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			cdto.setUploadfile1(uploadfile1);
+
+			try {
+				cdto.getUpload1().transferTo(new File(path+"\\"+uploadfile1));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		if(cdto.getUpload2().getOriginalFilename().equals("")) {
+			cdto.setUploadfile("no");
+		}else {
+			String uploadfile2  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			cdto.setUploadfile2(uploadfile2);
+
+			try {
+				cdto.getUpload2().transferTo(new File(path+"\\"+uploadfile2));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		if(cdto.getUpload3().getOriginalFilename().equals("")) {
+			cdto.setUploadfile("no");
+		}else {
+			String uploadfile3  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			cdto.setUploadfile3(uploadfile3);
+
+			try {
+				cdto.getUpload3().transferTo(new File(path+"\\"+uploadfile3));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		if(cdto.getUpload4().getOriginalFilename().equals("")) {
+			cdto.setUploadfile("no");
+		}else {
+			String uploadfile4  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			cdto.setUploadfile4(uploadfile4);
+
+			try {
+				cdto.getUpload4().transferTo(new File(path+"\\"+uploadfile4));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		if(cdto.getUpload5().getOriginalFilename().equals("")) {
+			cdto.setUploadfile("no");
+		}else {
+			String uploadfile5  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			cdto.setUploadfile5(uploadfile5);
+
+			try {
+				cdto.getUpload5().transferTo(new File(path+"\\"+uploadfile5));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
 	
 		String myid = (String) session.getAttribute("myid");
 		cdto.setMyid(myid);
 
 		service.insertBoard(cdto);
 		return "redirect:/class/addform";
+	}
+	
+	@PostMapping("/class/insertnew")
+	public String insertnew(@ModelAttribute ClassNewBoardDto cndto, HttpSession session) {
+
+		String path = session.getServletContext().getRealPath("/photo");
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		if(cndto.getUpload().getOriginalFilename().equals("")) {
+			cndto.setUploadfile("no");
+		}else {
+			String uploadfile  = "f"+ sdf.format(new Date())+cndto.getUpload().getOriginalFilename();
+			cndto.setUploadfile(uploadfile);
+
+			try {
+				cndto.getUpload().transferTo(new File(path+"\\"+uploadfile));
+			}catch (IllegalStateException | IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	
+		String myid = (String) session.getAttribute("myid");
+		cndto.setMyid(myid);
+
+		service.insertNewBoard(cndto);
+		return "redirect:/class/addnewform";
 	}
 	
 	

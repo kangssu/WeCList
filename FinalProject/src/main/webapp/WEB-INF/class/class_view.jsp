@@ -31,13 +31,15 @@
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
 						<img data-imgbigurl="img/product/details/product-details-2.jpg"
-							src="../photo/${dto.uploadfile}" alt=""> <img
+							src="../photo/${dto.uploadfile1}" alt=""> <img
 							data-imgbigurl="img/product/details/product-details-3.jpg"
-							src="../photo/${dto.uploadfile}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-5.jpg"
-							src="../photo/${dto.uploadfile}" alt=""> <img
+							src="../photo/${dto.uploadfile2}" alt=""> <img
 							data-imgbigurl="img/product/details/product-details-4.jpg"
-							src="../photo/${dto.uploadfile}" alt="">
+							src="../photo/${dto.uploadfile3}" alt=""> <img
+							data-imgbigurl="img/product/details/product-details-5.jpg"
+							src="../photo/${dto.uploadfile4}" alt=""> <img
+							data-imgbigurl="img/product/details/product-details-6.jpg"
+							src="../photo/${dto.uploadfile5}" alt="">
 					</div>
 				</div>
 			</div>
@@ -141,29 +143,30 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="row">
-		<div class="categories__slider owl-carousel">
-			<c:forEach var="cdto" items="${classlist}">
-
-				<div style="float: left;">
-					<div class="product__item">
-						<a href="${root}/class/view?num=${cdto.num}">
-							<div class="product__item__pic set-bg">
-								<img src="../photo/${cdto.uploadfile}"
-									style="width: 300px; height: 300px;">
-							</div>
-							<div class="product__item__text">
-								<h6>${cdto.title}</h6>
-								<h6>${cdto.class_op_cate}</h6>
-								<h5>${cdto.classprice}원</h5>
-							</div>
-						</a>
+			<div class="categories__slider owl-carousel">
+				<c:forEach var="cdto" items="${classlist}">
+					<div style="float: left;">
+						<div class="product__item">
+							<a href="${root}/class/view_news?num=${cdto.num}">
+								<div class="product__item__pic set-bg">
+									<img src="../photo/${cdto.uploadfile}"
+										style="width: 300px; height: 300px;">
+								</div>
+								<div class="product__item__text">
+									<h6>${cdto.title}</h6>
+									<h6>${cdto.class_op_cate}</h6>
+									<h5>${cdto.classprice}원</h5>
+								</div>
+							</a>
+						</div>
 					</div>
-				</div>
+				</c:forEach>
 
-			</c:forEach>
+			</div>
 		</div>
-		</div>
+	</div>
+	</div>
 </section>
 <!-- Related Product Section End -->

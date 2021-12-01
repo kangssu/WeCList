@@ -15,5 +15,5 @@ public interface ShopBoardMapper {
   public List<ShopBoardDto> getList(HashMap<String, Integer> map);
   public void insertBoard(ShopBoardDto dto);
   public void updateBoard(ShopBoardDto dto);
-  public void deleteBoard(String num);
+  public void deleteBoard(int num);
 }
