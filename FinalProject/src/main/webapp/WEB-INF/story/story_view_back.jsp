@@ -36,6 +36,14 @@
 				}
 			});
 		});
+		
+		//댓글 버튼을 클릭했을때 이벤트!
+		$(document).on("click","#author_add_comment",function(){
+			//alert("클릭"); //클릭은됨
+			
+			// alert(idx); //해당 댓글의 idx 값 불러옴!
+			
+		});
 	});
 	
 	function list(){
@@ -52,20 +60,16 @@
 					com+="<h6>";
 					//댓글은 reidx가 1일 경우 즉 작가 댓글을 등록할 경우!
 					if(dto.reidx==1){
-						com+="<div><img src='/img/re.png' class='author_re'>";
+						com+="<img src='/img/re.png'><i class='fa fa-star' aria-hidden='true'></i>";
 					}
-					com+="<img src='/img/pro.jpg' class='profile_img'>"+dto.writer;
-					if(dto.reidx==1){
-						com+="<i class='fa fa-star' aria-hidden='true'></i>";
-					}
-					com+=" </h6></div>";
+					com+=dto.writer+"</h6>";
 					com+="<p>"+dto.content+"</p>";
 					com+="<span>"+dto.writeday+"</span>";
 					com+="<div class='comment_btn_all'>";
 					if(dto.reidx==0){
-						com+="<button type='button' id ='author_add_comment' onclick='rePopup("+dto.idx+","+dto.regroup+")'>댓글</button>";
+						com+="<button type='button' id ='author_add_comment' idx='"+dto.idx+"' regroup='"+dto.regroup+"' onclick='showPopup("+dto.idx+")'>댓글</button>";
 					}
-					com+="<button type='button' id='update_comment' onclick='upPopup("+dto.idx+")'>수정</button>";
+					com+="<button type='button' idx='"+dto.idx+"'>수정</button>";
 					com+="<button type='button' idx='"+dto.idx+"'>삭제</button>";
 					com+="</div>";
 					com+="</li>";
@@ -77,85 +81,37 @@
 	}
 	
 	//댓글을 클릭했을 때 idx를 가져온 이후에 팝업창 열리게 하기!
-	function rePopup(idx,regroup) {
-  		
-		//대댓글 입력(작가만)
-		$(document).on("click","#btn_submit_1",function(){
-	  		$("#reg").val(regroup); 
-	  		regroup=$("#reg").val(); 
-			content=$("#re_content").val();
-			var num=$("#num").val();
-	  		document.getElementById("reg").value = regroup;
-			
-			$.ajax({
-				type:"post",
-				dataType:"text",
-				url:"/story/acinsert",
-				data:{"num":num,"regroup":regroup,"content":content},
-				success:function(data){		
-					alert("작가님의 댓글이 등록되었습니다!");
-					location.reload();
-					list();
-				}
-			});
-		});
-		
+	function showPopup(idx) {
+		aidx=$("#author_add_comment").attr("idx");
+		aregroup=$("#author_add_comment").attr("regroup");
+		//alert(aregroup); //댓글 idx 번호 가져옴!
 		const popup = document.querySelector('#author_comment_popup');
 		 popup.classList.remove('hide');
 	}
-	function rePopupClose() {
+	function closePopup() {
 		const popup = document.querySelector('#author_comment_popup');
 		popup.classList.add('hide');
 	}
 	
-	//수정을 클릭했을 때 나오는 팝업! (회원은 자신의 글만, 작가도 가능하게)
-	function upPopup(idx) {
+	//대댓글 입력(작가만)
+	$(document).on("click","#btn_submit_1",function(){
+		var content=$("#re_content").val();
+		var num=$("#num").val();
+		alert(aregroup); 
+		//여기까지는 aregroup의 값이 넘어오니까 이거를 컨트롤러로 넘겨서 같이 저장..?
 		
-		//댓글 수정 버튼 클릭시 안에 데이터 값 불러와야함
-		$(document).on("click","#update_comment",function(){
-			$("#idx").val(idx);
-			idx=$("#idx").val();
-			$.ajax({
-				type:"get",
-				dataType:"json",
-				url:"/story/cdata",
-				data:{"idx":idx},
-				success:function(data){						
-					$("#up_content").val(data.content);
-				}
-			});
-		});
-  		
-		//댓글 수정 팝업에서 수정 버튼 클릭시!
-		$(document).on("click","#btn_submit_2" ,function(){
-			$("#idx").val(idx);
-			idx=$("#idx").val();
-			//alert(idx);
-			content=$("#up_content").val();
-			
-			$.ajax({
-				type:"post",
-				dataType:"text",
-				url:"/story/cupdate",
-				data:{"idx":idx,"content":content},
-				success:function(data){		
-					alert("댓글이 수정되었습니다!");
-					location.reload();
-					list();
-				}
-			});
-		});
-		
-		const popup = document.querySelector('#update_popup');
-		 popup.classList.remove('hide');
-	}
-	function upPopupClose() {
-		const popup = document.querySelector('#update_popup');
-		popup.classList.add('hide');
-	}
-	
-	
-	
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			url:"/story/acinsert",
+			data:{"num":num,"aidx":aidx,"content":content},
+			success:function(data){		
+				alert("작가님의 댓글이 등록되었습니다!");
+				location.reload();
+				list();
+			}
+		});	
+	});
 	
 </script>
 <!-- Breadcrumb Section Begin -->
@@ -258,41 +214,12 @@
 <div id="author_comment_popup" class="hide">
 	<div class="content">
 		<p class="popup_info_check">댓글 등록하기</p>
-		<input type="hidden" name="num" id="num" value="${dto.num}"/>
-		<input type="hidden" name="regroup" id="reg" value=""/>
-		<textarea class="comment__form" id="re_content" name="content"
+		<input type="hidden" name="num" id="num" value="${dto.num}">
+		<textarea class="comment__form" id="re_content" name="comment"
 		required="required" placeholder="댓글을 입력해주세요."></textarea>
 		<div class="popup_info_btn">
-			<button type="submit" id="btn_submit_1">확인</button>
-			<button type="button" id="btn_close_1" onclick="rePopupClose()" >닫기</button>
-		</div>
-	</div>
-</div>
-
-<!-- 수정 클릭시 팝업! -->
-<div id="update_popup" class="hide">
-	<div class="content">
-		<p class="popup_info_check">댓글 수정하기</p>
-		<input type="hidden" name="idx" id="idx" value=""/>
-		<textarea class="comment__form" id="up_content" name="content"
-		required="required" placeholder="수정할 댓글을 입력해주세요."></textarea>
-		<div class="popup_info_btn">
-			<button type="submit" id="btn_submit_2">확인</button>
-			<button type="button" id="btn_close_2" onclick="upPopupClose()" >닫기</button>
-		</div>
-	</div>
-</div>
-
-<!-- 삭제 클릿기 팝업! -->
-<div id="author_del_popup" class="hide">
-	<div class="content">
-		<p class="popup_info_check">댓글 수정하기</p>
-		<input type="hidden" name="idx" id="idx" value=""/>
-		<textarea class="comment__form" id="up_content" name="content"
-		required="required" placeholder="수정할 댓글을 입력해주세요."></textarea>
-		<div class="popup_info_btn">
-			<button type="submit" id="btn_submit_2">확인</button>
-			<button type="button" id="btn_close_2" onclick="upPopupClose()" >닫기</button>
+			<button type="button" id="btn_submit_1">확인</button>
+			<button type="button" id="btn_close_1" onclick="closePopup()" >닫기</button>
 		</div>
 	</div>
 </div>
