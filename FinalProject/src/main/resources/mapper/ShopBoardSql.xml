@@ -18,11 +18,11 @@
 		select * from shopboarder order by num desc limit #{start},#{perpage}
 	</select>
 	<insert id="insertBoard" parameterType="sdto">
-		insert into shopboarder (myid,title,shopop,shopprice,shoptag,subprice1,suboption1,subprice2,suboption2,
-		subprice3,suboption3,subprice4,suboption4,subprice5,suboption5,shopsub,shopcontent,shopdelivery,uploadfile,
+		insert into shopboarder (name, myid,title,shopop,shopprice,shoptag,subprice1,suboption1,subprice2,suboption2,
+		subprice3,suboption3,subprice4,suboption4,subprice5,suboption5,shopsub,shopcontent,shopdelivery,
 		uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
-		values (#{myid},#{title},#{shopop},#{shopprice},#{shoptag},#{subprice1},#{suboption1},#{subprice2},#{suboption2},
-		#{subprice3},#{suboption3},#{subprice4},#{suboption4},#{subprice5},#{suboption5},#{shopsub},#{shopcontent},#{shopdelivery},#{uploadfile},
+		values (#{name},#{myid},#{title},#{shopop},#{shopprice},#{shoptag},#{subprice1},#{suboption1},#{subprice2},#{suboption2},
+		#{subprice3},#{suboption3},#{subprice4},#{suboption4},#{subprice5},#{suboption5},#{shopsub},#{shopcontent},#{shopdelivery},
 		#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	<update id="updateBoard" parameterType="sdto">
@@ -32,7 +32,7 @@
 		</if>
 		where num=#{num}
 	</update>
-	<delete id="deleteBoard" parameterType="String">
+	<delete id="deleteBoard" parameterType="int">
 		delete from shopboarder where num=#{num}
 	</delete>
 </mapper>

@@ -1,6 +1,7 @@
 package data.controller;
 
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,8 +61,8 @@ public class StoryController {
   // 리스트에서 뷰로 이동!
   @GetMapping("/story/view")
   public ModelAndView view(@RequestParam String num,
-      @RequestParam(defaultValue = "1") int currentPage,
-      @RequestParam(required = false) String key) {
+      @RequestParam(defaultValue = "1") int currentPage, @RequestParam(required = false) String key,
+      @RequestParam Map<String, String> map) {
     ModelAndView mview = new ModelAndView();
 
     // 목록에서 key에 list를 보낼 경우에만 조회수 증가!
@@ -73,6 +74,7 @@ public class StoryController {
 
     mview.addObject("dto", dto);
     mview.addObject("currentPage", currentPage);
+
     mview.setViewName("/story/story_view");
     return mview;
   }
