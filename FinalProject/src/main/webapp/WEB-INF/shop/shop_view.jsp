@@ -275,8 +275,7 @@
 						<div class="tab-pane active" id="tabs-1" role="tabpanel">
 							<div class="product__details__tab__desc">
 								<p>${sdto.shopcontent}</p>
-								<img src="../photo/${sdto.uploadfile}" alt="">
-
+								
 							</div>
 						</div>
 						<div class="tab-pane" id="tabs-2" role="tabpanel">
@@ -310,20 +309,7 @@
 		</div>
 		<div class="row">
 		
-			<div class="col-lg-3 col-md-4 col-sm-6">
-				<div class="product__item">
-					<a href="#">
-						<div class="product__item__pic">
-							<img src="${root}/img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="product__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
+		
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<a href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">

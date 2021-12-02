@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.StoryCommentMapper">
+
+	<insert id="insertComment" parameterType="scdto">
+		insert into story_comment (num,reidx,regroup,writer,content,writeday) 
+		values (#{num},#{reidx},#{regroup},#{writer},#{content},now())
+	</insert>
+	
+	<insert id="insertTwoComment" parameterType="scdto">
+		insert into story_comment (num,reidx,regroup,writer,content,writeday) 
+		values (#{num},#{reidx},#{regroup},#{writer},#{content},now())
+	</insert>
+	
+	<select id="getAllComment" parameterType="String" resultType="scdto">
+		select * from story_comment where num=#{num} order by regroup desc, reidx asc
+	</select>
+	
+	<select id="getMaxRegroup" resultType="int">
+		select ifnull(max(regroup),0) from story_comment
+	</select>
+	
+	<select id="getAndRegroup" resultType="int">
+		select regroup from story_comment where idx=#{idx}
+	</select>
+	
+	<select id="getComment" parameterType="String" resultType="scdto">
+		select * from story_comment where idx=#{idx}
+	</select>
+	
+	<update id="updateComment" parameterType="scdto">
+		update story_comment set content=#{content} where idx=#{idx}
+	</update>
+</mapper>

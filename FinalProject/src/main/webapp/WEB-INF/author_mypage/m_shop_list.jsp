@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri= "http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <!-- 작품/클래스 리스트 -->
@@ -19,20 +19,31 @@
 				<th>작성일</th>
 				<th>수정/삭제</th>
 			</tr>
-				<tr>
-					<td align="center">1</td>
-					<td><img src="/photo/${sdto.thumbnail_file}"></td>
-					<td><a href="#">제목이다!</a></td>
-					<td>2021-11-28</td>
+				<tr colspan="5" align="center">
+					등록된게시글이 없습니다
+				</tr>
+
+			<c:if test="${totalCount>0}">
+				<c:forEach var="a" items="${list}">
+					
+				<tr >
+					<td align="center">${no}</td>
+					<c:set var="no" value="${no-1}" />
+					<td><a href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list"><img src="/photo/${a.uploadfile1}"></a></td>
+					<td><a href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list">${a.title}</a></td>
+					<td>${a.writeday}</td>
 					<td>
-						<button type="button" class="story_mod_btn" 
-						onclick="">수정</button>
-						<button type="button" class="story_del_btn">삭제</button>
+						<button type="button" class="story_mod_btn" onclick="">수정</button>
+						<button type="button" class="story_del_btn" 
+						onclick="location.href='/mypage/shopdelete?num=${a.num}'">삭제</button>
 					</td>
 				</tr>
+				</c:forEach>
+			</c:if>
 		</table>
 		<div class="story__insert__bottom">
-			<button type="submit" onclick="">등록하기</button>
+			<button>
+			<a href="/shop/writeform" style="color: white;">글쓰기</a></button>
 		</div>
 		
 		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->

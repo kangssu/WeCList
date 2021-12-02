@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.AuthortClassMapper">
+	<select id="getTotalCount" parameterType="String" resultType="int">
+		select count(*) from classboarder where myid=#{myid}
+	</select>
+	
+	<select id="getMaxNum" resultType="int">
+		select ifnull(max(num),0) from classboarder 
+	</select>
+	
+	<select id="getData" parameterType="String" resultType="cdto">
+		select * from classboarder where num=#{num}
+	</select>
+	
+	<insert id="insertBoard" parameterType="cdto">
+		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
+		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
+	</insert>
+	
+	<select id="getList" parameterType="HashMap" resultType="cdto">
+		select * from classboarder where myid=#{myid} order by num desc limit #{start},#{perpage}
+	</select>
+	
+	<update id="updateStory" parameterType="cdto">
+		update classboarder set title=#{title},content=#{content}
+		<if test="thumbnail_file!='no'">
+			,thumbnail_file=#{thumbnail_file}
+		</if>
+		where num=#{num}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from classboarder where num=#{num}
+	</delete>
+</mapper>

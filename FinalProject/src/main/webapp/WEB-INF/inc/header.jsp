@@ -8,11 +8,6 @@ $(document).ready(function (){
 		$(this).addClass("on");
 	});
  });
- 
- $("#mypageURL").click(function(){
-	 
-	 
- });
  </script>
 <!-- Page Preloder (이거 넣으면 계속 무한루프만돔..!)-->
 <!-- <div id="preloder">

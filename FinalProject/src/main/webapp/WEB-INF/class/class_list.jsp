@@ -27,9 +27,9 @@
 			<div class="sidebar__item">
 				<h4>Category</h4>
 				<ul>
-					<li><a href="#">디저트</a></li>
-					<li><a href="#">음료</a></li>
-					<li><a href="#">bracelet</a></li>
+					<li><a href="category?class_op_cate=디저트">디저트</a></li>
+					<li><a href="category?class_op_cate=음료">음료</a></li>
+					<li><a href="category?class_op_cate=악세사리">악세서리</a></li>
 				</ul>
 			</div>
 		</div>

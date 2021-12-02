@@ -1,8 +1,5 @@
 package data.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,12 +38,10 @@ public class UsersController {
 		return "/users/authorJoin";
 	}
 	
-	@PostMapping("/users/insert")
+	@GetMapping("/users/insert")
 	public String usersInsert(@ModelAttribute UserDto udto) {
-		// 이메일 형식으로 넣어주기
 		mapper.insertUsers(udto);
 		return "redirect:join";
 	}
-
-
+	
 }
