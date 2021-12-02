@@ -12,15 +12,22 @@ spring:
       enabled: true
 
 #mysql
-  datasource:
-    url: jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
-    username: guest
-    password: 1234qwer
-    driver-class-name: org.mariadb.jdbc.Driver
+#  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul
 #    username: root
 #    password: 1234
+#mariaDB
+#  datasource:
+#    url: jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
+#    username: guest
+#    password: 1234qwer
+#    driver-class-name: org.mariadb.jdbc.Driver
+  datasource:
+    url: jdbc:log4jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
+    username: guest
+    password: 1234qwer
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
   servlet:
     multipart:
       max-file-size: 5MB
