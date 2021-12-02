@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import data.dto.UsersJoinDto;
-import data.mapper.UsersJoinMapper;
+import data.dto.UserDto;
+import data.mapper.UserMapper;
 
 @Controller
 public class UsersController {
 	
 	@Autowired
-	UsersJoinMapper mapper;
+	UserMapper mapper;
 	
 	@GetMapping("/users/login")
 	public String login() {
@@ -43,34 +42,11 @@ public class UsersController {
 	}
 	
 	@PostMapping("/users/insert")
-	public String usersInsert(@ModelAttribute UsersJoinDto jdto) {
+	public String usersInsert(@ModelAttribute UserDto udto) {
 		// 이메일 형식으로 넣어주기
-		mapper.insertUsers(jdto);
+		mapper.insertUsers(udto);
 		return "redirect:join";
 	}
-	
-//	@GetMapping("/users/idcheck")
-//	public @ResponseBody Map<String, Integer> idCheckProcess(@RequestParam String id) {
-//		// id 체크
-//		int check = mapper.getIdCheck(id);
-//		
-//		Map<String, Integer> map = new HashMap<String, Integer>();
-//		map.put("check", check); // 0 or 1
-//		
-//		return map;
-//	}
-	
-	@GetMapping("/users/idcheck")
-	@ResponseBody
-	public Map<String, Integer> idCheck(@RequestParam String id){
-		// ID 체크
-        int check = mapper.getIdCheck(id);
-        
-        Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("check", check); // 0 or 1
-        
-        return map;
-    }
 
 
 }
