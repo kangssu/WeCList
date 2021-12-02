@@ -49,7 +49,7 @@ public class ShopBoardService {
     mapper.updateBoard(dto);
   }
   
-  public void deleteBoard(String num) {
+  public void deleteBoard(int num) {
     mapper.deleteBoard(num);
 
   }

@@ -20,7 +20,7 @@
 					</div>
 					<div class="grade_shopbox">
 						<span>총 등록한 작품</span>
-						<p class="shop_box_text">10개</p>
+						<p class="shop_box_text">${sessionScope.ttcount} 개</p>
 					</div>
 					<div class="grade_shopbox">
 						<span>총 등록한 클래스</span>

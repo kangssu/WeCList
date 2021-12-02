@@ -14,7 +14,7 @@
 
 		$('#summernote').summernote({
 			placeholder : 'Write contents',
-			height : 400,
+			height : 400, 
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
 		});
