@@ -364,6 +364,72 @@ li {
 }
 /* 댓글 수정 팝업 end! */
 
+/* 댓글 삭제 팝업 start! */
+#delete_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+
+}
+
+#delete_popup.hide {
+	display: none;
+}
+
+#delete_popup .content {
+	background: #fff; 
+	border-radius: 5px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:500px;
+	height:300px;
+}
+
+.del_popup_title{
+	font-size:25px;
+	color:#1C1C1C;
+	font-weight:700;
+	margin-bottom:40px;
+	text-align:center;
+}
+
+.content{
+	text-align:center;
+}
+
+.del_popup_text b{
+	font-size:14px;
+	color:#ff7b27;
+}
+
+.popup_story_del_btn{
+	text-align:center;
+	margin-top:30px;
+}
+
+.popup_info_btn #btn_submit_3{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	width:100px;
+	height:35px;
+	color:white;
+}
+
+.popup_info_btn #btn_close_3{
+	border:1px solid #ff7b27;
+	background-color:white;
+	width:100px;
+	height:35px;
+	color:#ff7b27;
+}
+/* 댓글 삭제 팝업 end! */
+
 /*---------------------
   Helper CSS
 -----------------------*/
@@ -4606,6 +4672,310 @@ li {
 	padding:15px;
 	background-color:white;
 }
+
+/*---------------------
+  작가 리스트 스타일
+-----------------------*/
+.author_list_hot_title h2{
+	color: #1c1c1c;
+	font-weight: 700;
+	position: relative;
+	margin-bottom:20px;
+	font-size:25px;
+	text-align:left;
+	display:inline-block;
+	margin-top:45px;
+}
+
+.author_list_hot_title span{
+	margin-left:15px;
+	font-size:30px;
+}
+
+.author__box {
+	height: 270px;
+	position: relative;
+	background-color:wihte;
+	border-radius:10px;
+	border:1px solid #f5f5f5;
+	box-shadow:3px 3px 3px 3px #f5f5f5;
+}
+
+#author_img_1{
+	width:170px;
+	height:170px;
+	border-radius:100px;
+	margin-top:25px;
+	margin-left:50px;
+}
+
+.author_list{
+	margin-bottom:40px;
+}
+
+.author__box h5 {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	padding: 0 20px;
+	bottom: 20px;
+	text-align: center;
+}
+
+.author__box h5 a {
+	font-size: 18px;
+	color: #1c1c1c;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 12px 0 10px;
+	background: #ffffff;
+	display: block;
+}
+
+.author_title{
+	margin-top:80px;
+	font-size:25px;
+	font-weight:700;
+}
+
+.author_title b{
+	color:#ff7b27;
+}
+
+/*---------------------
+  작가 리스트 스타일
+-----------------------*/
+
+/*---------------------
+  고객센터 메뉴
+-----------------------*/
+.customer__side_menu{
+	padding-top:100px;
+	width:210px;
+	display:inline-block;
+}
+
+.customer__side_menu h2{
+	font-size:28px;
+	font-weight:500;
+	padding-bottom:30px;
+}
+
+.customer__snb_all{
+	border:1px solid #f5f5f5;
+	border-bottom:none;
+}
+
+.customer__snb_all{
+	border:1px solid #f5f5f5;
+	border-bottom:none;
+}
+
+.customer__snb li{
+	border-bottom:1px solid #f5f5f5;
+	padding:14px 0 16px 20px;
+	font-size:14px;
+}
+
+.customer__snb li a{
+	color:#1c1c1c;
+	display:block;
+}
+
+.customer__snb li:hover{
+	background-color:#ff7b27;
+}
+
+.customer__snb li a:hover{
+	color:white;
+	font-weight:500;
+	display:block;
+}
+
+.customer__snb i:nth-child(1){margin-left:25px;}
+
+/*---------------------
+  고객센터 메뉴
+-----------------------*/
+
+/*---------------------
+  FAQ 리스트
+-----------------------*/
+.faq__list{
+	padding-top:100px;
+	margin-left:30px;
+	margin-bottom:80px;
+	display:inline-block;
+}
+
+.faq__list h2{
+	font-size:24px;
+}
+
+.customer__faq__list{
+	margin-top:35px;
+}
+
+.customer__faq__list li{
+	border:1px solid #b2b2b2;
+	width:965px;
+	padding:20px 0px 0px 0px;
+}
+
+.faq-type{
+	cursor:pointer;
+	display:block;
+	margin-top:10px;
+}
+
+.faq-q{
+	margin-bottom:20px;
+}
+
+.faq-type span:nth-child(1){
+	font-size:21px; 
+	color:#ff7b27; 
+	font-weight:700;
+	margin-right:10px;
+	margin-left:15px;
+}
+
+.faq-type i{
+	margin-left:550px;
+	font-size:21px;
+	font-weight:700;
+	line-height:50px;
+}
+
+.toggle-wrap{
+	padding-top:20px;
+	padding-bottom:20px;
+	border-top:1px solid #b2b2b2;
+	background-color:#f5f5f5;
+}
+
+/*---------------------
+  FAQ 리스트
+-----------------------*/
+
+/*---------------------
+  공지사항 리스트
+-----------------------*/
+.customer__notice{
+	padding-top:100px;
+	margin-left:30px;
+	margin-bottom:80px;
+	display:inline-block;	
+}
+
+.customer__notice h2{
+	font-size:24px;
+}
+
+.notice__list{
+	margin-top:35px;
+}
+
+.notice__table{
+	width:965px;
+	text-align:center;
+	table-layout: fixed;
+}
+
+.notice__table th{
+	height:60px;
+	border-top: 2px solid #1c1c1c;
+	border-bottom: 1px solid #1c1c1c;
+	font-weight:500;
+	color:#1c1c1c;
+}
+
+.notice__table th:nth-child(1){width:50px;}
+.notice__table th:nth-child(2){width:500px;}
+.notice__table th:nth-child(4){width:150px;}
+
+.notice__table td a{
+	display:block;
+	color:#1c1c1c;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+}
+
+.notice__table td{
+	height:55px;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.notice__table td:nth-child(2){
+	text-align:left; 
+	padding-left:30px;
+	
+}
+
+/*---------------------
+  공지사항 리스트
+-----------------------*/
+
+/*---------------------
+  문의사항 리스트
+-----------------------*/
+.customer__enquiry{
+	padding-top:100px;
+	margin-left:30px;
+	margin-bottom:80px;
+	display:inline-block;	
+}
+
+.customer__enquiry h2{
+	font-size:24px;
+}
+
+.enquiry__list{
+	margin-top:35px;
+}
+
+.enquiry__table{
+	width:965px;
+	text-align:center;
+	table-layout: fixed;
+}
+
+.enquiry__table th{
+	height:60px;
+	border-top: 2px solid #1c1c1c;
+	border-bottom: 1px solid #1c1c1c;
+	font-weight:500;
+	color:#1c1c1c;
+}
+
+.enquiry__table th:nth-child(1){width:50px;}
+.enquiry__table th:nth-child(2){width:500px;}
+.enquiry__table th:nth-child(4){width:150px;}
+
+.enquiry__table td a{
+	display:block;
+	color:#1c1c1c;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+}
+
+.enquiry__table td{
+	height:55px;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.enquiry__table td:nth-child(2){
+	text-align:left; 
+	padding-left:30px;
+	
+}
+
+/*---------------------
+  문의사항 리스트
+-----------------------*/
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 

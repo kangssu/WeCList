@@ -61,4 +61,9 @@ public class StoryCommentController {
     service.updateComment(dto);
   }
 
+  @GetMapping("/story/cdelete")
+  public void delete(String idx) {
+    service.deleteComment(idx);
+  }
+
 }

@@ -15,7 +15,15 @@
 		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
 		<put-attribute name="body_top" value="/WEB-INF/mypage_inc/mypage_top.jsp"/>
 		<put-attribute name="body_left" value="/WEB-INF/mypage_inc/mypage_menu.jsp"/>
-		<put-attribute name="body_right" value="/WEB-INF/author_mypage/author_mypage_profile.jsp"/>
+		<put-attribute name="body_right" value="/WEB-INF/author_mypage/m_shop_list.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+	</definition>
+	
+	<definition name="layout3" template="/WEB-INF/customer_inc/layout3.jsp">
+		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
+		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
+		<put-attribute name="body_left" value="/WEB-INF/customer_inc/customer_menu.jsp"/>
+		<put-attribute name="body_right" value="/WEB-INF/customer/faq_list.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
 	</definition>
 	
@@ -23,6 +31,7 @@
 	<definition name="/*/*" extends="layout">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
+	
 	<definition name="/2/*/*" extends="layout">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/inc/class.jsp"/>
@@ -30,6 +39,10 @@
 	</definition>
 	
 	<definition name="/1/*/*" extends="layout2">
+		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="/3/*/*" extends="layout3">
 		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 </tiles-definitions>

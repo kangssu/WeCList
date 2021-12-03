@@ -58,7 +58,7 @@
 					if(dto.reidx==1){
 						com+="<i class='fa fa-star' aria-hidden='true'></i>";
 					}
-					com+=" </h6></div>";
+					com+="</h6></div>";
 					com+="<p>"+dto.content+"</p>";
 					com+="<span>"+dto.writeday+"</span>";
 					com+="<div class='comment_btn_all'>";
@@ -66,7 +66,7 @@
 						com+="<button type='button' id ='author_add_comment' onclick='rePopup("+dto.idx+","+dto.regroup+")'>댓글</button>";
 					}
 					com+="<button type='button' id='update_comment' onclick='upPopup("+dto.idx+")'>수정</button>";
-					com+="<button type='button' idx='"+dto.idx+"'>삭제</button>";
+					com+="<button type='button' id='delete_comment' onclick='delPopup("+dto.idx+")'>삭제</button>";
 					com+="</div>";
 					com+="</li>";
 				});
@@ -154,7 +154,33 @@
 		popup.classList.add('hide');
 	}
 	
-	
+	//삭제를 클릭했을 때 나오는 팝업! (회원은 자신의 글만, 작가도 가능하게)
+	function delPopup(idx) {
+		
+		//댓글 삭제 팝업에서 삭제 버튼 클릭시!
+		$(document).on("click","#btn_submit_3",function(){
+			$("#idx").val(idx);
+			idx=$("#idx").val();
+			alert("2");
+			$.ajax({
+				type:"get",
+				dataType:"text",
+				url:"/story/cdelete",
+				data:{"idx":idx},
+				success:function(data){	
+					location.reload();
+					list();
+				}
+			});
+		});
+		
+		const popup = document.querySelector('#delete_popup');
+		 popup.classList.remove('hide');
+	}
+	function delPopupClose() {
+		const popup = document.querySelector('#delete_popup');
+		popup.classList.add('hide');
+	}
 	
 	
 </script>
@@ -279,6 +305,23 @@
 		<div class="popup_info_btn">
 			<button type="submit" id="btn_submit_2">확인</button>
 			<button type="button" id="btn_close_2" onclick="upPopupClose()" >닫기</button>
+		</div>
+	</div>
+</div>
+
+<!-- 삭제 클릭시 팝업! -->
+<div id="delete_popup" class="hide">
+	<div class="content">
+		<p class="popup_info_check">해당 댓글을 삭제하시겠습니까?</p>
+		<input type="hidden" name="idx" id="idx" value=""/>
+		<span class="del_popup_text">
+			해당 댓글를 삭제하시겠습니까?<br>
+			삭제하시면 다시 원복하실 수 없습니다.<br>
+			<b>※ 신중히 생각하시고 진행부탁드립니다.</b>	
+		</span>
+		<div class="popup_info_btn">
+			<button type="submit" id="btn_submit_3">확인</button>
+			<button type="button" id="btn_close_3" onclick="delPopupClose()" >닫기</button>
 		</div>
 	</div>
 </div>

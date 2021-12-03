@@ -31,4 +31,8 @@
 	<update id="updateComment" parameterType="scdto">
 		update story_comment set content=#{content} where idx=#{idx}
 	</update>
+	
+	<delete id="deleteComment" parameterType="String">
+		delete from story_comment where idx=#{idx}
+	</delete>
 </mapper>

@@ -49,4 +49,8 @@ public class StoryCommentService {
     mapper.updateComment(dto);
   }
 
+  public void deleteComment(String idx) {
+    mapper.deleteComment(idx);
+  }
+
 }

@@ -24,4 +24,5 @@ public interface StoryCommentMapper {
 
   public void updateComment(StoryCommentDto dto);
 
+  public void deleteComment(String idx);
 }
