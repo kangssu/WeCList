@@ -42,24 +42,30 @@ public class UsersController {
 		return "/users/authorJoin";
 	}
 	
-	@GetMapping("/users/insert")
+	@PostMapping("/users/insert")
 	public String usersInsert(@ModelAttribute UserDto udto) {
 		mapper.insertUsers(udto);
 		return "redirect:join";
 	}
 	
+//	@GetMapping("/users/update")
+//	public ModelAndView updateform(@RequestParam String id) {
+//		ModelAndView mview = new ModelAndView();
+//		
+//		// DB로부터 dto 얻기
+//		UserDto dto = mapper.getMemberData(id);
+//		
+//		mview.addObject("dto",dto);
+//		
+//		mview.setViewName("/users/update");
+//		
+//		return mview;
+//	}
+	
 	@GetMapping("/users/update")
-	public ModelAndView updateform(@RequestParam String id) {
-		ModelAndView mview = new ModelAndView();
-		
-		// DB로부터 dto 얻기
-		UserDto dto = mapper.getMemberData(id);
-		
-		mview.addObject("dto",dto);
-		
-		mview.setViewName("/users/update");
-		
-		return mview;
+	public String usersUpdate(@ModelAttribute UserDto udto) {
+		mapper.updateMember(udto);
+		return "/users/userUpdate";
 	}
 	
 	@GetMapping("/users/delete")
