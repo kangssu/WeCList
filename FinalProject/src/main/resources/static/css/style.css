@@ -232,6 +232,204 @@ li {
 }
 /* 삭제 팝업! end*/
 
+/* 스토리 작가가 댓글 팝업! start*/
+#author_comment_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+
+}
+
+#author_comment_popup.hide {
+	display: none;
+}
+
+#author_comment_popup .content {
+	background: #fff; 
+	border-radius: 5px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:800px;
+	height:350px;
+}
+
+.del_popup_title{
+	font-size:25px;
+	color:#1C1C1C;
+	font-weight:700;
+	margin-bottom:40px;
+	text-align:center;
+}
+
+.content{
+	text-align:center;
+}
+
+.del_popup_text b{
+	font-size:14px;
+	color:#ff7b27;
+}
+
+.popup_story_del_btn{
+	text-align:center;
+	margin-top:30px;
+}
+
+.popup_story_del_btn #btn_story_del{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	width:100px;
+	height:35px;
+	color:white;
+}
+
+.popup_story_del_btn #btn_del_close{
+	border:1px solid #ff7b27;
+	background-color:white;
+	width:100px;
+	height:35px;
+	color:#ff7b27;
+}
+/* 스토리 작가가 댓글 팝업! end*/
+
+/* 댓글 수정 팝업 start! */
+#update_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+
+}
+
+#update_popup.hide {
+	display: none;
+}
+
+#update_popup .content {
+	background: #fff; 
+	border-radius: 5px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:800px;
+	height:350px;
+}
+
+.del_popup_title{
+	font-size:25px;
+	color:#1C1C1C;
+	font-weight:700;
+	margin-bottom:40px;
+	text-align:center;
+}
+
+.content{
+	text-align:center;
+}
+
+.del_popup_text b{
+	font-size:14px;
+	color:#ff7b27;
+}
+
+.popup_story_del_btn{
+	text-align:center;
+	margin-top:30px;
+}
+
+.popup_info_btn #btn_submit_2{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	width:100px;
+	height:35px;
+	color:white;
+}
+
+.popup_info_btn #btn_close_2{
+	border:1px solid #ff7b27;
+	background-color:white;
+	width:100px;
+	height:35px;
+	color:#ff7b27;
+}
+/* 댓글 수정 팝업 end! */
+
+/* 댓글 삭제 팝업 start! */
+#delete_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+
+}
+
+#delete_popup.hide {
+	display: none;
+}
+
+#delete_popup .content {
+	background: #fff; 
+	border-radius: 5px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:500px;
+	height:300px;
+}
+
+.del_popup_title{
+	font-size:25px;
+	color:#1C1C1C;
+	font-weight:700;
+	margin-bottom:40px;
+	text-align:center;
+}
+
+.content{
+	text-align:center;
+}
+
+.del_popup_text b{
+	font-size:14px;
+	color:#ff7b27;
+}
+
+.popup_story_del_btn{
+	text-align:center;
+	margin-top:30px;
+}
+
+.popup_info_btn #btn_submit_3{
+	border:1px solid #ff7b27;
+	background-color:#ff7b27;
+	width:100px;
+	height:35px;
+	color:white;
+}
+
+.popup_info_btn #btn_close_3{
+	border:1px solid #ff7b27;
+	background-color:white;
+	width:100px;
+	height:35px;
+	color:#ff7b27;
+}
+/* 댓글 삭제 팝업 end! */
+
 /*---------------------
   Helper CSS
 -----------------------*/
@@ -4149,6 +4347,15 @@ li {
 	color:#1c1c1c;
 }
 
+.comment__form{
+	width:700px;
+	height:120px;
+	border:1px solid #b2b2b2;
+	margin-right:5px;
+	border-radius:5px;
+	padding:10px;
+}
+
 /* 스토리 등록폼 스타일 */
 .mypage__story__form{
 	margin-top:35px;	
@@ -4449,12 +4656,39 @@ li {
 }
 
 .story__view__comment__list i{
-	margin-right:5px;
-	color:#b2b2b2;
+	margin-left:5px;
+	margin-top:-10px;
+	color:#ff7b27;
+	font-size:16px;
 }
 
+/* .comment_plus img{
+	width:12px;
+	height:12px;
+	margin-right:5px;
+	margin-bottom:10px;
+} */
+
+.profile_re{
+	width:35px;
+	height:35px;
+	border-radius:100px;
+	display: inline-block;
+	margin-right:10px;
+}
+
+.author_re{
+	width:15px;
+	height:15px;
+	margin-bottom:10px;
+	margin-right:10px;
+}
+
+.story__view__comment__list i:nth-child(2){color:#ff7b27;}
+
 .story__view__comment__list h6{
-	font-size:15px;
+	font-size:16px;
+	font-weight:500;
 }
 
 .story__view__comment__list ul li{
@@ -4488,6 +4722,7 @@ li {
 	color:#1c1c1c;
 	margin-top:10px;
 	line-height:10px;
+	margin-right:5px;
 }
 /*---------------------
   작가 스토리 메인
