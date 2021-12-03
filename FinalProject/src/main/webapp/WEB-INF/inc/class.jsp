@@ -62,7 +62,7 @@
 		</div>
 		<div class="row">
 		
-			<c:forEach var="cdto" items="${listpopulMain}" begin="0" end="14">
+			<c:forEach var="cdto" items="${listpopulMain}" begin="0" end="11">
 				
 				<div style="float: left;">
 					<div class="product__item">
