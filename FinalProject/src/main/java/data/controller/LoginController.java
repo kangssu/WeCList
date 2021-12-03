@@ -40,17 +40,7 @@ public class LoginController {
 //		}
 //	}
 	
-	@GetMapping("/users/idcheck")
-	@ResponseBody
-	public Map<String, Integer> idCheck(@RequestParam String id){
-		// ID 체크
-        int check = mapper.getIdCheck(id);
-        
-        Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("check", check); // 0 or 1
-        
-        return map;
-    }
+	
 	
 	@GetMapping("/login/loginprocess")
 	public String loginprocess(

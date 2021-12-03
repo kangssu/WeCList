@@ -1,5 +1,8 @@
 package data.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,5 +46,17 @@ public class UsersController {
 		mapper.insertUsers(udto);
 		return "redirect:join";
 	}
+	
+	@GetMapping("/users/idcheck")
+	@ResponseBody
+	public Map<String, Integer> idCheck(@RequestParam String id){
+		// ID 체크
+        int check = mapper.getIdCheck(id);
+        
+        Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("check", check); // 0 or 1
+        
+        return map;
+    }
 	
 }
