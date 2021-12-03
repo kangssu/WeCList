@@ -1,0 +1,82 @@
+.hero__mypage__2 p{
+  position:absolute;
+  font-size:10px;
+  margin-top:-10px;
+  color:#1c1c1c;
+}
+
+.hero__mypage__2{
+  display:inline-block;
+  margin-left:25px;
+}
+
+
+.hero__mypage {
+  padding: 16px 0;
+  margin-left:200px;
+  font-size:35px;
+}
+
+.hero__mypage a{
+  color:#252525;
+}
+
+.hero__mypage__2 span{
+  /*position:absolute;*/
+  /*background-color:#ff7b27;*/
+  /*width:17px;*/
+  /*height:17px;*/
+  /*border-radius:50px;*/
+  /*color:white;*/
+  /*text-align:center;*/
+  /*line-height:18px;*/
+  /*font-size:5px;*/
+  /*top:100px;*/
+  /*right:87px;*/
+
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.hero__mypage__1 p{
+  position:absolute;
+  font-size:10px;
+  margin-top:-10px;
+  color:#1c1c1c;
+  margin-left:-12px;
+}
+
+.hero__mypage__1{
+  display:inline-block;
+}
+
+.hero__mypage__2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: #333333;
+  background: #dddddd;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+}
+
+.hero__mypage__2:hover {
+  cursor: pointer;
+}
+
+.hero__mypage__2:active {
+  background: #cccccc;
+}

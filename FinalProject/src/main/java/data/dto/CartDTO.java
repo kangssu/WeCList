@@ -35,7 +35,7 @@ public class CartDTO {
             ", title='" + title + '\'' +
             ", itemPrice=" + itemPrice +
             ", itemImage='" + itemImage + '\'' +
-            '}';
+            '}' + '\n';
     }
 
     public int getUser_idx() {

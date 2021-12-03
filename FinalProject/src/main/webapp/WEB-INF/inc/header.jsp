@@ -144,7 +144,7 @@ $(document).ready(function (){
 						</a>
 					</div>
 					<div class="hero__mypage__2">
-						<a href="${root}/shop/buy">
+						<a href="${root}/cart/list">
 							<span>0</span>
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<p>장바구니</p>
