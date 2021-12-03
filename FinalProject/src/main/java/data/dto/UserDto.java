@@ -3,6 +3,8 @@ package data.dto;
 import java.sql.Timestamp;
 import org.apache.ibatis.type.Alias;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Alias("udto")
 public class UserDto {
 	private String idx;
@@ -16,6 +18,7 @@ public class UserDto {
 	private String useterms;
 	private String personterms;
 	private String ageterms;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	private Timestamp gaipday;
 	private String profileimg;
 	private String category;

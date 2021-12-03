@@ -3,7 +3,7 @@
 <script type="text/javascript">
 </script>
 <div class="container" style="margin-top:120px;">
-	<form action="/login/loginprocess" method="get" class="form-inline">
+	<form action="/login/loginprocess" method="post" class="form-inline">
 		<div style="text-align: center;">
 			<div class="checkout__input" style="display: inline-block;">
 				<div style="padding-bottom: 20px">
