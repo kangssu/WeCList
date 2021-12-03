@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="<%=request.getContextPath()%>" />
 <!-- Hero Section Begin -->
 
 <script>
-	$(document).ready(function (){
+	$(document).ready(function() {
 		$("#btn_item_page").closest("li").addClass("active");
 	})
 </script>
@@ -17,7 +19,7 @@
 
 				<!-- Indicators -->
 				<ul class="carousel-indicators">
-					<li data-target="#demo" data-slide-to="0" class="active"></li>
+					<li data-target="#demo" data-slide-to="033" class="active"></li>
 					<li data-target="#demo" data-slide-to="1"></li>
 					<li data-target="#demo" data-slide-to="2"></li>
 				</ul>
@@ -55,242 +57,36 @@
 <section class="featured spad">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 section-title_top">
-				<div class="section-title">
-					<h2>TOP 15 인기 작품</h2>
-					<span class="fa fa-angle-right"></span>
+
+			<div class="col-lg-9 col-md-7">
+				<div class="col-lg-12 section-title_top">
+					<div class="section-title">
+						<h2>TOP 15 인기 작품</h2>
+						<span class="fa fa-angle-right"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<c:forEach var="a" items="${listpopul}" varStatus="status">
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="featured__item">
+								<a href="/shop/	content?num=${a.num}">
+									<div class="featured__item__pic set-bg">
+										<img src="../photo/${a.uploadfile1}" alt=""> <span
+											class="shop_rank_number first">${status.count}</span>
+									</div>
+									<div class="featured__item__text">
+										<h6>${a.name}</h6>
+										<h6>${a.title}</h6>
+										<h5>${a.shopprice}</h5>
+									</div>
+								</a>
+							</div>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter">
-			<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number first">1</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">2</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">3</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">4</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">5</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">6</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">7</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">8</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">9</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">10</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">11</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">12</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">13</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">14</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-							<span class="shop_rank_number">15</span>
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<button type="button" class="main__hot__shop__1">인기 작품 더보기</button>
-		</div>
-	</div>
 </section>
 <!-- Featured Section End -->
 
@@ -306,157 +102,37 @@
 <section class="featured spad">
 	<div class="container">
 		<div class="row">
+			<div class="col-lg-9 col-md-7">
 
-			<div class="col-lg-12 section-title_top">
-				<div class="section-title">
-					<h2>최신 작품</h2>
-					<span class="fa fa-angle-right"></span>
+				<div class="col-lg-12 section-title_top">
+					<div class="section-title">
+						<h2>최신 작품</h2>
+						<span class="fa fa-angle-right"></span>
+					</div>
+				</div>
+				<div class="row">
+
+					<c:forEach var="a" items="${list}">
+						<div class="col-lg-4 col-md-6 col-sm-6">
+
+							<div class="featured__item">
+								<a href="/shop/	content?num=${a.num}">
+									<div class="featured__item__pic set-bg">
+										<img src="../photo/${a.uploadfile1}" alt="">
+									</div>
+									<div class="featured__item__text">
+										<h6>${a.name}</h6>
+										<h6>${a.title}</h6>
+										<h5>${a.shopprice}</h5>
+									</div>
+								</a>
+							</div>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter">
- 			<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-				<div class="featured__item">
-					<a href="#">	
-						<div class="featured__item__pic set-bg">
-							<img src="img/featured/main_con1.jpg" alt="">
-						</div>
-						<div class="featured__item__text">
-							<h6>제이라운드</h6>
-							<h6>[수능선물]수제카라멜 선물세트</h6>
-							<h5>11,000원</h5>
-						</div>
-					</a>
-				</div>
-			</div>
-			<button type="button" class="main__hot__shop__1">최신 작품 더보기</button>
-		</div>
+
 	</div>
 </section>
 <!-- Featured Section End -->
@@ -477,16 +153,13 @@
 				<div class="story__item__main">
 					<a href="#">
 						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
+							<img src="/img/pro.jpg"> <span>제이라운드</span>
 						</div>
 						<div class="story__item__pic">
 							<img src="${root}/img/blog/main_con3.jpg" alt="">
 						</div>
 						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
+							<h5>대구 신세계 백화점 8층 클래스 오픈입니다!</h5>
 							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
 								아웃백 옆 취미상점 카페입니다!</p>
 							<ul>
@@ -501,16 +174,13 @@
 				<div class="story__item__main">
 					<a href="#">
 						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
+							<img src="/img/pro.jpg"> <span>제이라운드</span>
 						</div>
 						<div class="story__item__pic">
 							<img src="${root}/img/blog/main_con3.jpg" alt="">
 						</div>
 						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
+							<h5>대구 신세계 백화점 8층 클래스 오픈입니다!</h5>
 							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
 								아웃백 옆 취미상점 카페입니다!</p>
 							<ul>
@@ -525,16 +195,13 @@
 				<div class="story__item__main">
 					<a href="#">
 						<div class="story_img">
-							<img src="/img/pro.jpg">
-							<span>제이라운드</span>
+							<img src="/img/pro.jpg"> <span>제이라운드</span>
 						</div>
 						<div class="story__item__pic">
 							<img src="${root}/img/blog/main_con3.jpg" alt="">
 						</div>
 						<div class="story__item__text">
-							<h5>
-								대구 신세계 백화점 8층 클래스 오픈입니다!
-							</h5>
+							<h5>대구 신세계 백화점 8층 클래스 오픈입니다!</h5>
 							<p>안녕하세요. 메블랑입니다. 이번달에 대구 신세계 백화점 8층에서 클래스를 오픈하게 되었습니다. 위치는
 								아웃백 옆 취미상점 카페입니다!</p>
 							<ul>
