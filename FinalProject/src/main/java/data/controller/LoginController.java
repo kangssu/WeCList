@@ -64,6 +64,7 @@ public class LoginController {
 			System.out.println(category);
 			return "/";
 		} else {
+			System.out.println(check);
 			System.out.println("로그인 실패");
 			return "/users/login";
 		}
