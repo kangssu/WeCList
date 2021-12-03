@@ -19,5 +19,9 @@ public class UsersJoinService {
 	public void insertUsers(UserDto dto) {
 		mapper.insertUsers(dto);
 	}
+	
+	public void login (HashMap<String, String> map) {
+		mapper.login(map);
+	}
 
 }
