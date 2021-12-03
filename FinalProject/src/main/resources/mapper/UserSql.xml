@@ -20,13 +20,13 @@
 		select count(*)	from usersjoin where idx=#{idx} and pass1=#{pass1}
 	</select>
 	<select id="getMemberData" parameterType="String" resultType="udto">
-		select * from usersjoin where idx=#{idx}
+		select * from usersjoin where id=#{id}
 	</select>
 	<delete id="deleteMember" parameterType="String">
-		delete from usersjoin where idx=#{idx}
+		delete from usersjoin where id=#{id}
 	</delete>
 	<update id="updateMember" parameterType="udto">
-		update usersjoin set irum=#{irum},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email}
+		update usersjoin set irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email}
 		where id=#{id}
 	</update>
 	<select id="getName" parameterType="String" resultType="String">
