@@ -72,7 +72,7 @@ public class AuthorClassController {
   
   @GetMapping("/mypage/class/addform")
 	public String addform() {
-		return "/1/author_mypage/class_write_form";
+		return "/1/author_mypage/m_class_write_form";
 	}
   
   @PostMapping("/mypage/class/insert")
@@ -216,7 +216,7 @@ public class AuthorClassController {
 
     mview.addObject("dto", dto);
     mview.addObject("currentPage", currentPage);
-    mview.setViewName("/1/author_mypage/class_update_form");
+    mview.setViewName("/1/author_mypage/m_class_update_form");
     return mview;
   }
   

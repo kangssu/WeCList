@@ -146,7 +146,28 @@
 			</div>
 		</div>
 		<div class="row featured__filter">
-			
+			<div class="row">
+			<div class="categories__slider owl-carousel">
+				<c:forEach var="cdto" items="${listnewsMain}">
+						<div style="float: left;">
+							<div class="product__item">
+								<a href="${root}/class/view_news?num=${cdto.num}">
+									<div class="product__item__pic set-bg">
+										<img src="../photo/${cdto.uploadfile}"
+											style="width: 300px; height: 300px;">
+									</div>
+									<div class="product__item__text">
+										<h6>${cdto.title}</h6>
+										<h6>${cdto.class_op_cate}</h6>
+										<h5>${cdto.classprice}원</h5>
+									</div>
+								</a>
+							</div>
+						</div>
+				</c:forEach>
+
+			</div>
+		</div>
 			<button type="button" class="main__hot__shop__1"
 				onclick="location.href='class/news'">신규 온라인 클래스 더보기</button>
 		</div>

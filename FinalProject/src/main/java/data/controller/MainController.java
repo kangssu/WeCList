@@ -16,10 +16,10 @@ import data.service.MainService;
 public class MainController {
 	
   @Autowired
-  MainMapper mapper;
+  MainMapper classmapper;
   
   @Autowired
-  MainService service;
+  MainService classservice;
 
   @GetMapping("/")
   public String home() {
@@ -30,9 +30,9 @@ public class MainController {
   public ModelAndView getMain()
 	{
 		ModelAndView mview=new ModelAndView();
-		List<ClassBoardDto> listMain=mapper.getAlllist();
-		List<ClassNewBoardDto> listnewsMain=mapper.getAllnewlist();
-		List<ClassBoardDto> listpopulMain=mapper.getPopular();
+		List<ClassBoardDto> listMain=classmapper.getAlllist();
+		List<ClassNewBoardDto> listnewsMain=classmapper.getAllnewlist();
+		List<ClassBoardDto> listpopulMain=classmapper.getPopular();
 		
 		mview.addObject("listMain", listMain);
 		mview.addObject("listnewsMain", listnewsMain);

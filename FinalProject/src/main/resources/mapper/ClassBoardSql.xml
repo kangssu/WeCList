@@ -31,4 +31,7 @@
 	<delete id="deleteBoard" parameterType="String">
 		delete from classboarder where num=#{num}
 	</delete>
+	<select id="getSevendays" resultType="cndto">
+		select num, name, myid, writeday from classnewboarder where writeday > now() - interval 7 DAY;
+	</select>
 </mapper>

@@ -84,10 +84,10 @@ public class ClassController {
 	{
 		ModelAndView mview=new ModelAndView();
 		List<ClassNewBoardDto> listnews=mapper.getAllnewlist();
-		//List<ClassNewBoardDto> listnewsunder=mapper.getAllnewlistUnder();
-		
+		List<ClassNewBoardDto> listseven=mapper.getSevendays();
 		
 		mview.addObject("listnews", listnews);
+		mview.addObject("listseven", listseven);
 		//mview.addObject("listnewsunder", listnewsunder);
 		mview.setViewName("/2/class/class_news");//tiles 는 /폴더명/파일명 구조이다
 		return mview;
@@ -117,7 +117,7 @@ public class ClassController {
 	
 	@GetMapping("/class/addform")
 	public String addform() {
-		return "/2/class/class_write_form";
+		return "/2/class/m_class_write_form";
 	}
 
 	@GetMapping("/class/view_news")

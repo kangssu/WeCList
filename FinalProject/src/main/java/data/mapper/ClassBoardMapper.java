@@ -15,6 +15,7 @@ public interface ClassBoardMapper {
   public List<ClassBoardDto> getAlllist();
   public List<ClassNewBoardDto> getAllnewlist();
   public List<ClassBoardDto> getPopular();
+  public List<ClassNewBoardDto> getSevendays();
   public List<ClassBoardDto> getCategory(String class_op_cate);
   public void insertBoard(ClassBoardDto dto);
   public void insertNewBoard(ClassNewBoardDto dto);
