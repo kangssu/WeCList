@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="data.mapper.UsersJoinMapper"> 
+<mapper namespace="data.mapper.oldUserMapper"> 
 
-	<insert id="insertUsers" parameterType="ujdto">
-		insert into usersjoin (id,pass,name,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday)
-		values (#{id},#{pass},#{name},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now())
+	<insert id="insertUsers" parameterType="udto">
+		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category)
+		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category})
 	</insert>
+	
+	<select id="getIdCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where id=#{id}
+	</select>
+
 
 </mapper>

@@ -6,17 +6,22 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import data.dto.ShopBoardDto;
+import data.dto.UserDto;
 import data.dto.UsersJoinDto;
-import data.mapper.UsersJoinMapper;
+import data.mapper.UserMapper;
 
 @Service
 public class UsersJoinService {
 
 	@Autowired
-	UsersJoinMapper mapper;
+	UserMapper mapper;
   
-	public void insertUsers(UsersJoinDto dto) {
+	public void insertUsers(UserDto dto) {
 		mapper.insertUsers(dto);
+	}
+	
+	public void login (HashMap<String, String> map) {
+		mapper.login(map);
 	}
 
 }

@@ -22,11 +22,9 @@
 		select * from classboarder where myid=#{myid} order by num desc limit #{start},#{perpage}
 	</select>
 	
-	<update id="updateStory" parameterType="cdto">
-		update classboarder set title=#{title},content=#{content}
-		<if test="thumbnail_file!='no'">
-			,thumbnail_file=#{thumbnail_file}
-		</if>
+	<update id="updateBoard" parameterType="cdto">
+		update classboarder set title=#{title},class_op_cate=#{class_op_cate},class_op_detail=#{class_op_detail},classprice=#{classprice},classinfo=#{classinfo},class_process=#{class_process},
+		uploadfile=#{uploadfile},uploadfile1=#{uploadfile1},uploadfile2=#{uploadfile2},uploadfile3=#{uploadfile3},uploadfile4=#{uploadfile4},uploadfile5=#{uploadfile5}
 		where num=#{num}
 	</update>
 	

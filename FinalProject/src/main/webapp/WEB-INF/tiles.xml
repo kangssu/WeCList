@@ -19,6 +19,15 @@
 		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
 	</definition>
 	
+	<definition name="layout2_2" template="/WEB-INF/mypage_inc/layout2.jsp">
+		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
+		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
+		<put-attribute name="body_top" value="/WEB-INF/u_mypage_inc/user_mypage_top.jsp"/>
+		<put-attribute name="body_left" value="/WEB-INF/u_mypage_inc/user_mypage_menu.jsp"/>
+		<put-attribute name="body_right" value="/WEB-INF/user_mypage/user_order_list.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+	</definition>
+	
 	<definition name="layout3" template="/WEB-INF/customer_inc/layout3.jsp">
 		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
 		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
@@ -39,6 +48,10 @@
 	</definition>
 	
 	<definition name="/1/*/*" extends="layout2">
+		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="/1_2/*/*" extends="layout2_2">
 		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 	

@@ -34,11 +34,11 @@
 							src="../photo/${dto.uploadfile1}" alt=""> <img
 							data-imgbigurl="img/product/details/product-details-3.jpg"
 							src="../photo/${dto.uploadfile2}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-4.jpg"
-							src="../photo/${dto.uploadfile3}" alt=""> <img
 							data-imgbigurl="img/product/details/product-details-5.jpg"
+							src="../photo/${dto.uploadfile3}" alt=""> <img
+							data-imgbigurl="img/product/details/product-details-4.jpg"
 							src="../photo/${dto.uploadfile4}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-6.jpg"
+							data-imgbigurl="img/product/details/product-details-4.jpg"
 							src="../photo/${dto.uploadfile5}" alt="">
 					</div>
 				</div>
@@ -87,6 +87,8 @@
 					<button type="button" class="heart-btn" onclick="">찜하기</button>
 					<button type="button" class="list-btn"
 						onclick="location.href='list'">목록보기</button>
+					<button type="button" class="heart-btn" style="text-align: center; width: 250px;">
+					좋아요</button>
 				</div>
 			</div>
 			<div class="col-lg-12">

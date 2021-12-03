@@ -65,7 +65,7 @@
 <div class="mypage__story">
 	<h2>클래스 등록하기</h2>
 	<div class="mypage__story__form">
-		<form action="/mypage/class/insert" method="post" enctype="multipart/form-data">
+		<form action="/mypage/class/update" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="myid" value="kang" />
 			<input type="hidden" name="num" value="${dto.num}">
 			<input type="hidden" name="currentPage" value="${currentPage}">
@@ -110,7 +110,7 @@
 				<tr>
 					<th>사진</th>
 					<td colspan="3"><input type="file" name="upload" class="form-control"
-						multiple value="${dto.uploadfile}"></td>
+						multiple></td>
 				</tr>
 				<tr>
 					<th>사진1</th>
@@ -143,7 +143,7 @@
 			<div class="story_write_form_btn_all">
 				<button type="button" class="story_list_btn"
 					onclick="location.href='/mypage/class/list'">목록</button>
-				<button type="submit" class="story_insert_btn">등록하기</button>
+				<button type="submit" class="story_insert_btn">수정하기</button>
 			</div>
 		</form>
 	</div>

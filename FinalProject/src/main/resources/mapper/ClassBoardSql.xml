@@ -5,9 +5,6 @@
 	<select id="getTotalCount" resultType="int">
 		select count(*) from classboarder
 	</select>
-	<update id="updateReadCount" parameterType="String">
-		update classboarder set readcount = readcount+1 where num=#{num}
-	</update>
 	<select id="getData" parameterType="String" resultType="cdto">
 		select * from classboarder where num =#{num}
 	</select>
@@ -34,4 +31,7 @@
 	<delete id="deleteBoard" parameterType="String">
 		delete from classboarder where num=#{num}
 	</delete>
+	<select id="getSevendays" resultType="cndto">
+		select * from classnewboarder where writeday > now() - interval 7 DAY;
+	</select>
 </mapper>

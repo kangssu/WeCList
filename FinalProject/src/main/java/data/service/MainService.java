@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
-import data.mapper.ClassBoardMapper;
+import data.mapper.MainMapper;
 
 @Service
-public class ClassBoardService {
+public class MainService {
 
 	@Autowired
-	ClassBoardMapper mapper;
-
+	MainMapper mapper;
 
 	public int getTotalCount() {
 		return mapper.getTotalCount();
@@ -35,31 +34,8 @@ public class ClassBoardService {
 		return mapper.getAlllist();
 	}
 	
-	public List<ClassBoardDto> getCategory(String class_op_cate)
-	{
-		return mapper.getCategory(class_op_cate);
-	}
-	
 	public List<ClassNewBoardDto> getAllnewlist()
 	{
 		return mapper.getAllnewlist();
-	}
-	
-
-	public void insertBoard(ClassBoardDto dto) {
-		mapper.insertBoard(dto);
-	}
-	
-	public void insertNewBoard(ClassNewBoardDto dto) {
-		mapper.insertNewBoard(dto);
-	}
-
-	public void updateBoard(ClassBoardDto dto) {
-		mapper.updateBoard(dto);
-	}
-
-	public void deleteBoard(String num) {
-		mapper.deleteBoard(num);
-
 	}
 }

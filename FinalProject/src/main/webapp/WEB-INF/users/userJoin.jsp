@@ -153,7 +153,7 @@ $(function(){
            }
 
            if(SamePass_1 > 0 || SamePass_2 > 0 ) { // 오름차순 또는 내림차순 연속성 0일 때
-              alert("영문, 숫자는 3자 이상 연속 입력할 수 없습니다.");
+              alert("영문, 숫자는 순서대로 입력할 수 없습니다. 예: 123 또는 abc (허용X)");
               pw_passed=false; // 유효성검사 false
            } 
 

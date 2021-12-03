@@ -87,8 +87,18 @@ $(document).ready(function (){
 				<button type="button" class="header_btn1">GO</button> -->
 				<button type="button" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
 				<div class="header__top__right__auth">
-					<a href="#">로그인</a><span class="header_login_1">|</span>
-					<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
+					<c:set var="root" value="<%=request.getContextPath()%>" />
+					<span style="margin-right: 100px"> 
+					<c:if test="${sessionScope.loginok!=null }">
+						<b>${sessionScope.id }님</b>
+						</span> <a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
+						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
+						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
+					</c:if>
+					<c:if test="${sessionScope.loginok==null }">
+						</span> <a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
+						<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
+					</c:if>
 					<a href="/customer/notice">고객센터</a>
 				</div>
 			</div>
@@ -136,10 +146,24 @@ $(document).ready(function (){
 				</div>
 				<div class="hero__mypage">
 					<div class="hero__mypage__1">
-						<a href="${root}/mypage/shop/list">
-							<i class="fa fa-user" aria-hidden="true"></i>
+						<c:choose>
+							<c:when test="${sessionScope.category eq 'author'}">
+								<a href="${root}/mypage/shop/list">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									<p>마이페이지</p>
+								</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${root}/mypage/order/list">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									<p>마이페이지</p>
+								</a>
+							</c:otherwise>
+						</c:choose>
+						<%-- <a href="${root}/mypage/shop/list"> --%>
+<!-- 							<i class="fa fa-user" aria-hidden="true"></i>
 							<p>마이페이지</p>
-						</a>
+						</a> -->
 					</div>
 					<div class="hero__mypage__2">
 						<a href="">
