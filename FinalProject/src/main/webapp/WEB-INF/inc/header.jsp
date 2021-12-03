@@ -154,7 +154,7 @@ $(document).ready(function (){
 								</a>
 							</c:when>
 							<c:otherwise>
-								<a href="${root}/">
+								<a href="${root}/mypage/order/list">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
 								</a>

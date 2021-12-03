@@ -8,7 +8,7 @@
 		<ul class="mypage__snb">
 			<li><a href="#">주문 관리</a></li><!-- 주문&취소&환불내역&후기작성버튼 -->
 			<li><a href="/mypage/profile">관심리스트</a></li><!-- 찜목록&팔로우하는 작가 -->
-			<li><a href="#">정보 수정하기</a></li>
+			<li><a href="/users/update">정보 수정하기</a></li>
 			<li><a href="#">회원 탈퇴</a></li>
 		</ul>
 	</div>
