@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.AuthorProfileMapper"> 
 	<insert id="insertProfile" parameterType="apdto">
-		insert into author_profile (myid,history,history_file,idea,idea_file,identity,identity_file,writeday)
-		values (#{myid},#{history},#{history_file},#{idea},#{idea_file},#{identity},#{identity_file},now())
+		insert into author_profile (myid,concise,history,history_file,idea,idea_file,identity,identity_file,writeday)
+		values (#{myid},#{concise},#{history},#{history_file},#{idea},#{idea_file},#{identity},#{identity_file},now())
 	</insert>
 	
 	<select id="GetIdData" parameterType="String" resultType="apdto">
@@ -15,7 +15,7 @@
 	</select>
 	
 	<update id="updateProfile" parameterType="apdto">
-		update author_profile set history=#{history},idea=#{idea},identity=#{identity}
+		update author_profile set concise=#{concise},history=#{history},idea=#{idea},identity=#{identity}
 		<choose>
 			<when test="history_file!='no'">
 				,history_file=#{history_file}
