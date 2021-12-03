@@ -97,8 +97,8 @@ $(document).ready(function (){
 					</c:if>
 					<c:if test="${sessionScope.loginok==null }">
 						</span> <a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
+						<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 					</c:if>
-					<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 					<a href="/customer/notice">고객센터</a>
 				</div>
 			</div>
