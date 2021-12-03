@@ -5,14 +5,9 @@
 	<select id="GetIdData" parameterType="String" resultType="udto">
 		select * from usersjoin where id=#{id}
 	</select>
-	
 	<select id="getTotalCount" parameterType="String" resultType="int">
 		select count(*) from usersjoin where id=#{id}
 	</select>
-	<insert id="insertMember" parameterType="udto">
-		insert into usersjoin (irum,id,pass1,hp,addr1,addr2,email,gaipday)
-		values (#{irum},#{id},#{pass1},#{hp},#{addr1},#{addr2},#{email},now())
-	</insert>
 	<select id="getIdCheck" parameterType="String" resultType="int">
 		select count(*) from usersjoin where id=#{id}
 	</select>
@@ -35,4 +30,8 @@
 	<select id="login" parameterType="HashMap" resultType="int">
 		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
 	</select>
+	<insert id="insertUsers" parameterType="udto">
+		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category)
+		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category})
+	</insert>
 </mapper>

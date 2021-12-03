@@ -186,7 +186,7 @@ function check(f) {
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="breadcrumb__text">
-					<h2>일반사용자 회원가입</h2>
+					<h2>회원 정보 수정</h2>
 				</div>
 			</div>
 		</div>
@@ -198,8 +198,8 @@ function check(f) {
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
-			<form action="insert" method="post" name="usersJoinForm" onsubmit="return check(this)">	
-			<input type="hidden" name="myid" id="myid" value="${dto.id }">	
+			<form action="update" method="post" name="usersJoinForm" onsubmit="return check(this)">	
+			<%-- <input type="hidden" name="myid" id="myid" value="${dto.id }">	 --%>
 				<h4>회원 정보 입력<span class="view_buy_form_1_ex">※ 필수 입력 사항</span></h4>
 				<table class="view_buy_form_1">
 					<tr class="checkout__input">
@@ -207,7 +207,7 @@ function check(f) {
 						<td>
 							<input type="hidden" name="category" id="category" value="1">
 							<input type="text" name="id" id="id" class="checkout__input__add"
-							 value="${sessionScope.id }">${sessionScope.id }
+							 value="${dto.id }">${dto.id }
 						</td>
 					</tr>
 					<tr class="checkout__input">
