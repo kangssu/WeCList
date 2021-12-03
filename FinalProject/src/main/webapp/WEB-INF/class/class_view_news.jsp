@@ -112,7 +112,7 @@
 		</div>
 		<div class="row">
 			<div class="categories__slider owl-carousel">
-				<c:forEach var="cdto" items="${classlist}">
+				<c:forEach var="cdto" items="${listnews}">
 					<div style="float: left;">
 						<div class="product__item">
 							<a href="${root}/class/view_news?num=${cdto.num}">

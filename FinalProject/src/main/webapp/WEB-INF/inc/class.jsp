@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
- <!-- Hero Section Begin -->
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Hero Section Begin -->
 <script>
-	$(document).ready(function (){
+	$(document).ready(function() {
 		$("#btn_class_page").closest("li").addClass("active");
 	})
 </script>
@@ -59,189 +60,32 @@
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter">
- 			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number first">1</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
+		<div class="row">
+		
+			<c:forEach var="cdto" items="${listpopulMain}" begin="0" end="14">
+				
+				<div style="float: left;">
+					<div class="product__item">
+						<a href="${root}/class/view?num=${cdto.num}">
+							<div class="product__item__pic set-bg">
+								<img src="../photo/${cdto.uploadfile}"
+									style="width: 300px; height: 300px;">
+							</div>
+							<div class="product__item__text">
+								<h6>${cdto.title}</h6>
+								<h6>${cdto.class_op_cate}</h6>
+								<h5>${cdto.classprice}원</h5>
+							</div>
+						</a>
+					</div>
 				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">2</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">3</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">4</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">5</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">6</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">7</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">8</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">9</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">10</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">11</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							<span class="shop_rank_number">12</span>
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<button type="button" class="main__hot__shop__1" onclick="location.href='class/popul'">인기 온라인 클래스 더보기</button>
+
+			</c:forEach>
+			
 		</div>
+		<button type="button" class="main__hot__shop__1"
+			onclick="location.href='class/popul'">인기 온라인 클래스 더보기</button>
+	</div>
 	</div>
 </section>
 <!-- Featured Section End -->
@@ -258,94 +102,28 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="product__discount__slider owl-carousel">
-				<div class="col-lg-4">
-					<div class="product__discount__item">
-						<a href="class/view_news">
-							<div class="product__item__pic set-bg">
-								<img src="${root}/img/latest-product/main_con3.jpg" alt="">
+			<div class="categories__slider owl-carousel">
+				<c:forEach var="cdto" items="${listnewsMain}">
+						<div style="float: left;">
+							<div class="product__item">
+								<a href="${root}/class/view_news?num=${cdto.num}">
+									<div class="product__item__pic set-bg">
+										<img src="../photo/${cdto.uploadfile}"
+											style="width: 300px; height: 300px;">
+									</div>
+									<div class="product__item__text">
+										<h6>${cdto.title}</h6>
+										<h6>${cdto.class_op_cate}</h6>
+										<h5>${cdto.classprice}원</h5>
+									</div>
+								</a>
 							</div>
-							<div class="product__discount__item__text">
-								<span>달콩작가의 그림작업실</span>
-								<h5>바퀴달린집2 출연진이 배운,</h5>
-								<div class="product__item__price">16,500원</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="product__discount__item">
-						<a href="#">
-							<div class="product__item__pic set-bg">
-								<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							</div>
-							<div class="product__discount__item__text">
-								<span>달콩작가의 그림작업실</span>
-								<h5>바퀴달린집2 출연진이 배운,</h5>
-								<div class="product__item__price">16,500원</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="product__discount__item">
-						<a href="#">
-							<div class="product__item__pic set-bg">
-								<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							</div>
-							<div class="product__discount__item__text">
-								<span>달콩작가의 그림작업실</span>
-								<h5>바퀴달린집2 출연진이 배운,</h5>
-								<div class="product__item__price">16,500원</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="product__discount__item">
-						<a href="#">
-							<div class="product__item__pic set-bg">
-								<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							</div>
-							<div class="product__discount__item__text">
-								<span>달콩작가의 그림작업실</span>
-								<h5>바퀴달린집2 출연진이 배운,</h5>
-								<div class="product__item__price">16,500원</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="product__discount__item">
-						<a href="#">
-							<div class="product__item__pic set-bg">
-								<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							</div>
-							<div class="product__discount__item__text">
-								<span>달콩작가의 그림작업실</span>
-								<h5>바퀴달린집2 출연진이 배운,</h5>
-								<div class="product__item__price">16,500원</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="product__discount__item">
-						<a href="#">
-							<div class="product__item__pic set-bg">
-								<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-							</div>
-							<div class="product__discount__item__text">
-								<span>달콩작가의 그림작업실</span>
-								<h5>바퀴달린집2 출연진이 배운,</h5>
-								<div class="product__item__price">16,500원</div>
-							</div>
-						</a>
-					</div>
-				</div>
+						</div>
+				</c:forEach>
+
 			</div>
 		</div>
-	</div>	
+	</div>
 </section>
 <!-- Featured Section End -->
 
@@ -368,119 +146,9 @@
 			</div>
 		</div>
 		<div class="row featured__filter">
- 			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="featured__item">
-					<a href="#">
-						<div class="product__item__pic set-bg">
-							<img src="${root}/img/latest-product/main_con3.jpg" alt="">
-						</div>
-						<div class="product__discount__item__text">
-							<span>달콩작가의 그림작업실</span>
-							<h5>바퀴달린집2 출연진이 배운,</h5>
-							<div class="product__item__price">16,500원</div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<button type="button" class="main__hot__shop__1" onclick="location.href='class/news'">신규 온라인 클래스 더보기</button>
+			
+			<button type="button" class="main__hot__shop__1"
+				onclick="location.href='class/news'">신규 온라인 클래스 더보기</button>
 		</div>
 	</div>
 </section>

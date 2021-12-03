@@ -39,7 +39,7 @@ public class ClassController {
 		
 		mview.addObject("list", list);
 		//mview.setViewName("shoplist");
-		mview.setViewName("/2/class/class_list");//tiles �� /������/���ϸ� �����̴�
+		mview.setViewName("/2/class/class_list");
 		return mview;
 	}
 	
@@ -63,9 +63,8 @@ public class ClassController {
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
-		//���ε������� Ȯ���� ���
-		int dotLoc=dto.getUploadfile().lastIndexOf(".");//������ .�� ��ġ
-		String ext=dto.getUploadfile().substring(dotLoc+1);//. �������ں��� ������ ���
+		int dotLoc=dto.getUploadfile().lastIndexOf(".");
+		String ext=dto.getUploadfile().substring(dotLoc+1);
 
 		if(ext.equalsIgnoreCase("jpg")||ext.equalsIgnoreCase("gif")||
 				ext.equalsIgnoreCase("png")||ext.equalsIgnoreCase("jpeg"))
@@ -101,7 +100,8 @@ public class ClassController {
 		List<ClassBoardDto> listpopul=mapper.getPopular();
 		
 		mview.addObject("listpopul", listpopul);
-		mview.setViewName("/2/class/class_popular");//tiles �� /������/���ϸ� �����̴�
+		mview.setViewName("/2/class/class_popular");
+		
 		return mview;
 	}
 

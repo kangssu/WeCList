@@ -99,7 +99,7 @@ public class AuthorClassController {
 		if(cdto.getUpload1().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
-			String uploadfile1  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			String uploadfile1  = "f"+ sdf.format(new Date())+cdto.getUpload1().getOriginalFilename();
 			cdto.setUploadfile1(uploadfile1);
 
 			try {
@@ -113,7 +113,7 @@ public class AuthorClassController {
 		if(cdto.getUpload2().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
-			String uploadfile2  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			String uploadfile2  = "f"+ sdf.format(new Date())+cdto.getUpload2().getOriginalFilename();
 			cdto.setUploadfile2(uploadfile2);
 
 			try {
@@ -127,7 +127,7 @@ public class AuthorClassController {
 		if(cdto.getUpload3().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
-			String uploadfile3  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			String uploadfile3  = "f"+ sdf.format(new Date())+cdto.getUpload3().getOriginalFilename();
 			cdto.setUploadfile3(uploadfile3);
 
 			try {
@@ -141,7 +141,7 @@ public class AuthorClassController {
 		if(cdto.getUpload4().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
-			String uploadfile4  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			String uploadfile4  = "f"+ sdf.format(new Date())+cdto.getUpload4().getOriginalFilename();
 			cdto.setUploadfile4(uploadfile4);
 
 			try {
@@ -155,7 +155,7 @@ public class AuthorClassController {
 		if(cdto.getUpload5().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
-			String uploadfile5  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+			String uploadfile5  = "f"+ sdf.format(new Date())+cdto.getUpload5().getOriginalFilename();
 			cdto.setUploadfile5(uploadfile5);
 
 			try {
@@ -220,7 +220,7 @@ public class AuthorClassController {
     return mview;
   }
   
-  @PostMapping("/mypage/cupdate")
+  @PostMapping("/mypage/class/update")
   public String update(@ModelAttribute ClassBoardDto cdto, String currentPage,
       HttpSession session) {
 
@@ -235,6 +235,76 @@ public class AuthorClassController {
 
 		try {
 			cdto.getUpload().transferTo(new File(path+"\\"+uploadfile));
+		}catch (IllegalStateException | IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	if(cdto.getUpload1().getOriginalFilename().equals("")) {
+		cdto.setUploadfile("no");
+	}else {
+		String uploadfile1  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+		cdto.setUploadfile1(uploadfile1);
+
+		try {
+			cdto.getUpload1().transferTo(new File(path+"\\"+uploadfile1));
+		}catch (IllegalStateException | IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	if(cdto.getUpload2().getOriginalFilename().equals("")) {
+		cdto.setUploadfile("no");
+	}else {
+		String uploadfile2  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+		cdto.setUploadfile2(uploadfile2);
+
+		try {
+			cdto.getUpload2().transferTo(new File(path+"\\"+uploadfile2));
+		}catch (IllegalStateException | IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	if(cdto.getUpload3().getOriginalFilename().equals("")) {
+		cdto.setUploadfile("no");
+	}else {
+		String uploadfile3  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+		cdto.setUploadfile3(uploadfile3);
+
+		try {
+			cdto.getUpload3().transferTo(new File(path+"\\"+uploadfile3));
+		}catch (IllegalStateException | IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	if(cdto.getUpload4().getOriginalFilename().equals("")) {
+		cdto.setUploadfile("no");
+	}else {
+		String uploadfile4  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+		cdto.setUploadfile4(uploadfile4);
+
+		try {
+			cdto.getUpload4().transferTo(new File(path+"\\"+uploadfile4));
+		}catch (IllegalStateException | IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	if(cdto.getUpload5().getOriginalFilename().equals("")) {
+		cdto.setUploadfile("no");
+	}else {
+		String uploadfile5  = "f"+ sdf.format(new Date())+cdto.getUpload().getOriginalFilename();
+		cdto.setUploadfile5(uploadfile5);
+
+		try {
+			cdto.getUpload5().transferTo(new File(path+"\\"+uploadfile5));
 		}catch (IllegalStateException | IOException e) {
 			// TODO: handle exception
 			e.printStackTrace();
