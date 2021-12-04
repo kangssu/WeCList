@@ -5,6 +5,17 @@
 <div class="mypage__profile">
 	<h2>프로필 관리</h2>
 	<div class="mypage__profile__1">
+		<h4>간략소개</h4>
+		<c:choose>
+			<c:when test="${totalCount>0}">
+				<p>${dto.concise}</p>
+			</c:when>
+			<c:otherwise>
+				<p>아직 간략소개가 등록되지 않았습니다.</p>
+    		</c:otherwise>
+		</c:choose>
+	</div>
+	<div class="mypage__profile__1">
 		<h4>History</h4>
 		<c:choose>
 			<c:when test="${totalCount>0}">

@@ -18,11 +18,13 @@
 				<th>제목</th>
 				<th>작성일</th>
 				<th>수정/삭제</th>
-			</tr>
-				<tr colspan="5" align="center">
-					등록된게시글이 없습니다
+				<c:if test="${totalCount==0}">
+			
 				</tr>
-
+				<tr>
+					<td colspan="5" align="center">등록된게시글이 없습니다</td>
+				</tr>
+			</c:if>
 			<c:if test="${totalCount>0}">
 				<c:forEach var="a" items="${list}">
 					
@@ -31,9 +33,12 @@
 					<c:set var="no" value="${no-1}" />
 					<td><a href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list"><img src="/photo/${a.uploadfile1}"></a></td>
 					<td><a href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list">${a.title}</a></td>
-					<td>${a.writeday}</td>
 					<td>
-						<button type="button" class="story_mod_btn" onclick="">수정</button>
+					<fmt:formatDate value="${a.writeday}" pattern="yyyy-MM-dd"/>
+					</td>
+					<td>
+						<button type="button" class="story_mod_btn" 
+						onclick="location.href='/shop/updateform?num=${a.num}'">수정</button>
 						<button type="button" class="story_del_btn" 
 						onclick="location.href='/mypage/shopdelete?num=${a.num}'">삭제</button>
 					</td>

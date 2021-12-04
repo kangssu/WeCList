@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
+import data.dto.ClassBoardDto;
 import data.dto.ShopBoardDto;
+import data.mapper.ShopBoardMapper;
 import data.service.ShopBoardService;
 
 @Controller
@@ -25,11 +26,26 @@ public class ShopController {
     @Autowired
     ShopBoardService service;
 
+    @Autowired
+    ShopBoardMapper mapper;
+
+    @GetMapping("/shop/category")
+    public ModelAndView getCategory(@RequestParam (value="shopop" , required = false) String shopop)
+    {
+        ModelAndView mview=new ModelAndView();
+        List<ShopBoardDto> listcate=mapper.getCategory(shopop);
+
+        mview.addObject("listcate", listcate);
+        //mview.setViewName("shoplist");
+        mview.setViewName("/shop/shop_category");//tiles �뒗 /�뤃�뜑紐�/�뙆�씪紐� 援ъ“�씠�떎
+        return mview;
+    }
+
 
     @GetMapping("/shop/content")
     public ModelAndView content(@RequestParam String num,
-        @RequestParam(defaultValue = "1") int currentPage,
-        @RequestParam(required = false) String key) {
+                                @RequestParam(defaultValue = "1") int currentPage,
+                                @RequestParam(required = false) String key) {
         ModelAndView mview = new ModelAndView();
 
         //목록에서 key에 list를 보낼 경우에 만 조회수 증가
@@ -97,6 +113,7 @@ public class ShopController {
         mview.addObject("totalPage", totalPage);
         mview.addObject("no", no);
 
+
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
@@ -124,9 +141,10 @@ public class ShopController {
         return "/shop/shop_write_form";
     }
 
+
     @GetMapping("/shop/list")
     public ModelAndView list(
-        @RequestParam(defaultValue = "1") int currentPage
+            @RequestParam(defaultValue = "1") int currentPage
     ) {
         ModelAndView mview = new ModelAndView();
 
@@ -174,6 +192,7 @@ public class ShopController {
 
         return mview;
     }
+
 
     @PostMapping("/shop/insert")
     public String insert(@ModelAttribute ShopBoardDto sdto, HttpSession session) {
@@ -260,5 +279,69 @@ public class ShopController {
         service.insertBoard(sdto);
         return "redirect:content?num=" + service.getMaxNum();
     }
+
+
+    @GetMapping("/shop/popul")
+    public ModelAndView getPopular()
+    {
+        ModelAndView mview=new ModelAndView();
+        List<ShopBoardDto> listpopul=mapper.getPopular();
+
+        mview.addObject("listpopul", listpopul);
+        mview.setViewName("/shop/shop_popular");//tiles 占쏙옙 /占쏙옙占쏙옙占쏙옙/占쏙옙占싹몌옙 占쏙옙占쏙옙占싱댐옙
+        return mview;
+    }
+
+    @GetMapping("/shop/new_list")
+    public ModelAndView getnewlist(  @RequestParam(defaultValue = "1") int currentPage)
+    {
+        ModelAndView mview=new ModelAndView();
+        List<ShopBoardDto> newlist=mapper.getPopular();
+
+        int perPage = 4;//�븳�럹�씠吏��뿉 蹂댁뿬吏� 湲��쓽 媛��닔
+        int totalCount = service.getTotalCount();
+
+        int totalPage;//珥앺럹�씠吏�
+        int start;//媛곹럹�씠�젿�꽌 遺덈윭�삱 �떆�옉 踰덊샇
+        int perBlock = 5;//紐뉕컻�쓽 �럹�씠吏� 踰덊샇�뵫 �몴�쁽�븷寃껋씤媛�
+        int startPage;//媛곷툝�윮�뿉 �몴�떆�븷 �떆�옉�럹�씠吏�
+        int endPage;//媛곷툝�윮�뿉 �몴�떆�븷 留덉�留됲럹�씠吏�
+
+        //珥� 媛��닔
+
+        totalCount = service.getTotalCount();
+        //�쁽�옱 �럹�씠吏� 踰덊샇 �씫湲�(�떒 null �씪 寃쎌슦 1�럹�씠吏�濡� �꽕�젙)
+
+        totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+        //媛� 釉붾윮�쓽 �떆�옉�럹�씠吏�
+        startPage = (currentPage - 1) / perBlock * perBlock + 1;
+
+        endPage = startPage + perBlock - 1;
+        if (endPage > totalPage) {
+            endPage = totalPage;
+        }
+        //媛� �럹�씠吏��뿉�꽌 遺덈윭�삱 �떆�옉踰덊샇
+        start = (currentPage - 1) * perPage;
+        //媛곹럹�씠吏��뿉�꽌 �븘�슂�븳 寃뚯떆湲� 媛��졇�삤湲�
+        List<ShopBoardDto> list = service.getList(start, perPage);
+
+        System.out.println(list.size());
+        for (ShopBoardDto d : list) {
+            String name = "col";
+            d.setName(name);
+        }
+        int no = totalCount - (currentPage - 1) * perPage;
+        mview.addObject("totalCount", totalCount);
+        mview.addObject("list", list);
+        mview.addObject("startPage", startPage);
+        mview.addObject("endPage", endPage);
+        mview.addObject("totalPage", totalPage);
+        mview.addObject("no", no);
+        mview.addObject("currentPage", currentPage);
+        mview.addObject("newlist", list);
+        mview.setViewName("/shop/shop_new_list");//tiles �뒗 /�뤃�뜑紐�/�뙆�씪紐� 援ъ“�씠�떎
+        return mview;
+    }
+
 
 }

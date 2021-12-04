@@ -14,6 +14,7 @@
 	<select id="getMaxNum" resultType="int">
 		select ifnull(max(num),0) from shopboarder
 	</select>
+	
 	<select id="getList" parameterType="HashMap" resultType="sdto">
 		select * from shopboarder order by num desc limit #{start},#{perpage}
 	</select>
@@ -26,13 +27,28 @@
 		#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	<update id="updateBoard" parameterType="sdto">
-		update shopboarder set title=#{title},shopcontent=#{shopcontent}
-		<if test="uploadfile!=null">
-			,uploadfile=#{uploadfile}
-		</if>
-		where num=#{num}
+	update shopboarder set title=#{title},
+	shopop=#{shopop},shopprice=#{shopprice},shoptag=#{shoptag},
+	subprice1=#{subprice1},suboption1=#{suboption1},subprice2=#{subprice2},suboption2=#{suboption2},
+	subprice3=#{subprice3},suboption3=#{suboption3},subprice4=#{subprice4},suboption4=#{suboption4},
+	subprice5=#{subprice5},suboption5=#{suboption5},shopsub=#{shopsub},shopcontent=#{shopcontent},
+	shopdelivery=#{shopdelivery}
+	,uploadfile1=#{uploadfile1}
+	,uploadfile2=#{uploadfile2}
+	,uploadfile3=#{uploadfile3}
+	,uploadfile4=#{uploadfile4}
+	,uploadfile5=#{uploadfile5}
+
+	where num=#{num}
 	</update>
+	<select id="getCategory" parameterType="String" resultType="sdto">
+		select * from shopboarder where shopop=#{shopop} order by num desc
+	</select>
 	<delete id="deleteBoard" parameterType="int">
 		delete from shopboarder where num=#{num}
 	</delete>
+	<select id="getPopular" resultType="sdto">
+		select * from shopboarder order by shopheart desc
+	</select>
+	
 </mapper>

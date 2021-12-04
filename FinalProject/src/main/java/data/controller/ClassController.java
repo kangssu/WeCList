@@ -39,7 +39,7 @@ public class ClassController {
 		
 		mview.addObject("list", list);
 		//mview.setViewName("shoplist");
-		mview.setViewName("/2/class/class_list");//tiles ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
+		mview.setViewName("/2/class/class_list");
 		return mview;
 	}
 	
@@ -63,9 +63,8 @@ public class ClassController {
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
-		//ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-		int dotLoc=dto.getUploadfile().lastIndexOf(".");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ .ï¿½ï¿½ ï¿½ï¿½Ä¡
-		String ext=dto.getUploadfile().substring(dotLoc+1);//. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		int dotLoc=dto.getUploadfile().lastIndexOf(".");
+		String ext=dto.getUploadfile().substring(dotLoc+1);
 
 		if(ext.equalsIgnoreCase("jpg")||ext.equalsIgnoreCase("gif")||
 				ext.equalsIgnoreCase("png")||ext.equalsIgnoreCase("jpeg"))
@@ -85,10 +84,10 @@ public class ClassController {
 	{
 		ModelAndView mview=new ModelAndView();
 		List<ClassNewBoardDto> listnews=mapper.getAllnewlist();
-		//List<ClassNewBoardDto> listnewsunder=mapper.getAllnewlistUnder();
-		
+		List<ClassNewBoardDto> listseven=mapper.getSevendays();
 		
 		mview.addObject("listnews", listnews);
+		mview.addObject("listseven", listseven);
 		//mview.addObject("listnewsunder", listnewsunder);
 		mview.setViewName("/2/class/class_news");//tiles ´Â /Æú´õ¸í/ÆÄÀÏ¸í ±¸Á¶ÀÌ´Ù
 		return mview;
@@ -101,7 +100,8 @@ public class ClassController {
 		List<ClassBoardDto> listpopul=mapper.getPopular();
 		
 		mview.addObject("listpopul", listpopul);
-		mview.setViewName("/2/class/class_popular");//tiles ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½
+		mview.setViewName("/2/class/class_popular");
+		
 		return mview;
 	}
 
@@ -117,7 +117,7 @@ public class ClassController {
 	
 	@GetMapping("/class/addform")
 	public String addform() {
-		return "/2/class/class_write_form";
+		return "/2/class/m_class_write_form";
 	}
 
 	@GetMapping("/class/view_news")

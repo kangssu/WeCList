@@ -170,6 +170,6 @@ public class AuthorStoryController {
     file.delete();
 
     service.deleteStory(num);
-    return "redirect:/mypage/story/list";
+    return "redirect:/mypage/story/list?currentPage" + currentPage;
   }
 }

@@ -32,44 +32,44 @@
 				</div>
 				<div class="categories__slider owl-carousel">
 					<div class="col-lg-3">
-						<div class="author__box set-bg">
-							<img src="/img/pro.jpg" id="author_img_1">
-							<h5>
-								<a href="#">제이라운드</a>
-							</h5>
-						</div>
+						<a href="#">
+							<div class="author__box set-bg">
+								<img src="/img/pro.jpg" id="author_img_1">
+								<h5>제이라운드</h5>
+							</div>
+						</a>
 					</div>
 					<div class="col-lg-3">
-						<div class="author__box set-bg">
-							<img src="/img/pro.jpg" id="author_img_1">
-							<h5>
-								<a href="#">제이라운드</a>
-							</h5>
-						</div>
+						<a href="#">
+							<div class="author__box set-bg">
+								<img src="/img/pro.jpg" id="author_img_1">
+								<h5>제이라운드</h5>
+							</div>
+						</a>
 					</div>
 					<div class="col-lg-3">
-						<div class="author__box set-bg">
-							<img src="/img/pro.jpg" id="author_img_1">
-							<h5>
-								<a href="#">제이라운드</a>
-							</h5>
-						</div>
+						<a href="#">
+							<div class="author__box set-bg">
+								<img src="/img/pro.jpg" id="author_img_1">
+								<h5>제이라운드</h5>
+							</div>
+						</a>
 					</div>
 					<div class="col-lg-3">
-						<div class="author__box set-bg">
-							<img src="/img/pro.jpg" id="author_img_1">
-							<h5>
-								<a href="#">제이라운드</a>
-							</h5>
-						</div>
+						<a href="#">
+							<div class="author__box set-bg">
+								<img src="/img/pro.jpg" id="author_img_1">
+								<h5>제이라운드</h5>
+							</div>
+						</a>
 					</div>
 					<div class="col-lg-3">
-						<div class="author__box set-bg">
-							<img src="/img/pro.jpg" id="author_img_1">
-							<h5>
-								<a href="#">제이라운드</a>
-							</h5>
-						</div>
+						<a href="#">
+							<div class="author__box set-bg">
+								<img src="/img/pro.jpg" id="author_img_1">
+								<h5>제이라운드</h5>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -80,15 +80,176 @@
 			<div class="author_title">
 				<span>We C List의 작가 총 <b>0</b>명</span>
 			</div>
-			<div class="author__box__list">
-				<div class="col-lg-3">
-					<div class="author__box set-bg">
-						<img src="/img/pro.jpg" id="author_img_1">
-						<h5>
-							<a href="#">제이라운드</a>
-						</h5>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
 					</div>
 				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="author__box__all_list">
+				<div class="author__box_all">
+					<img src="/img/pro.jpg" class="author_img_2">
+				</div>
+				<div class="author__box_all">
+					<div class="all_text">
+						<h5>제이라운드</h5>
+						<p>제이라운드만의 작품을 만나보세요.제이라운드만의 작품을 만나보세요.</p>
+						<button type="button" class="btn_follow">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+							팔로우
+						</button>
+						<button type="button" class="btn_home">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							구경하기
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
+			<div class="product__pagination">
+				<c:if test="${startPage>1}">
+					<a href="list?currentPage=${startPage-1}">이전</a>
+				</c:if>
+	
+				<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+					<c:if test="${currentPage==pp}">
+						<li class="select"><a class="select2" href="list?currentPage=${pp}">${pp}</a></li>
+					</c:if>
+					<c:if test="${currentPage!=pp}">
+						<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
+					</c:if>
+				</c:forEach>
+				<!-- 다음 -->
+				<c:if test="${endPage<totalPage}">
+					<a href="list?currentPage=${endPage+1}">다음</a>
+				</c:if>
 			</div>
 		</div>
 	</div>

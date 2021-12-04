@@ -143,31 +143,16 @@
                     <div class="product__details__rating">
                         <div class="starpoint_wrap">
                             <div class="starpoint_box">
-                                <label for="starpoint_1" class="label_star" title="0.5"><span
-                                        class="blind">0.5점</span></label> <label for="starpoint_2"
-                                                                                 class="label_star"
-                                                                                 title="1"><span
-                                    class="blind">1점</span></label>
-                                <label for="starpoint_3" class="label_star" title="1.5"><span
-                                        class="blind">1.5점</span></label> <label for="starpoint_4"
-                                                                                 class="label_star"
-                                                                                 title="2"><span
-                                    class="blind">2점</span></label>
-                                <label for="starpoint_5" class="label_star" title="2.5"><span
-                                        class="blind">2.5점</span></label> <label for="starpoint_6"
-                                                                                 class="label_star"
-                                                                                 title="3"><span
-                                    class="blind">3점</span></label>
-                                <label for="starpoint_7" class="label_star" title="3.5"><span
-                                        class="blind">3.5점</span></label> <label for="starpoint_8"
-                                                                                 class="label_star"
-                                                                                 title="4"><span
-                                    class="blind">4점</span></label>
-                                <label for="starpoint_9" class="label_star" title="4.5"><span
-                                        class="blind">4.5점</span></label> <label for="starpoint_10"
-                                                                                 class="label_star"
-                                                                                 title="5"><span
-                                    class="blind">5점</span></label>
+                                <label class="label_star" title="0.5"><span  class="blind">0.5점</span></label>
+								<label class="label_star"   title="1"><span  class="blind">1점</span></label>
+                                <label class="label_star" title="1.5"><span  class="blind">1.5점</span></label>
+								<label   class="label_star" title="2"><span  class="blind">2점</span></label>
+                                <label class="label_star" title="2.5"><span   class="blind">2.5점</span></label>
+								<label       class="label_star"   title="3"><span  class="blind">3점</span></label>
+                                <label class="label_star" title="3.5"><span   class="blind">3.5점</span></label>
+								<label       class="label_star"    title="4"><span  class="blind">4점</span></label>
+                                <label class="label_star" title="4.5"><span  class="blind">4.5점</span></label>
+								<label        class="label_star"       title="5"><span   class="blind">5점</span></label>
 
                                 <span class="starpoint_bg"></span>
                             </div>
@@ -265,47 +250,39 @@
 
 <!-- Related Product Section Begin -->
 <section class="related-product">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title related__product__title">
-                    <h2>다른 작품 구경하기</h2>
-                    <span>다양한 작품을 구경해보세요!</span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title related__product__title">
+					<h2>다른 작품 구경하기</h2>
+					<span>다양한 작품을 구경해보세요!</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
 
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <a href="#">
-                        <div class="product__item__pic">
-                            <img src="${root}/img/featured/main_con1.jpg" alt="">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>제이라운드</h6>
-                            <h6>[수능선물]수제카라멜 선물세트</h6>
-                            <h5>11,000원</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <a href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">
-                        <div class="product__item__pic">
-                            <img src="../photo/${sdto.uploadfile1}" alt="">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>${sdto.name}</h6>
-                            <h6>${sdto.title}</h6>
-                            <h5>${sdto.shopprice}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="product__item">
+					<a
+						href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">
+						<div class="product__item__pic">
+							<img style="width: 220px; height: 270px;"
+								src="../photo/${sdto.uploadfile1}" alt="">
+						</div>
+						<div class="product__item__text">
+							<h6>${sdto.name}</h6>
+							<h6>${sdto.title}</h6>
+							<h5>${sdto.shopprice}</h5>
+						</div>
+					</a>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
 </section>
 <!-- Related Product Section End -->
 <script type="text/javascript">

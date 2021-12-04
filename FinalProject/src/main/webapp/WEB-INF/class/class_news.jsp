@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>" />
-<fmt:formatDate var="date" value="${date}" pattern="yyyy-MM-dd"/>
+<fmt:formatDate var="date" value="${now}" pattern="yyyy-MM-dd"/>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
@@ -76,7 +76,7 @@
 		</div>
 		<div class="row">
 			<div class="categories__slider owl-carousel">
-				<c:forEach var="cdto" items="${list}" end="5">
+				<c:forEach var="cdto" items="${listseven}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view_news?num=${cdto.num}">
@@ -101,8 +101,6 @@
 
 </section>
 <!-- Featured Section End -->
-
-
 
 <!-- Product Section Begin -->
 <section class="product spad">
