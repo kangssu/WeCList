@@ -173,6 +173,15 @@
 		<div class="mypage__profile__form">
 			<table class="profile__form__table">
 				<tr>
+					<th>간략소개</th>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="concise" required="required"
+							placeholder="※ 작가님의 소개를 간략하게 자세히 적어주세요.">${dto.concise}</textarea>
+					</td>
+				</tr>
+				<tr>
 					<th>History<span>※이미지 최대 3장까지 업로드 가능합니다! (이미지 사이즈:295*195 꼭 지켜주세요!)</span></th>
 				</tr>
 				<tr>

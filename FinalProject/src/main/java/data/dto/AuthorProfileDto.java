@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class AuthorProfileDto {
   private String num;
   private String myid;
+  private String concise;
   private String history;
   private ArrayList<MultipartFile> upload1;
   private String history_file;
@@ -19,6 +20,14 @@ public class AuthorProfileDto {
   private ArrayList<MultipartFile> upload3;
   private String identity_file;
   private Timestamp writeday;
+
+  public String getConcise() {
+    return concise;
+  }
+
+  public void setConcise(String concise) {
+    this.concise = concise;
+  }
 
   public String getMyid() {
     return myid;

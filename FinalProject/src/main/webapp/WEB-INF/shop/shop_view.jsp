@@ -308,25 +308,27 @@
 			</div>
 		</div>
 		<div class="row">
-		
-		
-							<div class="col-lg-4 col-md-6 col-sm-6">
-								<div class="product__item">
-									<a href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">
-										<div class="product__item__pic">
-										<img src="../photo/${sdto.uploadfile1}" alt="" >
-										</div>
-										<div class="product__item__text">
-										<h6>${sdto.name}</h6>
-										<h6>${sdto.title}</h6>
-										<h5>${sdto.shopprice}</h5>
-										</div>
-									</a>
-								</div>
-								</div>
-						
-					
-			
+
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="product__item">
+					<a
+						href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">
+						<div class="product__item__pic">
+							<img style="width: 220px; height: 270px;"
+								src="../photo/${sdto.uploadfile1}" alt="">
+						</div>
+						<div class="product__item__text">
+							<h6>${sdto.name}</h6>
+							<h6>${sdto.title}</h6>
+							<h5>${sdto.shopprice}</h5>
+						</div>
+					</a>
+				</div>
+			</div>
+
+
+
 		</div>
 	</div>
 </section>

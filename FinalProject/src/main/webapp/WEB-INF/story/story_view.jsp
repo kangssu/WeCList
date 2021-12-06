@@ -45,6 +45,7 @@
 			url:"/story/clist",
 			data:{"num":num},
 			success:function(data){
+				$("b.acount").text(data.length);
 				var com="";
 				com+="<ul>";
 				$.each(data, function(i,dto){
@@ -235,43 +236,9 @@
 				</table>
 			</div>
 			<div class="story__view__comment__count">
-				<span>총 <b>0</b>개의 댓글</span>
+				<span>총 <b class="acount"></b>개의 댓글</span>
 			</div>
 			<div class="story__view__comment__list" id="sclist">
-				<!-- <ul>
-					<li>
-						<h6>홍길동</h6>
-						<p>댓글 내용입니다!</p>
-						<span>2021-11-27</span>
-						<div class="comment_btn_all">
-							<button type="button">댓글</button>
-							<button type="button">수정</button>
-							<button type="button">삭제</button>
-						</div>
-					</li>
-					<li class="comment_plus">
-						<h6>
-						<img src="/img/re.png">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						제이라운드</h6>
-						<p>댓글 내용입니다!</p>
-						<span>2021-11-27</span>
-						<div class="comment_btn_all">
-							<button type="button">수정</button>
-							<button type="button">삭제</button>
-						</div>
-					</li>
-					<li>
-						<h6>홍길동</h6>
-						<p>댓글 내용입니다!</p>
-						<span>2021-11-27</span>
-						<div class="comment_btn_all">
-							<button type="button">댓글</button>
-							<button type="button">수정</button>
-							<button type="button">삭제</button>
-						</div>
-					</li>
-				</ul> -->
 			</div>
 			<div class="story__view__btn__list">
 				<button type="button" class="story_list_btn"
