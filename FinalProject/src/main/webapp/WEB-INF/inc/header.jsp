@@ -153,10 +153,16 @@ $(document).ready(function (){
 									<p>마이페이지</p>
 								</a>
 							</c:when>
-							<c:otherwise>
+							<c:when test="${sessionScope.category eq null}">
 								<a href="${root}/mypage/order/list">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
+								</a>
+							</c:when>
+							<c:otherwise>
+								<a href="#">
+									<!-- <i class="fa fa-user" aria-hidden="true"></i>
+									<p>마이페이지</p> -->
 								</a>
 							</c:otherwise>
 						</c:choose>
