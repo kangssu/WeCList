@@ -703,6 +703,10 @@ li {
 	background-color:white;
 }
 
+.header_btn1 b{
+	color:#ff7b27;
+}
+
 .header__top__left {
 	padding: 10px 0 13px;
 }
@@ -748,12 +752,66 @@ li {
 	padding: 10px 0 3px;
 }
 
-.header__top__right i{
-	margin-left:5px;
+.hero__mypage {
+	padding-top:20px;
+	margin-left:200px;
+	font-size:35px;
 }
 
-.header__top__right b{
-	color:#ff7b27;
+.hero__mypage__1{
+	display:inline-block;
+}
+
+.hero__mypage a{
+	color:#252525;
+	display:inline-block;
+	position:relative;
+}
+
+.hero__mypage__1>.fa{
+	display:block;
+}
+
+.hero__mypage__1 p{
+	font-size:10px;
+	color:#1c1c1c;
+	margin-left:-12px;
+}
+
+.hero__mypage__2{
+	display:inline-block;
+	margin-left:15px;
+}
+
+.hero__mypage a{
+	color:#252525;
+	display:inline-block;
+	position:relative;
+}
+
+.hero__mypage span{
+	position:absolute;
+	background-color:#ff7b27;
+	width:17px;
+	height:17px;
+	border-radius:50px;
+	color:white;
+	text-align:center;
+	line-height:18px;
+	font-size:5px;
+	top:0;
+	right:-3px;
+}
+
+.hero__mypage__2 p{
+	font-size:10px;
+	color:#1c1c1c;
+}
+
+.header__top__right i{
+	margin-left:5px;
+	float:right;
+	line-height:19px;
 }
 
 .header__top__right__social {
@@ -961,10 +1019,6 @@ li {
 	visibility: visible;
 }
 
-.header__menu ul li:hover>a {
-	/* color: #ff7b27; */
-}
-
 .header__menu ul li:last-child {
 	margin-right: 0;
 }
@@ -1056,6 +1110,8 @@ li {
 /*---------------------
   Hero
 -----------------------*/
+
+
 
 .hero {
 	padding-bottom: 50px;
