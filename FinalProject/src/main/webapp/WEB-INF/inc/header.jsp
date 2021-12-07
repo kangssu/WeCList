@@ -90,8 +90,8 @@ $(document).ready(function (){
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<span style="margin-right: 100px"> 
 					<c:if test="${sessionScope.loginok!=null }">
-						<b>${sessionScope.id }님</b>
-						</span> <a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
+						<b>${sessionScope.id }님 환영합니다!</b>
+						</span> <a href="/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
 						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
 						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
 					</c:if>
@@ -147,31 +147,45 @@ $(document).ready(function (){
 				<div class="hero__mypage">
 					<div class="hero__mypage__1">
 						<c:choose>
-							<c:when test="${sessionScope.category eq 'author'}">
+							<c:when test="${sessionScope.loginok!=null && sessionScope.category eq 'author'}">
 								<a href="${root}/mypage/shop/list">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
 								</a>
+								<div class="hero__mypage__2">
+									<a href="${root}/cart/list">
+										<span>0</span>
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<p>장바구니</p>
+									</a>
+								</div>
 							</c:when>
-							<c:otherwise>
+							<c:when test="${sessionScope.loginok!=null && sessionScope.category eq null}">
 								<a href="${root}/mypage/order/list">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
 								</a>
+								<div class="hero__mypage__2">
+									<a href="${root}/cart/list">
+										<span>0</span>
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<p>장바구니</p>
+									</a>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<i class="fa fa-user-circle" aria-hidden="true"></i>
+								<p>로그인이 필요한 서비스입니다.</p>
 							</c:otherwise>
 						</c:choose>
-						<%-- <a href="${root}/mypage/shop/list"> --%>
-<!-- 							<i class="fa fa-user" aria-hidden="true"></i>
-							<p>마이페이지</p>
-						</a> -->
 					</div>
-					<div class="hero__mypage__2">
+<!-- 					<div class="hero__mypage__2">
 						<a href="">
 							<span>0</span>
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							<p>장바구니</p>
 						</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

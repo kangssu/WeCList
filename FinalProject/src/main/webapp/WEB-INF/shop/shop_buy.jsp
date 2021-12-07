@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <script type="text/javascript">
 /* 개인정보 취급방침 클릭시 팝업!!! */
@@ -12,6 +13,10 @@ function closePopup() {
 	const popup = document.querySelector('#popup');
 	popup.classList.add('hide');
 	}
+
+function getCartList(){
+	let cartList = "";
+}
 </script>
 
 <!-- Breadcrumb Section Begin -->
@@ -33,24 +38,21 @@ function closePopup() {
 <!-- Breadcrumb Section End -->
 
 <!-- Checkout Section Begin -->
-<section class="checkout spad">
+<section class="checkout spad cart">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 view_buy_1">
 				<h6>주문상품</h6>
 				<ul>
+				<c:forEach var="item" items="${list}">
 					<li>
-						<img src="${root}/img/featured/main_con1.jpg" alt="">
-						<span>[수능선물]수제카라멜 선물세트</span>
-						<span class="buy_su">1개</span>
-						<span class="buy_dan">11,000원</span>
+						${item.title} , ${item.itemImage}, ${item.name}, ${item.shop_option}, ${item.shop_qty}, ${item.shop_price}
+<%--						<img src="${root}/img/featured/${row.itemImage}">--%>
+<%--						<span>${row.name}</span>--%>
+<%--						<span class="buy_su">${row.shop_qty}</span>--%>
+<%--						<span class="buy_dan"><fmt:formatNumber value="${row.shop_price}" pattern="#,###,###"/></span>--%>
 					</li>
-					<li>
-						<img src="${root}/img/featured/main_con1.jpg" alt="">
-						<span>[수능선물]수제카라멜 선물세트</span>
-						<span class="buy_su">1개</span>
-						<span class="buy_dan">11,000원</span>
-					</li>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>

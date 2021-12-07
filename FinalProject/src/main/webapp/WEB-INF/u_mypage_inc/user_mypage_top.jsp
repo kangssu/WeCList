@@ -11,7 +11,7 @@
 					<div class="grade_user">
 						<div class="profile_img">
 							<img src="/img/pro.jpg">
-							<span>${id }님</span>
+							<span>${nickname }님</span>
 						</div>
 						<div class="profile_btn">
 							<button type="button">정보수정</button>
