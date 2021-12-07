@@ -145,26 +145,29 @@ $(document).ready(function (){
 					</div>
 				</div>
 				<div class="hero__mypage">
-					<div class="hero__mypage__1">
 						<c:choose>
 							<c:when test="${sessionScope.loginok!=null && sessionScope.category eq 'author'}">
+							<div class="hero__mypage__1">
 								<a href="${root}/mypage/shop/list">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
 								</a>
+							</div>
 								<div class="hero__mypage__2">
 									<a href="${root}/cart/list">
 										<span>0</span>
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<p>장바구니</p>
+										<span class="mypage__span">장바구니</span>
 									</a>
 								</div>
 							</c:when>
 							<c:when test="${sessionScope.loginok!=null && sessionScope.category eq null}">
+							<div class="hero__mypage__1">
 								<a href="${root}/mypage/order/list">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
 								</a>
+							</div>
 								<div class="hero__mypage__2">
 									<a href="${root}/cart/list">
 										<span>0</span>
@@ -175,10 +178,9 @@ $(document).ready(function (){
 							</c:when>
 							<c:otherwise>
 								<i class="fa fa-user-circle" aria-hidden="true"></i>
-								<p>로그인이 필요한 서비스입니다.</p>
+								<span>로그인이 필요한 서비스입니다.</span>
 							</c:otherwise>
 						</c:choose>
-					</div>
 <!-- 					<div class="hero__mypage__2">
 						<a href="">
 							<span>0</span>
