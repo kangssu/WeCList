@@ -223,14 +223,22 @@
 			</div>
 			<div class="story__view__comment__form">
 				<!-- 댓글 관련 input_hidden 아래 5줄! -->
-				<input type="hidden" name="writer" value="kang"/>
+				<input type="hidden" name="writer" value="${sessionScope.id}"/>
 				<input type="hidden" name="num" id="num" value="${dto.num}">
 				<table class="comment__table__all">
 					<tr>
 						<td>
-							<textarea class="comment__form" id="content" name="comment"
-							required="required" placeholder="댓글을 입력해주세요."></textarea>
-							<button type="submit" id="comment_add" class="comment__insert__btn">확인</button>
+							<!-- 로그인 상태일 경우에만 댓글을 쓸 수 있게! -->
+							<c:choose>
+								<c:when test="${sessionScope.loginok!=null}">
+									<textarea class="comment__form" id="content" name="comment"
+									required="required" placeholder="댓글을 입력해주세요."></textarea>
+									<button type="submit" id="comment_add" class="comment__insert__btn">확인</button>
+								</c:when>
+								<c:otherwise>
+									<p class="only_member_text">※ 회원들만 댓글을 작성할 수 있습니다.</p>
+					    		</c:otherwise>
+							</c:choose>
 						</td>
 					</tr>
 				</table>

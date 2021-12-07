@@ -1,10 +1,11 @@
 package data.controller;
 
 import java.util.HashMap;
-
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,25 +49,51 @@ public class UsersController {
 		return "redirect:join";
 	}
 	
-//	@GetMapping("/users/update")
-//	public ModelAndView updateform(@RequestParam String id) {
-//		ModelAndView mview = new ModelAndView();
-//		
-//		// DB로부터 dto 얻기
-//		UserDto dto = mapper.getMemberData(id);
-//		
-//		mview.addObject("dto",dto);
-//		
-//		mview.setViewName("/users/update");
-//		
-//		return mview;
-//	}
 	
-	@GetMapping("/users/update")
-	public String usersUpdate(@ModelAttribute UserDto udto) {
-		mapper.updateMember(udto);
-		return "/users/userUpdate";
+	@GetMapping("/users/mypage/updatepass")
+	public String updateMyInfo() {
+		return "/1_2/user_mypage/user_updatepassform";
 	}
+	
+	@PostMapping("/users/updatepass")
+	public String updatepass(@RequestParam String id,
+			@RequestParam String pass1) {
+		// DB로부터 비번 맞는지 체크
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pass1", pass1);
+		
+		int check = mapper.getCheckPass(map);
+		if(check==1) { // 비번이 맞는 경우
+			return "redirect:/1_2/users_mypage/user_update?id=" + id;
+		} else { // 틀린 경우
+			return "/1_2/user_mypage/user_passfail";
+		}
+	}
+	
+	
+	@PostMapping("/users/updateform")
+	public ModelAndView updateForm(@RequestParam String id) {
+		ModelAndView mview = new ModelAndView();
+		
+		// DB로부터 dto 얻기
+		UserDto dto = mapper.getUserData(id);
+		
+		mview.addObject("dto",dto);
+		
+		mview.setViewName("/1_2/user_mypage/user_update");
+		
+		return mview;
+	}
+	
+	@PostMapping("/users/update")
+	public String update(@ModelAttribute UserDto dto) {	
+		mapper.updateUsers(dto);
+		
+		return "redirect:/1_2/user_mypage/user_update";
+	}
+
+	
 	
 	@GetMapping("/users/delete")
 	/* 컨트롤러를 일반 Controller 로 설정했기 때문에 ResponseBody를 선언해서 json 값을 가져온다 */
@@ -98,6 +125,30 @@ public class UsersController {
         
         Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("check", check); // 0 or 1
+        
+        return map;
+    }
+	
+	@GetMapping("/users/nickcheck")
+	@ResponseBody
+	public Map<String, Integer> nickCheck(@RequestParam String nick){
+		// ID 체크
+        int nickCheck = mapper.getNickCheck(nick);
+        
+        Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("nickCheck", nickCheck); // 0 or 1
+        
+        return map;
+    }
+	
+	@GetMapping("/users/emailcheck")
+	@ResponseBody
+	public Map<String, Integer> emailCheck(@RequestParam String email){
+		// ID 체크
+        int emailCheck = mapper.getEmailCheck(email);
+        
+        Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("emailCheck", emailCheck); // 0 or 1
         
         return map;
     }
