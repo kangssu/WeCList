@@ -76,7 +76,7 @@
 						<li><a href="/shop/list">작품 구경하기</a></li>
 						<li><a href="/shop/popul">인기작품</a></li>
 						<li><a href="/shop/new_list">최신작품</a></li>
-						<li><a href="">작가 구경하기</a></li>
+						<li><a href="/author/list">작가 구경하기</a></li>
 						<li><a href="/story/list">스토리</a></li>
 						<li><a href="/shop/writeform">글쓰기</a></li>
 					</ul>
