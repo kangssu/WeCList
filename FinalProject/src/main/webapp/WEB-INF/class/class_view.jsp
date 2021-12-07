@@ -3,6 +3,69 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <!-- Breadcrumb Section Begin -->
+<script type="text/javascript">
+               $(function() {
+
+                   $("#selectoption").change(function() {
+                      var v = $("#selectoption option:selected").text();
+                      document.getElementById("result").innerText ="상품 종류  : " + v;
+                      document.getElementById("quantity-del-dan").innerText = $("#subnum").val()*$("#selectoption").val();
+
+                   });
+
+                  // 막무가내 리스너 붙이기
+                   $(".pro-qty").on("change keyup paste input click", function() {
+                      document.getElementById("quantity-del-dan").innerText = $("#subnum").val()*$("#selectoption").val();
+
+                      });
+                  
+                  $(".heart").click(function() {
+                     
+                     var no = $(this).attr("idx");
+                     
+                     if($(this).children("i").attr("class") == "fa fa-heart-o"){
+                        $.ajax({
+                           url : "/data/dto/ClassBoardDto.java",
+                           type : "get",
+                           data : {
+                              no:no,
+                           },
+                           success : function(cdto) {
+                              var heart = cdto.shopheart;
+                              
+                              $(".heart"+no).text(하트);
+                           },
+                           error : function() {
+                              alert("서버에러");
+                           }
+                        });
+                        $(this).html("<i class='fa fa-heart'></i>");   
+                        $(".heart"+no).html("<i class='fa fa-heart'></i>");   
+                        
+                     }else if($(this).children("i").attr("class") == "fa fa-heart"){
+                        $.ajax({
+                           url : "/data/dto/ClassBoardDto.java",
+                           type : "get",
+                           data : {
+                              no:no,
+                           },
+                           success : function(cdto) {
+                              var heart = cdto.shopheart;
+                              
+                              $(".heart"+no).text(하트);
+                           },
+                           error : function() {
+                              alert("서버에러");
+                           }
+                        });
+                        $(this).html("<i class='fa fa-heart-o'></i>");   
+                        $(".heart"+no).html("<i class='fa fa-heart-o'></i>");   
+                        
+                     }
+                  });
+               });
+               </script>
+
 <section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
@@ -83,12 +146,24 @@
 							</div>
 						</div>
 					</div> -->
-					<button type="button" class="primary-btn" onclick="#">구매하기</button>
-					<button type="button" class="heart-btn" onclick="">찜하기</button>
-					<button type="button" class="list-btn"
-						onclick="location.href='list'">목록보기</button>
-					<button type="button" class="heart-btn" style="text-align: center; width: 250px;">
-					좋아요</button>
+					<button type="button" class="primary-btn"
+                  onclick="location.href='buy'">구매하기</button>
+               <button type="button" class="heart-btn" onclick="">찜하기</button>
+               <button type="button" class="list-btn"
+                  onclick="location.href='list'">목록보기</button>
+                  
+            <c:choose>
+               <c:when test="">
+                     <a class="heart"><i class="fa fa-heart-o"></i></a>
+               </c:when>
+               <c:otherwise>
+               <a class="heart"><i class="fa fa-heart"></i></a>
+               </c:otherwise>
+               
+            </c:choose>
+            
+            <span id="dheart">${dto.classheart}</span>
+
 				</div>
 			</div>
 			<div class="col-lg-12">

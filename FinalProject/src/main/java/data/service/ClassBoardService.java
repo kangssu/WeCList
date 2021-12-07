@@ -45,7 +45,6 @@ public class ClassBoardService {
 		return mapper.getAllnewlist();
 	}
 	
-
 	public void insertBoard(ClassBoardDto dto) {
 		mapper.insertBoard(dto);
 	}
@@ -60,6 +59,5 @@ public class ClassBoardService {
 
 	public void deleteBoard(String num) {
 		mapper.deleteBoard(num);
-
 	}
 }

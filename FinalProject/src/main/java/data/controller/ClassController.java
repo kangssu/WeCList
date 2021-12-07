@@ -251,7 +251,36 @@ public class ClassController {
 		return "redirect:/class/addnewform";
 	}
 	
+	//public ModelAndView save_heart(@RequestParam String no, HttpSession session) {
+		
+	//}
+	
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
