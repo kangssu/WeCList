@@ -79,6 +79,27 @@ $(function(){
          });
 	});
 	
+	// 닉네임 중복확인
+	$("#nickCheck").click(function(){
+		//alert("닉네임 중복확인");
+		var nick = $("#nick").val();
+		
+		$.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"nick":nick},
+            url:"/users/nickcheck",
+            success:function(data){
+               if(data.nickCheck!=0){
+            	  alert("이미 사용중인 닉네임입니다.");
+                  $("#nick").val("");
+               }else{
+            	  alert("사용가능한 닉네임입니다!");
+               }
+            }
+         });
+	});
+	
 	
 	// 비밀번호 유효성 검사
 	$("#pass1").blur(function(){
@@ -89,12 +110,10 @@ $(function(){
 			alert("비밀번호를 입력해주세요.");
 	        return false;
 	    }
-/* 		if(pw1.length < 8) {
-			alert("비밀번호는 8자리 이상 입력해주세요.");
-			return false;
-		} */
+
 		if(pw1.indexOf($("#id").val()) > -1) {
             alert("비밀번호는 ID를 포함할 수 없습니다.");
+            $("#pass1").val('');
             return false;
         }
 		
@@ -104,6 +123,7 @@ $(function(){
 		
 	    if(!pattern1.test(pw1) || !pattern2.test(pw1) || !pattern3.test(pw1) || pw1.length<8) {
 	    	alert("비밀번호는 영문+숫자+특수문자 조합으로 8자리 이상 입력해주세요.");
+	    	$("#pass1").val('');
 	    	return false;
 	    }
 	    
@@ -149,11 +169,13 @@ $(function(){
 
            if(SamePass_0 > 0) { // 동일문자 카운트 1일 때
               alert("동일문자를 3자 이상 연속 입력할 수 없습니다.");
+              $("#pass1").val('');
               pw_passed=false; // 유효성검사 false
            }
 
            if(SamePass_1 > 0 || SamePass_2 > 0 ) { // 오름차순 또는 내림차순 연속성 0일 때
               alert("영문, 숫자는 순서대로 입력할 수 없습니다. 예: 123 또는 abc (허용X)");
+              $("#pass1").val('');
               pw_passed=false; // 유효성검사 false
            } 
 
@@ -307,7 +329,8 @@ function check(f) {
 						<td><span style="color:red">※</span>아이디</td>
 						<td>
 							<input type="hidden" name="category" id="category" value="1">
-							<input type="text" name="id" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" class="checkout__input__add">
+							<input type="text" name="id" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" 
+							 class="checkout__input__add" required="required">
 							<button type="button" id="idCheck" class="addr-btn" onclick="">중복확인</button><br>
 							<p id="id_check">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
@@ -321,7 +344,7 @@ function check(f) {
 						<td><span style="color:red">※</span>비밀번호</td>
 						<td>
 							<input type="password" name="pass1" id="pass1" required="required"
-							 placeholder="비밀번호를 입력해주세요." class="checkout__input__add">
+							 placeholder="비밀번호를 입력해주세요." class="checkout__input__add" required="required">
 							<p id="pw_check1">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
 								<span style="font-size:13px; color:#6f6f6f">8자 이상 입력</span><br>
@@ -349,6 +372,14 @@ function check(f) {
 						<td>
 							<input type="text" name="irum" id="irum" required="required"
 							 placeholder="이름을 입력해주세요." class="checkout__input__add">
+						</td>
+					</tr>
+					<tr class="checkout__input">
+						<td><span style="color:red">※</span>닉네임</td>
+						<td>
+							<input type="text" name="nick" id="nick" placeholder="사용할 닉네임을 입력해주세요." 
+							 class="checkout__input__add" required="required">
+							<button type="button" id="nickCheck" class="addr-btn" onclick="">중복확인</button>
 						</td>
 					</tr>
 					<tr class="checkout__input">

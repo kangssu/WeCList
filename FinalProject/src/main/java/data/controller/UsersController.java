@@ -2,6 +2,7 @@ package data.controller;
 
 import java.util.HashMap;
 
+
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,25 +49,27 @@ public class UsersController {
 		return "redirect:join";
 	}
 	
-//	@GetMapping("/users/update")
-//	public ModelAndView updateform(@RequestParam String id) {
-//		ModelAndView mview = new ModelAndView();
-//		
-//		// DB로부터 dto 얻기
-//		UserDto dto = mapper.getMemberData(id);
-//		
-//		mview.addObject("dto",dto);
-//		
-//		mview.setViewName("/users/update");
-//		
-//		return mview;
-//	}
-	
-	@GetMapping("/users/update")
-	public String usersUpdate(@ModelAttribute UserDto udto) {
-		mapper.updateMember(udto);
-		return "/users/userUpdate";
+	@GetMapping("/users/updateform")
+	public ModelAndView updateForm(@RequestParam String idx) {
+		ModelAndView mview = new ModelAndView();
+		
+		// DB로부터 dto 얻기
+		UserDto dto = mapper.getUserData(idx);
+		
+		mview.addObject("dto",dto);
+		
+		mview.setViewName("/1/users/userUpdate");
+		
+		return mview;
 	}
+	
+	@PostMapping("/users/update")
+	public String update(@ModelAttribute UserDto dto) {	
+		mapper.updateUsers(dto);
+		
+		return "redirect:/1/users/userUpdate";
+	}
+	
 	
 	@GetMapping("/users/delete")
 	/* 컨트롤러를 일반 Controller 로 설정했기 때문에 ResponseBody를 선언해서 json 값을 가져온다 */
@@ -98,6 +101,18 @@ public class UsersController {
         
         Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("check", check); // 0 or 1
+        
+        return map;
+    }
+	
+	@GetMapping("/users/nickcheck")
+	@ResponseBody
+	public Map<String, Integer> nickCheck(@RequestParam String nick){
+		// ID 체크
+        int nickCheck = mapper.getNickCheck(nick);
+        
+        Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("nickCheck", nickCheck); // 0 or 1
         
         return map;
     }

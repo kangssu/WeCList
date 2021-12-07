@@ -12,10 +12,11 @@ public interface UserMapper {
   	public int getTotalCount(String myid);
   	public void insertUsers(UserDto dto);
   	public int getIdCheck(String id);
+  	public int getNickCheck(String nick);
 	public int getCheckPass(HashMap<String, String> map);
-	public UserDto getMemberData(String num);
+	public UserDto getUserData(String num);
 	public void deleteMember(String num);
-	public void updateMember(UserDto dto);
+	public void updateUsers(UserDto dto);
 	
 	public String getName(String id);
 	public int login(HashMap<String, String> map);

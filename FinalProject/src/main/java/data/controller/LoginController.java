@@ -48,20 +48,35 @@ public class LoginController {
 			// required = false 는 null값이 들어가도 읽을 수 있음(오류처리X)
 			@RequestParam String id,
 			@RequestParam String pass1,
+			@RequestParam String irum,
+			@RequestParam String nickname,
+			@RequestParam String email,
+			@RequestParam String hp,
+			@RequestParam String addr1,
+			@RequestParam String addr2,
+			@RequestParam String profileimg,
 			@RequestParam(value="category", required = false) String category,
 			HttpSession session) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
+		map.put("irum", irum);
 		map.put("pass1", pass1);
 		//map.put("category", category);
 		
 		int check = mapper.login(map); // UserSql에 있는 login함수, 리턴값 0 or 1
 		if(check==1) { // 로그인 성공
 			session.setAttribute("id", id);
+			session.setAttribute("irum", irum);
+			session.setAttribute("nickname", nickname);
+			session.setAttribute("email", email);
+			session.setAttribute("hp", hp);
+			session.setAttribute("addr1", addr1);
+			session.setAttribute("addr2", addr2);
+			session.setAttribute("profileimg", profileimg);
 			session.setAttribute("category", category);
 			session.setAttribute("loginok", "yes");
 			System.out.println("로그인 성공");
-			System.out.println(category);
+			//System.out.println(category);
 			return "/";
 		} else {
 			//System.out.println(check);
@@ -74,6 +89,6 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginok");
 		
-		return "/";
+		return "/inc/main";
 	}
 }

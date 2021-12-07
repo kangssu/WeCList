@@ -5,22 +5,22 @@
 	<select id="GetIdData" parameterType="String" resultType="udto">
 		select * from usersjoin where id=#{id}
 	</select>
-	<select id="getTotalCount" parameterType="String" resultType="int">
-		select count(*) from usersjoin where id=#{id}
-	</select>
 	<select id="getIdCheck" parameterType="String" resultType="int">
 		select count(*) from usersjoin where id=#{id}
+	</select>
+	<select id="getNickCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where nickname=#{nickname}
 	</select>
 	<select id="getCheckPass" parameterType="HashMap" resultType="int">
 		select count(*)	from usersjoin where idx=#{idx} and pass1=#{pass1}
 	</select>
-	<select id="getMemberData" parameterType="String" resultType="udto">
-		select * from usersjoin where id=#{id}
+	<select id="getUserData" parameterType="String" resultType="udto">
+		select * from usersjoin where idx=#{idx}
 	</select>
 	<delete id="deleteMember" parameterType="String">
 		delete from usersjoin where id=#{id}
 	</delete>
-	<update id="updateMember" parameterType="udto">
+	<update id="updateUsers" parameterType="udto">
 		update usersjoin set irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email}
 		where id=#{id}
 	</update>
