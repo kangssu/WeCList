@@ -153,7 +153,7 @@ $(document).ready(function (){
 									<p>마이페이지</p>
 								</a>
 								<div class="hero__mypage__2">
-									<a href="">
+									<a href="${root}/cart/list">
 										<span>0</span>
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<p>장바구니</p>
@@ -166,7 +166,7 @@ $(document).ready(function (){
 									<p>마이페이지</p>
 								</a>
 								<div class="hero__mypage__2">
-									<a href="">
+									<a href="${root}/cart/list">
 										<span>0</span>
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<p>장바구니</p>
