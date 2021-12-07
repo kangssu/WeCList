@@ -38,5 +38,4 @@ public class CartService {
         LOGGER.info("service-deleteAllCart");
         mapper.deleteAllCart(userIdx);
     }
-
 }

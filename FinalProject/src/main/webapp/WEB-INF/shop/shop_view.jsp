@@ -143,16 +143,16 @@
                     <div class="product__details__rating">
                         <div class="starpoint_wrap">
                             <div class="starpoint_box">
-                                <label class="label_star" title="0.5"><span  class="blind">0.5점</span></label>
-								<label class="label_star"   title="1"><span  class="blind">1점</span></label>
-                                <label class="label_star" title="1.5"><span  class="blind">1.5점</span></label>
-								<label   class="label_star" title="2"><span  class="blind">2점</span></label>
-                                <label class="label_star" title="2.5"><span   class="blind">2.5점</span></label>
-								<label       class="label_star"   title="3"><span  class="blind">3점</span></label>
-                                <label class="label_star" title="3.5"><span   class="blind">3.5점</span></label>
-								<label       class="label_star"    title="4"><span  class="blind">4점</span></label>
-                                <label class="label_star" title="4.5"><span  class="blind">4.5점</span></label>
-								<label        class="label_star"       title="5"><span   class="blind">5점</span></label>
+                                <label class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                                <label class="label_star" title="1"><span class="blind">1점</span></label>
+                                <label class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                                <label class="label_star" title="2"><span class="blind">2점</span></label>
+                                <label class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                                <label class="label_star" title="3"><span class="blind">3점</span></label>
+                                <label class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                                <label class="label_star" title="4"><span class="blind">4점</span></label>
+                                <label class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                                <label class="label_star" title="5"><span class="blind">5점</span></label>
 
                                 <span class="starpoint_bg"></span>
                             </div>
@@ -179,7 +179,7 @@
                                     <option value="${sdto.subprice5}">${sdto.suboption5}</option>
                                 </select>
                             </li>
-                                <input type="hidden" name="shop_option"  value="">
+                            <input type="hidden" name="shop_option" value="">
                         </ul>
                         <div class="product__details__text__option__list">
                             <p id="result">옵션</p>
@@ -203,10 +203,10 @@
                             <p>총 작품금액 :</p>
                             <span> </span>
                         </div>
-<%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
-                        <button type="submit" class="primary-btn" onclick="location.href='buy'">구매하기</button>
+                        <%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
+                        <button type="submit" class="primary-btn btn_buy" onclick="location.href='buy'">구매하기</button>
+                        <button type="button" class="heart-btn btn_cart" onclick="location.href='${root}/cart/list'">장바구니</button>
                     </form>
-                    <button type="button" class="heart-btn" onclick="location.href='${root}/cart/list'">장바구니</button>
                     <button type="button" class="list-btn" onclick="location.href='list'">목록보기</button>
                 </div>
             </div>
@@ -253,39 +253,38 @@
 
 <!-- Related Product Section Begin -->
 <section class="related-product">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="section-title related__product__title">
-					<h2>다른 작품 구경하기</h2>
-					<span>다양한 작품을 구경해보세요!</span>
-				</div>
-			</div>
-		</div>
-		<div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>다른 작품 구경하기</h2>
+                    <span>다양한 작품을 구경해보세요!</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
 
 
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="product__item">
-					<a
-						href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">
-						<div class="product__item__pic">
-							<img style="width: 220px; height: 270px;"
-								src="../photo/${sdto.uploadfile1}" alt="">
-						</div>
-						<div class="product__item__text">
-							<h6>${sdto.name}</h6>
-							<h6>${sdto.title}</h6>
-							<h5>${sdto.shopprice}</h5>
-						</div>
-					</a>
-				</div>
-			</div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <a
+                            href="content?num=${sdto.num}&currentPage=${currentPage}&key=list">
+                        <div class="product__item__pic">
+                            <img style="width: 220px; height: 270px;"
+                                 src="../photo/${sdto.uploadfile1}" alt="">
+                        </div>
+                        <div class="product__item__text">
+                            <h6>${sdto.name}</h6>
+                            <h6>${sdto.title}</h6>
+                            <h5>${sdto.shopprice}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
 
-
-		</div>
-	</div>
+        </div>
+    </div>
 </section>
 <!-- Related Product Section End -->
 <script type="text/javascript">
@@ -304,4 +303,28 @@
           "#selectoption").val();
     });
   });
+
+  <%--function insertCart(){--%>
+  <%--  if(${sessionScope.id == null}){--%>
+  <%--    alert("로그인하지않았습니다")--%>
+  <%--    // location.href="/login";--%>
+  <%--  }else{--%>
+  <%--    if(confirm("장바구니에 추가?")){--%>
+  <%--      $.ajax({--%>
+  <%--        type:"post",--%>
+  <%--        url:"/cart/insert",--%>
+  <%--        data:{--%>
+  <%--          user_idx: ${sessionScope.id},--%>
+  <%--          shop_num: ${sdto.num},--%>
+  <%--          shop_option: "",--%>
+  <%--          shop_qty: "#subnum.value",--%>
+  <%--          shop_price: ""--%>
+  <%--        },--%>
+  <%--        success: function (data) {--%>
+  <%--          --%>
+  <%--        }--%>
+  <%--      })--%>
+  <%--    }--%>
+  <%--  }--%>
+  <%--}--%>
 </script>
