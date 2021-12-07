@@ -60,8 +60,7 @@ public class LoginController {
 			session.setAttribute("id", id);
 			session.setAttribute("category", category);
 			session.setAttribute("loginok", "yes");
-			System.out.println("로그인 성공");
-			System.out.println(category);
+			System.out.println("로그인 성공!! - id= " + id +", category= "+ category);
 			return "/";
 		} else {
 			//System.out.println(check);

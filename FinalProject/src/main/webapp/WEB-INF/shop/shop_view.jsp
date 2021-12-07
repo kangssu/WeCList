@@ -163,13 +163,14 @@
                     <p>${sdto.shopsub}</p>
                     <form method="post" action="${root}/cart/insert">
                         <input type="hidden" name="shop_num" value="${sdto.num}">
+                        <input type="hidden" name="user_id" value="${sessionScope.id}">
                         <ul class="view_option_select">
                             <li class="view_option_select_su"><b>수량</b> <span>주문시
 								제작</span></li>
                             <li><b>배송비</b> <span>2,500원 <samp>(모든 지역 동일)</samp></span></li>
                             <li><b>배송시작</b> <span>평균 1일, 최대 30일 이내</span></li>
                             <li><b>옵션선택</b>
-                                <select id="selectoption" name="sub_option" onchange="NumChange(this.value)">
+                                <select id="selectoption" name="shop_price" onchange="NumChange(this.value)">
                                     <option>--선택안함--</option>
                                     <option value="${sdto.subprice1}">${sdto.suboption1}</option>
                                     <option value="${sdto.subprice2}">${sdto.suboption2}</option>
@@ -178,6 +179,7 @@
                                     <option value="${sdto.subprice5}">${sdto.suboption5}</option>
                                 </select>
                             </li>
+                                <input type="hidden" name="shop_option"  value="">
                         </ul>
                         <div class="product__details__text__option__list">
                             <p id="result">옵션</p>
@@ -201,9 +203,10 @@
                             <p>총 작품금액 :</p>
                             <span> </span>
                         </div>
-                        <button type="submit" class="primary-btn" onclick="location.href='buy'">장바구니</button>
+<%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
+                        <button type="submit" class="primary-btn" onclick="location.href='buy'">구매하기</button>
                     </form>
-                    <button type="button" class="heart-btn" onclick="">찜하기</button>
+                    <button type="button" class="heart-btn" onclick="location.href='${root}/cart/list'">장바구니</button>
                     <button type="button" class="list-btn" onclick="location.href='list'">목록보기</button>
                 </div>
             </div>

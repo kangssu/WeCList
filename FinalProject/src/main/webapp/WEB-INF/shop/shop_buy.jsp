@@ -44,22 +44,16 @@ function getCartList(){
 			<div class="col-lg-12 view_buy_1">
 				<h6>주문상품</h6>
 				<ul>
-				<c:choose>
-					<c:when test="${cartdto.count == 0}">
-						cart is empty
-					</c:when>
-					<c:otherwise>
-				<c:forEach var="row" items="${cartdto.list}">
+				<c:forEach var="item" items="${list}">
 					<li>
-						<img src="${root}/img/featured/${row.itemImage}">
-						<span>${row.name}</span>
-						<span class="buy_su">${row.shop_qty}</span>
-						<span class="buy_dan"><fmt:formatNumber value="${row.itemPrice}" pattern="#,###,###"/></span>
+						${item.title} , ${item.itemImage}, ${item.name}, ${item.shop_option}, ${item.shop_qty}, ${item.shop_price}
+<%--						<img src="${root}/img/featured/${row.itemImage}">--%>
+<%--						<span>${row.name}</span>--%>
+<%--						<span class="buy_su">${row.shop_qty}</span>--%>
+<%--						<span class="buy_dan"><fmt:formatNumber value="${row.shop_price}" pattern="#,###,###"/></span>--%>
 					</li>
 				</c:forEach>
 				</ul>
-					</c:otherwise>
-				</c:choose>
 			</div>
 		</div>
 		<div class="checkout__form">

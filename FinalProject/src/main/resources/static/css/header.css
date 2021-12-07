@@ -12,6 +12,7 @@
 
 
 .hero__mypage {
+  display: flex;
   padding: 16px 0;
   margin-left:200px;
   font-size:35px;

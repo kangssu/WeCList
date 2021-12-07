@@ -22,9 +22,9 @@ public class CartService {
     }
 
     // 카트 리스트 출력
-   public List<CartDTO> listCart(int userIdx) {
+   public List<CartDTO> listCart(String userId) {
        LOGGER.info("service-listCart");
-        return mapper.listCart(userIdx);
+        return mapper.listCart(userId);
     }
 
     // 카트 하나만 삭제
