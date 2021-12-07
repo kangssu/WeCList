@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.AuthorMapper">
+	<select id="getTotalCount" parameterType="String" resultType="int">
+		select count(*) from usersjoin where category=2
+	</select>
+	
+	<select id="getTrue" parameterType="String" resultType="fdto">
+		<!-- select count(*) from follow where to_id=#{to_id} and from_id=#{from_id} -->
+		<!-- select * from follow where from_id=#{from_id} -->
+		<!-- select count(*) from follow where from_id=#{from_id} -->
+		<!-- select count(*) from follow where to_id=#{to_id} and from_id=#{from_id} -->
+		<!-- select ifnull(max(to_id),'null')as from_id, ifnull(max(from_id),'null') as to_id from follow where to_id=#{to_id} and from_id=#{from_id} -->
+		<!-- select from_id=#{from_id} from follow where follow_cnt=#{follow_cnt} -->
+		<!-- select * from follow where from_id=#{from_id} and follow_cnt=1 -->
+		<!-- select ifnull(max(to_id),'null')as from_id from follow where from_id=#{from_id} -->
+		select to_id from follow where from_id=#{from_id}
+	</select>
+	
+	<select id="GetData" parameterType="String" resultType="fdto">
+		select to_id,from_id from follow where from_id=#{from_id}
+	</select>
+	
 	<select id="getList" parameterType="HashMap" resultType="aadto">
-		select * from author where myid=#{myid} order by num desc limit #{start},#{perpage}
+		SELECT
+		u.idx
+		, u.id
+		, u.irum
+		, u.profileimg
+		, u.category
+		, a.concise
+		FROM usersjoin AS u
+		LEFT JOIN author_profile AS a
+		ON u.id = a.myid
+		WHERE u.category = 2 AND idx IN (
+		SELECT idx
+		FROM usersjoin
+		ORDER BY idx DESC
+		)
+		LIMIT #{start},#{perpage}
 	</select>
 </mapper>

@@ -21,12 +21,13 @@ public class StoryCommentController {
   public void insert(@ModelAttribute StoryCommentDto dto, HttpSession session) {
     int reidx = dto.getReidx(); // 새글 0, 댓글 1
     int regroup = dto.getRegroup(); // 기본 값은 0
+    String myid = (String) session.getAttribute("id");
 
     if (reidx == 0) {
       regroup = service.getMaxRegroup() + 1;
     }
 
-    dto.setWriter("kang");
+    dto.setWriter(myid);
     dto.setRegroup(regroup);
 
     // insert
@@ -36,8 +37,9 @@ public class StoryCommentController {
   // 작가가 댓글에 댓글을 등록!
   @PostMapping("/story/acinsert")
   public void acinsert(@ModelAttribute StoryCommentDto dto, HttpSession session) {
+    String myid = (String) session.getAttribute("id");
 
-    dto.setWriter("jay");
+    dto.setWriter(myid);
     dto.setReidx(1);
 
     // insert

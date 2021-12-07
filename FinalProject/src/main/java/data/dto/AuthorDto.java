@@ -9,16 +9,18 @@ public class AuthorDto {
   private String idx;
   private String id;
   private String irum;
+  private String profileimg;
+  private int category;
 
   // profile dto
   private String concise;
 
-  public String getIdx() {
-    return idx;
+  public String getProfileimg() {
+    return profileimg;
   }
 
-  public void setIdx(String idx) {
-    this.idx = idx;
+  public void setProfileimg(String profileimg) {
+    this.profileimg = profileimg;
   }
 
   public String getId() {
@@ -27,6 +29,22 @@ public class AuthorDto {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public int getCategory() {
+    return category;
+  }
+
+  public void setCategory(int category) {
+    this.category = category;
+  }
+
+  public String getIdx() {
+    return idx;
+  }
+
+  public void setIdx(String idx) {
+    this.idx = idx;
   }
 
   public String getIrum() {
