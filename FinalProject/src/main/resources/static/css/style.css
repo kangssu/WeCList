@@ -750,6 +750,8 @@ li {
 
 .header__top__right i{
 	margin-left:5px;
+	float:right;
+	line-height:19px;
 }
 
 .header__top__right b{
@@ -1153,13 +1155,15 @@ li {
 }
 
 .hero__mypage {
-	padding: 16px 0;
+	padding-top:20px;
 	margin-left:200px;
 	font-size:35px;
 }
 
 .hero__mypage a{
 	color:#252525;
+	display:inline-block;
+	position:relative;
 }
 
 .hero__mypage span{
@@ -1172,32 +1176,34 @@ li {
 	text-align:center;
 	line-height:18px;
 	font-size:5px;
-	top:100px;
-	right:87px;
+	top:0;
+	right:-3px;
 }
 
 .hero__mypage__1 p{
-	position:absolute;
 	font-size:10px;
-	margin-top:-10px;
 	color:#1c1c1c;
 	margin-left:-12px;
+	margin-top:-10px;
 }
 
 .hero__mypage__2 p{
-	position:absolute;
 	font-size:10px;
-	margin-top:-10px;
 	color:#1c1c1c;
+	margin-top:-10px;
 }
 
 .hero__mypage__1{
 	display:inline-block;
 }
 
+.hero__mypage__1>.fa{
+	display:block;
+}
+
 .hero__mypage__2{
 	display:inline-block;
-	margin-left:25px;
+	margin-left:20px;
 }
 
 .hero__search__form {
