@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.FollowMapper">
+	<insert id="insertFollow" parameterType="fdto">
+		insert into follow (num,to_id,from_id,follow_cnt) 
+		values (#{num},#{to_id},#{from_id},#{follow_cnt})
+	</insert>
+</mapper>
