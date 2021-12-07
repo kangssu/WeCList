@@ -11,11 +11,14 @@
 	<select id="getNickCheck" parameterType="String" resultType="int">
 		select count(*) from usersjoin where nickname=#{nickname}
 	</select>
+	<select id="getEmailCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where email=#{email}
+	</select>
 	<select id="getCheckPass" parameterType="HashMap" resultType="int">
-		select count(*)	from usersjoin where idx=#{idx} and pass1=#{pass1}
+		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
 	</select>
 	<select id="getUserData" parameterType="String" resultType="udto">
-		select * from usersjoin where idx=#{idx}
+		select * from usersjoin where id=#{id}
 	</select>
 	<delete id="deleteMember" parameterType="String">
 		delete from usersjoin where id=#{id}

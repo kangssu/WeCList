@@ -90,7 +90,7 @@ $(document).ready(function (){
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<span style="margin-right: 100px"> 
 					<c:if test="${sessionScope.loginok!=null }">
-						<b>${sessionScope.id }님</b>
+						<b>${sessionScope.id }님 환영합니다!</b>
 						</span> <a href="/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
 						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
 						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>

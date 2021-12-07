@@ -48,13 +48,13 @@ public class LoginController {
 			// required = false 는 null값이 들어가도 읽을 수 있음(오류처리X)
 			@RequestParam String id,
 			@RequestParam String pass1,
-			@RequestParam String irum,
-			@RequestParam String nickname,
-			@RequestParam String email,
-			@RequestParam String hp,
-			@RequestParam String addr1,
-			@RequestParam String addr2,
-			@RequestParam String profileimg,
+			@RequestParam(value="irum", required=false) String irum,
+			@RequestParam(value="nickname", required=false) String nickname,
+			@RequestParam(value="email", required=false) String email,
+			@RequestParam(value="hp", required=false) String hp,
+			@RequestParam(value="addr1", required=false) String addr1,
+			@RequestParam(value="addr2", required=false) String addr2,
+			@RequestParam(value="profileimg", required=false) String profileimg,
 			@RequestParam(value="category", required = false) String category,
 			HttpSession session) {
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -81,7 +81,7 @@ public class LoginController {
 		} else {
 			//System.out.println(check);
 			System.out.println("로그인 실패");
-			return "/users/login";
+			return "/users/passfail";
 		}
 	}
 	
@@ -89,6 +89,6 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginok");
 		
-		return "/inc/main";
+		return "/";
 	}
 }

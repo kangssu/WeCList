@@ -243,7 +243,23 @@ $(function(){
 	
 	// 이메일 중복확인
 	$("#emailCheck").click(function(){
-		alert("이메일 중복확인");
+		//alert("이메일 중복확인");
+		var email = $("#email").val();
+		
+		$.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"email":email},
+            url:"/users/emailcheck",
+            success:function(data){
+               if(data.emailCheck!=0){
+            	  alert("이미 사용중인 이메일입니다.");
+                  $("#email").val("");
+               }else{
+            	  alert("사용가능한 이메일입니다!");
+               }
+            }
+         });
 	});
 	
 	
