@@ -49,14 +49,14 @@
 						
 					</div>
 				</div>
-				
 					<div class="row">
-						<c:forEach var="a" items="${list}">
+						<c:forEach var="a" items="${listcate}">
+						
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
-										<div class="featured__item__pic set-bg">
-										<img src="../photo/${a.uploadfile1}" alt="" >
+										<div class="product__item__pic set-bg">
+										<img style="width: 220px; height: 270px;" src="../photo/${a.uploadfile1}" alt="" >
 										</div>
 										<div class="product__item__text">
 										<h6>${a.name}</h6>
@@ -68,7 +68,6 @@
 								</div>
 						</c:forEach>
 					</div>
-				
 				<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 					<div class="product__pagination">
 						<c:if test="${startPage>1}">

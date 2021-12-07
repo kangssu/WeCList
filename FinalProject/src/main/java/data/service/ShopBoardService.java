@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import data.dto.ClassBoardDto;
 import data.dto.ShopBoardDto;
 import data.mapper.ShopBoardMapper;
 
@@ -39,6 +40,11 @@ public class ShopBoardService {
   map.put("perpage", perpage);
   
   return mapper.getList(map);
+  }
+
+  public List<ShopBoardDto> getCategory(String shopop)
+  {
+      return mapper.getCategory(shopop);
   }
   
   public void insertBoard(ShopBoardDto dto) {
