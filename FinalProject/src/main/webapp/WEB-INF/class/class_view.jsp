@@ -14,7 +14,7 @@ $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
 loginid="${sessionScope.id}"; //로그인 아이디 가져옴
 
-alert(loginok+","+loginid); //확인됨
+//alert(loginok+","+loginid); //확인됨
            		
 //좋아요 이벤트!(추가)
 $(".fa-heart-o").click(function(){

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import data.dto.ClassBoardDto;
 import data.dto.HeartDto;
 import data.service.ClassHeartService;
 
@@ -15,7 +17,7 @@ public class ClassHeartController {
 	ClassHeartService service;
 
 	@PostMapping("/class/hinsert")
-	public void insert(@ModelAttribute HeartDto dto, String num, HttpSession session) {
+	public void insert(@ModelAttribute HeartDto dto, HttpSession session) {
 		// insert
 		
 		service.insertHeart(dto);
@@ -25,4 +27,5 @@ public class ClassHeartController {
 	public void delete(String class_heart, String num, HttpSession session) {
 		service.deleteHeart(class_heart, num);
 	}
+	
 }
