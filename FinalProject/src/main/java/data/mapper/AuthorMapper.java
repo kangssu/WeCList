@@ -11,6 +11,8 @@ public interface AuthorMapper {
 
   public int getTotalCount();
 
+  public int getFollowCount(String from_id);
+
   public int getHotCount();
 
   public List<FollowDto> getTrue(String from_id);

@@ -24,7 +24,7 @@
 		popup2.classList.add('hide');
 	}
 </script>
-<!-- 스토리 리스트 -->
+<!-- 주문내역 리스트 -->
 <div class="mypage__story">
 	<h2>주문내역</h2>
 	<div class="mypage__story__list">

@@ -18,6 +18,10 @@ public class AuthorService {
     return mapper.getTotalCount();
   }
 
+  public int getFollowCount(String from_id) {
+    return mapper.getFollowCount(from_id);
+  }
+
   public int getHotCount() {
     return mapper.getHotCount();
   }
