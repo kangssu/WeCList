@@ -26,7 +26,11 @@
 </script>
 <!-- 스토리 리스트 -->
 <div class="mypage__story">
-	<h2>클래스 관리</h2>
+<h2>작품/클래스 관리</h2>
+	<ul class="tab__manu">
+		<li><a href="/mypage/shop/list">작품 관리</a></li>
+		<li class="on"><a href="/mypage/class/list">클래스 관리</a></li>
+	</ul>
 	<div class="mypage__story__list">
 		<table class="story__table">
 			<tr>

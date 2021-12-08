@@ -34,4 +34,10 @@
 	<select id="getSevendays" resultType="cndto">
 		select * from classnewboarder where writeday > now() - interval 7 DAY;
 	</select>
+	
+	<select id="getTrue" parameterType="String" resultType="hdto">
+		select * from classHeart where num=#{num}
+	</select>
+	
+	
 </mapper>
