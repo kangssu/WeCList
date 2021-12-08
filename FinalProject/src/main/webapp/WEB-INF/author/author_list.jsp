@@ -34,22 +34,25 @@
 		
 		//팔로잉 이벤트!(취소)
 		$(".btn_following").click(function(){
+			//var follow_cnt=$(this).val();
+			//alert(follow_cnt); //숫자불러옴!
+			var from_id="${sessionScope.id}";
 			var to_id=$(this).attr("id");
-			//alert(id); //아이디 불러옴
+			//alert(from_id);
 			
 			//팔로우!
 			$.ajax({
 				type:"post",
 				dataType:"text",
-				url:"",
-				data:{"to_id":to_id,"from_id":from_id},
+				url:"/author/fdelete",
+				data:{"from_id":from_id,"to_id":to_id},
 				success:function(data){
-				alert("작가 팔로우를 취소하였습니다!");
+					alert("작가 팔로우를 취소하였습니다!");
+					location.reload();
 				}
 			});
 		});
 	});
-	
 </script>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
@@ -130,7 +133,7 @@
 			</div>
 			<c:if test="${totalCount>0}">
 				<c:forEach var="dto" items="${list}" varStatus="status">
-					<div class="author__box__all_list" id="${status.count}">
+					<div class="author__box__all_list">
 						<%-- <input type="text" value="${status.count}"> --%>
 						<div class="author__box_all">
 							<img src="${dto.profileimg}" class="author_img_2">

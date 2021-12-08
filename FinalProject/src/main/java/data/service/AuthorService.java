@@ -24,7 +24,7 @@ public class AuthorService {
   }
 
   public List<FollowDto> GetData(String from_id) {
-    System.out.println(from_id);
+    System.out.println("나" + from_id);
     return mapper.GetData(from_id);
   }
 

@@ -750,6 +750,8 @@ li {
 
 .header__top__right i{
 	margin-left:5px;
+	float:right;
+	line-height:19px;
 }
 
 .header__top__right b{
@@ -856,6 +858,21 @@ li {
 
 .header__top__right__auth {
 	display: inline-block;
+}
+
+.header__top__right__auth .user__login__id{
+	display:block;
+	float:left;
+	color:#1c1c1c;
+	border:1px solid #b2b2b2;
+	border-radius:100px;
+	font-size:13px;
+	height:27px;
+	width:100px;
+	text-align:center;
+	line-height:25px;
+	margin-right:15px;
+	font-weight:700;
 }
 
 .header__top__right__auth span{
@@ -1135,6 +1152,58 @@ li {
 	margin-bottom: 25px;
 	margin-top:5px;
 	margin-left:65px;
+}
+
+.hero__mypage {
+	padding-top:20px;
+	margin-left:200px;
+	font-size:35px;
+}
+
+.hero__mypage a{
+	color:#252525;
+	display:inline-block;
+	position:relative;
+}
+
+.hero__mypage span{
+	position:absolute;
+	background-color:#ff7b27;
+	width:17px;
+	height:17px;
+	border-radius:50px;
+	color:white;
+	text-align:center;
+	line-height:18px;
+	font-size:5px;
+	top:0;
+	right:-3px;
+}
+
+.hero__mypage__1 p{
+	font-size:10px;
+	color:#1c1c1c;
+	margin-left:-12px;
+	margin-top:-10px;
+}
+
+.hero__mypage__2 p{
+	font-size:10px;
+	color:#1c1c1c;
+	margin-top:-10px;
+}
+
+.hero__mypage__1{
+	display:inline-block;
+}
+
+.hero__mypage__1>.fa{
+	display:block;
+}
+
+.hero__mypage__2{
+	display:inline-block;
+	margin-left:20px;
 }
 
 .hero__search__form {
