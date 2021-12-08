@@ -14,12 +14,9 @@ public class FollowController {
   @Autowired
   FollowService service;
 
-  // 회원이 팔로우를 클릭했을때!
   @PostMapping("/author/finsert")
   public void insert(@ModelAttribute FollowDto dto, HttpSession session) {
-
-    dto.setFollow_cnt(1);
-
+	  
     // insert
     service.insertFollow(dto);
   }

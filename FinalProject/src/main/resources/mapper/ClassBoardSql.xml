@@ -35,28 +35,13 @@
 		select * from classnewboarder where writeday > now() - interval 7 DAY;
 	</select>
 	
-	<!-- 좋아요 추가 -->
-	<insert id="heart_save" parameterType="hdto">
-		insert into heartclass (id, num) values (#{id},#{num})
+	<insert id="insertHeart" parameterType="hdto">
+		insert into classHeart (idx,class_heart,num) 
+		values (#{idx},#{class_heart},#{num})
 	</insert>
-	<update id="heart_up" parameterType="cdto">
-		update classboarder set classheart=classheart-1 where num=#{num}
-	</update>
-	
-	<!-- 좋아요 삭제 -->
-	<delete id="heart_remove" parameterType="String">
-		delete from heartclass where idx=#{idx} and id=#{id}
-	</delete>
-	<update id="heart_down" parameterType="cdto">
-		update classboarder set classheart=classheart-1 where num=#{num}
-	</update>
-	
-	<!-- 갯수 출력 -->
-	<select id="heart_count" parameterType="hdto" resultType="hdto">
-		select heart from heartclass where idx=#{idx}
+	<select id="getTrue" parameterType="String" resultType="hdto">
+		select * from classHeart where num=#{num}
 	</select>
-	
-	
 	
 	
 </mapper>

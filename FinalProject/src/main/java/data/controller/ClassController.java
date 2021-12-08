@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.FollowDto;
+import data.dto.HeartDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
 
@@ -63,6 +65,9 @@ public class ClassController {
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
+		List<HeartDto> heartTrue= service.getTrue(num);
+ 		System.out.println(heartTrue.toString());
+ 	
 		int dotLoc=dto.getUploadfile().lastIndexOf(".");
 		String ext=dto.getUploadfile().substring(dotLoc+1);
 
@@ -74,6 +79,7 @@ public class ClassController {
 
 		mview.addObject("classlist", classlist);
 		mview.addObject("dto", dto);
+		mview.addObject("heartTrue",heartTrue);
 		
 		mview.setViewName("/2/class/class_view");
 		return mview;
@@ -251,12 +257,12 @@ public class ClassController {
 		return "redirect:/class/addnewform";
 	}
 	
-	//public ModelAndView save_heart(@RequestParam String no, HttpSession session) {
-		
-	//}
+	@PostMapping("/class/hinsert")
+	  public void insert(@ModelAttribute HeartDto dto, HttpSession session) {
+	    // insert
+	    service.insertHeart(dto);
+	  }
 	
-	
-
 }
 
 
