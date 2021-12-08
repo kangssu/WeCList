@@ -49,15 +49,18 @@ public class UsersController {
 		return "redirect:join";
 	}
 	
-	
+	// 정보 수정하기 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
 	@GetMapping("/users/mypage/updatepass")
 	public String updateMyInfo() {
 		return "/1_2/user_mypage/user_updatepassform";
 	}
 	
+	// 비밀번호 입력 폼에서 올바르게 입력했는지 체크
 	@PostMapping("/users/updatepass")
-	public String updatepass(@RequestParam String id,
+	public ModelAndView updatepass(@RequestParam String id,
 			@RequestParam String pass1) {
+		ModelAndView mview = new ModelAndView();
+		
 		// DB로부터 비번 맞는지 체크
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
@@ -65,32 +68,27 @@ public class UsersController {
 		
 		int check = mapper.getCheckPass(map);
 		if(check==1) { // 비번이 맞는 경우
-			return "redirect:/1_2/users_mypage/user_update?id=" + id;
+			//return "/1_2/user_mypage/user_update";
+			// DB로부터 dto 얻기
+			UserDto dto = mapper.getUserData(id);
+			
+			mview.addObject("dto",dto);
+			
+			mview.setViewName("/1_2/user_mypage/user_update");
+			
+			return mview;
 		} else { // 틀린 경우
-			return "/1_2/user_mypage/user_passfail";
+			mview.setViewName("/user_mypage/user_passfail");
+			
+			return mview;
 		}
 	}
 	
-	
-	@PostMapping("/users/updateform")
-	public ModelAndView updateForm(@RequestParam String id) {
-		ModelAndView mview = new ModelAndView();
-		
-		// DB로부터 dto 얻기
-		UserDto dto = mapper.getUserData(id);
-		
-		mview.addObject("dto",dto);
-		
-		mview.setViewName("/1_2/user_mypage/user_update");
-		
-		return mview;
-	}
-	
-	@PostMapping("/users/update")
+	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
 	public String update(@ModelAttribute UserDto dto) {	
 		mapper.updateUsers(dto);
 		
-		return "redirect:/1_2/user_mypage/user_update";
+		return "/user_mypage/user_success";
 	}
 
 	
@@ -131,9 +129,9 @@ public class UsersController {
 	
 	@GetMapping("/users/nickcheck")
 	@ResponseBody
-	public Map<String, Integer> nickCheck(@RequestParam String nick){
+	public Map<String, Integer> nickCheck(@RequestParam String nickname){
 		// ID 체크
-        int nickCheck = mapper.getNickCheck(nick);
+        int nickCheck = mapper.getNickCheck(nickname);
         
         Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("nickCheck", nickCheck); // 0 or 1
