@@ -5,6 +5,12 @@
 	<select id="getTotalCount" resultType="int">
 		select count(*) from shopboarder
 	</select>
+	
+	
+	<select id="getIdCount" resultType="int">
+		select count(*) from shopboarder where myid = #{myid}
+	</select>
+	
 	<update id="updateReadCount" parameterType="String">
 		update shopboarder set readcount = readcount+1 where num=#{num}
 	</update>
@@ -18,6 +24,8 @@
 	<select id="getList" parameterType="HashMap" resultType="sdto">
 		select * from shopboarder order by num desc limit #{start},#{perpage}
 	</select>
+	
+	
 	<insert id="insertBoard" parameterType="sdto">
 		insert into shopboarder (name, myid,title,shopop,shopprice,shoptag,subprice1,suboption1,subprice2,suboption2,
 		subprice3,suboption3,subprice4,suboption4,subprice5,suboption5,shopsub,shopcontent,shopdelivery,

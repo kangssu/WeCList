@@ -12,6 +12,10 @@ public class FollowService {
   @Autowired
   FollowMapper mapper;
 
+  public int getMaxFollowCnt(String to_id) {
+    return mapper.getMaxFollowCnt(to_id);
+  }
+
   public void insertFollow(FollowDto dto) {
     mapper.insertFollow(dto);
   }

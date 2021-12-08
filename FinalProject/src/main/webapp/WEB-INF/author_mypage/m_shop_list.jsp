@@ -18,37 +18,49 @@
 				<th>제목</th>
 				<th>작성일</th>
 				<th>수정/삭제</th>
-				<c:if test="${totalCount==0}">
+
+				
+			</tr>
 			
-				</tr>
-				<tr>
-					<td colspan="5" align="center">등록된게시글이 없습니다</td>
-				</tr>
+			
+			<c:if test="${IdCount==0}">
+			<tr>
+				<td colspan="5" align="center">등록된게시글이 없습니다</td>
+				
+			</tr>
 			</c:if>
-			<c:if test="${totalCount>0}">
+			
+			
+			<c:if test="${IdCount>0}">
 				<c:forEach var="a" items="${list}">
+					<c:if test="${sessionScope.loginok!=null and sessionScope.id==a.myid}">
 					
-				<tr >
-					<td align="center">${no}</td>
-					<c:set var="no" value="${no-1}" />
-					<td><a href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list"><img src="/photo/${a.uploadfile1}"></a></td>
-					<td><a href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list">${a.title}</a></td>
-					<td>
-					<fmt:formatDate value="${a.writeday}" pattern="yyyy-MM-dd"/>
-					</td>
-					<td>
-						<button type="button" class="story_mod_btn" 
-						onclick="location.href='/shop/updateform?num=${a.num}'">수정</button>
-						<button type="button" class="story_del_btn" 
-						onclick="location.href='/mypage/shopdelete?num=${a.num}'">삭제</button>
-					</td>
-				</tr>
+					<tr>
+						<td align="center">${Idno}</td>
+						<c:set var="Idno" value="${Idno-1}" />
+						<td><a
+							href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list"><img
+								src="/photo/${a.uploadfile1}"></a></td>
+						<td><a
+							href="/shop/content?num=${a.num}&currentPage=${currentPage}&key=list">${a.title}</a></td>
+						<td><fmt:formatDate value="${a.writeday}"
+								pattern="yyyy-MM-dd" /></td>
+						<td>
+							<button type="button" class="story_mod_btn"
+								onclick="location.href='/shop/updateform?num=${a.num}'">수정</button>
+							<button type="button" class="story_del_btn"
+								onclick="location.href='/mypage/shopdelete?num=${a.num}'">삭제</button>
+						</td>
+					</tr>
+					</c:if>
 				</c:forEach>
 			</c:if>
+			
+			
 		</table>
 		<div class="story__insert__bottom">
 			<button>
-			<a href="/shop/writeform" style="color: white;">글쓰기</a></button>
+			<a href="/mypage/shop/writeform" style="color: white;">글쓰기</a></button>
 		</div>
 		
 		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
@@ -70,5 +82,7 @@
 				<a href="list?currentPage=${endPage+1}">다음</a>
 			</c:if>
 		</div>
+		
+		
 	</div>
 </div>

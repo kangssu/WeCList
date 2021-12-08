@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.AuthorStoryDto;
@@ -63,7 +64,7 @@ public class AuthorShopController {
       int startPage;
       int endPage;
 
-      totalCount = service.getTotalCount();
+      totalCount = service.getTotalCount(); 
 
       totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
       startPage = (currentPage - 1) / perBlock * perBlock + 1;
@@ -104,44 +105,43 @@ public class AuthorShopController {
   }
   
   @GetMapping("/mypage/shop/list")
-  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage, HttpSession session
+  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
+      HttpSession session
       ) {
     ModelAndView mview = new ModelAndView();
-    int perPage = 8;
-    int totalCount = service.getTotalCount();
+    String from_id = (String) session.getAttribute("id");
+    
+    int perPage = 8;//�븳�럹�씠吏��뿉 蹂댁뿬吏� 湲��쓽 媛��닔
+    int IdCount = service.getIdCount(from_id);
+    int IdPage;//珥앺럹�씠吏�
+    int start;//媛곹럹�씠�젿�꽌 遺덈윭�삱 �떆�옉 踰덊샇
+    int perBlock = 5;//紐뉕컻�쓽 �럹�씠吏� 踰덊샇�뵫 �몴�쁽�븷寃껋씤媛�
+    int startPage;//媛곷툝�윮�뿉 �몴�떆�븷 �떆�옉�럹�씠吏�
+    int endPage;//媛곷툝�윮�뿉 �몴�떆�븷 留덉�留됲럹�씠吏�
 
-    int totalPage;
-    int start;
-    int perBlock = 5;
-    int startPage;
-    int endPage;
+    IdCount = service.getIdCount(from_id);
+    //�쁽�옱 �럹�씠吏� 踰덊샇 �씫湲�(�떒 null �씪 寃쎌슦 1�럹�씠吏�濡� �꽕�젙)
 
-
-    totalCount = service.getTotalCount();
-
-    session.setAttribute("ttcount",totalCount);
-    totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+    IdPage = IdCount / perPage + (IdCount % perPage == 0 ? 0 : 1);
+    //媛� 釉붾윮�쓽 �떆�옉�럹�씠吏�
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
 
     endPage = startPage + perBlock - 1;
-    if (endPage > totalPage) {
-        endPage = totalPage;
+    if (endPage > IdPage) {
+        endPage = IdPage;
     }
+    //媛� �럹�씠吏��뿉�꽌 遺덈윭�삱 �떆�옉踰덊샇
     start = (currentPage - 1) * perPage;
+    //媛곹럹�씠吏��뿉�꽌 �븘�슂�븳 寃뚯떆湲� 媛��졇�삤湲�
     List<ShopBoardDto> list = service.getList(start, perPage);
 
-    System.out.println(list.size());
-    for (ShopBoardDto d : list) {
-        String name = "col";
-        d.setName(name);
-    }
-    int no = totalCount - (currentPage - 1) * perPage;
-    mview.addObject("totalCount", totalCount);
+    int Idno = IdCount - (currentPage - 1) * perPage;
+    mview.addObject("IdCount", IdCount);
     mview.addObject("list", list);
     mview.addObject("startPage", startPage);
     mview.addObject("endPage", endPage);
-    mview.addObject("totalPage", totalPage);
-    mview.addObject("no", no);
+    mview.addObject("IdPage", IdPage);
+    mview.addObject("Idno", Idno);
     mview.addObject("currentPage", currentPage);
     mview.setViewName("/1/author_mypage/m_shop_list");
 

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.FollowDto;
+import data.dto.HeartDto;
 
 @Mapper
 public interface ClassBoardMapper {
@@ -21,4 +23,5 @@ public interface ClassBoardMapper {
   public void insertNewBoard(ClassNewBoardDto dto);
   public void updateBoard(ClassBoardDto dto);
   public void deleteBoard(String num);
+  public List<HeartDto> getTrue(String num);
 }
