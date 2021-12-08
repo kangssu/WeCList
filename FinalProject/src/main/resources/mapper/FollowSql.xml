@@ -5,4 +5,8 @@
 		insert into follow (num,to_id,from_id,follow_cnt) 
 		values (#{num},#{to_id},#{from_id},#{follow_cnt})
 	</insert>
+	
+	<delete id="deleteFollow" parameterType="HashMap">
+		delete from follow where from_id=#{from_id} and to_id=#{to_id}
+	</delete>
 </mapper>

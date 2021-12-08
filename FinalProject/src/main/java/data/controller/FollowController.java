@@ -23,4 +23,10 @@ public class FollowController {
     // insert
     service.insertFollow(dto);
   }
+
+  // 팔로우 취소
+  @PostMapping("/author/fdelete")
+  public void delete(String from_id, String to_id, HttpSession session) {
+    service.deleteFollow(from_id, to_id);
+  }
 }

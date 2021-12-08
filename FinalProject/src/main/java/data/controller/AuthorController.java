@@ -24,22 +24,17 @@ public class AuthorController {
   // 전체 출력
   @GetMapping("/author/list")
   public ModelAndView slist(@RequestParam(defaultValue = "1") int currentPage, String idx,
-      HttpSession session, FollowDto fdto
-  /* @RequestParam(value = "from_id", required = false) String from_id */) {
+      HttpSession session) {
 
     ModelAndView mview = new ModelAndView();
 
     int totalCount = service.getTotalCount();
 
-    String to_id = fdto.getTo_id();
-    // System.out.println("작가아이디" + to_id); // null ㅠㅠ
-
     String from_id = (String) session.getAttribute("id");
     List<FollowDto> followTrue = service.getTrue(from_id);
-    System.out.println("지금테스트" + followTrue.toString());
+    // System.out.println("지금테스트" + followTrue.toString());
 
-    List<FollowDto> flist = service.GetData(from_id);
-    // System.out.println("출력" + flist + "확인" + followTrue);
+    // List<FollowDto> flist = service.GetData(from_id);
 
     int perPage = 10;
     int totalPage;
@@ -62,7 +57,7 @@ public class AuthorController {
     int no = totalCount - (currentPage - 1) * perPage;
 
     mview.addObject("list", list);
-    mview.addObject("flist", flist);
+    // mview.addObject("flist", flist);
     mview.addObject("followTrue", followTrue);
     mview.addObject("startPage", startPage);
     mview.addObject("endPage", endPage);
