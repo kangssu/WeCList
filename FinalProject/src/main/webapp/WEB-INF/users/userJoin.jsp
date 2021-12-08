@@ -79,20 +79,32 @@ $(function(){
          });
 	});
 	
+	// 닉네임 확인요청
+	$("#nickname").blur(function(){
+
+		if($("#nickname").val().length == 0) {
+			alert("닉네임을 입력해주세요");
+	        return false;
+	    } 
+		
+		alert("닉네임 중복확인을 진행해주세요.");
+	    
+	});
+	
 	// 닉네임 중복확인
 	$("#nickCheck").click(function(){
 		//alert("닉네임 중복확인");
-		var nick = $("#nick").val();
+		var nickname = $("#nickname").val();
 		
 		$.ajax({
             type:"get",
             dataType:"json",
-            data:{"nick":nick},
+            data:{"nickname":nickname},
             url:"/users/nickcheck",
             success:function(data){
                if(data.nickCheck!=0){
             	  alert("이미 사용중인 닉네임입니다.");
-                  $("#nick").val("");
+                  $("#nickname").val("");
                }else{
             	  alert("사용가능한 닉네임입니다!");
                }
@@ -393,7 +405,7 @@ function check(f) {
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>닉네임</td>
 						<td>
-							<input type="text" name="nick" id="nick" placeholder="사용할 닉네임을 입력해주세요." 
+							<input type="text" name="nickname" id="nickname" placeholder="사용할 닉네임을 입력해주세요." 
 							 class="checkout__input__add" required="required">
 							<button type="button" id="nickCheck" class="addr-btn" onclick="">중복확인</button>
 						</td>
