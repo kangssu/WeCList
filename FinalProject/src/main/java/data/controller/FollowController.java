@@ -27,8 +27,6 @@ public class FollowController {
 
     dto.setFollow_cnt(follow_cnt);
 
-    // dto.setFollow_cnt(1);
-
     // insert
     service.insertFollow(dto);
   }
