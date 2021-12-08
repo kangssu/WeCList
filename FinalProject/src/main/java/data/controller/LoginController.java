@@ -21,28 +21,10 @@ import data.mapper.UserMapper;
 public class LoginController {
 	
 	@Autowired
-	UserMapper mapper;
+	UserMapper mapper;	
 	
-//	@GetMapping("/login/main")
-//	// Model : 값 저장소역할, 값을 저장하고 출력하는 기능
-//	public String login(HttpSession session, Model model) {
-//		String id = (String)session.getAttribute("id"); // id와 loginok의 세션값 얻어오기
-//		String loginok = (String)session.getAttribute("loginok");
-//		
-//		if(loginok==null) {
-//			return "/login/loginform";
-//		} else {
-//			// 로그인중일 경우 request에 로그인한 이름 저장하기
-//			String irum = mapper.getName(id);
-//			model.addAttribute("irum", irum);
-//			
-//			return "/login/logoutform";
-//		}
-//	}
-	
-	
-	
-	@GetMapping("/login/loginprocess")
+	//@GetMapping("/login/loginprocess")
+	@RequestMapping(value = "/login/loginprocess", method = {RequestMethod.POST, RequestMethod.GET})
 	public String loginprocess(
 			// login.jsp 파일의 아이디, 패스워드 값 받아오기
 			// required = false 는 null값이 들어가도 읽을 수 있음(오류처리X)
@@ -57,6 +39,7 @@ public class LoginController {
 			@RequestParam(value="profileimg", required=false) String profileimg,
 			@RequestParam(value="category", required = false) String category,
 			HttpSession session) {
+		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("irum", irum);
@@ -75,15 +58,17 @@ public class LoginController {
 			session.setAttribute("profileimg", profileimg);
 			session.setAttribute("category", category);
 			session.setAttribute("loginok", "yes");
-			System.out.println("로그인 성공");
+			
+			//System.out.println("로그인 성공");
 			//System.out.println(category);
 			return "/";
 		} else {
 			//System.out.println(check);
-			System.out.println("로그인 실패");
+			//System.out.println("로그인 실패");
 			return "/users/passfail";
 		}
 	}
+
 	
 	@GetMapping("/login/logoutprocess") // logoutform.jsp 파일
 	public String logout(HttpSession session) {

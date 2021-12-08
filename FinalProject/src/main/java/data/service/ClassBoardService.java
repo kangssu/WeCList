@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.FollowDto;
+import data.dto.HeartDto;
 import data.mapper.ClassBoardMapper;
 
 @Service
@@ -45,7 +47,6 @@ public class ClassBoardService {
 		return mapper.getAllnewlist();
 	}
 	
-
 	public void insertBoard(ClassBoardDto dto) {
 		mapper.insertBoard(dto);
 	}
@@ -60,6 +61,9 @@ public class ClassBoardService {
 
 	public void deleteBoard(String num) {
 		mapper.deleteBoard(num);
-
+	}
+	
+	public List<HeartDto> getTrue(String num) {
+	    return mapper.getTrue(num);
 	}
 }

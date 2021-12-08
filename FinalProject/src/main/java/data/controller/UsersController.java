@@ -46,18 +46,21 @@ public class UsersController {
 	@PostMapping("/users/insert")
 	public String usersInsert(@ModelAttribute UserDto udto) {
 		mapper.insertUsers(udto);
-		return "redirect:join";
+		return "/users/join_success";
 	}
 	
-	
+	// 정보 수정하기 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
 	@GetMapping("/users/mypage/updatepass")
 	public String updateMyInfo() {
 		return "/1_2/user_mypage/user_updatepassform";
 	}
 	
+	// 정보수정 비밀번호 입력 폼에서 올바르게 입력했는지 체크
 	@PostMapping("/users/updatepass")
-	public String updatepass(@RequestParam String id,
+	public ModelAndView updatepass(@RequestParam String id,
 			@RequestParam String pass1) {
+		ModelAndView mview = new ModelAndView();
+		
 		// DB로부터 비번 맞는지 체크
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
@@ -65,57 +68,56 @@ public class UsersController {
 		
 		int check = mapper.getCheckPass(map);
 		if(check==1) { // 비번이 맞는 경우
-			return "redirect:/1_2/users_mypage/user_update?id=" + id;
+			//return "/1_2/user_mypage/user_update";
+			// DB로부터 dto 얻기
+			UserDto dto = mapper.getUserData(id);
+			
+			mview.addObject("dto",dto);
+			
+			mview.setViewName("/1_2/user_mypage/user_update");
+			
+			return mview;
 		} else { // 틀린 경우
-			return "/1_2/user_mypage/user_passfail";
+			mview.setViewName("/user_mypage/user_updatepassfail");
+			
+			return mview;
 		}
 	}
 	
-	
-	@PostMapping("/users/updateform")
-	public ModelAndView updateForm(@RequestParam String id) {
-		ModelAndView mview = new ModelAndView();
-		
-		// DB로부터 dto 얻기
-		UserDto dto = mapper.getUserData(id);
-		
-		mview.addObject("dto",dto);
-		
-		mview.setViewName("/1_2/user_mypage/user_update");
-		
-		return mview;
-	}
-	
-	@PostMapping("/users/update")
+	// 정보수정 비밀번호 올바르게 입력 시 정보수정 폼으로 넘어간 뒤 수정하기 누르면 DB로 전송
+	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
 	public String update(@ModelAttribute UserDto dto) {	
 		mapper.updateUsers(dto);
 		
-		return "redirect:/1_2/user_mypage/user_update";
+		return "/user_mypage/user_success";
 	}
 
 	
-	
-	@GetMapping("/users/delete")
-	/* 컨트롤러를 일반 Controller 로 설정했기 때문에 ResponseBody를 선언해서 json 값을 가져온다 */
-	public @ResponseBody HashMap<String, Integer> delete(
-			@RequestParam String num, @RequestParam String pass
-			) {
-			// DB로부터 비번 맞는지 체크
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("num", num);
-			map.put("pass", pass);
-				
-			int check = mapper.getCheckPass(map);
-			if(check==1) {
-				// 비번이 맞을 경우 삭제
-				mapper.deleteMember(num);
-			}
-			
-			HashMap<String, Integer> rmap = new HashMap<String, Integer>();
-			rmap.put("check", check); /* memberlist의 ajax 부분에서 check 라는 이름을 설정했기 때문에 */
-			
-			return rmap;
+	// 회원 탈퇴 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
+	@GetMapping("/users/mypage/deletepass")
+	public String deleteMyInfo() {
+		return "/1_2/user_mypage/user_deletepassform";
 	}
+		
+	// 회원탈퇴 비밀번호 입력 폼에서 올바르게 입력했는지 체크	
+	@RequestMapping(value = "/users/deletepass", method = {RequestMethod.POST, RequestMethod.GET})
+	public String delete(@RequestParam String id, @RequestParam String pass1) {
+		// DB로부터 비번 맞는지 체크
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pass1", pass1);
+
+		int check = mapper.getCheckPass(map);
+		if(check==1) {
+			// 비번이 맞을 경우 삭제
+			mapper.deleteUsers(id);
+			
+			return "/user_mypage/user_delete";
+		} else { // 틀린 경우
+			return "/user_mypage/user_deletepassfail";
+		}
+	}
+	
 	
 	@GetMapping("/users/idcheck")
 	@ResponseBody
@@ -131,9 +133,9 @@ public class UsersController {
 	
 	@GetMapping("/users/nickcheck")
 	@ResponseBody
-	public Map<String, Integer> nickCheck(@RequestParam String nick){
+	public Map<String, Integer> nickCheck(@RequestParam String nickname){
 		// ID 체크
-        int nickCheck = mapper.getNickCheck(nick);
+        int nickCheck = mapper.getNickCheck(nickname);
         
         Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("nickCheck", nickCheck); // 0 or 1

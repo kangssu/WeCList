@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
-	alert("비밀번호 오류입니다.");
-	location.href="/1_2/user_mypage/user_passfail";
+	alert("WE C LIST 회원이 되신 것을 축하합니다!");
+	location.href="/";
 	//history.back();
 </script>

@@ -9,20 +9,32 @@ $(function(){
 	var pw1;
 	var pw2;	
 	
+	// 닉네임 확인요청
+	$("#nickname").blur(function(){
+
+		if($("#nickname").val().length == 0) {
+			alert("닉네임을 입력해주세요");
+	        return false;
+	    } 
+		
+		alert("닉네임 중복확인을 진행해주세요.");
+	    
+	});
+	
 	// 닉네임 중복확인
 	$("#nickCheck").click(function(){
 		//alert("닉네임 중복확인");
-		var nick = $("#nick").val();
+		var nickname = $("#nickname").val();
 		
 		$.ajax({
             type:"get",
             dataType:"json",
-            data:{"nick":nick},
+            data:{"nickname":nickname},
             url:"/users/nickcheck",
             success:function(data){
                if(data.nickCheck!=0){
             	  alert("이미 사용중인 닉네임입니다.");
-                  $("#nick").val("");
+                  $("#nickname").val("");
                }else{
             	  alert("사용가능한 닉네임입니다!");
                }
@@ -182,8 +194,7 @@ $(function(){
             url:"/users/emailcheck",
             success:function(data){
                if(data.emailCheck!=0){
-            	  alert("이미 사용중인 이메일입니다.");
-                  $("#email").val("");
+            	  alert("기존에 사용하시던 이메일입니다.");
                }else{
             	  alert("사용가능한 이메일입니다!");
                }
@@ -223,7 +234,7 @@ function check(f) {
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
-			<form action="/users/update" method="post" name="usersJoinForm" onsubmit="return check(this)">	
+			<form action="/users/update" method="post">	
 			<%-- <input type="hidden" name="myid" id="myid" value="${dto.id }">	 --%>
 				<h4>회원 정보 수정<span class="view_buy_form_1_ex">※ 필수 입력 사항</span></h4>
 				<table class="view_buy_form_1">
@@ -274,7 +285,7 @@ function check(f) {
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>닉네임</td>
 						<td>
-							<input type="text" name="nick" id="nick" placeholder="사용할 닉네임을 입력해주세요." 
+							<input type="text" name="nickname" id="nickname" placeholder="사용할 닉네임을 입력해주세요." 
 							 class="checkout__input__add" required="required"
 							 value="${dto.nickname }">
 							<button type="button" id="nickCheck" class="addr-btn" onclick="">중복확인</button>
@@ -325,8 +336,7 @@ function check(f) {
 						</td>
 					</tr>
 				<%-- </c:forEach> --%>
-				</table>
-				
+				</table>			
 				<div class="view_order_btn">
 					<button type="submit" class="buy-btn" onclick="">수정하기</button>
 				</div>

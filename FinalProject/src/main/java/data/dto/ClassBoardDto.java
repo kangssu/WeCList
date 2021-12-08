@@ -30,6 +30,28 @@ public class ClassBoardDto {
   	private MultipartFile upload5;
 	private String classheart;
 	private Timestamp writeday;
+	private String class_heart;
+	private String idx;
+	
+	
+	@Override
+	public String toString() {
+		return "ClassBoardDto [num=" + num + ", class_heart=" + class_heart + "]";
+	}
+	public String getClass_heart() {
+		return class_heart;
+	}
+	public void setClass_heart(String class_heart) {
+		this.class_heart = class_heart;
+	}
+	public String getIdx() {
+		return idx;
+	}
+	public void setIdx(String idx) {
+		this.idx = idx;
+	}
+	
+	
 	public String getNum() {
 		return num;
 	}
