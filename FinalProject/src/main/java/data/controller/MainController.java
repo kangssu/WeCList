@@ -46,7 +46,7 @@ public class MainController {
   ) {
 	String id = (String)session.getAttribute("id"); // 세션값 얻어오기
 	String nickname = umapper.getNickName(id);
-	System.out.println(nickname);
+	//System.out.println(nickname);
 	model.addAttribute("nickname", nickname);
 	  
     ModelAndView mview=new ModelAndView();

@@ -11,11 +11,11 @@
 					<div class="grade_user">
 						<div class="profile_img">
 							<img src="/img/pro.jpg">
-							<span>${nickname }님</span>
+							<span>${id }님</span>
 						</div>
 						<div class="profile_btn">
-							<button type="button">정보수정</button>
-							<button type="button">로그아웃</button>
+							<button type="button" onclick="location.href='/users/mypage/updatepass?id=${sessionScope.id}'">정보수정</button>
+							<button type="button" onclick="location.href='/login/logoutprocess'">로그아웃</button>
 						</div>
 					</div>
 					<div class="grade_shopbox">

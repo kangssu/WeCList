@@ -18,7 +18,7 @@ public interface UserMapper {
   	public int getEmailCheck(String email);
 	public int getCheckPass(HashMap<String, String> map);
 	public UserDto getUserData(String id);
-	public void deleteMember(String num);
+	public void deleteUsers(String id);
 	public void updateUsers(UserDto dto);
 	
 	public String getNickName(String id);

@@ -20,7 +20,7 @@
 	<select id="getUserData" parameterType="String" resultType="udto">
 		select * from usersjoin where id=#{id}
 	</select>
-	<delete id="deleteMember" parameterType="String">
+	<delete id="deleteUsers" parameterType="String">
 		delete from usersjoin where id=#{id}
 	</delete>
 	<update id="updateUsers" parameterType="udto">
