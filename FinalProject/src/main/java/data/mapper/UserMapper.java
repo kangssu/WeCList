@@ -21,7 +21,7 @@ public interface UserMapper {
 	public void deleteMember(String num);
 	public void updateUsers(UserDto dto);
 	
-	public String getName(String id);
+	public String getNickName(String id);
 	public int login(HashMap<String, String> map);
 	
 	public List<UserDto> getUsersData();

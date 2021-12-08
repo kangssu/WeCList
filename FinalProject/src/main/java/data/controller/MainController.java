@@ -2,8 +2,11 @@ package data.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +16,7 @@ import data.dto.ClassNewBoardDto;
 import data.dto.ShopBoardDto;
 import data.mapper.MainMapper;
 import data.mapper.ShopBoardMapper;
+import data.mapper.UserMapper;
 import data.service.MainService;
 import data.service.ShopBoardService;
 
@@ -30,10 +34,21 @@ public class MainController {
   
   @Autowired
   ShopBoardMapper shmapper;
+  
+  @Autowired
+  UserMapper umapper;
+  
   @GetMapping("/")
   public ModelAndView mainlist(
-          @RequestParam(defaultValue = "1") int currentPage
+          @RequestParam(defaultValue = "1") int currentPage,
+          HttpSession session, 
+          Model model
   ) {
+	String id = (String)session.getAttribute("id"); // 세션값 얻어오기
+	String nickname = umapper.getNickName(id);
+	System.out.println(nickname);
+	model.addAttribute("nickname", nickname);
+	  
     ModelAndView mview=new ModelAndView();
     List<ShopBoardDto> listpopul=shmapper.getPopular();
     int perPage = 4;//한페이지에 보여질 글의 갯수

@@ -27,8 +27,8 @@
 		update usersjoin set id=#{id},irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email},profileimg=#{profileimg},nickname=#{nickname}
 		where id=#{id}
 	</update>
-	<select id="getName" parameterType="String" resultType="String">
-		select irum from usersjoin where id=#{id}
+	<select id="getNickName" parameterType="String" resultType="String">
+		select nickname from usersjoin where id=#{id}
 	</select>
 	<select id="login" parameterType="HashMap" resultType="int">
 		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
