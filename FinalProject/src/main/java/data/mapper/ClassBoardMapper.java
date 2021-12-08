@@ -23,6 +23,5 @@ public interface ClassBoardMapper {
   public void insertNewBoard(ClassNewBoardDto dto);
   public void updateBoard(ClassBoardDto dto);
   public void deleteBoard(String num);
-  public void insertHeart(HeartDto dto);
   public List<HeartDto> getTrue(String num);
 }

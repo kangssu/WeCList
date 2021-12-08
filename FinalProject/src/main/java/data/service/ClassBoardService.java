@@ -63,11 +63,7 @@ public class ClassBoardService {
 		mapper.deleteBoard(num);
 	}
 	
-	public void insertHeart(HeartDto dto) {
-		mapper.insertHeart(dto);
-	}
-	
 	public List<HeartDto> getTrue(String num) {
 	    return mapper.getTrue(num);
-	 }
+	}
 }

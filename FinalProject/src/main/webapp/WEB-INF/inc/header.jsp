@@ -7,72 +7,22 @@ $(document).ready(function (){
 		$(this).removeClass("color_f");
 		$(this).addClass("on");
 	});
+	
+	loginok="${sessionScope.loginok}";
+	
+	$(".login_check").click(function(){
+		if(loginok==""){
+			alert("로그인 후 이용가능합니다!");
+		}
+	});
+	
+	$(".login_check_2").click(function(){
+		if(loginok==""){
+			alert("로그인 후 이용가능합니다!");
+		}
+	});
  });
  </script>
-<!-- Page Preloder (이거 넣으면 계속 무한루프만돔..!)-->
-<!-- <div id="preloder">
-	<div class="loader"></div>
-</div> -->
-
-<!-- Humberger Begin -->
-<!-- <div class="humberger__menu__overlay"></div>
-<div class="humberger__menu__wrapper">
-	<div class="humberger__menu__logo">
-		<a href="#"><img src="img/logo.png" alt=""></a>
-	</div>
-	<div class="humberger__menu__cart">
-		<ul>
-			<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-			<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-		</ul>
-		<div class="header__cart__price">item: <span>$150.00</span></div>
-	</div>
-	<div class="humberger__menu__widget">
-		<div class="header__top__right__language">
-			<img src="img/language.png" alt="">
-			<div>English</div>
-			<span class="arrow_carrot-down"></span>
-			<ul>
-				<li><a href="#">Spanis</a></li>
-				<li><a href="#">English</a></li>
-			</ul>
-		</div>
-		<div class="header__top__right__auth">
-			<a href="#"><i class="fa fa-user"></i> Login</a>
-		</div>
-	</div>
-	<nav class="humberger__menu__nav mobile-menu">
-		<ul>
-			<li class="active"><a href="./index.html">Home</a></li>
-			<li><a href="./shop-grid.html">Shop</a></li>
-			<li><a href="#">Pages</a>
-				<ul class="header__menu__dropdown">
-					<li><a href="./shop-details.html">Shop Details</a></li>
-					<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-					<li><a href="./checkout.html">Check Out</a></li>
-					<li><a href="./blog-details.html">Blog Details</a></li>
-				</ul>
-			</li>
-			<li><a href="./blog.html">Blog</a></li>
-			<li><a href="./contact.html">Contact</a></li>
-		</ul>
-	</nav>
-	<div id="mobile-menu-wrap"></div>
-	<div class="header__top__right__social">
-		<a href="#"><i class="fa fa-facebook"></i></a>
-		<a href="#"><i class="fa fa-twitter"></i></a>
-		<a href="#"><i class="fa fa-linkedin"></i></a>
-		<a href="#"><i class="fa fa-pinterest-p"></i></a>
-	</div>
-	<div class="humberger__menu__contact">
-		<ul>
-			<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-			<li>Free Shipping for all Order of $99</li>
-		</ul>
-	</div>
-</div> -->
-<!-- Humberger End -->
-
 <!-- Header Section Begin -->
 <header class="header">
 	<a href="#">
@@ -88,15 +38,14 @@ $(document).ready(function (){
 				<button type="button" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
 				<div class="header__top__right__auth">
 					<c:set var="root" value="<%=request.getContextPath()%>" />
-					<span style="margin-right: 100px"> 
 					<c:if test="${sessionScope.loginok!=null }">
-						<b>${sessionScope.id }님</b>
-						</span> <a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
+						<span class="user__login__id">${sessionScope.id }님</span>
+						<a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
 						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
 						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
 					</c:if>
 					<c:if test="${sessionScope.loginok==null }">
-						</span> <a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
+						<a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
 						<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 					</c:if>
 					<a href="/customer/notice">고객센터</a>
@@ -109,6 +58,7 @@ $(document).ready(function (){
 			<div class="row">
 	  			<div class="col-lg-3">
 					<div class="header__logo">
+						<!-- 아래는 로고 이미지 넣으면 쓸 예정! 지우지말아주세요ㅠㅠ -->
 						<!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
 						<a href="${root}/" class="logo">WE C LIST</a>
 					</div>
@@ -117,21 +67,11 @@ $(document).ready(function (){
 					<nav class="header__menu">
 						<ul>
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li><a href="${root}/" class="color_f">작품</a>
-								<%-- <ul class="header__menu__dropdown">
-									<li><a href="${root}/shop/list">전체작품</a></li>
-									<li><a href="${root}/shop/list">식품</a></li>
-									<li><a href="${root}/shop/list">공예</a></li>
-									<li><a href="${root}/shop/list">생활용품</a></li>
-								</ul> --%>
+							<li>
+								<a href="${root}/" class="color_f">작품</a>
 							</li>
-							<li><a href="${root}/class" class="color_f">온라인 클래스</a>
-								<%-- <ul class="header__menu__dropdown">
-									<li><a href="${root}/class/list">전체클래스</a></li>
-									<li><a href="${root}/class/list">디지털</a></li>
-									<li><a href="${root}/class/list">미술</a></li>
-									<li><a href="${root}/class/list">코딩</a></li>
-								</ul> --%>
+							<li>
+								<a href="${root}/class" class="color_f">온라인 클래스</a>
 							</li>
 						</ul>
 					</nav>
@@ -147,30 +87,47 @@ $(document).ready(function (){
 				<div class="hero__mypage">
 					<div class="hero__mypage__1">
 						<c:choose>
-							<c:when test="${sessionScope.category eq 'author'}">
-								<a href="${root}/mypage/shop/list">
-									<i class="fa fa-user" aria-hidden="true"></i>
-									<p>마이페이지</p>
-								</a>
+							<c:when test="${sessionScope.loginok!=null}">
+								<c:choose>
+									<c:when test="${sessionScope.category eq 'author'}">
+										<a href="${root}/mypage/shop/list" class="login_check">
+											<i class="fa fa-user" aria-hidden="true"></i>
+											<p>마이페이지</p>
+										</a>
+									</c:when>
+									<c:otherwise>
+										<a href="${root}/mypage/order/list" class="login_check">
+											<i class="fa fa-user" aria-hidden="true"></i>
+											<p>마이페이지</p>
+										</a>
+									</c:otherwise>
+								</c:choose>
 							</c:when>
 							<c:otherwise>
-								<a href="${root}/mypage/order/list">
+								<a href="${root}/users/login" class="login_check">
 									<i class="fa fa-user" aria-hidden="true"></i>
 									<p>마이페이지</p>
 								</a>
 							</c:otherwise>
 						</c:choose>
-						<%-- <a href="${root}/mypage/shop/list"> --%>
-<!-- 							<i class="fa fa-user" aria-hidden="true"></i>
-							<p>마이페이지</p>
-						</a> -->
 					</div>
 					<div class="hero__mypage__2">
-						<a href="">
-							<span>0</span>
-							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							<p>장바구니</p>
-						</a>
+						<c:choose>
+							<c:when test="${sessionScope.loginok==null}">
+								<a href="${root}/users/login" class="login_check_2">
+									<span>0</span>
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+									<p>장바구니</p>
+								</a>
+							</c:when>
+							<c:otherwise>
+								<a href="#" class="login_check_2">
+									<span>0</span>
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+									<p>장바구니</p>
+								</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>

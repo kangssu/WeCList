@@ -140,7 +140,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter">
+		<div class="featured__filter">
 			<div class="row">
 				<div class="categories__slider owl-carousel">
 					<c:forEach var="cdto" items="${listnewsMain}">

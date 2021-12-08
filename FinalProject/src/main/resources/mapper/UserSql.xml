@@ -5,23 +5,26 @@
 	<select id="GetIdData" parameterType="String" resultType="udto">
 		select * from usersjoin where id=#{id}
 	</select>
-	<select id="getTotalCount" parameterType="String" resultType="int">
-		select count(*) from usersjoin where id=#{id}
-	</select>
 	<select id="getIdCheck" parameterType="String" resultType="int">
 		select count(*) from usersjoin where id=#{id}
 	</select>
-	<select id="getCheckPass" parameterType="HashMap" resultType="int">
-		select count(*)	from usersjoin where idx=#{idx} and pass1=#{pass1}
+	<select id="getNickCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where nickname=#{nickname}
 	</select>
-	<select id="getMemberData" parameterType="String" resultType="udto">
+	<select id="getEmailCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where email=#{email}
+	</select>
+	<select id="getCheckPass" parameterType="HashMap" resultType="int">
+		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
+	</select>
+	<select id="getUserData" parameterType="String" resultType="udto">
 		select * from usersjoin where id=#{id}
 	</select>
 	<delete id="deleteMember" parameterType="String">
 		delete from usersjoin where id=#{id}
 	</delete>
-	<update id="updateMember" parameterType="udto">
-		update usersjoin set irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email}
+	<update id="updateUsers" parameterType="udto">
+		update usersjoin set id=#{id},irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email},profileimg=#{profileimg},nickname=#{nickname}
 		where id=#{id}
 	</update>
 	<select id="getName" parameterType="String" resultType="String">
@@ -31,7 +34,7 @@
 		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
 	</select>
 	<insert id="insertUsers" parameterType="udto">
-		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category)
-		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category})
+		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category,nickname)
+		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category},#{nickname})
 	</insert>
 </mapper>

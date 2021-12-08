@@ -9,6 +9,39 @@ $(function(){
 	var pw1;
 	var pw2;	
 	
+	// 닉네임 확인요청
+	$("#nickname").blur(function(){
+
+		if($("#nickname").val().length == 0) {
+			alert("닉네임을 입력해주세요");
+	        return false;
+	    } 
+		
+		alert("닉네임 중복확인을 진행해주세요.");
+	    
+	});
+	
+	// 닉네임 중복확인
+	$("#nickCheck").click(function(){
+		//alert("닉네임 중복확인");
+		var nickname = $("#nickname").val();
+		
+		$.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"nickname":nickname},
+            url:"/users/nickcheck",
+            success:function(data){
+               if(data.nickCheck!=0){
+            	  alert("이미 사용중인 닉네임입니다.");
+                  $("#nickname").val("");
+               }else{
+            	  alert("사용가능한 닉네임입니다!");
+               }
+            }
+         });
+	});
+	
 	// 비밀번호 유효성 검사
 	$("#pass1").blur(function(){
 		pw_passed = true;
@@ -18,12 +51,10 @@ $(function(){
 			alert("비밀번호를 입력해주세요.");
 	        return false;
 	    }
-/* 		if(pw1.length < 8) {
-			alert("비밀번호는 8자리 이상 입력해주세요.");
-			return false;
-		} */
+
 		if(pw1.indexOf($("#id").val()) > -1) {
             alert("비밀번호는 ID를 포함할 수 없습니다.");
+            $("#pass1").val('');
             return false;
         }
 		
@@ -33,6 +64,7 @@ $(function(){
 		
 	    if(!pattern1.test(pw1) || !pattern2.test(pw1) || !pattern3.test(pw1) || pw1.length<8) {
 	    	alert("비밀번호는 영문+숫자+특수문자 조합으로 8자리 이상 입력해주세요.");
+	    	$("#pass1").val('');
 	    	return false;
 	    }
 	    
@@ -78,11 +110,13 @@ $(function(){
 
            if(SamePass_0 > 0) { // 동일문자 카운트 1일 때
               alert("동일문자를 3자 이상 연속 입력할 수 없습니다.");
+              $("#pass1").val('');
               pw_passed=false; // 유효성검사 false
            }
 
            if(SamePass_1 > 0 || SamePass_2 > 0 ) { // 오름차순 또는 내림차순 연속성 0일 때
-              alert("영문, 숫자는 3자 이상 연속 입력할 수 없습니다.");
+        	   alert("영문, 숫자는 순서대로 입력할 수 없습니다. 예: 123 또는 abc (허용X)");
+        	   $("#pass1").val('');
               pw_passed=false; // 유효성검사 false
            } 
 
@@ -150,7 +184,22 @@ $(function(){
 	
 	// 이메일 중복확인
 	$("#emailCheck").click(function(){
-		alert("이메일 중복확인");
+		//alert("이메일 중복확인");
+		var email = $("#email").val();
+		
+		$.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"email":email},
+            url:"/users/emailcheck",
+            success:function(data){
+               if(data.emailCheck!=0){
+            	  alert("기존에 사용하시던 이메일입니다.");
+               }else{
+            	  alert("사용가능한 이메일입니다!");
+               }
+            }
+         });
 	});
 	
 	
@@ -180,34 +229,22 @@ function check(f) {
 }
 </script>
 
-<!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section" style="background:none; background-color:#ff7b27">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<div class="breadcrumb__text">
-					<h2>회원 정보 수정</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- Breadcrumb Section End -->
 
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
-			<form action="update" method="post" name="usersJoinForm" onsubmit="return check(this)">	
+			<form action="/users/update" method="post">	
 			<%-- <input type="hidden" name="myid" id="myid" value="${dto.id }">	 --%>
-				<h4>회원 정보 입력<span class="view_buy_form_1_ex">※ 필수 입력 사항</span></h4>
+				<h4>회원 정보 수정<span class="view_buy_form_1_ex">※ 필수 입력 사항</span></h4>
 				<table class="view_buy_form_1">
+				<%-- <c:forEach var="dto" items="${list}" varStatus="i"> --%>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>아이디</td>
 						<td>
 							<input type="hidden" name="category" id="category" value="1">
 							<input type="text" name="id" id="id" class="checkout__input__add"
-							 value="${dto.id }">${dto.id }
+							 value="${sessionScope.id }" readonly="readonly" >
 						</td>
 					</tr>
 					<tr class="checkout__input">
@@ -241,14 +278,25 @@ function check(f) {
 						<td><span style="color:red">※</span>이름</td>
 						<td>
 							<input type="text" name="irum" id="irum" required="required"
-							 placeholder="이름을 입력해주세요." class="checkout__input__add">
+							 placeholder="이름을 입력해주세요." class="checkout__input__add"
+							 value="${dto.irum}">
+						</td>
+					</tr>
+					<tr class="checkout__input">
+						<td><span style="color:red">※</span>닉네임</td>
+						<td>
+							<input type="text" name="nickname" id="nickname" placeholder="사용할 닉네임을 입력해주세요." 
+							 class="checkout__input__add" required="required"
+							 value="${dto.nickname }">
+							<button type="button" id="nickCheck" class="addr-btn" onclick="">중복확인</button>
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>이메일</td>
 						<td>
 							<input type="text" name="email" id="email" required="required"
-							 placeholder="본인 이메일을 작성해주세요. 예: weclist@weclist.com" class="checkout__input__add">
+							 placeholder="본인 이메일을 작성해주세요. 예: weclist@weclist.com" 
+							 class="checkout__input__add" value="${dto.email }">
 							<button type="button" id="emailCheck" class="addr-btn" onclick="">중복확인</button>
 						</td>
 					</tr>
@@ -256,14 +304,16 @@ function check(f) {
 						<td><span style="color:red">※</span>휴대폰</td>
 						<td>
 							<input type="text" name="hp" id="hp" required="required"
-							 placeholder="숫자만 입력해주세요." class="checkout__input__add">
+							 placeholder="숫자만 입력해주세요." class="checkout__input__add"
+							 value="${dto.hp }">
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>주소</td>
 						<td>
 							<input type="text" name="addr1" id="addr1" required="required"
-							 placeholder="택배를 받을 주소를 입력해주세요." class="checkout__input__add">
+							 placeholder="택배를 받을 주소를 입력해주세요." class="checkout__input__add"
+							 value="${dto.addr1 }">
 							<button type="button" name="addrSearch" id="addrSearch" class="addr-btn" onclick="">주소찾기</button>
 						</td>
 					</tr>
@@ -271,7 +321,8 @@ function check(f) {
 						<td><span style="color:red">※</span>상세 주소</td>
 						<td>
 							<input type="text" name="addr2" id="addr2" required="required"
-							 placeholder="상세 주소를 입력해주세요." class="checkout__input__add">
+							 placeholder="상세 주소를 입력해주세요." class="checkout__input__add"
+							 value="${dto.addr2 }">
 						</td>
 					</tr>
 					<tr class="checkout__input">
@@ -284,8 +335,8 @@ function check(f) {
 							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>
 						</td>
 					</tr>
-				</table>
-				
+				<%-- </c:forEach> --%>
+				</table>			
 				<div class="view_order_btn">
 					<button type="submit" class="buy-btn" onclick="">수정하기</button>
 				</div>

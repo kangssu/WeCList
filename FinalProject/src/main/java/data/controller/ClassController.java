@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
-import data.dto.FollowDto;
 import data.dto.HeartDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
@@ -256,12 +255,6 @@ public class ClassController {
 		service.insertNewBoard(cndto);
 		return "redirect:/class/addnewform";
 	}
-	
-	@PostMapping("/class/hinsert")
-	  public void insert(@ModelAttribute HeartDto dto, HttpSession session) {
-	    // insert
-	    service.insertHeart(dto);
-	  }
 	
 }
 

@@ -35,10 +35,6 @@
 		select * from classnewboarder where writeday > now() - interval 7 DAY;
 	</select>
 	
-	<insert id="insertHeart" parameterType="hdto">
-		insert into classHeart (idx,class_heart,num) 
-		values (#{idx},#{class_heart},#{num})
-	</insert>
 	<select id="getTrue" parameterType="String" resultType="hdto">
 		select * from classHeart where num=#{num}
 	</select>

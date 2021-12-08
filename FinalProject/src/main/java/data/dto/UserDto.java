@@ -22,6 +22,14 @@ public class UserDto {
 	private Timestamp gaipday;
 	private String profileimg;
 	private String category;
+	private String nickname;
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public String getIdx() {
 		return idx;
 	}

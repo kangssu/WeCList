@@ -4,55 +4,64 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <!-- Breadcrumb Section Begin -->
+<style>
+	.heart {
+		cursor: pointer;
+	}
+</style>
 <script type="text/javascript">
+$(function(){
+loginok="${sessionScope.loginok}"; //로그인 여부
+loginid="${sessionScope.id}"; //로그인 아이디 가져옴
 
-               $(function(){
-           		loginok="${sessionScope.loginok}"; //로그인 여부
-           		loginid="${sessionScope.id}"; //로그인 아이디 가져옴
-           		//alert(loginok+","+myid); //확인됨
+alert(loginok+","+loginid); //확인됨
            		
-           		//팔로우 이벤트!(추가)
-           		$(".fa-heart-o").click(function(){
-           			alert("dd")
-           			var class_heart=$(this).attr("loginid");
-           			//alert(id); //아이디 불러옴
+//좋아요 이벤트!(추가)
+$(".fa-heart-o").click(function(){
+	alert("dd")
+	var class_heart=loginid;
+	var num=$(this).attr("num");
+	alert("id="+class_heart); //아이디 불러옴
+	alert("number="+num);
            			
-           			//로그인 한 이후에 팔로우 가능!
-           			if(loginok==""){
-           				alert("회원만 가능합니다!");
-           				location.href ="/users/login";
-           			}else{
-           				$.ajax({
-           					type:"post",
-           					dataType:"text",
-           					url:"/class/hinsert",
-           					data:{"class_heart":class_heart,"num":num},
-           					success:function(data){
-           						alert("조아요!!");
-           						location.reload();
-           					}
-           				});
-           			}
-           		});
+	//로그인 한 이후에 팔로우 가능!
+	if(loginok==""){
+		alert("회원만 가능합니다!");
+		location.href ="/users/login";
+	}else{
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			url:"/class/hinsert",
+			data:{"class_heart":class_heart,"num":num},
+			success:function(data){
+			alert("조아요!!");
+			location.reload();
+           	}
+        });
+    }
+});
            		
-           		//팔로잉 이벤트!(취소)
-           		$(".fa-heart").click(function(){
-           			var class_heart=$(this).attr("id");
-           			//alert(id); //아이디 불러옴
+//좋아요 이벤트!(취소)
+$(".fa-heart").click(function(){
+	var class_heart=loginid;
+	var num=$(this).attr("num");
+	alert("id="+class_heart); //아이디 불러옴
+	alert("number="+num);
            			
-           			//팔로우!
-           			$.ajax({
-           				type:"post",
-           				dataType:"text",
-           				url:"",
-           				data:{"to_id":to_id,"from_id":from_id},
-           				success:function(data){
-           				alert("작가 팔로우를 취소하였습니다!");
-           				}
-           			});
-           		});
-           	});
-               </script>
+	//팔로우!
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			url:"/class/hdelete",
+			data:{"class_heart":class_heart,"num":num},
+			success:function(data){
+			alert("조아요 왜 취소함???");
+       		}
+        });
+   	});
+});
+</script>
 
 <section class="breadcrumb-section">
 	<div class="container">
@@ -140,17 +149,24 @@
 					<button type="button" class="list-btn"
 						onclick="location.href='list'">목록보기</button>
 
+					<c:if test="${loginok eq 'yes'}">
 					<c:choose>
 						<c:when test="${fn:contains(heartTrue, dto.num)}">
-							<a class="heart"><i class="fa fa-heart" id="${dto.num}"></i></a>
+							<a class="heart"><i class="fa fa-heart" num="${dto.num}"></i></a>
 						</c:when>
 						<c:otherwise>
-							<a class="heart"><i class="fa fa-heart-o" id="${dto.num}"></i></a>
+							<a class="heart"><i class="fa fa-heart-o" num="${dto.num}"></i></a>
 						</c:otherwise>
-
 					</c:choose>
+					</c:if>
+					
+					<c:if test="${loginok eq null}">
+						<a class="heart"><i class="fa fa-heart-o" id="${dto.num}"></i></a>	
+					</c:if>
 
-					<span id="heart">${hdto.class_heart}</span>
+					<span id="heart">${cdto.class_heart}</span>
+					
+					
 
 				</div>
 			</div>
