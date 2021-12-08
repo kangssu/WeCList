@@ -23,7 +23,8 @@ public class LoginController {
 	@Autowired
 	UserMapper mapper;	
 	
-	@GetMapping("/login/loginprocess")
+	//@GetMapping("/login/loginprocess")
+	@RequestMapping(value = "/login/loginprocess", method = {RequestMethod.POST, RequestMethod.GET})
 	public String loginprocess(
 			// login.jsp 파일의 아이디, 패스워드 값 받아오기
 			// required = false 는 null값이 들어가도 읽을 수 있음(오류처리X)

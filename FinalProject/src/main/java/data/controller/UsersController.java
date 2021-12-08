@@ -46,7 +46,7 @@ public class UsersController {
 	@PostMapping("/users/insert")
 	public String usersInsert(@ModelAttribute UserDto udto) {
 		mapper.insertUsers(udto);
-		return "redirect:join";
+		return "/users/join_success";
 	}
 	
 	// 정보 수정하기 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
@@ -55,7 +55,7 @@ public class UsersController {
 		return "/1_2/user_mypage/user_updatepassform";
 	}
 	
-	// 비밀번호 입력 폼에서 올바르게 입력했는지 체크
+	// 정보수정 비밀번호 입력 폼에서 올바르게 입력했는지 체크
 	@PostMapping("/users/updatepass")
 	public ModelAndView updatepass(@RequestParam String id,
 			@RequestParam String pass1) {
@@ -78,12 +78,13 @@ public class UsersController {
 			
 			return mview;
 		} else { // 틀린 경우
-			mview.setViewName("/user_mypage/user_passfail");
+			mview.setViewName("/user_mypage/user_updatepassfail");
 			
 			return mview;
 		}
 	}
 	
+	// 정보수정 비밀번호 올바르게 입력 시 정보수정 폼으로 넘어간 뒤 수정하기 누르면 DB로 전송
 	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
 	public String update(@ModelAttribute UserDto dto) {	
 		mapper.updateUsers(dto);
@@ -92,28 +93,31 @@ public class UsersController {
 	}
 
 	
-	
-	@GetMapping("/users/delete")
-	/* 컨트롤러를 일반 Controller 로 설정했기 때문에 ResponseBody를 선언해서 json 값을 가져온다 */
-	public @ResponseBody HashMap<String, Integer> delete(
-			@RequestParam String num, @RequestParam String pass
-			) {
-			// DB로부터 비번 맞는지 체크
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("num", num);
-			map.put("pass", pass);
-				
-			int check = mapper.getCheckPass(map);
-			if(check==1) {
-				// 비번이 맞을 경우 삭제
-				mapper.deleteMember(num);
-			}
-			
-			HashMap<String, Integer> rmap = new HashMap<String, Integer>();
-			rmap.put("check", check); /* memberlist의 ajax 부분에서 check 라는 이름을 설정했기 때문에 */
-			
-			return rmap;
+	// 회원 탈퇴 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
+	@GetMapping("/users/mypage/deletepass")
+	public String deleteMyInfo() {
+		return "/1_2/user_mypage/user_deletepassform";
 	}
+		
+	// 회원탈퇴 비밀번호 입력 폼에서 올바르게 입력했는지 체크	
+	@RequestMapping(value = "/users/deletepass", method = {RequestMethod.POST, RequestMethod.GET})
+	public String delete(@RequestParam String id, @RequestParam String pass1) {
+		// DB로부터 비번 맞는지 체크
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pass1", pass1);
+
+		int check = mapper.getCheckPass(map);
+		if(check==1) {
+			// 비번이 맞을 경우 삭제
+			mapper.deleteUsers(id);
+			
+			return "/user_mypage/user_delete";
+		} else { // 틀린 경우
+			return "/user_mypage/user_deletepassfail";
+		}
+	}
+	
 	
 	@GetMapping("/users/idcheck")
 	@ResponseBody
