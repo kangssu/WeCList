@@ -10,16 +10,16 @@ public class FollowDto {
         + follow_cnt + "]";
   }
 
-  private String num;
+  private int num;
   private String to_id;
   private String from_id;
   private int follow_cnt;
 
-  public String getNum() {
+  public int getNum() {
     return num;
   }
 
-  public void setNum(String num) {
+  public void setNum(int num) {
     this.num = num;
   }
 

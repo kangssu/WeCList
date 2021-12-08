@@ -82,46 +82,21 @@
 					</div>
 				</div>
 				<div class="categories__slider owl-carousel">
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
+					<c:forEach var="dto2" items="${Hotlist}" varStatus="status" begin="0" end="9">
+						<div class="col-lg-3">
+							<c:forEach var="dto3" items="${list}" begin="0" end="9">
+								<c:if test="${dto2.to_id==dto3.id}">
+									<a href="#">
+										<div class="author__box set-bg">
+											<span class="hot__author__count">${status.count}</span>
+											<img src="/img/pro.jpg" id="author_img_1">
+											<h5>${dto3.irum}</h5>
+										</div>
+									</a>
+								</c:if>
+							</c:forEach>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

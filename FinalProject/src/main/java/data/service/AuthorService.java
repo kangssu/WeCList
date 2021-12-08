@@ -15,8 +15,11 @@ public class AuthorService {
   AuthorMapper mapper;
 
   public int getTotalCount() {
-    // System.out.println(idx);
     return mapper.getTotalCount();
+  }
+
+  public int getHotCount() {
+    return mapper.getHotCount();
   }
 
   public List<FollowDto> getTrue(String from_id) {
@@ -34,4 +37,9 @@ public class AuthorService {
     map.put("perpage", perpage);
     return mapper.getList(map);
   }
+
+  public List<AuthorDto> getHotAuthor() {
+    return mapper.getHotAuthor();
+  }
+
 }

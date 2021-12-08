@@ -17,8 +17,18 @@ public class FollowController {
   // 회원이 팔로우를 클릭했을때!
   @PostMapping("/author/finsert")
   public void insert(@ModelAttribute FollowDto dto, HttpSession session) {
+    int num = dto.getNum();
+    int follow_cnt = dto.getFollow_cnt();
+    String to_id = dto.getTo_id();
+    System.out.println(to_id);
 
-    dto.setFollow_cnt(1);
+    follow_cnt = service.getMaxFollowCnt(to_id) + 1;
+
+    System.out.println(follow_cnt);
+
+    dto.setFollow_cnt(follow_cnt);
+
+    // dto.setFollow_cnt(1);
 
     // insert
     service.insertFollow(dto);
