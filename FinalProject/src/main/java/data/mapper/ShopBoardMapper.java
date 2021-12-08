@@ -10,6 +10,7 @@ import data.dto.ShopBoardDto;
 @Mapper
 public interface ShopBoardMapper {
   public int getTotalCount();
+  public int getIdCount(String myid);
   public void updateReadCount(String num);
   public ShopBoardDto getData(String num);
   public int getMaxNum();

@@ -80,7 +80,7 @@
 								<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 							</c:if>
 							<c:if test="${currentPage!=pp}">
-								<li class="active"><~a href="list?currentPage=${pp}">${pp}</a></li>
+								<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 							</c:if>
 						</c:forEach>
 						<!-- 다음 -->
