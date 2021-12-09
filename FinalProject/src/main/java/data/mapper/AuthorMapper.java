@@ -11,9 +11,16 @@ public interface AuthorMapper {
 
   public int getTotalCount();
 
+  public int getFollowCount(String from_id);
+
+  public int getHotCount();
+
   public List<FollowDto> getTrue(String from_id);
 
   public List<FollowDto> GetData(String from_id);
 
   public List<AuthorDto> getList(HashMap<String, Integer> map);
+
+  public List<AuthorDto> getHotAuthor();
+
 }

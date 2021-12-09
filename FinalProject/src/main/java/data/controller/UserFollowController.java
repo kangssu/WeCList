@@ -12,28 +12,25 @@ import data.dto.FollowDto;
 import data.service.AuthorService;
 
 @Controller
-public class AuthorController {
+public class UserFollowController {
 
   @Autowired
   AuthorService service;
 
-  // 작가만 출력
-  @GetMapping("/author/list")
+  // 회원 마이페이지에서 팔로우하는 작가 리스트!
+  // Mapper,Service Author에서 값줌
+  @GetMapping("/mypage/follow/list")
   public ModelAndView slist(@RequestParam(defaultValue = "1") int currentPage, String idx,
       HttpSession session) {
 
     ModelAndView mview = new ModelAndView();
 
-    int totalCount = service.getTotalCount();
-
     // 팔로우,팔로잉 버튼 출력을 위함
     String from_id = (String) session.getAttribute("id");
+    int FollowCount = service.getFollowCount(from_id);
     List<FollowDto> followTrue = service.getTrue(from_id);
     // System.out.println("지금테스트" + followTrue);
-
-    // 인기 작가 10명 출력을 위함
-    List<AuthorDto> Hotlist = service.getHotAuthor();
-    System.out.println("나" + Hotlist);
+    System.out.println(FollowCount);
 
     int perPage = 10;
     int totalPage;
@@ -42,7 +39,7 @@ public class AuthorController {
     int startPage;
     int endPage;
 
-    totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+    totalPage = FollowCount / perPage + (FollowCount % perPage == 0 ? 0 : 1);
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
     endPage = startPage + perBlock - 1;
 
@@ -52,10 +49,9 @@ public class AuthorController {
 
     List<AuthorDto> list = service.getList(start, perPage);
 
-    int no = totalCount - (currentPage - 1) * perPage;
+    int no = FollowCount - (currentPage - 1) * perPage;
 
     mview.addObject("list", list);
-    mview.addObject("Hotlist", Hotlist);
     mview.addObject("followTrue", followTrue);
     mview.addObject("startPage", startPage);
     mview.addObject("endPage", endPage);
@@ -63,10 +59,9 @@ public class AuthorController {
     mview.addObject("no", no);
     mview.addObject("currentPage", currentPage);
 
-    mview.addObject("totalCount", totalCount);
-    mview.setViewName("/author/author_list");
+    mview.addObject("FollowCount", FollowCount);
+    mview.setViewName("/1_2/user_mypage/follow_list");
 
     return mview;
   }
-
 }

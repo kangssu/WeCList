@@ -82,46 +82,21 @@
 					</div>
 				</div>
 				<div class="categories__slider owl-carousel">
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-3">
-						<a href="#">
-							<div class="author__box set-bg">
-								<img src="/img/pro.jpg" id="author_img_1">
-								<h5>제이라운드</h5>
-							</div>
-						</a>
-					</div>
+					<c:forEach var="hdto" items="${Hotlist}" varStatus="status" begin="0" end="9">
+						<div class="col-lg-3">
+							<c:forEach var="adto" items="${list}" begin="0" end="9">
+								<c:if test="${hdto.to_id==adto.id}">
+									<a href="#">
+										<div class="author__box set-bg">
+											<span class="hot__author__count">${status.count}</span>
+											<img src="/img/pro.jpg" id="author_img_1">
+											<h5>${adto.irum}</h5>
+										</div>
+									</a>
+								</c:if>
+							</c:forEach>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

@@ -16,7 +16,17 @@ public class FollowController {
 
   @PostMapping("/author/finsert")
   public void insert(@ModelAttribute FollowDto dto, HttpSession session) {
-	  
+    int num = dto.getNum();
+    int follow_cnt = dto.getFollow_cnt();
+    String to_id = dto.getTo_id();
+    System.out.println(to_id);
+
+    follow_cnt = service.getMaxFollowCnt(to_id) + 1;
+
+    System.out.println(follow_cnt);
+
+    dto.setFollow_cnt(follow_cnt);
+
     // insert
     service.insertFollow(dto);
   }
@@ -26,4 +36,5 @@ public class FollowController {
   public void delete(String from_id, String to_id, HttpSession session) {
     service.deleteFollow(from_id, to_id);
   }
+
 }

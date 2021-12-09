@@ -6,6 +6,10 @@
 		values (#{num},#{to_id},#{from_id},#{follow_cnt})
 	</insert>
 	
+	<select id="getMaxFollowCnt" resultType="int">
+		select ifnull(max(follow_cnt),0) from follow where to_id=#{to_id}
+	</select>
+	
 	<delete id="deleteFollow" parameterType="HashMap">
 		delete from follow where from_id=#{from_id} and to_id=#{to_id}
 	</delete>
