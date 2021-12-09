@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.AuthorStoryDto;
 import data.dto.ClassBoardDto;
+import data.dto.ShopBoardDto;
 import data.mapper.AuthortClassMapper;
 import data.service.AuthorClassService;
 
@@ -32,43 +33,44 @@ public class AuthorClassController {
 	AuthortClassMapper mapper;
 
   @GetMapping("mypage/class/list")
-  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
-	  ModelAndView mview = new ModelAndView();
-
-	    int totalCount = service.getTotalCount("kang");
-	    System.out.println(totalCount);
-
-	    int perPage = 10;
-	    int totalPage;
+  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
+	      HttpSession session
+	      ) {
+	    ModelAndView mview = new ModelAndView();
+	    String from_id = (String) session.getAttribute("id");
+	    
+	    int perPage = 8;
+	    int IdCount = service.getIdCount(from_id);
+	    int IdPage;
 	    int start;
 	    int perBlock = 5;
 	    int startPage;
 	    int endPage;
 
-	    totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+	    IdCount = service.getIdCount(from_id);
+
+	    IdPage = IdCount / perPage + (IdCount % perPage == 0 ? 0 : 1);
 	    startPage = (currentPage - 1) / perBlock * perBlock + 1;
+
 	    endPage = startPage + perBlock - 1;
-
-	    if (endPage > totalPage)
-	      endPage = totalPage;
+	    if (endPage > IdPage) {
+	        endPage = IdPage;
+	    }
 	    start = (currentPage - 1) * perPage;
+	    List<ClassBoardDto> list = service.getList(start, perPage);
 
-	    List<ClassBoardDto> list = service.getList("kang", start, perPage);
-
-	    int no = totalCount - (currentPage - 1) * perPage;
-
+	    int Idno = IdCount - (currentPage - 1) * perPage;
+	    mview.addObject("IdCount", IdCount);
 	    mview.addObject("list", list);
 	    mview.addObject("startPage", startPage);
 	    mview.addObject("endPage", endPage);
-	    mview.addObject("totalPage", totalPage);
-	    mview.addObject("no", no);
+	    mview.addObject("IdPage", IdPage);
+	    mview.addObject("Idno", Idno);
 	    mview.addObject("currentPage", currentPage);
+	    mview.setViewName("/2/author_mypage/m_class_list");
 
-	    mview.addObject("totalCount", totalCount);
-	    mview.setViewName("/1/author_mypage/m_class_list");
-	    
 	    return mview;
-  }
+	}
   
   @GetMapping("/mypage/class/addform")
 	public String addform() {

@@ -12,39 +12,42 @@ import data.mapper.AuthortStoryMapper;
 @Service
 public class AuthorClassService {
 
-  @Autowired
-  AuthortClassMapper mapper;
+	@Autowired
+	AuthortClassMapper mapper;
 
-  public int getTotalCount(String myid) {
-    return mapper.getTotalCount(myid);
-  }
+	public int getTotalCount(String myid) {
+		return mapper.getTotalCount(myid);
+	}
 
-  public ClassBoardDto getData(String num) {
-    return mapper.getData(num);
-  }
+	public ClassBoardDto getData(String num) {
+		return mapper.getData(num);
+	}
 
-  public int getMaxNum() {
-    return mapper.getMaxNum();
-  }
+	public int getMaxNum() {
+		return mapper.getMaxNum();
+	}
 
-  public List<ClassBoardDto> getList(String myid, int start, int perpage) {
-    HashMap<String, Object> map = new HashMap<String, Object>();
-    map.put("myid", myid);
-    map.put("start", start);
-    map.put("perpage", perpage);
-    return mapper.getList(map);
-  }
+	public List<ClassBoardDto> getList(int start, int perpage) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("start", start);
+		map.put("perpage", perpage);
+		return mapper.getList(map);
+	}
 
-  public void updateBoard(ClassBoardDto dto) {
-    mapper.updateBoard(dto);
-  }
-  
-  public void insertBoard(ClassBoardDto dto) {
-	mapper.insertBoard(dto);
-  }
+	public void updateBoard(ClassBoardDto dto) {
+		mapper.updateBoard(dto);
+	}
 
-  public void deleteBoard(int num) {
-	    mapper.deleteBoard(num);
-  }
+	public void insertBoard(ClassBoardDto dto) {
+		mapper.insertBoard(dto);
+	}
+
+	public void deleteBoard(int num) {
+		mapper.deleteBoard(num);
+	}
+
+	public int getIdCount(String myid) {
+		return mapper.getIdCount(myid);
+	}
 
 }
