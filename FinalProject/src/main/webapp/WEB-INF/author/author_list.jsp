@@ -82,15 +82,15 @@
 					</div>
 				</div>
 				<div class="categories__slider owl-carousel">
-					<c:forEach var="dto2" items="${Hotlist}" varStatus="status" begin="0" end="9">
+					<c:forEach var="hdto" items="${Hotlist}" varStatus="status" begin="0" end="9">
 						<div class="col-lg-3">
-							<c:forEach var="dto3" items="${list}" begin="0" end="9">
-								<c:if test="${dto2.to_id==dto3.id}">
+							<c:forEach var="adto" items="${list}" begin="0" end="9">
+								<c:if test="${hdto.to_id==adto.id}">
 									<a href="#">
 										<div class="author__box set-bg">
 											<span class="hot__author__count">${status.count}</span>
 											<img src="/img/pro.jpg" id="author_img_1">
-											<h5>${dto3.irum}</h5>
+											<h5>${adto.irum}</h5>
 										</div>
 									</a>
 								</c:if>
