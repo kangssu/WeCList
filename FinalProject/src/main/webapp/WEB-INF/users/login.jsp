@@ -10,7 +10,6 @@
 					<span><h4>로그인</h4></span>
 				</div>
 				<div>
-					<input type="checkbox" name="category" id="category" value="author">작가로 로그인하기
 					<input type="text" class="login_input" name="id" id="id"
 						required="required" placeholder="아이디를 입력해주세요."> 
 					<input type="password" name="pass1" id="pass1" required="required"

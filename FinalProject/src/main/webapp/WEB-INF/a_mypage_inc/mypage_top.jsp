@@ -14,8 +14,8 @@
 							<span>제이라운드님</span>
 						</div>
 						<div class="profile_btn">
-							<button type="button">정보수정</button>
-							<button type="button">로그아웃</button>
+							<button type="button" onclick="location.href='/users/mypage/updatepass?id=${sessionScope.id}'">정보수정</button>
+							<button type="button" onclick="location.href='/login/logoutprocess'">로그아웃</button>
 						</div>
 					</div>
 					<div class="grade_shopbox">
