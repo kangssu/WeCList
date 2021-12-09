@@ -18,11 +18,8 @@ loginid="${sessionScope.id}"; //로그인 아이디 가져옴
            		
 //좋아요 이벤트!(추가)
 $(".fa-heart-o").click(function(){
-	alert("dd")
 	var class_heart=loginid;
 	var num=$(this).attr("num");
-	alert("id="+class_heart); //아이디 불러옴
-	alert("number="+num);
            			
 	//로그인 한 이후에 팔로우 가능!
 	if(loginok==""){
@@ -46,8 +43,6 @@ $(".fa-heart-o").click(function(){
 $(".fa-heart").click(function(){
 	var class_heart=loginid;
 	var num=$(this).attr("num");
-	alert("id="+class_heart); //아이디 불러옴
-	alert("number="+num);
            			
 	//팔로우!
 		$.ajax({
