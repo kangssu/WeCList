@@ -9,7 +9,7 @@ import data.dto.ClassBoardDto;
 @Mapper
 public interface AuthortClassMapper {
 
-  public int getTotalCount(String myid);
+  public int getTotalCount();
 
   public int getMaxNum();
 

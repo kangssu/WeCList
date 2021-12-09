@@ -15,8 +15,8 @@ public class AuthorClassService {
 	@Autowired
 	AuthortClassMapper mapper;
 
-	public int getTotalCount(String myid) {
-		return mapper.getTotalCount(myid);
+	public int getTotalCount() {
+		return mapper.getTotalCount();
 	}
 
 	public ClassBoardDto getData(String num) {

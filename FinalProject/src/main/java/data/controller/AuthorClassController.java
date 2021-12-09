@@ -67,7 +67,7 @@ public class AuthorClassController {
 	    mview.addObject("IdPage", IdPage);
 	    mview.addObject("Idno", Idno);
 	    mview.addObject("currentPage", currentPage);
-	    mview.setViewName("/2/author_mypage/m_class_list");
+	    mview.setViewName("/1/author_mypage/m_class_list");
 
 	    return mview;
 	}

@@ -51,23 +51,23 @@
 			
 			<c:if test="${IdCount>0}">
 				<c:forEach var="cdto" items="${list}">
-					<c:if test="${sessionScope.loginok!=null and sessionScope.id==a.myid}">
+					<c:if test="${sessionScope.loginok!=null and sessionScope.id==cdto.myid}">
 					
 					<tr>
 						<td align="center">${Idno}</td>
 						<c:set var="Idno" value="${Idno-1}" />
 						<td><a
-							href="/shop/content?num=${cdto.num}&currentPage=${currentPage}&key=list"><img
+							href="${root}/class/view?num=${cdto.num}"><img
 								src="/photo/${cdto.uploadfile1}"></a></td>
 						<td><a
-							href="/shop/content?num=${cdto.num}&currentPage=${currentPage}&key=list">${cdto.title}</a></td>
+							href="${root}/class/view?num=${cdto.num}">${cdto.title}</a></td>
 						<td><fmt:formatDate value="${cdto.writeday}"
 								pattern="yyyy-MM-dd" /></td>
 						<td>
 							<button type="button" class="story_mod_btn"
-								onclick="location.href='/shop/updateform?num=${cdto.num}'">수정</button>
+								onclick="location.href='/mypage/class/updateform?num=${cdto.num}'">수정</button>
 							<button type="button" class="story_del_btn"
-								onclick="location.href='/mypage/shopdelete?num=${cdto.num}'">삭제</button>
+								onclick="location.href='/mypage/classdelete?num=${cdto.num}'">삭제</button>
 						</td>
 					</tr>
 					</c:if>

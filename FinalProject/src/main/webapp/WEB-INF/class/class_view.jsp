@@ -57,6 +57,7 @@ $(".fa-heart").click(function(){
 			data:{"class_heart":class_heart,"num":num},
 			success:function(data){
 			alert("조아요 왜 취소함???");
+			location.reload();
        		}
         });
    	});
@@ -151,7 +152,7 @@ $(".fa-heart").click(function(){
 
 					<c:if test="${loginok eq 'yes'}">
 					<c:choose>
-						<c:when test="${fn:contains(heartTrue, dto.num)}">
+						<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
 							<a class="heart"><i class="fa fa-heart" num="${dto.num}"></i></a>
 						</c:when>
 						<c:otherwise>
