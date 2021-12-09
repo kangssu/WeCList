@@ -39,7 +39,7 @@ $(document).ready(function (){
 				<div class="header__top__right__auth">
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<c:if test="${sessionScope.loginok!=null }">
-						<span class="user__login__id">${sessionScope.id }님(${nickname })</span>
+						<span class="user__login__id">${sessionScope.id }님</span>
 						<a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
 						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
 						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
