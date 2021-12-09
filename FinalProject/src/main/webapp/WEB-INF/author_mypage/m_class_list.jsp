@@ -49,27 +49,30 @@
 			</tr>
 			</c:if>
 			
-			<c:if test="${totalCount>0}">
-				<c:forEach var="cdto" items="${list}" varStatus="i">
-				<tr>
-					<td align="center">${i.count}</td>
-					<td><img src="/photo/${cdto.uploadfile}"></td>
-					<td>
-						<a href="/mypage/class/view?num=${cdto.num}&currentPage=${currentPage}&key=list" style="color:black;">
-						${cdto.title}</a>
-					</td>
-					<td>
-						<fmt:formatDate value="${cdto.writeday}" pattern="yyyy-MM-dd"/>
-					</td>
-					<td>
-						<button type="button" class="story_mod_btn" 
-						onclick="location.href='/mypage/class/updateform?num=${cdto.num}&currentPage=${currentPage}'">수정</button>
-						<button type="button" class="story_del_btn"
-						onclick="showDelPopup(${cdto.num})">삭제</button>
-					</td>
-				</tr>
+			<c:if test="${IdCount>0}">
+				<c:forEach var="cdto" items="${list}">
+					<c:if test="${sessionScope.loginok!=null and sessionScope.id==cdto.myid}">
+					
+					<tr>
+						<td align="center">${Idno}</td>
+						<c:set var="Idno" value="${Idno-1}" />
+						<td><a
+							href="${root}/class/view?num=${cdto.num}"><img
+								src="/photo/${cdto.uploadfile1}"></a></td>
+						<td><a
+							href="${root}/class/view?num=${cdto.num}">${cdto.title}</a></td>
+						<td><fmt:formatDate value="${cdto.writeday}"
+								pattern="yyyy-MM-dd" /></td>
+						<td>
+							<button type="button" class="story_mod_btn"
+								onclick="location.href='/mypage/class/updateform?num=${cdto.num}'">수정</button>
+							<button type="button" class="story_del_btn"
+								onclick="location.href='/mypage/classdelete?num=${cdto.num}'">삭제</button>
+						</td>
+					</tr>
+					</c:if>
 				</c:forEach>
-			</c:if>	
+			</c:if>
 		</table>
 		<div class="story__insert__bottom">
 			<button type="submit" onclick="location.href='/mypage/class/addform'">등록하기</button>

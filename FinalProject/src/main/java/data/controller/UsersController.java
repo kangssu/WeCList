@@ -56,10 +56,10 @@ public class UsersController {
 	@GetMapping("/users/mypage/updatepass")
 	public String updateMyInfo(HttpSession session) {
 		String nickname = (String)session.getAttribute("nickname");
-		int category = (Integer)session.getAttribute("category");
+		String category = (String)session.getAttribute("category");
 		
-		// 카테고리 세션값 얻어와서 1이면 일반사용자, 2면 작가 페이지레이아웃 다르게 보이게
-		if(category==2) {
+		// 카테고리 세션값 얻어와서 1이면 일반회원, 2면 작가 페이지레이아웃 다르게 보이게
+		if(category.equals("2")) {
 			return "/1/user_mypage/user_updatepassform";
 		} else {
 			return "/1_2/user_mypage/user_updatepassform";
@@ -112,8 +112,14 @@ public class UsersController {
 	@GetMapping("/users/mypage/deletepass")
 	public String deleteMyInfo(HttpSession session) {
 		String nickname = (String) session.getAttribute("nickname");
+		String category = (String)session.getAttribute("category");
 		
-		return "/1_2/user_mypage/user_deletepassform";
+		// 카테고리 세션값 얻어와서 1이면 일반회원, 2면 작가 페이지레이아웃 다르게 보이게
+		if(category.equals("2")) {
+			return "/1/user_mypage/user_deletepassform";
+		} else {
+			return "/1_2/user_mypage/user_deletepassform";
+		}
 	}
 		
 	// 회원탈퇴 비밀번호 입력 폼에서 올바르게 입력했는지 체크	

@@ -25,7 +25,7 @@ $(function(){});
 	<div class="container">
 		<div class="checkout__form2" style="text-align: center;">
 			<div class="user_join_btn" style="display: inline-block;">
-				<button type="button" class="buy-btn" onclick="location.href='userJoin'">일반사용자로 가입하기</button>
+				<button type="button" class="buy-btn" onclick="location.href='userJoin'">일반회원으로 가입하기</button>
 			</div>
 			<div class="author_join_btn" style="display: inline-block;">
 				<button type="button" class="buy-btn" onclick="location.href='authorJoin'">작가로 가입하기</button>
