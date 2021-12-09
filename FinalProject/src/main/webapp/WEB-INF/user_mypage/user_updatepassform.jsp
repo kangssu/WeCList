@@ -4,7 +4,6 @@
 <div class="mypage__story">
 	<h2>회원 정보수정</h2>
 	<form action="/users/updatepass" method="post">	
-	<input type="hidden" name="id" value="${sessionScope.id}">
 		<div class="pass_check_middle_title">
 			<h5>비밀번호 재확인</h5>
 		</div>
@@ -19,8 +18,8 @@
 				<tr>
 					<td>아이디</td>
 					<td>
-						<input type="password" name="pass1" id="pass1" required="required"
-						placeholder="아이디 입력" class="" autofocus="autofocus">
+						<input type="text" name="id" id="id" required="required" readonly="readonly"
+						 class="" autofocus="autofocus" value="${sessionScope.id} ">
 					</td>
 				</tr>
 				<tr>

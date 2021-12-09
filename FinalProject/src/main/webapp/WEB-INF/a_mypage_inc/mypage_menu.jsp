@@ -10,8 +10,8 @@
 			<li><a href="#">주문 관리</a></li>
 			<li><a href="/mypage/profile">프로필 관리</a></li>
 			<li><a href="/mypage/story/list">스토리 관리</a></li>
-			<li><a href="#">정보 수정하기</a></li>
-			<li><a href="#">회원 탈퇴</a></li>
+			<li><a href="/users/mypage/updatepass">정보 수정하기</a></li>
+			<li><a href="/users/mypage/deletepass">회원 탈퇴</a></li>
 		</ul>
 	</div>
 </div>
