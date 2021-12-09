@@ -30,6 +30,9 @@
 	<select id="getNickName" parameterType="String" resultType="String">
 		select nickname from usersjoin where id=#{id}
 	</select>
+	<select id="getCategory" parameterType="String" resultType="String">
+		select category from usersjoin where id=#{id}
+	</select>
 	<select id="login" parameterType="HashMap" resultType="int">
 		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
 	</select>

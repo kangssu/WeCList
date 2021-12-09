@@ -3,6 +3,9 @@ package data.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,14 +54,24 @@ public class UsersController {
 	
 	// 정보 수정하기 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
 	@GetMapping("/users/mypage/updatepass")
-	public String updateMyInfo() {
-		return "/1_2/user_mypage/user_updatepassform";
+	public String updateMyInfo(HttpSession session) {
+		String nickname = (String)session.getAttribute("nickname");
+		int category = (Integer)session.getAttribute("category");
+		
+		// 카테고리 세션값 얻어와서 1이면 일반사용자, 2면 작가 페이지레이아웃 다르게 보이게
+		if(category==2) {
+			return "/1/user_mypage/user_updatepassform";
+		} else {
+			return "/1_2/user_mypage/user_updatepassform";
+		}
 	}
 	
 	// 정보수정 비밀번호 입력 폼에서 올바르게 입력했는지 체크
 	@PostMapping("/users/updatepass")
-	public ModelAndView updatepass(@RequestParam String id,
+	public ModelAndView updatepass(
+			@RequestParam String id,
 			@RequestParam String pass1) {
+		
 		ModelAndView mview = new ModelAndView();
 		
 		// DB로부터 비번 맞는지 체크
@@ -86,7 +99,9 @@ public class UsersController {
 	
 	// 정보수정 비밀번호 올바르게 입력 시 정보수정 폼으로 넘어간 뒤 수정하기 누르면 DB로 전송
 	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
-	public String update(@ModelAttribute UserDto dto) {	
+	public String update(@ModelAttribute UserDto dto, HttpSession session) {	
+		String nickname = (String)session.getAttribute("nickname");
+		
 		mapper.updateUsers(dto);
 		
 		return "/user_mypage/user_success";
@@ -95,7 +110,9 @@ public class UsersController {
 	
 	// 회원 탈퇴 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
 	@GetMapping("/users/mypage/deletepass")
-	public String deleteMyInfo() {
+	public String deleteMyInfo(HttpSession session) {
+		String nickname = (String) session.getAttribute("nickname");
+		
 		return "/1_2/user_mypage/user_deletepassform";
 	}
 		

@@ -8,8 +8,8 @@
 		<ul class="mypage__snb">
 			<li><a href="#">주문 관리</a></li><!-- 주문&취소&환불내역&후기작성버튼 -->
 			<li><a href="#">관심리스트</a></li><!-- 찜목록&팔로우하는 작가 -->
-			<li><a href="/users/mypage/updatepass?id=${sessionScope.id}">정보 수정하기</a></li>
-			<li><a href="/users/mypage/deletepass?id=${sessionScope.id}">회원 탈퇴</a></li>
+			<li><a href="/users/mypage/updatepass">정보 수정하기</a></li>
+			<li><a href="/users/mypage/deletepass">회원 탈퇴</a></li>
 		</ul>
 	</div>
 </div>

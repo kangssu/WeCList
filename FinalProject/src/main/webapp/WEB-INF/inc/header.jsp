@@ -89,14 +89,14 @@ $(document).ready(function (){
 						<c:choose>
 							<c:when test="${sessionScope.loginok!=null}">
 								<c:choose>
-									<c:when test="${sessionScope.category eq 'author'}">
-										<a href="${root}/mypage/shop/list" class="login_check">
+									<c:when test="${sessionScope.category == 2}">
+										<a href="/mypage/shop/list" class="login_check">
 											<i class="fa fa-user" aria-hidden="true"></i>
 											<p>마이페이지</p>
 										</a>
 									</c:when>
 									<c:otherwise>
-										<a href="${root}/mypage/order/list" class="login_check">
+										<a href="/mypage/order/list" class="login_check">
 											<i class="fa fa-user" aria-hidden="true"></i>
 											<p>마이페이지</p>
 										</a>

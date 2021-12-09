@@ -5,6 +5,10 @@
 		select count(*) from usersjoin where category=2
 	</select>
 	
+	<select id="getFollowCount" parameterType="String" resultType="int">
+		select count(*) from follow where from_id=#{from_id}
+	</select>
+	
 	<select id="getHotAuthor" parameterType="String" resultType="fdto">
 		SELECT DISTINCT to_id, MAX(follow_cnt) FROM follow GROUP BY to_id ORDER BY MAX(follow_cnt) desc
 	</select>

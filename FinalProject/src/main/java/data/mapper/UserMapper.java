@@ -22,6 +22,7 @@ public interface UserMapper {
 	public void updateUsers(UserDto dto);
 	
 	public String getNickName(String id);
+	public String getCategory(String id);
 	public int login(HashMap<String, String> map);
 	
 	public List<UserDto> getUsersData();

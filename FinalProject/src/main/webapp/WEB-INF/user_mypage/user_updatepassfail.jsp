@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	alert("비밀번호 오류입니다.");
-	location.href="/users/mypage/updatepass?id=${sessionScope.id}";
+	location.href="/users/mypage/updatepass";
 	//history.back();
 </script>

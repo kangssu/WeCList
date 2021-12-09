@@ -38,12 +38,20 @@ public class LoginController {
 			@RequestParam(value="addr2", required=false) String addr2,
 			@RequestParam(value="profileimg", required=false) String profileimg,
 			@RequestParam(value="category", required = false) String category,
-			HttpSession session) {
+			HttpSession session, Model model) {
+		
+		nickname = mapper.getNickName(id);
+		//System.out.println(nickname);
+		model.addAttribute("nickname", nickname);
+		
+		category = mapper.getCategory(id);
+		System.out.println(category);
+		model.addAttribute("category", category);
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
-		map.put("irum", irum);
 		map.put("pass1", pass1);
+		//map.put("irum", irum);
 		//map.put("category", category);
 		
 		int check = mapper.login(map); // UserSql에 있는 login함수, 리턴값 0 or 1
@@ -59,8 +67,8 @@ public class LoginController {
 			session.setAttribute("category", category);
 			session.setAttribute("loginok", "yes");
 			
-			//System.out.println("로그인 성공");
-			//System.out.println(category);
+			System.out.println("로그인 성공");
+			System.out.println("카테고리 구분: " + category);
 			return "/";
 		} else {
 			//System.out.println(check);
@@ -73,6 +81,8 @@ public class LoginController {
 	@GetMapping("/login/logoutprocess") // logoutform.jsp 파일
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginok");
+//		session.removeAttribute("id");
+//		session.removeAttribute("nickname");
 		
 		return "/";
 	}

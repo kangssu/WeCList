@@ -36,4 +36,5 @@ public class FollowController {
   public void delete(String from_id, String to_id, HttpSession session) {
     service.deleteFollow(from_id, to_id);
   }
+
 }
