@@ -11,12 +11,29 @@
 					<div class="grade_user">
 						<div class="profile_img">
 							<img src="/img/pro.jpg">
-							<span>${id }님</span>
+							<span>${id }님
+							<c:choose>
+								<c:when test="${sessionScope.category == 2}">
+									(작가)</span>
+								</c:when>
+								<c:otherwise>
+									(일반회원)</span>
+								</c:otherwise>
+							</c:choose>
+							<br><br>
+							<c:choose>
+								<c:when test="${sessionScope.nickname eq null}">
+									<span><i class="fa fa-id-badge" aria-hidden="true"></i> 닉네임 설정이 필요합니다.</span>
+								</c:when>
+								<c:otherwise>
+									<span><i class="fa fa-id-badge" aria-hidden="true"></i> 닉네임: ${nickname }</span>
+								</c:otherwise>
+							</c:choose>
 						</div>
-						<div class="profile_btn">
-							<button type="button" onclick="location.href='/users/mypage/updatepass?id=${sessionScope.id}'">정보수정</button>
+<!-- 						<div class="profile_btn">
+							<button type="button" onclick="location.href='/users/mypage/updatepass'">정보수정</button>
 							<button type="button" onclick="location.href='/login/logoutprocess'">로그아웃</button>
-						</div>
+						</div> -->
 					</div>
 					<div class="grade_shopbox">
 						<span>총 주문현황</span>

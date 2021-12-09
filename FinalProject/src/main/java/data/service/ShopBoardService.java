@@ -17,8 +17,6 @@ public class ShopBoardService {
   
   
   public int getTotalCount() {
-    
-    
     return mapper.getTotalCount();
   }
   public int getIdCount(String myid) {

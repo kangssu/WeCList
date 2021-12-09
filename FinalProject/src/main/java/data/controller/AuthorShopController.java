@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.AuthorStoryDto;
 import data.dto.ShopBoardDto;
+import data.mapper.UserMapper;
 import data.service.AuthorStoryService;
 import data.service.ShopBoardService;
 
@@ -25,6 +27,9 @@ public class AuthorShopController {
 
   @Autowired
   ShopBoardService service;
+  
+  @Autowired
+  UserMapper mapper;
 
   @GetMapping("/mypage/shop/content")
   public ModelAndView content(@RequestParam String num,
@@ -106,10 +111,14 @@ public class AuthorShopController {
   
   @GetMapping("/mypage/shop/list")
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
-      HttpSession session
+      HttpSession session, Model model
       ) {
     ModelAndView mview = new ModelAndView();
     String from_id = (String) session.getAttribute("id");
+
+    String id = (String)session.getAttribute("id"); // 세션값 얻어오기
+	String nickname = mapper.getNickName(id);
+	model.addAttribute("nickname", nickname);
     
     int perPage = 8;//�븳�럹�씠吏��뿉 蹂댁뿬吏� 湲��쓽 媛��닔
     int IdCount = service.getIdCount(from_id);

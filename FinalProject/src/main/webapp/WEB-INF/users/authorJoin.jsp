@@ -411,7 +411,7 @@ function check(f) {
 						<td>
 							<input type="text" name="nickname" id="nickname" placeholder="사용할 닉네임을 입력해주세요." 
 							 class="checkout__input__add" required="required">
-							<button type="button" id="nickCheck" class="addr-btn" onclick="">중복확인</button>
+							<button type="button" id="nickCheck" class="addr-btn_rev" onclick="">중복확인</button>
 						</td>
 					</tr>
 					<tr class="checkout__input">
