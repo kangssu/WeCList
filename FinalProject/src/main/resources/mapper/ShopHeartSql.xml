@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.ShopHeartMapper">
+	<insert id="insertHeart" parameterType="shdto">
+		insert into shopHeart (idx,shop_heart,num,like_cnt) 
+		values (#{idx},#{shop_heart},#{num},#{like_cnt})
+	</insert>
+	<delete id="deleteHeart" parameterType="HashMap">
+		delete from shopHeart where shop_heart=#{shop_heart} and num=#{num}
+	</delete>
+	<select id="getMaxLikeCnt" resultType="int">
+		select ifnull(max(like_cnt),0) from shopHeart where num=#{num}
+	</select>
+</mapper>
+
