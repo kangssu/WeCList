@@ -15,4 +15,5 @@ public interface MainMapper {
   public List<ClassBoardDto> getAlllist();
   public List<ClassNewBoardDto> getAllnewlist();
   public List<ClassBoardDto> getPopular();
+  public int getCartCount(String id);
 }

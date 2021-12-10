@@ -2,25 +2,28 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
+	loginok="${sessionScope.loginok}";
 $(document).ready(function (){
 	$(".header__menu ul li a").click(function(){
 		$(this).removeClass("color_f");
 		$(this).addClass("on");
 	});
-	
-	loginok="${sessionScope.loginok}";
-	
+
 	$(".login_check").click(function(){
 		if(loginok==""){
 			alert("로그인 후 이용가능합니다!");
 		}
 	});
-	
-	$(".login_check_2").click(function(){
-		if(loginok==""){
-			alert("로그인 후 이용가능합니다!");
+
+	$.ajax({
+		type: "POST",
+		url: "/main/getCartCount",
+		data: {"id": ${sessionScope.id}},
+		success: function (data){
+			alert(data);
+			$(".login_check span").innerText = data;
 		}
-	});
+	})
  });
  </script>
 <!-- Header Section Begin -->
@@ -114,14 +117,14 @@ $(document).ready(function (){
 					<div class="hero__mypage__2">
 						<c:choose>
 							<c:when test="${sessionScope.loginok==null}">
-								<a href="${root}/users/login" class="login_check_2">
+								<a href="${root}/users/login" class="login_check">
 									<span>0</span>
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<p>장바구니</p>
 								</a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" class="login_check_2">
+								<a href="${root}/cart/list" class="login_check">
 									<span>0</span>
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<p>장바구니</p>

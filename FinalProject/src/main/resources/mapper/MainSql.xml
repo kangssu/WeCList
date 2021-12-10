@@ -17,4 +17,7 @@
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>
+	<select id="getCartCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) from cart c inner join usersjoin u on c.user_idx = u.idx WHERE u.id = 'test01';
+	</select>
 </mapper>

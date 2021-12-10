@@ -38,4 +38,6 @@ public class MainService {
 	{
 		return mapper.getAllnewlist();
 	}
+
+	public int getCartCount(String id){ return mapper.getCartCount(id);}
 }

@@ -1278,17 +1278,17 @@ li {
 }
 
 .hero__mypage span{
+	display: flex;
 	position:absolute;
 	background-color:#ff7b27;
+	color:white;
 	width:17px;
 	height:17px;
-	border-radius:50px;
-	color:white;
-	text-align:center;
-	line-height:18px;
-	font-size:5px;
-	top:0;
 	right:-3px;
+	align-items: center;
+	justify-content: center;
+	font-size:16px;
+	border-radius:50px;
 }
 
 .hero__mypage__1 p{
