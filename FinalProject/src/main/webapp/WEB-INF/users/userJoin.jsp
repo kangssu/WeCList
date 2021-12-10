@@ -274,6 +274,33 @@ $(function(){
          });
 	});
 	
+	// 인증메일 전송 버튼
+	$("#sendMail").click(function() {
+		var mail = $("#email").val(); //사용자의 이메일 입력값.
+		
+		$.ajax({
+			type : 'post',
+			dataType :'json',
+			url : '/users/CheckMail',
+			data : {"mail":mail},
+			success:function(data){
+				console.log(email);
+				key = data;
+				alert("입력하신 메일로 인증번호가 전송되었습니다."); 
+			}
+		});
+		
+		isCertification=true; //추후 인증 여부를 알기위한 값
+		$("#compare").on("propertychange change keyup paste input", function() {
+			if ($("#compare").val() == key) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
+				$("#compare-text").html("<font color='green'>인증코드가 일치합니다.</font>");
+				isCertification = true;  //인증 성공여부 check
+			} else {
+				$("#compare-text").html("<font color='red'>인증코드가 일치하지 않습니다.</font>");
+				isCertification = false; //인증 실패
+			}
+		});
+	});
 	
 	// 주소 입력
 	$("#addrSearch").click(function(){
@@ -326,6 +353,10 @@ function check(f) {
 	}
 	if(f.ageterms.checked == false) {
 		alert("만 14세 이상만 가입하실 수 있습니다.");
+		return false;
+	}
+	if(isCertification==false){
+		alert("메일 인증이 완료되지 않았습니다.");
 		return false;
 	}
 	return true;
@@ -416,6 +447,20 @@ function check(f) {
 							<input type="text" name="email" id="email" required="required"
 							 placeholder="본인 이메일을 작성해주세요. 예: weclist@weclist.com" class="checkout__input__add">
 							<button type="button" id="emailCheck" class="addr-btn" onclick="">중복확인</button>
+						</td>
+					</tr>
+					<tr class="checkout__input">
+						<td><span style="color:red">※</span>이메일 인증</td>
+						<td>
+							<input type="text" class="txtfriends2" id="compare" placeholder="인증메일전송 버튼을 누르시고 전송된 인증번호를 입력해주세요.">
+							<button type="button" class="addr-btn" id="sendMail" style="font-size: 15px">인증메일전송</button>
+							<br>
+						</td>
+					</tr>
+					<tr class="checkout__input">
+						<td></td>
+						<td>
+							<b id="compare-text" class="msg">어디나와??&nbsp;</b>
 						</td>
 					</tr>
 					<tr class="checkout__input">
