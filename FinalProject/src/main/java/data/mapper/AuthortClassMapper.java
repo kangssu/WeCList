@@ -9,18 +9,20 @@ import data.dto.ClassBoardDto;
 @Mapper
 public interface AuthortClassMapper {
 
-  public int getTotalCount(String myid);
+  public int getTotalCount();
 
   public int getMaxNum();
 
   public ClassBoardDto getData(String num);
 
-  public List<ClassBoardDto> getList(HashMap<String, Object> map);
+  public List<ClassBoardDto> getList(HashMap<String, Integer> map);
 
   public void updateBoard(ClassBoardDto dto);
 
   public void insertBoard(ClassBoardDto dto);
 
   public void deleteBoard(int num);
+  
+  public int getIdCount(String myid);
 
 }

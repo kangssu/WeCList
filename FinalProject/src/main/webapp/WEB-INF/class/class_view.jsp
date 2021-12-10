@@ -14,15 +14,12 @@ $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
 loginid="${sessionScope.id}"; //로그인 아이디 가져옴
 
-alert(loginok+","+loginid); //확인됨
+//alert(loginok+","+loginid); //확인됨
            		
 //좋아요 이벤트!(추가)
 $(".fa-heart-o").click(function(){
-	alert("dd")
 	var class_heart=loginid;
 	var num=$(this).attr("num");
-	alert("id="+class_heart); //아이디 불러옴
-	alert("number="+num);
            			
 	//로그인 한 이후에 팔로우 가능!
 	if(loginok==""){
@@ -46,8 +43,6 @@ $(".fa-heart-o").click(function(){
 $(".fa-heart").click(function(){
 	var class_heart=loginid;
 	var num=$(this).attr("num");
-	alert("id="+class_heart); //아이디 불러옴
-	alert("number="+num);
            			
 	//팔로우!
 		$.ajax({
@@ -57,6 +52,7 @@ $(".fa-heart").click(function(){
 			data:{"class_heart":class_heart,"num":num},
 			success:function(data){
 			alert("조아요 왜 취소함???");
+			location.reload();
        		}
         });
    	});
@@ -151,7 +147,7 @@ $(".fa-heart").click(function(){
 
 					<c:if test="${loginok eq 'yes'}">
 					<c:choose>
-						<c:when test="${fn:contains(heartTrue, dto.num)}">
+						<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
 							<a class="heart"><i class="fa fa-heart" num="${dto.num}"></i></a>
 						</c:when>
 						<c:otherwise>

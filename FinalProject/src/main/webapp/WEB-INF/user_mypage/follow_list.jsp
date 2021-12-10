@@ -12,7 +12,7 @@
 		//팔로우 이벤트!(추가)
 		$(".m_btn_follow").click(function(){
 			var to_id=$(this).attr("id");
-			alert(id); //아이디 불러옴
+			//alert(id); //아이디 불러옴
 			
 			//로그인 한 이후에 팔로우 가능!
 			if(loginok==""){
@@ -31,13 +31,17 @@
 				});
 			}
 		});
+	});
+	
+	/* 팔로잉 클릭시 팝업!!! */
+	function showUnFolPopup(id) {
+		alert(id);
+		$("#follow_id").val(id);
 		
 		//팔로잉 이벤트!(취소)
-		$(".m_btn_following").click(function(){
-			//var follow_cnt=$(this).val();
-			//alert(follow_cnt); //숫자불러옴!
+		$("#m_btn_following_submit").click(function(){
 			var from_id="${sessionScope.id}";
-			var to_id=$(this).attr("id");
+			var to_id=$("#follow_id").val();
 			//alert(to_id);
 			
 			//팔로우!
@@ -47,12 +51,19 @@
 				url:"/author/fdelete",
 				data:{"from_id":from_id,"to_id":to_id},
 				success:function(data){
-					alert("작가 팔로우를 취소하였습니다!");
 					location.reload();
 				}
 			});
 		});
-	});
+		
+		const popup2 = document.querySelector('#following_popup');
+		popup2.classList.remove('hide');
+	}
+	
+	function closeUnFolaPopup() {
+		const popup2 = document.querySelector('#following_popup');
+		popup2.classList.add('hide');
+	}
 </script>
 <div class="mypage__choice">
 	<h2>관심리스트</h2>
@@ -80,7 +91,7 @@
 							<h5>${adto.irum}</h5>
 							<c:choose>
 								<c:when test="${fn:contains(followTrue, dto.id)}">
-									<button type="button" class="m_btn_following" id="${adto.id}">
+									<button type="button" class="m_btn_following" onclick="showUnFolPopup('${adto.id}')">
 										<i class="fa fa-check" aria-hidden="true"></i> 팔로잉
 									</button>
 								</c:when>
@@ -114,6 +125,21 @@
 			<c:if test="${endPage<totalPage}">
 				<a href="list?currentPage=${endPage+1}">다음</a>
 			</c:if>
+		</div>
+	</div>
+</div>
+<!-- 팔로잉 클릭하면 나오는 팝업! -->
+<div id="following_popup" class="hide">
+	<div class="following_content">
+		<p class="following_title">팔로우를 해지하겠습니까?</p>
+		<span class="following_text">
+			해지하시면 팔로우한 작가 목록에서 보실 수 없습니다.<br>
+			<b>※ 다시 작가를 팔로우 하실 수 있습니다.</b>	
+		</span>
+		<input type="hidden" id="follow_id">
+		<div class="popup_following_btn">
+			<button type="button" id="m_btn_following_submit">확인</button>
+			<button type="button" id="btn_following_close" onclick="closeUnFolaPopup()" >닫기</button>
 		</div>
 	</div>
 </div>

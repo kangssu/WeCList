@@ -35,8 +35,8 @@
 		select * from classnewboarder where writeday > now() - interval 7 DAY;
 	</select>
 	
-	<select id="getTrue" parameterType="String" resultType="hdto">
-		select * from classHeart where num=#{num}
+	<select id="getTrue" parameterType="String" resultType="String">
+		select class_heart from classHeart where num=#{num}
 	</select>
 	
 	

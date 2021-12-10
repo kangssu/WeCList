@@ -57,9 +57,11 @@ public class ClassController {
 	}
 
 	@GetMapping("/class/view")
-	public ModelAndView view(@RequestParam String num)
+	public ModelAndView view(@RequestParam String num, HttpSession session)
 	{
 		ModelAndView mview=new ModelAndView();
+		
+		String userid = (String)session.getAttribute("id");
 		
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
