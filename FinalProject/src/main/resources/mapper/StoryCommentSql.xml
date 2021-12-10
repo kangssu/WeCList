@@ -12,8 +12,23 @@
 		values (#{num},#{reidx},#{regroup},#{writer},#{content},now())
 	</insert>
 	
-	<select id="getAllComment" parameterType="String" resultType="scdto">
-		select * from story_comment where num=#{num} order by regroup desc, reidx asc
+	<select id="getAllComment" parameterType="String" resultType="chdto">
+		<!-- select * from story_comment where num=#{num} order by regroup desc, reidx asc -->
+		SELECT
+		u.id
+		, u.nickname
+		, u.profileimg
+		, sc.idx
+		, sc.num
+		, sc.reidx
+		, sc.regroup
+		, sc.writer
+		, sc.content
+		, sc.writeday
+		FROM usersjoin AS u
+		RIGHT JOIN story_comment AS sc
+		ON u.nickname = sc.writer
+ 		where num=#{num} order by sc.regroup desc,sc.reidx asc
 	</select>
 	
 	<select id="getMaxRegroup" resultType="int">

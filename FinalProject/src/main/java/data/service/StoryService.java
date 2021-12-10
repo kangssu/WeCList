@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import data.dto.AuthorStoryDto;
 import data.dto.StoryDto;
 import data.mapper.StoryMapper;
 
@@ -22,7 +21,7 @@ public class StoryService {
     mapper.updateReadCount(num);
   }
 
-  public AuthorStoryDto getAData(String num) {
+  public StoryDto getAData(String num) {
     return mapper.getAData(num);
   }
 

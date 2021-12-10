@@ -37,7 +37,7 @@
 							<div class="story__item">
 								<a href="/story/view?num=${dto.num}&currentPage=${currentPage}&key=list">
 									<div class="story_img">
-										<img src="/img/pro.jpg">
+										<img src="/photo/${dto.profileimg}">
 										<span>${dto.nickname}</span>
 									</div>
 									<div class="story__item__pic">

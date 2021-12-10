@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="<%=request.getContextPath()%>"/>
 <script type="text/javascript">
 $(document).ready(function (){
 	/* $("#btn_item_page").click(function(){
@@ -53,7 +54,7 @@ $(document).ready(function (){
 						<a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
 						<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 					</c:if>
-					<a href="/customer/notice">고6 객센터</a>
+					<a href="/customer/notice">고객센터</a>
 				</div>
 			</div>
 		</div>
@@ -63,9 +64,7 @@ $(document).ready(function (){
 			<div class="row">
 	  			<div class="col-lg-3">
 					<div class="header__logo">
-						<!-- 아래는 로고 이미지 넣으면 쓸 예정! 지우지말아주세요ㅠㅠ -->
-						<!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
-						<a href="${root}/" class="logo">WE C LIST</a>
+						<a href="/"><img src="${root}/img/logo_new.png" alt=""></a>
 					</div>
 				</div>
 				<div>

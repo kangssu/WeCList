@@ -14,11 +14,20 @@ public class StoryDto {
 
   // 스토리 table
   private String num;
+  private String myid;
   private String title;
   private String content;
   private String thumbnail_file;
   private String read_count;
   private Timestamp writeday;
+
+  public String getMyid() {
+    return myid;
+  }
+
+  public void setMyid(String myid) {
+    this.myid = myid;
+  }
 
   public String getRead_count() {
     return read_count;

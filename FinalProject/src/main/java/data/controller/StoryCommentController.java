@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import data.dto.CommentJoinDto;
 import data.dto.StoryCommentDto;
 import data.mapper.UserMapper;
 import data.service.StoryCommentService;
@@ -55,7 +56,7 @@ public class StoryCommentController {
 
   // 댓글 리스트 출력!
   @GetMapping("/story/clist")
-  public List<StoryCommentDto> clist(String num) {
+  public List<CommentJoinDto> clist(String num) {
     return service.getAllComment(num);
   }
 

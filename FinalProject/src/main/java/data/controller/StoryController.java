@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import data.dto.AuthorStoryDto;
 import data.dto.StoryDto;
 import data.mapper.UserMapper;
 import data.service.StoryService;
@@ -76,13 +75,9 @@ public class StoryController {
       service.updateReadCount(num);
     }
 
-    AuthorStoryDto dto = service.getAData(num);
-
-    String id = (String) session.getAttribute("id");
-    String nickname = mapper.getNickName(id);
+    StoryDto dto = service.getAData(num);
 
     mview.addObject("dto", dto);
-    mview.addObject("nickname", nickname);
     mview.addObject("currentPage", currentPage);
 
     mview.setViewName("/story/story_view");

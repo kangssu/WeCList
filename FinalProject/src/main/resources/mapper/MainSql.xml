@@ -5,16 +5,44 @@
 	<select id="getTotalCount" resultType="int">
 		select count(*) from classboarder
 	</select>
+	
 	<select id="getData" parameterType="String" resultType="cdto">
 		select * from classboarder where num =#{num}
 	</select>
+	
 	<select id="getAlllist" resultType="cdto">
 		select * from classboarder order by num asc
 	</select>
+	
 	<select id="getAllnewlist" resultType="cndto">
 	select * from classnewboarder order by num asc
 	</select>
+	
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
+	</select>
+	
+	<select id="getMainStoryList" resultType="sldto">
+		SELECT
+		u.idx
+		, u.id
+		, u.nickname
+		, u.profileimg
+		, u.category
+		, aus.num
+		, aus.title
+		, aus.content
+		, aus.thumbnail_file
+		, aus.read_count
+		, aus.writeday
+		FROM usersjoin AS u
+		RIGHT JOIN author_story AS aus
+		ON u.id = aus.myid
+		WHERE u.category = 2
+ 		AND num order by aus.num desc
+	</select>
+	
+	<select id="getStoryTotalCount" resultType="int">
+		select count(*) from author_story
 	</select>
 </mapper>

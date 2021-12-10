@@ -60,7 +60,7 @@
 					if(dto.reidx==1){
 						com+="<div><img src='/img/re.png' class='author_re'>";
 					}
-					com+="<img src='/img/pro.jpg' class='profile_re'>"+dto.writer;
+					com+="<img src='/photo/"+dto.profileimg+"' class='profile_re'>"+dto.writer;
 					if(dto.reidx==1){
 						com+="<i class='fa fa-star' aria-hidden='true'></i>";
 					}
@@ -214,8 +214,8 @@
 		<div class="story__view__page">
 			<div class="story__view__top">
 				<div class="story_img">
-					<img src="/img/pro.jpg">
-					<span>${nickname}</span>
+					<img src="/photo/${dto.profileimg}">
+					<span>${dto.nickname}</span>
 				</div>
 				<h6>${dto.title}</h6>
 				<p><fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd"/></p>

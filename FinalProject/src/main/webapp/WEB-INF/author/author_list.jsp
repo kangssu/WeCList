@@ -7,6 +7,7 @@
 	$(function(){
 		loginok="${sessionScope.loginok}"; //로그인 여부
 		from_id="${sessionScope.id}"; //로그인 아이디 가져옴
+		autor_ok="${sessionScope.category}";
 		//alert(loginok+","+myid); //확인됨
 		
 		//팔로우 이벤트!(추가)
@@ -18,6 +19,8 @@
 			if(loginok==""){
 				alert("회원만 가능합니다!");
 				location.href ="/users/login";
+			}else if(autor_ok==2){
+				alert("작가님은 다른 작가님을 팔로우 하실 수 없습니다!");
 			}else{
 				$.ajax({
 					type:"post",
@@ -30,6 +33,7 @@
 					}
 				});
 			}
+			
 		});
 	});
 	
