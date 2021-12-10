@@ -69,7 +69,7 @@ public class LoginController {
 			
 			System.out.println("로그인 성공");
 			System.out.println("카테고리 구분: " + category);
-			return "/";
+			return "/users/login_success";
 		} else {
 			//System.out.println(check);
 			//System.out.println("로그인 실패");
