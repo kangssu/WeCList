@@ -25,14 +25,12 @@ public class ProfileController {
 
   // 프로필을 id값 myid(angel)로 불러오기!
   @GetMapping("/mypage/profile")
-  public ModelAndView content(@RequestParam(required = false) String myid) {
+  public ModelAndView content(HttpSession session) {
     ModelAndView mview = new ModelAndView();
-    int totalCount = service.getTotalCount("angel"); // 여기 나중에 myid로 변경!
-    // System.out.println(totalCount);
+    String myid = (String) session.getAttribute("id");
+    int totalCount = service.getTotalCount(myid);
 
-    // System.out.println(myid);
-    AuthorProfileDto dto = service.GetIdData("angel");// 여기 나중에 myid로 변경!
-    // System.out.println(dto.getHistory());
+    AuthorProfileDto dto = service.GetIdData(myid);
 
     mview.addObject("dto", dto);
     mview.addObject("totalCount", totalCount);
@@ -53,7 +51,7 @@ public class ProfileController {
   public String insert(@ModelAttribute AuthorProfileDto apdto,
       @RequestParam(required = false) String myid, HttpSession session) {
     String path = session.getServletContext().getRealPath("/photo");
-    System.out.println(path); // 제대로 나옴!
+    // System.out.println(path); // 제대로 나옴!
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 
     String photo = "";
@@ -134,13 +132,12 @@ public class ProfileController {
 
   // 프로필 수정폼으로 이동!
   @GetMapping("/mypage/profile/upform")
-  public ModelAndView updateForm(String num, String currentPage) {
+  public ModelAndView updateForm(String num, String currentPage, HttpSession session) {
 
     ModelAndView mview = new ModelAndView();
 
-    // System.out.println(myid);
-    AuthorProfileDto dto = service.GetIdData("angel");
-    // System.out.println(dto.getHistory());
+    String myid = (String) session.getAttribute("id");
+    AuthorProfileDto dto = service.GetIdData(myid);
 
     mview.addObject("dto", dto);
 
@@ -154,7 +151,7 @@ public class ProfileController {
   public String update(@ModelAttribute AuthorProfileDto apdto,
       @RequestParam(required = false) String myid, HttpSession session) {
     String path = session.getServletContext().getRealPath("/photo");
-    System.out.println(path); // 제대로 나옴!
+    // System.out.println(path); // 제대로 나옴!
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 
     String photo = "";
@@ -235,13 +232,14 @@ public class ProfileController {
 
   // 삭제
   @GetMapping("/mypage/pdelete")
-  public String delete(@RequestParam(required = false) String myid, HttpSession session) {
+  public String delete(HttpSession session) {
 
     String path = session.getServletContext().getRealPath("/photo");
+    String myid = (String) session.getAttribute("id");
 
-    ArrayList<MultipartFile> uploadfile1 = service.GetIdData("angel").getUpload1();
-    ArrayList<MultipartFile> uploadfile2 = service.GetIdData("angel").getUpload2();
-    ArrayList<MultipartFile> uploadfile3 = service.GetIdData("angel").getUpload3();
+    ArrayList<MultipartFile> uploadfile1 = service.GetIdData(myid).getUpload1();
+    ArrayList<MultipartFile> uploadfile2 = service.GetIdData(myid).getUpload2();
+    ArrayList<MultipartFile> uploadfile3 = service.GetIdData(myid).getUpload3();
 
     File file1 = new File(path + "\\" + uploadfile1);
     File file2 = new File(path + "\\" + uploadfile2);
@@ -252,7 +250,7 @@ public class ProfileController {
     file2.delete();
     file3.delete();
 
-    service.deleteProfile("angel");
+    service.deleteProfile(myid);
     return "redirect:/mypage/profile";
   }
 

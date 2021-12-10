@@ -5,6 +5,11 @@
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <script type="text/javascript">
 	$(function(){
+		loginok="${sessionScope.loginok}"; //로그인 여부
+		from_id="${sessionScope.id}"; //로그인 아이디 가져옴
+		nickname_ok="${sessionScope.nickname}"; //닉네임 가져옴
+		autor_ok="${sessionScope.category}"; //로그인한 카테고리 가져옴
+		
 		num=$("#num").val(); //input num 값 가져오기!
 		//alert(num);//17로 잘나옴!
 		list();
@@ -63,11 +68,13 @@
 					com+="<p>"+dto.content+"</p>";
 					com+="<span>"+dto.writeday+"</span>";
 					com+="<div class='comment_btn_all'>";
-					if(dto.reidx==0){
+					if(loginok!=null && autor_ok==2 && dto.reidx.length==0){
 						com+="<button type='button' id ='author_add_comment' onclick='rePopup("+dto.idx+","+dto.regroup+")'>댓글</button>";
 					}
-					com+="<button type='button' id='update_comment' onclick='upPopup("+dto.idx+")'>수정</button>";
-					com+="<button type='button' id='delete_comment' onclick='delPopup("+dto.idx+")'>삭제</button>";
+					if(nickname_ok==dto.writer){
+						com+="<button type='button' id='update_comment' onclick='upPopup("+dto.idx+")'>수정</button>";
+						com+="<button type='button' id='delete_comment' onclick='delPopup("+dto.idx+")'>삭제</button>";
+					}
 					com+="</div>";
 					com+="</li>";
 				});
@@ -162,7 +169,6 @@
 		$(document).on("click","#btn_submit_3",function(){
 			$("#idx").val(idx);
 			idx=$("#idx").val();
-			alert("2");
 			$.ajax({
 				type:"get",
 				dataType:"text",
@@ -209,7 +215,7 @@
 			<div class="story__view__top">
 				<div class="story_img">
 					<img src="/img/pro.jpg">
-					<span>제이라운드</span>
+					<span>${nickname}</span>
 				</div>
 				<h6>${dto.title}</h6>
 				<p><fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd"/></p>
@@ -223,7 +229,7 @@
 			</div>
 			<div class="story__view__comment__form">
 				<!-- 댓글 관련 input_hidden 아래 5줄! -->
-				<input type="hidden" name="writer" value="${sessionScope.id}"/>
+				<input type="hidden" name="writer" value="${nickname}"/>
 				<input type="hidden" name="num" id="num" value="${dto.num}">
 				<table class="comment__table__all">
 					<tr>

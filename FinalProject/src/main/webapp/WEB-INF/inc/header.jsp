@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 $(document).ready(function (){
-	$(".header__menu ul li a").click(function(){
+	/* $("#btn_item_page").click(function(){
 		$(this).removeClass("color_f");
 		$(this).addClass("on");
-	});
+	}); */
 	
 	loginok="${sessionScope.loginok}";
 	
@@ -21,6 +21,11 @@ $(document).ready(function (){
 			alert("로그인 후 이용가능합니다!");
 		}
 	});
+	
+	$("#btn_item_page").click(function(){
+		$(this).closest("li").addClass("active");
+	});
+	
  });
  </script>
 <!-- Header Section Begin -->
@@ -39,7 +44,7 @@ $(document).ready(function (){
 				<div class="header__top__right__auth">
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<c:if test="${sessionScope.loginok!=null }">
-						<span class="user__login__id">${sessionScope.id }님</span>
+						<span class="user__login__id">${sessionScope.id }님</span><span class="header_login_1">|</span>
 						<a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
 						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
 						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
@@ -48,7 +53,7 @@ $(document).ready(function (){
 						<a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
 						<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
 					</c:if>
-					<a href="/customer/notice">고객센터</a>
+					<a href="/customer/notice">고6 객센터</a>
 				</div>
 			</div>
 		</div>
@@ -67,10 +72,10 @@ $(document).ready(function (){
 					<nav class="header__menu">
 						<ul>
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li>
+							<li id="btn_item_page">
 								<a href="${root}/" class="color_f">작품</a>
 							</li>
-							<li>
+							<li id="btn_item_page_2">
 								<a href="${root}/class" class="color_f">온라인 클래스</a>
 							</li>
 						</ul>

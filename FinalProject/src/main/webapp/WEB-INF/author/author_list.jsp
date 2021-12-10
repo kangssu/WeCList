@@ -128,7 +128,7 @@
 					<div class="author__box__all_list">
 						<%-- <input type="text" value="${status.count}"> --%>
 						<div class="author__box_all">
-							<img src="${dto.profileimg}" class="author_img_2">
+							<img src="/photo/${dto.profileimg}" class="author_img_2">
 						</div>
 						<div class="author__box_all">
 							<div class="all_text">

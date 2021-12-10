@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import data.dto.AuthorStoryDto;
+import data.dto.StoryDto;
 
 @Mapper
 public interface StoryMapper {
@@ -14,6 +15,6 @@ public interface StoryMapper {
 
   public AuthorStoryDto getAData(String num);
 
-  public List<AuthorStoryDto> getAList(HashMap<String, Integer> map);
+  public List<StoryDto> getAList(HashMap<String, Integer> map);
 
 }

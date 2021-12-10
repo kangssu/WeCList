@@ -2,12 +2,15 @@ package data.controller;
 
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.AuthorStoryDto;
+import data.dto.StoryDto;
+import data.mapper.UserMapper;
 import data.service.StoryService;
 
 @Controller
@@ -16,13 +19,16 @@ public class StoryController {
   @Autowired
   StoryService service;
 
+  @Autowired
+  UserMapper mapper;
+
   @GetMapping("/story/list")
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
 
     ModelAndView mview = new ModelAndView();
 
     int atotalCount = service.getATotalCount();
-    System.out.println(atotalCount);
+    // System.out.println(atotalCount);
 
     int perPage = 9;
     int totalPage;
@@ -41,7 +47,7 @@ public class StoryController {
 
     start = (currentPage - 1) * perPage;
 
-    List<AuthorStoryDto> list = service.getAList(start, perPage);
+    List<StoryDto> list = service.getAList(start, perPage);
 
     int no = atotalCount - (currentPage - 1) * perPage;
 
@@ -62,7 +68,7 @@ public class StoryController {
   @GetMapping("/story/view")
   public ModelAndView view(@RequestParam String num,
       @RequestParam(defaultValue = "1") int currentPage, @RequestParam(required = false) String key,
-      @RequestParam Map<String, String> map) {
+      @RequestParam Map<String, String> map, HttpSession session) {
     ModelAndView mview = new ModelAndView();
 
     // 목록에서 key에 list를 보낼 경우에만 조회수 증가!
@@ -72,7 +78,11 @@ public class StoryController {
 
     AuthorStoryDto dto = service.getAData(num);
 
+    String id = (String) session.getAttribute("id");
+    String nickname = mapper.getNickName(id);
+
     mview.addObject("dto", dto);
+    mview.addObject("nickname", nickname);
     mview.addObject("currentPage", currentPage);
 
     mview.setViewName("/story/story_view");

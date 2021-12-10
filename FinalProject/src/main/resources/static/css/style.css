@@ -545,7 +545,7 @@ li {
 -----------------------*/
 
 /* 메뉴 색상 테스트! */
-#color_f.on{
+.color_f.on{
 	color:#ff7b27;
 }
 
@@ -562,6 +562,10 @@ li {
 }
 
 .active{
+	color:rgb(255, 123, 39);
+}
+
+.active_2{
 	color:rgb(255, 123, 39);
 }
 /* 메뉴 색상 테스트! */
@@ -974,16 +978,14 @@ li {
 	display:block;
 	float:left;
 	color:#1c1c1c;
-	border:1px solid #b2b2b2;
 	border-radius:100px;
 	font-size:13px;
 	height:27px;
 	width:auto;
 	text-align:center;
 	line-height:13px;
-	margin-right:15px;
 	font-weight:700;
-	padding:7px;
+	padding:5px 7px 7px 7px;
 }
 
 .header__top__right__auth span{
@@ -1065,10 +1067,6 @@ li {
 	font-weight: 400;
 	padding: 5px 15px;
 }
-
-.header__menu ul li.active a {
-	color: #ff7b27;
-} 
 
 .header__menu ul li:hover>a {
 	color: #ff7b27;
@@ -4074,7 +4072,7 @@ li {
 	height:70px;
 	margin-top:110px;
 	border-radius:10px;
-	margin-bottom:50px;
+	margin-bottom:15px;
 }
 
 .my_choice_follow_count p{
@@ -4108,6 +4106,9 @@ li {
 
 .follow_count_zero{
 	text-align:center;
+	border:1px solid #f5f5f5;
+	border-radius:5px;
+	padding:50px;
 }
 
 /*---------------------

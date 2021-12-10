@@ -27,11 +27,13 @@ public class AuthorStoryController {
 
   // 게시판 전체 출력
   @GetMapping("/mypage/story/list")
-  public ModelAndView slist(@RequestParam(defaultValue = "1") int currentPage) {
+  public ModelAndView slist(@RequestParam(defaultValue = "1") int currentPage,
+      HttpSession session) {
 
     ModelAndView mview = new ModelAndView();
 
-    int totalCount = service.getTotalCount("kang");
+    String myid = (String) session.getAttribute("id");
+    int totalCount = service.getTotalCount(myid);
     // System.out.println(totalCount); //제대로 넘어감!(3)
 
     int perPage = 10;
@@ -49,7 +51,7 @@ public class AuthorStoryController {
       endPage = totalPage;
     start = (currentPage - 1) * perPage;
 
-    List<AuthorStoryDto> list = service.getList("kang", start, perPage);
+    List<AuthorStoryDto> list = service.getList(myid, start, perPage);
 
     int no = totalCount - (currentPage - 1) * perPage;
 
