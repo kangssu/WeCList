@@ -19,7 +19,18 @@ public class ClassHeartController {
 	@PostMapping("/class/hinsert")
 	public void insert(@ModelAttribute HeartDto dto, HttpSession session) {
 		// insert
-		
+
+		String idx = dto.getIdx();
+		int like_cnt = dto.getLike_cnt();
+		String num = dto.getNum();
+		System.out.println(num);
+
+		like_cnt = service.getMaxLikeCnt(num)+1;
+
+		System.out.println(like_cnt);
+
+		dto.setLike_cnt(like_cnt);
+
 		service.insertHeart(dto);
 	}
 
@@ -27,5 +38,5 @@ public class ClassHeartController {
 	public void delete(String class_heart, String num, HttpSession session) {
 		service.deleteHeart(class_heart, num);
 	}
-	
+
 }

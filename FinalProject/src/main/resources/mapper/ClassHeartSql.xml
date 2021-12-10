@@ -2,10 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.ClassHeartMapper">
 	<insert id="insertHeart" parameterType="hdto">
-		insert into classHeart (idx,class_heart,num) 
-		values (#{idx},#{class_heart},#{num})
+		insert into classHeart (idx,class_heart,num,like_cnt) 
+		values (#{idx},#{class_heart},#{num},#{like_cnt})
 	</insert>
 	<delete id="deleteHeart" parameterType="HashMap">
 		delete from classHeart where class_heart=#{class_heart} and num=#{num}
 	</delete>
+	<select id="getMaxLikeCnt" resultType="int">
+		select ifnull(max(like_cnt),0) from classHeart where num=#{num}
+	</select>
 </mapper>

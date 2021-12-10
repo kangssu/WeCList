@@ -24,5 +24,9 @@ public class ClassHeartService {
 		map.put("num", num);
 		mapper.deleteHeart(map);
 	}
+	
+	public int getMaxLikeCnt(String num) {
+	    return mapper.getMaxLikeCnt(num);
+	  }
 
 }

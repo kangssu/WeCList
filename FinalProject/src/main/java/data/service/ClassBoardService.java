@@ -1,4 +1,4 @@
-package data.service;
+ package data.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import data.dto.AuthorDto;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.FollowDto;
@@ -65,5 +66,18 @@ public class ClassBoardService {
 	
 	public List<HeartDto> getTrue(String num) {
 	    return mapper.getTrue(num);
+	}
+	
+	public List<HeartDto> getpopData(String class_heart) {
+	    System.out.println("id" + class_heart);
+	    return mapper.getpopData(class_heart);
+	}
+	
+	public List<HeartDto> getHotClass() {
+	    return mapper.getHotClass();
+	}
+	
+	public List<ClassBoardDto> getPopular() {
+	    return mapper.getPopular();
 	}
 }

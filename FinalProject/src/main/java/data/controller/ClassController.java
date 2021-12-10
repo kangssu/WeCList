@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import data.dto.AuthorDto;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.HeartDto;
@@ -104,8 +105,10 @@ public class ClassController {
 	public ModelAndView getPopular()
 	{
 		ModelAndView mview=new ModelAndView();
+		List<HeartDto> HotClass = mapper.getHotClass();
 		List<ClassBoardDto> listpopul=mapper.getPopular();
 		
+		mview.addObject("HotClass", HotClass);
 		mview.addObject("listpopul", listpopul);
 		mview.setViewName("/2/class/class_popular");
 		
