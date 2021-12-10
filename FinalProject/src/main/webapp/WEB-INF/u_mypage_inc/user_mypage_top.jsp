@@ -40,6 +40,12 @@
 						<p class="shop_box_text">작품&nbsp;10개</p>
 						<p>클래스&nbsp;20건</p>
 					</div>
+					<div class="grade_shopbox">
+						<span>총 결제현황</span>
+						<p class="shop_box_text">승인&nbsp;20건</p>
+						<p>미승인&nbsp;30건</p>
+					</div>
+					
 				</div>
 			</div>
 		</div>

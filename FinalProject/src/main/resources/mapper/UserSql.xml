@@ -27,11 +27,18 @@
 		update usersjoin set id=#{id},irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email},profileimg=#{profileimg},nickname=#{nickname}
 		where id=#{id}
 	</update>
+	<update id="updatePass" parameterType="udto">
+		update usersjoin set pass1=#{pass1}
+		where id=#{id}
+	</update>
 	<select id="getNickName" parameterType="String" resultType="String">
 		select nickname from usersjoin where id=#{id}
 	</select>
 	<select id="getCategory" parameterType="String" resultType="String">
 		select category from usersjoin where id=#{id}
+	</select>
+	<select id="getEmailId" parameterType="String" resultType="String">
+		select id from usersjoin where email=#{email}
 	</select>
 	<select id="login" parameterType="HashMap" resultType="int">
 		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}

@@ -47,7 +47,7 @@
 								pattern="yyyy-MM-dd" /></td>
 						<td>
 							<button type="button" class="story_mod_btn"
-								onclick="location.href='/shop/updateform?num=${a.num}'">수정</button>
+								onclick="location.href='/mypage/shop/updateform?num=${a.num}'">수정</button>
 							<button type="button" class="story_del_btn"
 								onclick="location.href='/mypage/shopdelete?num=${a.num}'">삭제</button>
 						</td>

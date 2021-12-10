@@ -274,6 +274,33 @@ $(function(){
          });
 	});
 	
+	// 인증메일 전송 버튼
+	$("#sendMail").click(function() {
+		var mail = $("#email").val(); //사용자의 이메일 입력값.
+		
+		$.ajax({
+			type : 'post',
+			dataType :'json',
+			url : '/users/CheckMail',
+			data : {"mail":mail},
+			success:function(data){
+				console.log(email);
+				key = data;
+				alert("입력하신 메일로 인증번호가 전송되었습니다."); 
+			}
+		});
+		
+		isCertification=true; //추후 인증 여부를 알기위한 값
+		$("#compare").on("propertychange change keyup paste input", function() {
+			if ($("#compare").val() == key) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
+				$("#compare-text").html("<font color='green'>인증코드가 일치합니다.</font>");
+				isCertification = true;  //인증 성공여부 check
+			} else {
+				$("#compare-text").html("<font color='red'>인증코드가 일치하지 않습니다.</font>");
+				isCertification = false; //인증 실패
+			}
+		});
+	});
 	
 	// 주소 입력
 	$("#addrSearch").click(function(){
@@ -332,6 +359,10 @@ function check(f) {
 		alert("작가 프로필 사진을 등록해주세요.");
 		return false;
 	}
+	if(isCertification==false){
+		alert("메일 인증이 완료되지 않았습니다.");
+		return false;
+	}
 	return true;
 }
 </script>
@@ -354,7 +385,7 @@ function check(f) {
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
-			<form action="insert" method="post" name="usersJoinForm" onsubmit="return check(this)">		
+			<form action="insert" method="post" onsubmit="return check(this)" enctype="multipart/form-data">		
 				<h4>작가 정보 입력<span class="view_buy_form_1_ex">※ 필수 입력 사항</span></h4>
 				<table class="view_buy_form_1">
 					<tr class="checkout__input">
@@ -423,6 +454,20 @@ function check(f) {
 						</td>
 					</tr>
 					<tr class="checkout__input">
+						<td><span style="color:red">※</span>이메일 인증</td>
+						<td>
+							<input type="text" class="txtfriends2" id="compare" placeholder="인증메일전송 버튼을 누르시고 전송된 인증번호를 입력해주세요.">
+							<button type="button" class="addr-btn_rev" id="sendMail" style="font-size: 15px">인증메일전송</button>
+							<br>
+						</td>
+					</tr>
+					<tr class="checkout__input">
+						<td></td>
+						<td>
+							<b id="compare-text" class="msg">&nbsp;</b>
+						</td>
+					</tr>
+					<tr class="checkout__input">
 						<td><span style="color:red">※</span>휴대폰</td>
 						<td>
 							<input type="text" name="hp" id="hp" placeholder="숫자만 입력해주세요." 
@@ -449,7 +494,7 @@ function check(f) {
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
 							 class="checkout__input__add" value="">
-							<input type="file" name="profileimg" id="profileimg" style="display: none;" 
+							<input type="file" name="file" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value">
 							<button type="button" class="addr-btn_rev" onclick="jQuery('#profileimg').click()">사진선택</button>
 						</td>

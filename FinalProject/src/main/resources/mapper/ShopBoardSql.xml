@@ -11,6 +11,10 @@
 		select count(*) from shopboarder where myid = #{myid}
 	</select>
 	
+	<select id="getCaCount" resultType="int">
+		select count(*) from shopboarder where shopop = #{shopop}
+	</select>
+	
 	<update id="updateReadCount" parameterType="String">
 		update shopboarder set readcount = readcount+1 where num=#{num}
 	</update>
@@ -49,8 +53,8 @@
 
 	where num=#{num}
 	</update>
-	<select id="getCategory" parameterType="String" resultType="sdto">
-		select * from shopboarder where shopop=#{shopop} order by num desc
+	<select id="getCategory"  parameterType="HashMap" resultType="sdto">
+		select * from shopboarder where shopop=#{shopop} order by num desc limit #{start},#{perpage}
 	</select>
 	<delete id="deleteBoard" parameterType="int">
 		delete from shopboarder where num=#{num}
@@ -59,4 +63,12 @@
 		select * from shopboarder order by shopheart desc
 	</select>
 	
+	
+	
+	<select id="getHotShop" parameterType="String" resultType="shdto">
+		SELECT DISTINCT num, MAX(like_cnt) FROM shopHeart GROUP BY num ORDER BY MAX(like_cnt) desc
+	</select>
+	<select id="getTrue" parameterType="String" resultType="String">
+		select shop_heart from shopHeart where num=#{num}
+	</select>
 </mapper>
