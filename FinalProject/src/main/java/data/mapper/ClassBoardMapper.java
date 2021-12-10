@@ -16,12 +16,15 @@ public interface ClassBoardMapper {
   public int getMaxNum();
   public List<ClassBoardDto> getAlllist();
   public List<ClassNewBoardDto> getAllnewlist();
-  public List<ClassBoardDto> getPopular();
   public List<ClassNewBoardDto> getSevendays();
   public List<ClassBoardDto> getCategory(String class_op_cate);
   public void insertBoard(ClassBoardDto dto);
   public void insertNewBoard(ClassNewBoardDto dto);
   public void updateBoard(ClassBoardDto dto);
   public void deleteBoard(String num);
+  
+  public List<ClassBoardDto> getPopular();
   public List<HeartDto> getTrue(String num);
+  public List<HeartDto> getpopData(String class_heart);
+  public List<HeartDto> getHotClass();
 }
