@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,15 +25,29 @@ public class CartController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(CartController.class);
 
+    @ResponseBody
     @PostMapping("/cart/insert")
-    public String insertCart(@ModelAttribute CartDTO cartDTO, HttpSession session) {
+    public String insertCart(@RequestParam CartDTO cartDTO, HttpSession session) {
+        // TODO: 로그인 하지 않았을 경우 처리
+        String userId = "noid";
+        if ((String) session.getAttribute("id") != null) {
+            userId = (String) session.getAttribute("id");
+        }
+        cartService.insertCart(cartDTO);
+        LOGGER.info("POST:/cart/insert w/" + userId);
+        return "redirect:/cart/list";
+    }
+
+    @ResponseBody
+    @PostMapping("/cart/insert2")
+    public String insertCart2(@ModelAttribute CartDTO cartDTO, HttpSession session) {
         // TODO: 로그인 하지 않았을 경우 처리
         String userId = "kwon";
         if ((String) session.getAttribute("id") != null) {
             userId = (String) session.getAttribute("id");
         }
         cartService.insertCart(cartDTO);
-        LOGGER.info("POST:/cart/insert w/" + userId);
+        LOGGER.info("POST:/cart/insert2 w/" + userId);
         return "redirect:/cart/list";
     }
 

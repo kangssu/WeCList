@@ -20,7 +20,7 @@ $(document).ready(function (){
 		url: "/main/getCartCount",
 		data: {"id": ${sessionScope.id}},
 		success: function (data){
-			alert(data);
+			console.log("cartCouont: " + data);
 			$(".login_check span").innerText = data;
 		}
 	})

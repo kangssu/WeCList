@@ -205,7 +205,7 @@
                         </div>
                         <%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
                         <button type="submit" class="primary-btn btn_buy" onclick="location.href='buy'">구매하기</button>
-                        <button type="button" class="heart-btn btn_cart" onclick="location.href='${root}/cart/list'">장바구니</button>
+                        <button type="button" class="heart-btn btn_cart" onclick="insertCart()">장바구니</button>
                     </form>
                     <button type="button" class="list-btn" onclick="location.href='list'">목록보기</button>
                 </div>
@@ -288,43 +288,43 @@
 </section>
 <!-- Related Product Section End -->
 <script type="text/javascript">
-  $(function () {
+  $(function NumChange() {
     $("#selectoption").change(function () {
-      var v = $("#selectoption option:selected").text();
+      let v = $("#selectoption option:selected").text();
       document.getElementById("result").innerText = "상품 종류  : " + v;
-      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $(
-          "#selectoption").val();
-
+      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $("#selectoption").val();
     });
 
     // 막무가내 리스너 붙이기
     $(".pro-qty").on("change keyup paste input click", function () {
-      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $(
-          "#selectoption").val();
+      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $("#selectoption").val();
     });
   });
+  function insertCart(){
+    if(${sessionScope.id == null}){
+      alert("로그인하지않았습니다")
+      // location.href="/login";
+    }else{
+      if(confirm("장바구니에 추가?")){
+        $.ajax({
+          type:"POST",
+          url:"/cart/insert",
+          data:{
+            user_id: '${sessionScope.id}',
+            shop_num: ${sdto.num},
+            shop_option: 'ajax option 테스트',
+            shop_qty: 11111,
+            shop_price: 1111111
+            // shop_option: $("#selectoption option:selected").text(),
+            // shop_qty: $("#subnum").val(),
+            // shop_price: $("#selectoption").val()
+          },
+          success: function (data) {
+            alert("장바구니확인?");
+          }
+        })
+      }
+    }
+  }
 
-  <%--function insertCart(){--%>
-  <%--  if(${sessionScope.id == null}){--%>
-  <%--    alert("로그인하지않았습니다")--%>
-  <%--    // location.href="/login";--%>
-  <%--  }else{--%>
-  <%--    if(confirm("장바구니에 추가?")){--%>
-  <%--      $.ajax({--%>
-  <%--        type:"post",--%>
-  <%--        url:"/cart/insert",--%>
-  <%--        data:{--%>
-  <%--          user_idx: ${sessionScope.id},--%>
-  <%--          shop_num: ${sdto.num},--%>
-  <%--          shop_option: "",--%>
-  <%--          shop_qty: "#subnum.value",--%>
-  <%--          shop_price: ""--%>
-  <%--        },--%>
-  <%--        success: function (data) {--%>
-  <%--          --%>
-  <%--        }--%>
-  <%--      })--%>
-  <%--    }--%>
-  <%--  }--%>
-  <%--}--%>
 </script>
