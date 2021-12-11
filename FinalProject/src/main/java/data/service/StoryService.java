@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import data.dto.AuthorStoryDto;
+import data.dto.StoryDto;
 import data.mapper.StoryMapper;
 
 @Service
@@ -21,11 +21,11 @@ public class StoryService {
     mapper.updateReadCount(num);
   }
 
-  public AuthorStoryDto getAData(String num) {
+  public StoryDto getAData(String num) {
     return mapper.getAData(num);
   }
 
-  public List<AuthorStoryDto> getAList(int start, int perpage) {
+  public List<StoryDto> getAList(int start, int perpage) {
     HashMap<String, Integer> map = new HashMap<String, Integer>();
     map.put("start", start);
     map.put("perpage", perpage);

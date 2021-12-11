@@ -35,7 +35,7 @@
 	
 	/* 팔로잉 클릭시 팝업!!! */
 	function showUnFolPopup(id) {
-		alert(id);
+		//alert(id);
 		$("#follow_id").val(id);
 		
 		//팔로잉 이벤트!(취소)

@@ -381,7 +381,7 @@ function check(f) {
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
-			<form action="insert" method="post" name="usersJoinForm" onsubmit="return check(this)">		
+			<form action="insert" method="post" onsubmit="return check(this)" enctype="multipart/form-data">		
 				<h4>회원 정보 입력<span class="view_buy_form_1_ex">※ 필수 입력 사항</span></h4>
 				<table class="view_buy_form_1">
 					<tr class="checkout__input">
@@ -460,7 +460,7 @@ function check(f) {
 					<tr class="checkout__input">
 						<td></td>
 						<td>
-							<b id="compare-text" class="msg">어디나와??&nbsp;</b>
+							<b id="compare-text" class="msg">&nbsp;</b>
 						</td>
 					</tr>
 					<tr class="checkout__input">
@@ -490,7 +490,7 @@ function check(f) {
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
 							 class="checkout__input__add" value="">
-							<input type="file" name="profileimg" id="profileimg" style="display: none;" 
+							<input type="file" name="file" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value">
 							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>
 						</td>

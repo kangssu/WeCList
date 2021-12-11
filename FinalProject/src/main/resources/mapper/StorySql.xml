@@ -9,11 +9,41 @@
 		update author_story set read_count=read_count+1 where num=#{num}
 	</update>
 	
-	<select id="getAData" parameterType="String" resultType="asdto">
-		select * from author_story where num=#{num}
+	<select id="getAData" parameterType="String" resultType="sldto">
+		SELECT
+		u.id
+		, u.nickname
+		, u.profileimg
+		, aus.num
+		, aus.myid
+		, aus.title
+		, aus.content
+		, aus.read_count
+		, aus.writeday
+		FROM usersjoin AS u
+		RIGHT JOIN author_story AS aus
+		ON u.id = aus.myid
+ 		where num=#{num}
 	</select>
 	
-	<select id="getAList" parameterType="HashMap" resultType="asdto">
-		select * from author_story order by num desc limit #{start},#{perpage}
+	<select id="getAList" parameterType="HashMap" resultType="sldto">
+		SELECT
+		u.idx
+		, u.id
+		, u.nickname
+		, u.profileimg
+		, u.category
+		, aus.num
+		, aus.title
+		, aus.content
+		, aus.thumbnail_file
+		, aus.read_count
+		, aus.writeday
+		FROM usersjoin AS u
+		RIGHT JOIN author_story AS aus
+		ON u.id = aus.myid
+		WHERE u.category = 2
+ 		AND num order by aus.num desc
+		limit #{start},#{perpage}
 	</select>
 </mapper>
