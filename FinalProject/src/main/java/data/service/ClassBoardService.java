@@ -12,6 +12,7 @@ import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.FollowDto;
 import data.dto.HeartDto;
+import data.dto.InterDto;
 import data.mapper.ClassBoardMapper;
 
 @Service
@@ -66,6 +67,10 @@ public class ClassBoardService {
 	
 	public List<HeartDto> getTrue(String num) {
 	    return mapper.getTrue(num);
+	}
+	
+	public List<InterDto> getTrueInter(String num) {
+	    return mapper.getTrueInter(num);
 	}
 	
 	public List<HeartDto> getpopData(String class_heart) {

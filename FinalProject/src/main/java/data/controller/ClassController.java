@@ -21,6 +21,7 @@ import data.dto.AuthorDto;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.HeartDto;
+import data.dto.InterDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
 
@@ -68,7 +69,7 @@ public class ClassController {
 		ClassBoardDto dto=service.getData(num);
 
 		List<HeartDto> heartTrue= service.getTrue(num);
- 		System.out.println(heartTrue.toString());
+		List<InterDto> interTrue= service.getTrueInter(num);
  	
 		int dotLoc=dto.getUploadfile().lastIndexOf(".");
 		String ext=dto.getUploadfile().substring(dotLoc+1);
@@ -82,6 +83,7 @@ public class ClassController {
 		mview.addObject("classlist", classlist);
 		mview.addObject("dto", dto);
 		mview.addObject("heartTrue",heartTrue);
+		mview.addObject("interTrue",interTrue);
 		
 		mview.setViewName("/2/class/class_view");
 		return mview;

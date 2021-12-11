@@ -41,6 +41,9 @@
 	<select id="getTrue" parameterType="String" resultType="String">
 		select class_heart from classHeart where num=#{num}
 	</select>
+	<select id="getTrueInter" parameterType="String" resultType="String">
+		select class_inter from classInter where num=#{num}
+	</select>
 	
 	
 </mapper>

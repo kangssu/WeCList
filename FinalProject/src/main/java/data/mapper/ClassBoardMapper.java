@@ -8,6 +8,7 @@ import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.FollowDto;
 import data.dto.HeartDto;
+import data.dto.InterDto;
 
 @Mapper
 public interface ClassBoardMapper {
@@ -27,4 +28,6 @@ public interface ClassBoardMapper {
   public List<HeartDto> getTrue(String num);
   public List<HeartDto> getpopData(String class_heart);
   public List<HeartDto> getHotClass();
+  
+  public List<InterDto> getTrueInter(String num);
 }
