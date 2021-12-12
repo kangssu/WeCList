@@ -26,7 +26,7 @@
 										<img src="../photo/${a.uploadfile1}" alt="" >
 									</div>
 									<div class="shop__box__text">
-										<h6>${a.name}</h6>
+										<h6>${a.shopop}</h6>
 										<h6>${a.title}</h6>
 										<h5>${a.shopprice}</h5>
 									</div>

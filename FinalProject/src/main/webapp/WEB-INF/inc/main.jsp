@@ -76,7 +76,7 @@
 										<span class="shop_rank_number_${status.count}">${status.count}</span>
 									</div>
 									<div class="featured__item__text">
-										<h6>${a.name}</h6>
+										<h6>${a.shopop}</h6>
 										<h6>${a.title}</h6>
 										<h5>${a.shopprice}</h5>
 									</div>
@@ -120,7 +120,7 @@
 										<img src="../photo/${a.uploadfile1}" alt="">
 									</div>
 									<div class="featured__item__text">
-										<h6>${a.name}</h6>
+										<h6>${a.shopop}</h6>
 										<h6>${a.title}</h6>
 										<h5>${a.shopprice}</h5>
 									</div>
