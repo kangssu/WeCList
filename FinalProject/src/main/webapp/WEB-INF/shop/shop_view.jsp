@@ -114,7 +114,7 @@
 
                     <div class="product__details__price">${sdto.shopprice}</div>
                     <p>${sdto.shopsub}</p>
-                    <form method="post" action="${root}/cart/insert">
+                    <form method="post" action="${root}/cart/insert2">
                         <input type="hidden" name="shop_num" value="${sdto.num}">
                         <input type="hidden" name="user_id" value="${sessionScope.id}">
                         <ul class="view_option_select">

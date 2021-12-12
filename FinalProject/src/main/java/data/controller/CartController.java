@@ -34,12 +34,12 @@ public class CartController {
         return "redirect:/cart/list";
     }
 
-    @ResponseBody
+
     @PostMapping("/cart/insert2")
     public String insertCart2(@ModelAttribute CartDTO cartDTO) {
         cartService.insertCart(cartDTO);
         LOGGER.info("POST:/cart/insert2 ");
-        return "redirect:/cart/list";
+        return "redirect:/cart/buy";
     }
 
     @GetMapping("/cart/list")

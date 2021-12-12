@@ -14,8 +14,19 @@ function closePopup() {
 	popup.classList.add('hide');
 	}
 
-function getCartList(){
-	let cartList = "";
+function autoFill(){
+	document.getElementsByClassName('order_name');
+
+	${sessionScope.irum}
+	${sessionScope.hp}
+	${sessionScope.email}
+	${sessionScope.addr1}
+	${sessionScope.addr2}
+
+	console.log(${sessionScope.irum});
+	console.log(${sessionScope.email});
+	console.log(${sessionScope.addr1});
+	console.log(${sessionScope.addr2});
 }
 </script>
 
@@ -42,8 +53,8 @@ function getCartList(){
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 view_buy_1">
-				<h6>주문상품</h6>
-				<ul>
+				<h4>주문상품</h4>
+				<ul class="list-group">
 				<c:forEach var="item" items="${list}">
 					<li>
 						${item.title} , ${item.itemImage}, ${item.name}, ${item.shop_option}, ${item.shop_qty}, ${item.shop_price}
@@ -58,28 +69,28 @@ function getCartList(){
 		</div>
 		<div class="checkout__form">
 			<form action="#">
-				<h4>주문자 정보</h4>
+				<h4>주문자 정보</h4><span><input type="button" value="사용자정보로 주문하기" onclick="autoFill()"></span>
 				<table class="view_buy_form_1">
 					<tr class="checkout__input">
 						<td>받는분</td>
-						<td><input type="text" placeholder="받는분 이름을 작성해주세요." class="checkout__input__add"></td>
+						<td><input type="text" placeholder="받는분 이름을 작성해주세요." class="checkout__input__add order_name" ></td>
 					</tr>
 					<tr class="checkout__input">
 						<td>휴대폰</td>
-						<td><input type="text" placeholder="연락받을 휴대폰 번호를 작성해주세요." class="checkout__input__add"></td>
+						<td><input type="text" placeholder="연락받을 휴대폰 번호를 작성해주세요." class="checkout__input__add order_phone"></td>
 					</tr>
 					<tr class="checkout__input">
 						<td>이메일</td>
-						<td><input type="text" placeholder="본인 이메일을 작성해주세요." class="checkout__input__add"></td>
+						<td><input type="text" placeholder="본인 이메일을 작성해주세요."  class="checkout__input__add order_email"></td>
 					</tr>
 					<tr class="checkout__input">
 						<td>주소</td>
-						<td><input type="text" placeholder="택배를 받을 주소를 입력해주세요." class="checkout__input__add"></td>
+						<td><input type="text" placeholder="택배를 받을 주소를 입력해주세요." class="checkout__input__add order_addr1"></td>
 						<td><button type="button" class="addr-btn" onclick="location.href='buy'">주소찾기</button></td>
 					</tr>
 					<tr class="checkout__input">
 						<td>상세 주소</td>
-						<td><input type="text" placeholder="상세 주소를 입력해주세요." class="checkout__input__add"></td>
+						<td><input type="text" placeholder="상세 주소를 입력해주세요." class="checkout__input__add order_addr2"></td>
 					</tr>
 				</table>
 				
@@ -115,7 +126,7 @@ function getCartList(){
 				</div>
 
 				<div class="view_order_btn">
-					<button type="button" class="buy-btn" onclick="">결제하기</button>
+					<button type="submit" class="buy-btn" onclick="">결제하기</button>
 				</div>
 			</form>
 		</div>

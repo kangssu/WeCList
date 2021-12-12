@@ -70,4 +70,5 @@ $(document).ready(function (){
 		</c:forEach>
 		</tbody>
 	</table>
+	<input type="button" class="primary-btn btn_buy" onclick="location.href='buy'" value="구매하기">
 </section>
