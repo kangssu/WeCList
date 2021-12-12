@@ -17,7 +17,31 @@
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>
+
+	<select id="getMainStoryList" resultType="sldto">
+		SELECT
+		u.idx
+		, u.id
+		, u.nickname
+		, u.profileimg
+		, u.category
+		, aus.num
+		, aus.title
+		, aus.content
+		, aus.thumbnail_file
+		, aus.read_count
+		, aus.writeday
+		FROM usersjoin AS u
+		RIGHT JOIN author_story AS aus
+		ON u.id = aus.myid
+		WHERE u.category = 2
+ 		AND num order by aus.num desc
+	</select>
+
+	<select id="getStoryTotalCount" resultType="int">
+		select count(*) from author_story
+	</select>
 	<select id="getCartCount" parameterType="String" resultType="int">
-		SELECT COUNT(*) from cart c inner join usersjoin u on c.user_idx = u.idx WHERE u.id = 'test01';
+		SELECT COUNT(*) as CartCount from cart c inner join usersjoin u on c.user_idx = u.idx WHERE u.id = #{user_id};
 	</select>
 </mapper>

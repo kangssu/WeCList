@@ -1,5 +1,9 @@
 package data.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.UserDto;
 import data.mapper.UserMapper;
@@ -47,8 +52,35 @@ public class UsersController {
 	}
 	
 	@PostMapping("/users/insert")
-	public String usersInsert(@ModelAttribute UserDto udto) {
+	public String usersInsert(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, HttpSession session) {
+		// 업로드 경로 구하기
+	    String path = session.getServletContext().getRealPath("/photo");
+	    //System.out.println(path);
+	    
+	    // 사진명 구해서 넣기
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+	    String photoname = "f" + sdf.format(new Date()) + "_" + file.getOriginalFilename();
+	    
+	    String searchImgNum = photoname.substring(photoname.indexOf("_")+1, photoname.length());
+	    //System.out.println("searchImgNum:" + searchImgNum.length());
+	    
+	    if(searchImgNum.length() == 0) {
+	    	udto.setProfileimg("default_img.jpg");
+	    } else {
+	    	udto.setProfileimg(photoname);
+	    }
+
+	    // 실제 업로드
+	    try {
+	    	file.transferTo(new File(path + "\\" + photoname));
+	    } catch (IllegalStateException e) {
+	      e.printStackTrace();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }
+		
 		mapper.insertUsers(udto);
+
 		return "/users/join_success";
 	}
 	
@@ -178,4 +210,18 @@ public class UsersController {
         return map;
     }
 	
+	
+	// 아이디 찾기 메뉴 눌렀을 때 메일 입력 폼 연결경로
+	@RequestMapping(value = "/users/search/id", method = {RequestMethod.POST, RequestMethod.GET})
+	public String searchId() {
+
+		return "/users/search_id_form";
+	}
+	
+	// 비밀번호 찾기 메뉴 눌렀을 때 메일 입력 폼 연결경로
+	@RequestMapping(value = "/users/search/pass", method = {RequestMethod.POST, RequestMethod.GET})
+	public String searchPass() {
+
+		return "/users/search_pass_form";
+	}
 }

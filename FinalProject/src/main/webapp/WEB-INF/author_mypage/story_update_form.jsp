@@ -48,7 +48,7 @@
 	<h2>스토리 수정하기</h2>
 	<div class="mypage__story__form">
 		<form action="/mypage/supdate" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="myid" value="angel"/>
+			<input type="hidden" name="myid" value="${sessionScope.id}"/>
 			<input type="hidden" name="num" value="${dto.num}">
 			<input type="hidden" name="currentPage" value="${currentPage}">
 			<table class="story__table__form">

@@ -20,9 +20,12 @@ public interface UserMapper {
 	public UserDto getUserData(String id);
 	public void deleteUsers(String id);
 	public void updateUsers(UserDto dto);
+	public void updatePass(UserDto dto);
 	
 	public String getNickName(String id);
 	public String getCategory(String id);
+	public String getEmailId(String email);
+	
 	public int login(HashMap<String, String> map);
 	
 	public List<UserDto> getUsersData();

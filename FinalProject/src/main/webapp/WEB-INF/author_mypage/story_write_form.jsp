@@ -48,7 +48,7 @@
 	<h2>스토리 등록하기</h2>
 	<div class="mypage__story__form">
 		<form action="/mypage/sinsert" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="myid" value="kang"/>
+			<input type="hidden" name="myid" value="${sessionScope.id}"/>
 			<table class="story__table__form">
 				<tr>
 					<th>제목</th>

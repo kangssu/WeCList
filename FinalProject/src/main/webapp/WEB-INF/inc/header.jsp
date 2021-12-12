@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="<%=request.getContextPath()%>"/>
 <script type="text/javascript">
-	loginok="${sessionScope.loginok}";
 $(document).ready(function (){
-	$(".header__menu ul li a").click(function(){
+	/* $("#btn_item_page").click(function(){
 		$(this).removeClass("color_f");
 		$(this).addClass("on");
-	});
-
+	}); */
+	
+	loginok="${sessionScope.loginok}";
+	
 	$(".login_check").click(function(){
 		if(loginok==""){
 			alert("로그인 후 이용가능합니다!");
@@ -18,12 +20,16 @@ $(document).ready(function (){
 	$.ajax({
 		type: "POST",
 		url: "/main/getCartCount",
-		data: {"id": ${sessionScope.id}},
+		data: {"user_id": "${sessionScope.id}"},
 		success: function (data){
-			console.log("cartCouont: " + data);
-			$(".login_check span").innerText = data;
+			document.getElementById('cart-count').innerText = data;
 		}
-	})
+	});
+
+	$("#btn_item_page").click(function(){
+		$(this).closest("li").addClass("active");
+	});
+
  });
  </script>
 <!-- Header Section Begin -->
@@ -42,7 +48,7 @@ $(document).ready(function (){
 				<div class="header__top__right__auth">
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<c:if test="${sessionScope.loginok!=null }">
-						<span class="user__login__id">${sessionScope.id }님</span>
+						<span class="user__login__id">${sessionScope.id }님</span><span class="header_login_1">|</span>
 						<a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
 						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
 						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
@@ -61,19 +67,17 @@ $(document).ready(function (){
 			<div class="row">
 	  			<div class="col-lg-3">
 					<div class="header__logo">
-						<!-- 아래는 로고 이미지 넣으면 쓸 예정! 지우지말아주세요ㅠㅠ -->
-						<!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
-						<a href="${root}/" class="logo">WE C LIST</a>
+						<a href="/"><img src="${root}/img/logo_new.png" alt=""></a>
 					</div>
 				</div>
 				<div>
 					<nav class="header__menu">
 						<ul>
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li>
+							<li id="btn_item_page">
 								<a href="${root}/" class="color_f">작품</a>
 							</li>
-							<li>
+							<li id="btn_item_page_2">
 								<a href="${root}/class" class="color_f">온라인 클래스</a>
 							</li>
 						</ul>
@@ -118,14 +122,14 @@ $(document).ready(function (){
 						<c:choose>
 							<c:when test="${sessionScope.loginok==null}">
 								<a href="${root}/users/login" class="login_check">
-									<span>0</span>
+									<span class="cart-count">0</span>
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<p>장바구니</p>
 								</a>
 							</c:when>
 							<c:otherwise>
 								<a href="${root}/cart/list" class="login_check">
-									<span>0</span>
+									<span id="cart-count" class="cart-count">0</span>
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<p>장바구니</p>
 								</a>

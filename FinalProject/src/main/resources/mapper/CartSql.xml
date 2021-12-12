@@ -21,8 +21,8 @@
                 inner join shopboarder s on c.shop_num = s.num
     where user_idx = (SELECT idx from usersjoin where id = #{user_id});
   </select>
-  <delete id="deleteCart" parameterType="cartdto">
-    DELETE FROM bit_final.cart WHERE user_idx = #{user_idx} &amp;&amp; shop_option like #{shop_option};
+  <delete id="deleteCart" parameterType="HashMap">
+    DELETE FROM cart WHERE user_idx = (select idx from usersjoin  WHERE id = #{user_id}) AND shop_num = #{shop_num} AND shop_option = #{shop_option};
   </delete>
   <delete id="deleteAllCart" parameterType="int">
     DELETE FROM bit_final.cart WHERE user_idx = #{user_idx};

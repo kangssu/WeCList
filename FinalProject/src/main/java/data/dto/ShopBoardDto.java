@@ -38,9 +38,9 @@ public class ShopBoardDto {
   private String uploadfile5;
   private MultipartFile upload5;
   private int readcount;
-  private String shopheart;
+  private String shop_heart;
   private Timestamp writeday;
-  
+
   
   public String getSubprice1() {
     return subprice1;
@@ -291,12 +291,14 @@ public class ShopBoardDto {
     this.readcount = readcount;
   }
 
-  public String getShopheart() {
-    return shopheart;
+ 
+
+  public String getShop_heart() {
+    return shop_heart;
   }
 
-  public void setShopheart(String shopheart) {
-    this.shopheart = shopheart;
+  public void setShop_heart(String shop_heart) {
+    this.shop_heart = shop_heart;
   }
 
   public Timestamp getWriteday() {

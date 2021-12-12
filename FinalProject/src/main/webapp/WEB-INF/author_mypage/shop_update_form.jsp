@@ -31,7 +31,7 @@
 </script>
 <form action="update" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="num" value="${dto.num}">
-	<table class="table table-bordered" style="margin:100px 100px; width: 700px;"> 
+	<table class="table table-bordered" style="margin:100px 100px; width: 700px;">
 		<caption style="caption-side: top;"><b>작가의 글작성</b></caption>
 		<tr>
 			<th width="120" bgcolor="#ddd">옵 션</th>
@@ -50,15 +50,16 @@
 			<th width="120" bgcolor="#ddd">제 목</th>
 			<td>
 				<input type="text" name="title" class="form-control"
-				required="required" autofocus="autofocus" value="${dto.title}">
-				
+				value="${dto.title}"  required="required" autofocus="autofocus">
+			
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">가 격</th>
 			<td>
 				<input type="text" name="shopprice" class="form-control"
-				required="required" autofocus="autofocus" value="${dto.shopprice}">
+				required="required" autofocus="autofocus"
+				value="${dto.shopprice}">
 			
 			</td>
 		</tr>
@@ -73,11 +74,11 @@
 			<th width="120" bgcolor="#ddd">1번 가격, 이름</th>
 			<td>
 				<input type="text" name="suboption1" class="form-control"
-				required="required" autofocus="autofocus" value="${dto.suboption1}">
-				
+				required="required" autofocus="autofocus"
+				value="${dto.suboption1}">
 				<input type="text" name="subprice1" class="form-control"
-				required="required" autofocus="autofocus" value="${dto.subprice1}">
-				
+				required="required" autofocus="autofocus"
+				value="${dto.subprice1}">
 			
 				
 			</td>
@@ -91,7 +92,6 @@
 				
 				<input type="text" name="subprice2" class="form-control"
 				value="${dto.subprice2}">
-				
 			</td>
 		</tr>
 		<tr>
@@ -103,7 +103,6 @@
 				
 				<input type="text" name="subprice3" class="form-control"
 				value="${dto.subprice3}">
-				
 			</td>
 		</tr>
 		<tr>
@@ -111,11 +110,10 @@
 			<td>
 			
 				<input type="text" name="suboption4" class="form-control"
-				 value="${dto.suboption4}">
+				value="${dto.suboption4}" >
 				
 				<input type="text" name="subprice4" class="form-control"
 				 value="${dto.subprice4}">
-				
 			</td>
 		</tr>
 		<tr>
@@ -124,10 +122,8 @@
 			
 				<input type="text" name="suboption5" class="form-control"
 				value="${dto.suboption5}">
-				
 				<input type="text" name="subprice5" class="form-control"
 				value="${dto.subprice5}">
-				
 			</td>
 		</tr>
 		<tr>
@@ -165,52 +161,55 @@
 		</tr>
 		
 		<tr>
-			<th width="120" bgcolor="#ddd">썸네일사진</th>
+			<th width="120" bgcolor="#ddd">섬네일사진</th>
 			<td>
 				<input type="file" name="upload1" class="form-control" multiple
-				autofocus="autofocus" required="required">
-				${dto.upload1}
+				autofocus="autofocus" required="required" 
+				value="${dto.upload1}">
+			
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">추가 사진</th>
 			<td>
 				<input type="file" name="upload2" class="form-control" multiple
-				>
-				${dto.upload2}
+				value="${dto.upload2}">
+			
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">추가 사진 2</th>
 			<td>
 				<input type="file" name="upload3" class="form-control" multiple
-				>
-			${dto.upload3}
+				value="${dto.upload3}">
+			
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">추가 사진 3</th>
 			<td>
 				<input type="file" name="upload4" class="form-control" multiple
-				>
-			${dto.upload4}
+				value="${dto.upload4}">
+			
 			</td>
 		</tr>
 		<tr>
 			<th width="120" bgcolor="#ddd">추가 사진 4</th>
 			<td>
 				<input type="file" name="upload5" class="form-control" multiple
-				>
-			${dto.upload5}
+				value="${dto.upload5}">
+			
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
 				<button type="submit"
 				class="btn btn-default" style="width: 100px;"
-				>수정</button>
-			
+				>등록</button>
 			</td>
+			
+			
+			
 		</tr>
 		<tr>
 		<td class="form_image_size_text" colspan="3">* 이미지는 442*258로 고정됩니다</td>

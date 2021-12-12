@@ -3,6 +3,7 @@ package data.mapper;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import data.dto.CommentJoinDto;
 import data.dto.StoryCommentDto;
 
 @Mapper
@@ -12,7 +13,7 @@ public interface StoryCommentMapper {
 
   public void insertTwoComment(StoryCommentDto dto);
 
-  public List<StoryCommentDto> getAllComment(String num);
+  public List<CommentJoinDto> getAllComment(String num);
 
   public int getMaxRegroup();
 

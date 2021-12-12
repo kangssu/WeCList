@@ -166,7 +166,7 @@
 </script>
 <!-- 프로필 입력 및수정폼! -->
 <form action="/mypage/pinsert" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="myid" value="angel"/>
+	<input type="hidden" name="myid" value="${sessionScope.id}"/>
 	<!-- 여기 수정해야함!(임시) -->
 	<div class="mypage__profile">
 		<h2>프로필 관리</h2>

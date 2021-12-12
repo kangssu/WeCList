@@ -3,7 +3,7 @@
 <script type="text/javascript">
 </script>
 <div class="login_form_all container">
-	<form action="/login/loginprocess" method="get">
+	<form action="/login/loginprocess" method="post">
 		<div class="login_big_title">
 			<h4>로그인</h4>
 		</div>
@@ -16,8 +16,8 @@
 			placeholder="비밀번호를 입력해주세요.">
 		</div>
 		<div class="login_find_all">
-			<a href="#" style="font-size: 13px">아이디 찾기</a> <span> | </span> <a
-			href="#" style="font-size: 13px">비밀번호 찾기</a>
+			<a href="/users/search/id" style="font-size: 13px">아이디 찾기</a> <span> | </span>
+			<a href="/users/search/pass" style="font-size: 13px">비밀번호 찾기</a>
 		</div>
 		<div class="login_btn_success">
 			<button type="submit" class="login_btn_one">로그인</button>

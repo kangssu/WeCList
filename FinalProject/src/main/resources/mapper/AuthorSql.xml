@@ -40,11 +40,8 @@
 		FROM usersjoin AS u
 		LEFT JOIN author_profile AS a
 		ON u.id = a.myid
-		WHERE u.category = 2 AND idx IN (
-		SELECT idx
-		FROM usersjoin
-		ORDER BY idx DESC
-		)
+		WHERE u.category = 2 
+		AND idx order by u.idx desc
 		LIMIT #{start},#{perpage}
 	</select>
 </mapper>
