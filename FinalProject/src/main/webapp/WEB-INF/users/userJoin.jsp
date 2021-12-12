@@ -364,12 +364,16 @@ function check(f) {
 </script>
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section" style="background:none; background-color:#ff7b27">
+<section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="breadcrumb__text">
 					<h2>일반 회원가입</h2>
+					<div class="breadcrumb__option">
+						<a href="./index.html">Home</a>
+						<span>일반 회원가입</span>
+					</div>
 				</div>
 			</div>
 		</div>

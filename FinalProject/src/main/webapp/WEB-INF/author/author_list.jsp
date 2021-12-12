@@ -104,14 +104,14 @@
 				</div>
 				<div class="categories__slider owl-carousel">
 					<c:forEach var="hdto" items="${Hotlist}" varStatus="status" begin="0" end="9">
-						<div class="col-lg-3">
+						<div class="col-lg-3 hot_author_list">
 							<c:forEach var="adto" items="${list}" begin="0" end="9">
 								<c:if test="${hdto.to_id==adto.id}">
-									<a href="#">
+									<a onclick="location.href='/author/home?id=${adto.id}'">
 										<div class="author__box set-bg">
-											<span class="hot__author__count">${status.count}</span>
+											<p class="hot__author__count">top <b class="hot_number">${status.count}</b></p>
 											<img src="/img/pro.jpg" id="author_img_1">
-											<h5>${adto.irum}</h5>
+											<h5>${adto.nickname}</h5>
 										</div>
 									</a>
 								</c:if>
@@ -136,7 +136,7 @@
 						</div>
 						<div class="author__box_all">
 							<div class="all_text">
-								<h5>${dto.irum}</h5>
+								<h5>${dto.nickname}</h5>
 								<c:choose>
 									<c:when test="${dto.concise!=null}">
 										<p>${dto.concise}</p>
@@ -159,7 +159,7 @@
 										</button>
 									</c:otherwise>
 								</c:choose>
-								<button type="button" class="btn_home">
+								<button type="button" class="btn_home" onclick="location.href='/author/home?id=${dto.id}'">
 									<i class="fa fa-home" aria-hidden="truse"></i> 구경하기
 								</button>
 							</div>

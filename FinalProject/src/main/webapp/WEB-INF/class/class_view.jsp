@@ -101,7 +101,7 @@ $(".fa-heart").click(function(){
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__text">
-					<a href="#"> <span><img src="${root}/img/pro2.jpg">달콩작가의
+					<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img src="${root}/img/pro2.jpg">달콩작가의
 							그림작업실<i class="fa fa-angle-right"></i></span>
 					</a>
 					<h3>${dto.title}</h3>

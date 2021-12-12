@@ -34,6 +34,7 @@
 		u.idx
 		, u.id
 		, u.irum
+		, u.nickname
 		, u.profileimg
 		, u.category
 		, a.concise
