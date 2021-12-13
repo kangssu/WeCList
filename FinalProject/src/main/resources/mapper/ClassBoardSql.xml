@@ -1,44 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="data.mapper.ClassBoardMapper"> 
+<mapper namespace="data.mapper.ClassBoardMapper">
 	<select id="getTotalCount" resultType="int">
-		select count(*) from classboarder
+		select count(*) from
+		classboarder
 	</select>
 	<select id="getData" parameterType="String" resultType="cdto">
-		select * from classboarder where num =#{num}
+		select *
+		from classboarder where num =#{num}
 	</select>
 	<select id="getAlllist" resultType="cdto">
-		select * from classboarder order by num asc
+		select * from classboarder
+		order by num asc
 	</select>
-	<select id="getAllnewlist" resultType="cndto">
-	select * from classnewboarder order by num asc
+	<select id="getAllnewlist" resultType="cdto">
+		select * from classboarder
+		order by num asc
 	</select>
 	<select id="getPopular" resultType="cdto">
-		select * from classboarder order by classheart desc
+		select * from classboarder
 	</select>
-	<select id="getHotClass" parameterType="String" resultType="hdto">
-		SELECT DISTINCT num, MAX(like_cnt) FROM classHeart GROUP BY num ORDER BY MAX(like_cnt) desc
+	<select id="getHotClass" parameterType="String"
+		resultType="hdto">
+		SELECT DISTINCT num, MAX(like_cnt) FROM classHeart GROUP BY
+		num ORDER BY MAX(like_cnt) desc
 	</select>
-	<select id="getCategory" parameterType="String" resultType="cdto">
-		select * from classboarder where class_op_cate = #{class_op_cate} order by num desc
+	<select id="getCaCount" resultType="int">
+		select count(*) from
+		classboarder where class_op_cate = #{class_op_cate}
+	</select>
+	<select id="getCategory" parameterType="HashMap"
+		resultType="cdto">
+		select * from classboarder where
+		class_op_cate=#{class_op_cate} order by num desc limit
+		#{start},#{perpage}
 	</select>
 	<insert id="insertBoard" parameterType="cdto">
-		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
-		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
+		insert into classboarder
+		(myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
+		values
+		(#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	<insert id="insertNewBoard" parameterType="cndto">
-		insert into classnewboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
-		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
+		insert into
+		classnewboarder
+		(myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
+		values
+		(#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
 	</insert>
 	<delete id="deleteBoard" parameterType="String">
-		delete from classboarder where num=#{num}
+		delete from classboarder
+		where num=#{num}
 	</delete>
-	<select id="getSevendays" resultType="cndto">
-		select * from classnewboarder where writeday > now() - interval 7 DAY;
+	<select id="getSevendays" resultType="cdto">
+		select * from
+		classboarder where writeday > now() - interval 7 DAY;
 	</select>
-	
+
 	<select id="getTrue" parameterType="String" resultType="String">
-		select class_heart from classHeart where num=#{num}
+		select
+		class_heart from classHeart where num=#{num}
+	</select>
+	<select id="getTrueInter" parameterType="String"
+		resultType="String">
+		select class_inter from classInter where num=#{num}
+	</select>
+	<select id="getInterCount" parameterType="String"
+		resultType="String">
+		select count(*) from classInter where num=#{num}
+	</select>
+	<select id="getInter" parameterType="String" resultType="idto">
+		select
+		Distinct num,inter_cnt from classInter
 	</select>
 </mapper>

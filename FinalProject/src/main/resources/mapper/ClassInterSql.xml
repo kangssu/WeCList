@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.ClassInterMapper">
+	<insert id="insertInter" parameterType="idto">
+		insert into classInter (idx,class_inter,num,inter_cnt) 
+		values (#{idx},#{class_inter},#{num},#{inter_cnt})
+	</insert>
+	<delete id="deleteInter" parameterType="hashMap">
+		delete from classInter where class_inter=#{class_inter} and num=#{num}
+	</delete>
+	<select id="getMaxInterCnt" resultType="int">
+		select ifnull(max(inter_cnt),0) from classInter where num=#{num}
+	</select>
+</mapper>

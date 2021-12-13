@@ -72,13 +72,6 @@
 					<div class="class_view_text_2">
 						※ 150명의 관심이 모이면 제작이 진행됩니다.<br> ※ 관심 등록시, 진행과정 소식을 보내드려요.<br>
 					</div>
-					<!-- <div class="product__details__quantity">
-						<div class="quantity">
-							<div class="pro-qty">
-								<input type="text" value="1">
-							</div>
-						</div>
-					</div> -->
 					<button type="button" class="primary-btn" onclick="#"
 						style="width: 100%;">관심있어요</button>
 				</div>

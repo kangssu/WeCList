@@ -107,10 +107,10 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
 
-                    <a href="#"> <span><img src="${root}/img/pro.jpg">${sdto.name}<i
-                            class="fa fa-angle-right"></i></span>
-                    </a>
-                    <h3>${sdto.title}</h3>
+					<a onclick="location.href='/author/home?id=${sdto.myid}'"> <span><img src="${root}/img/pro.jpg">${sdto.name}<i
+							class="fa fa-angle-right"></i></span>
+					</a>
+					<h3>${sdto.title}</h3>
 
                     <div class="product__details__price">${sdto.shopprice}</div>
                     <p>${sdto.shopsub}</p>

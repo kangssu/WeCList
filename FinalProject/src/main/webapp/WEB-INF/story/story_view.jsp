@@ -9,9 +9,10 @@
 		from_id="${sessionScope.id}"; //로그인 아이디 가져옴
 		nickname_ok="${sessionScope.nickname}"; //닉네임 가져옴
 		autor_ok="${sessionScope.category}"; //로그인한 카테고리 가져옴
+		writer_nick=$(".view_nickname_in").attr("nickname");
 		
 		num=$("#num").val(); //input num 값 가져오기!
-		//alert(num);//17로 잘나옴!
+		//alert(writer_nick);//17로 잘나옴!
 		list();
 		
 		$("#comment_add").click(function(){
@@ -68,7 +69,7 @@
 					com+="<p>"+dto.content+"</p>";
 					com+="<span>"+dto.writeday+"</span>";
 					com+="<div class='comment_btn_all'>";
-					if(loginok!=null && autor_ok==2 && dto.reidx.length==0){
+					if(writer_nick==nickname_ok && dto.reidx==0){
 						com+="<button type='button' id ='author_add_comment' onclick='rePopup("+dto.idx+","+dto.regroup+")'>댓글</button>";
 					}
 					if(nickname_ok==dto.writer){
@@ -215,7 +216,7 @@
 			<div class="story__view__top">
 				<div class="story_img">
 					<img src="/photo/${dto.profileimg}">
-					<span>${dto.nickname}</span>
+					<span class="view_nickname_in" nickname="${dto.nickname}">${dto.nickname}</span>
 				</div>
 				<h6>${dto.title}</h6>
 				<p><fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd"/></p>

@@ -2,19 +2,25 @@ package data.dto;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("aadto")
-public class AuthorDto {
+@Alias("ahdto")
+public class AuthorHomeDto {
 
-  // usersjoin dto
-  private String idx;
+  // useresjoin 테이블
   private String id;
-  private String irum;
   private String nickname;
   private String profileimg;
-  private int category;
+  private String category;
 
-  // profile dto
+  // profile 테이블
   private String concise;
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public String getNickname() {
     return nickname;
@@ -32,36 +38,12 @@ public class AuthorDto {
     this.profileimg = profileimg;
   }
 
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public int getCategory() {
+  public String getCategory() {
     return category;
   }
 
-  public void setCategory(int category) {
+  public void setCategory(String category) {
     this.category = category;
-  }
-
-  public String getIdx() {
-    return idx;
-  }
-
-  public void setIdx(String idx) {
-    this.idx = idx;
-  }
-
-  public String getIrum() {
-    return irum;
-  }
-
-  public void setIrum(String irum) {
-    this.irum = irum;
   }
 
   public String getConcise() {
@@ -71,5 +53,6 @@ public class AuthorDto {
   public void setConcise(String concise) {
     this.concise = concise;
   }
+
 
 }
