@@ -150,7 +150,7 @@ $(".fa-heart").click(function(){
 							</div>
 							<div class="product__details__quantity">
 								<div class="quantity-del">
-									<span id="quantity-del-dan"></span>
+									<span id="quantity-del-dan"></span>	
 									<button>X</button>
 								</div>
 							</div>
@@ -170,16 +170,16 @@ $(".fa-heart").click(function(){
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-									<a class="heart"><i class="fa fa-heart" num="${sdto.num}"></i></a>
+									<a class="heart"><i class="fa fa-heart" num="${sdto.num}">${sdto.shopheart}</i></a>
 								</c:when>
 								<c:otherwise>
-									<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}"></i></a>
+									<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}">${sdto.shopheart}</i></a>
 								</c:otherwise>
 							</c:choose>
 						</c:if>
 
 						<c:if test="${loginok eq null}">
-							<button class="heart"><i class="fa fa-heart-o" id="${sdto.num}"></i></button>
+							<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}">${sdto.shopheart}</i></a>
 						</c:if>
 
 
@@ -259,7 +259,6 @@ $(".fa-heart").click(function(){
 
     // 막무가내 리스너 붙이기
     $(".pro-qty").on("change keyup paste input click", function () {
-      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $("#selectoption").val();
     	let total =  $("#subnum").val() * (parseInt($("#selectoption").val()) + parseInt(${sdto.shopprice}));
       document.getElementById("quantity-del-dan").innerText =total;
       document.getElementById("total_price").innerText =total;

@@ -55,7 +55,7 @@
 	
 	<definition name="layout6" template="/WEB-INF/class_inc/layout6.jsp">
 		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
-		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
+		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_class.jsp"/>
 		<put-attribute name="body_top" value="/WEB-INF/class_inc/class_sub_top.jsp"/>
 		<put-attribute name="body_left" value="/WEB-INF/class_inc/class_menu.jsp"/>
 		<put-attribute name="body_right" value="/WEB-INF/class/class_list.jsp"/>
@@ -93,7 +93,7 @@
 		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 	
-	<definition name="/6/*/*" extends="layout5">
+	<definition name="/6/*/*" extends="layout6">
 		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 </tiles-definitions>
