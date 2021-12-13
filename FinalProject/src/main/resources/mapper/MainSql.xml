@@ -5,23 +5,19 @@
 	<select id="getTotalCount" resultType="int">
 		select count(*) from classboarder
 	</select>
-	
 	<select id="getData" parameterType="String" resultType="cdto">
 		select * from classboarder where num =#{num}
 	</select>
-	
 	<select id="getAlllist" resultType="cdto">
 		select * from classboarder order by num asc
 	</select>
-	
 	<select id="getAllnewlist" resultType="cndto">
 	select * from classnewboarder order by num asc
 	</select>
-	
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>
-	
+
 	<select id="getMainStoryList" resultType="sldto">
 		SELECT
 		u.idx
@@ -41,8 +37,11 @@
 		WHERE u.category = 2
  		AND num order by aus.num desc
 	</select>
-	
+
 	<select id="getStoryTotalCount" resultType="int">
 		select count(*) from author_story
+	</select>
+	<select id="getCartCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) as CartCount from cart c inner join usersjoin u on c.user_idx = u.idx WHERE u.id = #{user_id};
 	</select>
 </mapper>

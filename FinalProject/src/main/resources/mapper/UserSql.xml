@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.UserMapper"> 
@@ -50,4 +51,55 @@
 		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category,nickname)
 		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category},#{nickname})
 	</insert>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.UserMapper"> 
+	
+	<select id="GetIdData" parameterType="String" resultType="udto">
+		select * from usersjoin where id=#{id}
+	</select>
+	<select id="getIdCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where id=#{id}
+	</select>
+	<select id="getNickCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where nickname=#{nickname}
+	</select>
+	<select id="getEmailCheck" parameterType="String" resultType="int">
+		select count(*) from usersjoin where email=#{email}
+	</select>
+	<select id="getCheckPass" parameterType="HashMap" resultType="int">
+		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
+	</select>
+	<select id="getUserData" parameterType="String" resultType="udto">
+		select * from usersjoin where id=#{id}
+	</select>
+	<delete id="deleteUsers" parameterType="String">
+		delete from usersjoin where id=#{id}
+	</delete>
+	<update id="updateUsers" parameterType="udto">
+		update usersjoin set id=#{id},irum=#{irum},pass1=#{pass1},hp=#{hp},addr1=#{addr1},addr2=#{addr2},email=#{email},profileimg=#{profileimg},nickname=#{nickname}
+		where id=#{id}
+	</update>
+	<update id="updatePass" parameterType="udto">
+		update usersjoin set pass1=#{pass1}
+		where id=#{id}
+	</update>
+	<select id="getNickName" parameterType="String" resultType="String">
+		select nickname from usersjoin where id=#{id}
+	</select>
+	<select id="getCategory" parameterType="String" resultType="String">
+		select category from usersjoin where id=#{id}
+	</select>
+	<select id="getEmailId" parameterType="String" resultType="String">
+		select id from usersjoin where email=#{email}
+	</select>
+	<select id="login" parameterType="HashMap" resultType="int">
+		select count(*)	from usersjoin where id=#{id} and pass1=#{pass1}
+	</select>
+	<insert id="insertUsers" parameterType="udto">
+		insert into usersjoin (id,pass1,irum,email,hp,addr1,addr2,useterms,personterms,ageterms,gaipday,profileimg,category,nickname)
+		values (#{id},#{pass1},#{irum},#{email},#{hp},#{addr1},#{addr2},#{useterms},#{personterms},#{ageterms},now(),#{profileimg},#{category},#{nickname})
+	</insert>
+>>>>>>> branch 'main' of https://github.com/chominsub/WeCList.git
 </mapper>

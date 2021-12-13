@@ -41,4 +41,6 @@ public class MainService {
   public int getStoryTotalCount() {
     return mapper.getStoryTotalCount();
   }
+	public int getCartCount(String user_id){ return mapper.getCartCount(user_id);}
+
 }
