@@ -23,7 +23,7 @@ public class LoginController {
 	@Autowired
 	UserMapper mapper;	
 	
-	//@GetMapping("/login/loginprocess")
+	
 	@RequestMapping(value = "/login/loginprocess", method = {RequestMethod.POST, RequestMethod.GET})
 	public String loginprocess(
 			// login.jsp 파일의 아이디, 패스워드 값 받아오기
@@ -41,22 +41,17 @@ public class LoginController {
 			HttpSession session, Model model) {
 		
 		nickname = mapper.getNickName(id);
-		//System.out.println(nickname);
 		model.addAttribute("nickname", nickname);
 		
 		category = mapper.getCategory(id);
-		System.out.println(category);
 		model.addAttribute("category", category);
 		
 		profileimg = mapper.getImg(id);
-		//System.out.println(profileimg);
 		model.addAttribute("profileimg", profileimg);
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pass1", pass1);
-		//map.put("irum", irum);
-		//map.put("category", category);
 		
 		int check = mapper.login(map); // UserSql에 있는 login함수, 리턴값 0 or 1
 		if(check==1) { // 로그인 성공
@@ -85,8 +80,6 @@ public class LoginController {
 	@GetMapping("/login/logoutprocess") // logoutform.jsp 파일
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginok");
-//		session.removeAttribute("id");
-//		session.removeAttribute("nickname");
 		
 		return "/";
 	}

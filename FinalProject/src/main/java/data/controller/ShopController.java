@@ -294,7 +294,7 @@ public class ShopController {
 
     mview.addObject("HotShop", HotShop);
     mview.addObject("listpopul", listpopul);
-    mview.setViewName("/1/shop/shop_popular");
+    mview.setViewName("/shop/shop_popular");
 
     return mview;
   }
@@ -339,7 +339,7 @@ public class ShopController {
     mview.addObject("no", no);
     mview.addObject("currentPage", currentPage);
     mview.addObject("newlist", list);
-    mview.setViewName("/5/shop/shop_new_list");
+    mview.setViewName("/shop/shop_new_list");
     return mview;
   }
 }
