@@ -44,6 +44,7 @@
 						<div class="col-lg-4 col-md-5">
 							<div class="filter__found">
 							
+								<h6> <span>${shopop}</span> 작품</h6>
 							</div>
 						</div>
 						
