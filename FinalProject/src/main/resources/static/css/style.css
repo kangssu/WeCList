@@ -562,12 +562,9 @@ li {
 }
 
 .active{
-	color:rgb(255, 123, 39);
+	color:#ff7b27;
 }
 
-.active_2{
-	color:rgb(255, 123, 39);
-}
 /* 메뉴 색상 테스트! */
 
 .section-title {

@@ -26,9 +26,20 @@ $(document).ready(function (){
 		}
 	});
 
-	$("#btn_item_page").click(function(){
-		$(this).closest("li").addClass("active");
-	});
+	//메뉴가 동일하면 class 추가하기위함
+	var url = window.location;
+	//alert(url); //해당 url 가져옴
+	// for sidebar menu entirely but not cover treeview 
+	$('ul.sidebar-menu a').filter(function() { 
+		//alert(url);
+		return this.href == url; 
+	}).parent().addClass('active'); 
+
+	// for treeview 
+	/* $('ul.treeview-menu a').filter(function() { 
+		return this.href == url; 
+	}).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active'); */
+
 
  });
  </script>
@@ -72,9 +83,9 @@ $(document).ready(function (){
 				</div>
 				<div>
 					<nav class="header__menu">
-						<ul>
+						<ul class="sidebar-menu">
 							<c:set var="root" value="<%=request.getContextPath() %>"/>
-							<li id="btn_item_page">
+							<li id="btn_item_page" >
 								<a href="${root}/" class="color_f">작품</a>
 							</li>
 							<li id="btn_item_page_2">
