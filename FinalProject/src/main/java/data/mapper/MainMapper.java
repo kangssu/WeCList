@@ -22,10 +22,9 @@ public interface MainMapper {
 	public int getCartCount(String user_id);
 
 	public List<StoryDto> getMainStoryList();
+	public int getStoryTotalCount();
 
 	//검색 기능
 	public List<ClassBoardDto> getSearch(HashMap<String, Object> map);
 	public int getSearchTotal();
-
-	public int getStoryTotalCount();
 }
