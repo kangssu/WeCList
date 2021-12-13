@@ -41,7 +41,7 @@
 				<th>수정/삭제</th>
 			</tr>
 			
-			<c:if test="${totalCount==0}">
+			<c:if test="${IdCount==0}">
 			<tr>
 				<td colspan="5" align="center">
 					등록된 게시글이 없습니다.

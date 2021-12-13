@@ -35,7 +35,7 @@
 	
 	/* 팔로잉 클릭시 팝업!!! */
 	function showUnFolPopup(id) {
-		alert(id);
+		//alert(id);
 		$("#follow_id").val(id);
 		
 		//팔로잉 이벤트!(취소)
@@ -88,7 +88,7 @@
 					<c:if test="${fdto.to_id==adto.id}">
 						<div class="follow_box_1">
 							<img src="/img/pro.jpg" class="author_img_1">
-							<h5>${adto.irum}</h5>
+							<h5>${adto.nickname}</h5>
 							<c:choose>
 								<c:when test="${fn:contains(followTrue, dto.id)}">
 									<button type="button" class="m_btn_following" onclick="showUnFolPopup('${adto.id}')">

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.AuthorHomeMapper">
+	<select id="getHList" parameterType="String" resultType="ahdto">
+		SELECT
+		  u.id
+		, u.nickname
+		, u.profileimg
+		, u.category
+		, a.concise
+		FROM usersjoin AS u
+		LEFT JOIN author_profile AS a
+		ON u.id = a.myid
+		WHERE u.id = #{aid}
+	</select>
+	
+	<select id="getHSList" parameterType="HashMap" resultType="sldto">
+		SELECT
+		u.idx
+		, u.id
+		, u.nickname
+		, u.profileimg
+		, u.category
+		, aus.num
+		, aus.title
+		, aus.content
+		, aus.thumbnail_file
+		, aus.read_count
+		, aus.writeday
+		FROM usersjoin AS u
+		RIGHT JOIN author_story AS aus
+		ON u.id = aus.myid
+		WHERE u.id = #{aid}
+ 		AND num order by aus.num desc
+		limit #{start},#{perpage}
+	</select>
+	
+	<select id="getSangList" parameterType="HashMap" resultType="sdto">
+		select * from shopboarder where myid=#{aid} order by num desc limit #{start},#{perpage}
+	</select>
+	
+	<select id="getSangCount" resultType="int">
+		select count(*) from shopboarder where myid = #{myid}
+	</select>
+	
+	<select id="getClasslist" resultType="cdto">
+		select * from classboarder where myid=#{aid} order by num desc
+	</select>
+</mapper>

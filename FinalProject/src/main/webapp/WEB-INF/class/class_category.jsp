@@ -34,33 +34,56 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="filter__item" style="margin-left: 300px;">
 		<div class="cate">
 			<b>Category>세부>세부</b>
 		</div>
 	</div>
 	<div class="row" style="margin-left: 250px;">
-		<c:forEach var="cdto" items="${listcate}"> 
-		
-			<div style="float:left;">
-			<div class="product__item" >
-				<a href="${root}/class/view?num=${cdto.num}">
-					<div class="product__item__pic set-bg">
-						<img src="../photo/${cdto.uploadfile}" style="width: 300px; height: 300px;">
+		<c:forEach var="idto" items="${inter}">
+			<c:forEach var="cdto" items="${listcate}">
+				<c:if test="${idto.inter_cnt>=1 and idto.num==cdto.num}">
+					<div style="float: left;">
+						<div class="product__item">
+							<a href="${root}/class/view?num=${cdto.num}">
+								<div class="product__item__pic set-bg">
+									<img src="../photo/${cdto.uploadfile}"
+										style="width: 300px; height: 300px;">
+								</div>
+								<div class="product__item__text">
+									<h6>${cdto.title}</h6>
+									<h6>${cdto.class_op_cate}</h6>
+									<h5>${cdto.classprice}원</h5>
+								</div>
+							</a>
+						</div>
 					</div>
-					<div class="product__item__text">
-						<h6>${cdto.title}</h6>
-						<h6>${cdto.class_op_cate}</h6>
-						<h5>${cdto.classprice}원</h5>
-					</div>
-				</a>
-			</div>
-		</div>
-		
+				</c:if>
+			</c:forEach>
 		</c:forEach>
-		</div>
-		
+	</div>
+
+	<div class="product__pagination">
+		<c:if test="${startPage>1}">
+			<a href="category?currentPage=${startPage-1}">이전</a>
+		</c:if>
+
+		<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+			<c:if test="${currentPage==pp}">
+				<li class="active"><a
+					href="category?class_op_cate=${class_op_cate}&currentPage=${pp}">${pp}</a></li>
+			</c:if>
+			<c:if test="${currentPage!=pp}">
+				<li class="active"><a
+					href="category?class_op_cate=${class_op_cate}&currentPage=${pp}">${pp}</a></li>
+			</c:if>
+		</c:forEach>
+		<!-- 다음 -->
+		<c:if test="${endPage<totalPage}">
+			<a href="category?currentPage=${endPage+1}">다음</a>
+		</c:if>
+	</div>
 </section>
 <!-- Product Section End -->
 

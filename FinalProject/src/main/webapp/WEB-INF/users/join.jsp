@@ -7,12 +7,16 @@ $(function(){});
 </script>
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section" style="background:none; background-color:#F5F5F5">
+<section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<div style="color:black">
-					<h2>회원가입 종류 선택</h2>
+				<div class="breadcrumb__text">
+					<h2>회원가입</h2>
+					<div class="breadcrumb__option">
+						<a href="./index.html">Home</a>
+						<span>회원가입</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -23,12 +27,12 @@ $(function(){});
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
 	<div class="container">
-		<div class="checkout__form2" style="text-align: center;">
+		<div class="checkout__form2 user_choice">
 			<div class="user_join_btn" style="display: inline-block;">
-				<button type="button" class="buy-btn" onclick="location.href='userJoin'">일반회원으로 가입하기</button>
+				<button type="button" class="buy-btn" onclick="location.href='userJoin'">일반회원 가입</button>
 			</div>
-			<div class="author_join_btn" style="display: inline-block;">
-				<button type="button" class="buy-btn" onclick="location.href='authorJoin'">작가로 가입하기</button>
+			<div class="author_join_btn">
+				<button type="button" class="buy-btn" onclick="location.href='authorJoin'">작가회원 가입</button>
 			</div>
 		</div>
 	</div>

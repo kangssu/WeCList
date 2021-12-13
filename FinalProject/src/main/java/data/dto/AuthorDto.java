@@ -9,11 +9,20 @@ public class AuthorDto {
   private String idx;
   private String id;
   private String irum;
+  private String nickname;
   private String profileimg;
   private int category;
 
   // profile dto
   private String concise;
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
 
   public String getProfileimg() {
     return profileimg;

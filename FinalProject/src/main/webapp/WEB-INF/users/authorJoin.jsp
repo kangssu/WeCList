@@ -368,12 +368,16 @@ function check(f) {
 </script>
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section" style="background:none; background-color:white; border:1px solid #ff7b27">
+<section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="breadcrumb__text">
-					<h2 style="color:#ff7b27">작가 회원가입</h2>
+					<h2>작가 회원가입</h2>
+					<div class="breadcrumb__option">
+						<a href="./index.html">Home</a>
+						<span>작가 회원가입</span>
+					</div>
 				</div>
 			</div>
 		</div>

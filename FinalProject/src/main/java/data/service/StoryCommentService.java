@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import data.dto.CommentJoinDto;
 import data.dto.StoryCommentDto;
 import data.mapper.StoryCommentMapper;
 
@@ -21,7 +22,7 @@ public class StoryCommentService {
     mapper.insertTwoComment(dto);
   }
 
-  public List<StoryCommentDto> getAllComment(String num) {
+  public List<CommentJoinDto> getAllComment(String num) {
     // System.out.println(num);
     return mapper.getAllComment(num);
   }

@@ -7,6 +7,7 @@
 	$(function(){
 		loginok="${sessionScope.loginok}"; //로그인 여부
 		from_id="${sessionScope.id}"; //로그인 아이디 가져옴
+		autor_ok="${sessionScope.category}";
 		//alert(loginok+","+myid); //확인됨
 		
 		//팔로우 이벤트!(추가)
@@ -18,6 +19,8 @@
 			if(loginok==""){
 				alert("회원만 가능합니다!");
 				location.href ="/users/login";
+			}else if(autor_ok==2){
+				alert("작가님은 다른 작가님을 팔로우 하실 수 없습니다!");
 			}else{
 				$.ajax({
 					type:"post",
@@ -30,6 +33,7 @@
 					}
 				});
 			}
+			
 		});
 	});
 	
@@ -100,14 +104,14 @@
 				</div>
 				<div class="categories__slider owl-carousel">
 					<c:forEach var="hdto" items="${Hotlist}" varStatus="status" begin="0" end="9">
-						<div class="col-lg-3">
+						<div class="col-lg-3 hot_author_list">
 							<c:forEach var="adto" items="${list}" begin="0" end="9">
 								<c:if test="${hdto.to_id==adto.id}">
-									<a href="#">
+									<a onclick="location.href='/author/home?id=${adto.id}'">
 										<div class="author__box set-bg">
-											<span class="hot__author__count">${status.count}</span>
+											<p class="hot__author__count">top <b class="hot_number">${status.count}</b></p>
 											<img src="/img/pro.jpg" id="author_img_1">
-											<h5>${adto.irum}</h5>
+											<h5>${adto.nickname}</h5>
 										</div>
 									</a>
 								</c:if>
@@ -128,11 +132,11 @@
 					<div class="author__box__all_list">
 						<%-- <input type="text" value="${status.count}"> --%>
 						<div class="author__box_all">
-							<img src="${dto.profileimg}" class="author_img_2">
+							<img src="/photo/${dto.profileimg}" class="author_img_2">
 						</div>
 						<div class="author__box_all">
 							<div class="all_text">
-								<h5>${dto.irum}</h5>
+								<h5>${dto.nickname}</h5>
 								<c:choose>
 									<c:when test="${dto.concise!=null}">
 										<p>${dto.concise}</p>
@@ -155,7 +159,7 @@
 										</button>
 									</c:otherwise>
 								</c:choose>
-								<button type="button" class="btn_home">
+								<button type="button" class="btn_home" onclick="location.href='/author/home?id=${dto.id}'">
 									<i class="fa fa-home" aria-hidden="truse"></i> 구경하기
 								</button>
 							</div>

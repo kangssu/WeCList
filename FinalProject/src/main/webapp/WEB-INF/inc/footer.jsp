@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="<%=request.getContextPath()%>"/>
 <!-- Footer Section Begin -->
 <footer class="footer spad">
 	<div class="container">
@@ -9,7 +10,7 @@
 				<div class="footer__about">
 					<div class="footer__about__logo">
 						<c:set var="root" value="<%=request.getContextPath()%>"/>
-						<a href="./index.html"><img src="${root}/img/logo.png" alt=""></a>
+						<a href="/"><img src="${root}/img/logo_f.png" alt=""></a>
 					</div>
 					<ul>
 						<li>주소: 서울 강남구 강남대로 94길 20 &nbsp;&nbsp;|&nbsp;&nbsp; 사업자 등록번호 : 111-85-06789 &nbsp;&nbsp;|&nbsp;&nbsp; 통신판매업신고 : 2021-서울강남-1111</li>
