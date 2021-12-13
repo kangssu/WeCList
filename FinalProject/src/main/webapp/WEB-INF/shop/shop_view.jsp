@@ -14,7 +14,7 @@ $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
 loginid="${sessionScope.id}"; //로그인 아이디 가져옴
 
-//alert(loginok+","+loginid); //확인됨
+alert(loginok+","+loginid); //확인됨
 
 //좋아요 이벤트!(추가)
 $(".fa-heart-o").click(function(){
@@ -116,7 +116,7 @@ $(".fa-heart").click(function(){
 					</a>
 					<h3>${sdto.title}</h3>
 
-					<div class="product__details__price">${sdto.shopprice}원</div>
+					<div class="product__details__price">${sdto.shopprice}</div>
 					<p>${sdto.shopsub}</p>
 					<form method="post" action="${root}/cart/insert">
 						<input type="hidden" name="shop_num" value="${sdto.num}">
@@ -150,14 +150,14 @@ $(".fa-heart").click(function(){
 							</div>
 							<div class="product__details__quantity">
 								<div class="quantity-del">
-									<span id="quantity-del-dan"></span>	
+									<span id="quantity-del-dan"></span>
 									<button>X</button>
 								</div>
 							</div>
 						</div>
 						<div class="product__details__price__total">
 							<p>총 작품금액 :</p>
-							<span id="total_price"></span>
+							<span> </span>
 						</div>
 						<%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
 						<button type="submit" class="primary-btn btn_buy"
@@ -170,16 +170,16 @@ $(".fa-heart").click(function(){
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-									<a class="heart"><i class="fa fa-heart" num="${sdto.num}"></i></a>
+									<a class="heart"><i class="fa fa-heart" num="${sdto.num}">${sdto.shopheart}</i></a>
 								</c:when>
 								<c:otherwise>
-									<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}"></i></a>
+									<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}">${sdto.shopheart}</i></a>
 								</c:otherwise>
 							</c:choose>
 						</c:if>
 
 						<c:if test="${loginok eq null}">
-							<button class="heart"><i class="fa fa-heart-o" id="${sdto.num}"></i></button>
+							<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}">${sdto.shopheart}</i></a>
 						</c:if>
 
 
@@ -197,6 +197,9 @@ $(".fa-heart").click(function(){
 								상세정보</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
 							href="#tabs-2" role="tab" aria-selected="false"> 배송/교환/환불정보</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab"
+							href="#tabs-3" role="tab" aria-selected="false"> 리뷰 <span>(1)</span></a>
+						</li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -208,6 +211,11 @@ $(".fa-heart").click(function(){
 						<div class="tab-pane" id="tabs-2" role="tabpanel">
 							<div class="product__details__tab__desc">
 								<p>${sdto.shopdelivery}</p>
+							</div>
+						</div>
+						<div class="tab-pane" id="tabs-3" role="tabpanel">
+							<div class="product__details__tab__desc">
+								<p>리뷰 폼 출력(폼 만들어야함)</p>
 							</div>
 						</div>
 					</div>
@@ -225,16 +233,20 @@ $(".fa-heart").click(function(){
 			<div class="col-lg-12">
 				<div class="section-title related__product__title">
 					<h2>다른 작품 구경하기</h2>
+					<span>다양한 작품을 구경해보세요!</span>
 				</div>
 			</div>
 		</div>
 		<div class="row">
+
 			<c:forEach var="a" items="${list}">
+
 				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="product__item shop_view_list_box">
+					<div class="product__item">
 						<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
 							<div class="product__item__pic">
-								<img src="../photo/${a.uploadfile1}" alt="">
+								<img style="width: 220px; height: 270px;"
+									src="../photo/${a.uploadfile1}" alt="">
 							</div>
 							<div class="product__item__text">
 								<h6>${a.name}</h6>
@@ -245,6 +257,7 @@ $(".fa-heart").click(function(){
 					</div>
 				</div>
 			</c:forEach>
+
 		</div>
 	</div>
 </section>
@@ -261,11 +274,10 @@ $(".fa-heart").click(function(){
 
     // 막무가내 리스너 붙이기
     $(".pro-qty").on("change keyup paste input click", function () {
-    	let total =  $("#subnum").val() * (parseInt($("#selectoption").val()) + parseInt(${sdto.shopprice}));
-      document.getElementById("quantity-del-dan").innerText =total;
-      document.getElementById("total_price").innerText =total;
+      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $(
+          "#selectoption").val();
     });
-   
+    
   });
 
 </script>

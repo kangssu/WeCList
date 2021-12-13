@@ -43,7 +43,6 @@
 			<c:if test="${startPage>1}">
 				<a href="list?currentPage=${startPage-1}">이전</a>
 			</c:if>
-
 			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 				<c:if test="${currentPage==pp}">
 					<li class="select"><a class="select2" href="list?currentPage=${pp}">${pp}</a></li>
