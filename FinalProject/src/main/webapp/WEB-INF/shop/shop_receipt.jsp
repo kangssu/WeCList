@@ -6,5 +6,9 @@
 <!-- Breadcrumb Section Begin -->
 <section>
 	<h1> 와! ${sessionScope.id} 님 주문 완료!</h1>
+	<h1> 와! ${sessionScope.id} 님 주문 완료!</h1>
+	<h1> 와! ${sessionScope.id} 님 주문 완료!</h1>
+	<h1> 와! ${sessionScope.id} 님 주문 완료!</h1>
+	<h1> 와! ${sessionScope.id} 님 주문 완료!</h1>
 	<button onclick="location.href='${root}/'">홈으로</button>
 </section>

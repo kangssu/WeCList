@@ -59,7 +59,6 @@ public class AuthorHomeController {
     String from_id = (String) session.getAttribute("id");
     List<FollowDto> followTrue = aservice.getTrue(from_id);
 
-    // 아래 세션에 저장된 정보들 불러옴
     Enumeration se = session.getAttributeNames();
 
     while (se.hasMoreElements()) {
@@ -224,16 +223,37 @@ public class AuthorHomeController {
   }
 
   @GetMapping("/author/class")
-  public ModelAndView getAlllist(HttpSession session) {
+  public ModelAndView getAlllist(@RequestParam(defaultValue = "1") int currentPage, HttpSession session,
+	      Model model) {
     ModelAndView mview = new ModelAndView();
 
     String aid = (String) session.getAttribute("aid");
     AuthorHomeDto ahdto = service.getHList(aid);
-    List<ClassBoardDto> list = service.getClasslist(aid);
 
     String from_id = (String) session.getAttribute("id");
     List<FollowDto> followTrue = aservice.getTrue(from_id);
+    
+    int perPage = 8;
+    int IdCount = service.getClassCount(aid);
+    int IdPage;
+    int start;
+    int perBlock = 5;
+    int startPage;
+    int endPage;
 
+    IdCount = service.getSangCount(aid);
+
+    IdPage = IdCount / perPage + (IdCount % perPage == 0 ? 0 : 1);
+    startPage = (currentPage - 1) / perBlock * perBlock + 1;
+
+    endPage = startPage + perBlock - 1;
+    if (endPage > IdPage) {
+      endPage = IdPage;
+    }
+    start = (currentPage - 1) * perPage;
+    List<ClassBoardDto> list = service.getClassList(aid, start, perPage);
+
+    mview.addObject("IdCount", IdCount);
     mview.addObject("list", list);
     mview.addObject("ahdto", ahdto);
     mview.addObject("followTrue", followTrue);

@@ -17,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.InterDto;
 import data.dto.ShopBoardDto;
 import data.dto.StoryDto;
+import data.dto.UserDto;
 import data.mapper.MainMapper;
 import data.mapper.ShopBoardMapper;
 import data.mapper.UserMapper;
@@ -53,9 +55,12 @@ public class MainController {
     // System.out.println(nickname);
     model.addAttribute("nickname", nickname);
 
+    String profileimg = umapper.getImg(id);
+    model.addAttribute("profileimg", profileimg);
+
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> listpopul = shmapper.getPopular();
-    int perPage = 4;// 한페이지에 보여질 글의 갯수
+    int perPage = 15;
     int totalCount = shservice.getTotalCount();
 
     int totalPage;// 총페이지
@@ -113,13 +118,62 @@ public class MainController {
   public ModelAndView getMain() {
     ModelAndView mview = new ModelAndView();
     List<ClassBoardDto> listMain = mapper.getAlllist();
-    List<ClassNewBoardDto> listnewsMain = mapper.getAllnewlist();
+    List<ClassBoardDto> listnewsMain = mapper.getAllnewlist();
     List<ClassBoardDto> listpopulMain = mapper.getPopular();
+    List<InterDto> inter=mapper.getInter();
+    List<ClassBoardDto> listseven=mapper.getSevendays();
 
     mview.addObject("listMain", listMain);
     mview.addObject("listnewsMain", listnewsMain);
     mview.addObject("listpopulMain", listpopulMain);
+    mview.addObject("inter", inter);
+    mview.addObject("listseven", listseven);
     mview.setViewName("/2/inc/class");
+    return mview;
+  }
+
+  @GetMapping("/off/info")
+  public String list() {
+    return "/inc/offline_inf";
+  }
+
+  @GetMapping("/search")
+  public ModelAndView shopSearch(
+      @RequestParam(defaultValue = "1") int currentPage,
+      @RequestParam(value = "keyword", required = false) String keyword, HttpSession session) {
+
+    session.setAttribute("keyword", keyword);
+    ModelAndView mview = new ModelAndView();
+
+    // ����¡ ó���� �ʿ��� ��������
+    int perPage = 9;// ���������� ������ ���� ����
+    int totalPage;// �� ��������
+    int start;// ������������ �ҷ��� db�� ���۹�ȣ
+    int perBlock = 5;// ��� ��������ȣ�� ǥ���Ұ��ΰ�
+    int startPage;// �� ���� ǥ���� ����������
+    int endPage;// �� ���� ǥ���� ������������
+
+    int totalCount=service.getSearchTotal();
+	// �� ������ ���� ���ϱ�
+    totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+    // �� ���� ����������
+    startPage = (currentPage - 1) / perBlock * perBlock + 1;
+    endPage = startPage + perBlock - 1;
+    if (endPage > totalPage)
+      endPage = totalPage;
+    // �� ���������� �ҷ��� ���۹�ȣ
+    start = (currentPage - 1) * perPage;
+    List<ClassBoardDto> Search = service.getSearch(keyword, start, perPage);
+
+    int no = totalCount - (currentPage - 1) * perPage;
+    mview.addObject("Search", Search);
+    mview.addObject("startPage", startPage);
+    mview.addObject("endPage", endPage);
+    mview.addObject("totalPage", totalPage);
+    mview.addObject("no", no);
+    mview.addObject("currentPage", currentPage);
+    mview.addObject("totalCount", totalCount);
+    mview.setViewName("/search");
     return mview;
   }
 

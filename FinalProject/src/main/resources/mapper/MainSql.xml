@@ -15,7 +15,19 @@
 	select * from classnewboarder order by num asc
 	</select>
 	<select id="getPopular" resultType="cdto">
-		select * from classboarder order by classheart desc
+		select * from classboarder
+	</select>
+	<select id="getHotClass" parameterType="String" resultType="hdto">
+		SELECT DISTINCT num, MAX(like_cnt) FROM classHeart GROUP BY
+		num ORDER BY MAX(like_cnt) desc
+	</select>
+	<select id="getInter" parameterType="String" resultType="idto">
+		select
+		Distinct num,inter_cnt from classInter
+	</select>
+	<select id="getSevendays" resultType="cdto">
+		select * from
+		classboarder where writeday > now() - interval 7 DAY;
 	</select>
 
 	<select id="getMainStoryList" resultType="sldto">
@@ -41,7 +53,30 @@
 	<select id="getStoryTotalCount" resultType="int">
 		select count(*) from author_story
 	</select>
+	
 	<select id="getCartCount" parameterType="String" resultType="int">
 		SELECT COUNT(*) as CartCount from cart c inner join usersjoin u on c.user_idx = u.idx WHERE u.id = #{user_id};
 	</select>
+	
+	
+	<!-- 검색 기능 -->
+	<select id="getSearchCount" resultType="int">
+		select count(*) from classboarder where title like concat('%',#{keyword},'%')
+	</select>
+	<select id="getSearch" parameterType="HashMap" resultType="cdto">
+		select * from classboarder where title like concat('%',#{keyword},'%') order by num desc limit #{start},#{perpage}
+	</select>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+

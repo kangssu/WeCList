@@ -12,12 +12,12 @@
 	<div class="home_content_background">
 		<div class="shop__list container">
 			<!-- 아래 찬현이 카운트 되면 가져오기! -->
-			<%-- <c:if test="${IdCount==0}">
+			<c:if test="${IdCount==0}">
 				<div align="center" class="all_story_total">
 					<h3>등록된 게시글이 없습니다!</h3>
 				</div>
-			</c:if> --%>
-			<%-- <c:if test="${IdCount>0}"> --%>
+			</c:if>
+			<c:if test="${IdCount>0}">
 				<div class="row">
 					<c:forEach var="cdto" items="${list}"> 
 						<div class="col-lg-4 col-md-6 col-sm-6">
@@ -36,7 +36,7 @@
 						</div>
 					</c:forEach>
 				</div>
-			<%-- </c:if> --%>
+			</c:if>
 		</div>
 		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 		<div class="product__pagination">

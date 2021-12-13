@@ -14,6 +14,7 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </section>
@@ -35,15 +36,19 @@
 		</div>
 	</div>
 
-	<div class="filter__item" style="margin-left: 300px;">
-		<div class="cate">
-			<b>Category>세부>세부</b>
+	<div class="filter__found" style="margin-left: 250px;">
+		<h6>${cdto.class_op_cate}</h6>
+		<h6><span class="shop_option_category_all">전체보기</span> 작품</h6>
+		<div class="shop_all_count_box">
+			<h6 class="all_count_shop">WeCList의 다양한 작품을 만나보세요!</h6>
+			<span class="all_count_shop">총 <b>${totalCount}</b>개의 작품
+			</span>
 		</div>
 	</div>
 	<div class="row" style="margin-left: 250px;">
 		<c:forEach var="idto" items="${inter}">
 			<c:forEach var="cdto" items="${list}">
-				<c:if test="${idto.inter_cnt>=1 and idto.num==cdto.num}">
+				<c:if test="${idto.inter_cnt>=15 and idto.num==cdto.num}">
 					<div style="float: left;">
 						<div class="product__item">
 							<a href="${root}/class/view?num=${cdto.num}">

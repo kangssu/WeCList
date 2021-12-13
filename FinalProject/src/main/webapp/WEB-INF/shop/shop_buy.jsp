@@ -14,19 +14,8 @@ function closePopup() {
 	popup.classList.add('hide');
 	}
 
-function autoFill(){
-	document.getElementsByClassName('order_name');
-
-	${sessionScope.irum}
-	${sessionScope.hp}
-	${sessionScope.email}
-	${sessionScope.addr1}
-	${sessionScope.addr2}
-
-	console.log(${sessionScope.irum});
-	console.log(${sessionScope.email});
-	console.log(${sessionScope.addr1});
-	console.log(${sessionScope.addr2});
+function getCartList(){
+	let cartList = "";
 }
 </script>
 
