@@ -144,171 +144,170 @@ $(".primary-btn-off").click(function(){
 				</div>
 			</div>
 
-
-		
-				<c:if test="${InterCount>=1}">
-					<div class="col-lg-6 col-md-6">
-						<div class="product__details__text">
-							<a href="#"> <span><img src="${root}/img/pro2.jpg">달콩작가의
-									그림작업실<i class="fa fa-angle-right"></i></span>
-							</a>
-							<h3>${dto.title}</h3>
-							<div class="product__details__rating">
-								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-									class="fa fa-star-half-o"></i> <span>(15개의 리뷰)</span>
-							</div>
-							<div class="product__details__price">${dto.classprice}</div>
-							<p>${dto.classinfo}</p>
-
-							<div class="class_view_text_1">
-								<dl>
-									<dt>수강시작일</dt>
-									<dd>신청 즉시</dd>
-								</dl>
-								<dl>
-									<dt>난이도</dt>
-									<dd>쉬움</dd>
-								</dl>
-								<dl>
-									<dt>준비물</dt>
-									<dd>없음</dd>
-								</dl>
-							</div>
-
-							<div class="class_view_text_2">
-								※ 해당 클래스 구매시 무한 스트리밍으로 평생 소장 가능합니다.<br> ※ 준비물이 포함된 가격입니다.<br>
-								※ 준비물이 있을 경우 이메일 전달 또는 기입하신 배송지로 배달됩니다.
-							</div>
-							<button type="button" class="primary-btn"
-								onclick="location.href='buy'">구매하기</button>
-							<button type="button" class="heart-btn" onclick="">찜하기</button>
-							<button type="button" class="list-btn"
-								onclick="location.href='list'">목록보기</button>
-
-							<c:if test="${loginok eq 'yes'}">
-								<c:choose>
-									<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-										<a class="heart"><i class="fa fa-heart" num="${dto.num}"></i></a>
-									</c:when>
-									<c:otherwise>
-										<a class="heart"><i class="fa fa-heart-o" num="${dto.num}"></i></a>
-									</c:otherwise>
-								</c:choose>
-							</c:if>
-
-							<c:if test="${loginok eq null}">
-								<a class="heart"><i class="fa fa-heart-o" id="${dto.num}"></i></a>
-							</c:if>
-
-							<span id="heart">${cdto.class_heart}</span>
+			<c:if test="${InterCount>=1}">
+				<div class="col-lg-6 col-md-6">
+					<div class="product__details__text">
+						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
+								src="${root}/img/pro2.jpg">달콩작가의 그림작업실<i
+								class="fa fa-angle-right"></i></span>
+						</a>
+						<h3>${dto.title}</h3>
+						<div class="product__details__rating">
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+								class="fa fa-star-half-o"></i> <span>(15개의 리뷰)</span>
 						</div>
+						<div class="product__details__price">${dto.classprice}</div>
+						<p>${dto.classinfo}</p>
+
+						<div class="class_view_text_1">
+							<dl>
+								<dt>수강시작일</dt>
+								<dd>신청 즉시</dd>
+							</dl>
+							<dl>
+								<dt>난이도</dt>
+								<dd>쉬움</dd>
+							</dl>
+							<dl>
+								<dt>준비물</dt>
+								<dd>없음</dd>
+							</dl>
+						</div>
+
+						<div class="class_view_text_2">
+							※ 해당 클래스 구매시 무한 스트리밍으로 평생 소장 가능합니다.<br> ※ 준비물이 포함된 가격입니다.<br>
+							※ 준비물이 있을 경우 이메일 전달 또는 기입하신 배송지로 배달됩니다.
+						</div>
+						<button type="button" class="primary-btn"
+							onclick="location.href='buy'">구매하기</button>
+						<button type="button" class="heart-btn" onclick="">찜하기</button>
+						<button type="button" class="list-btn"
+							onclick="location.href='list'">목록보기</button>
+
+						<c:if test="${loginok eq 'yes'}">
+							<c:choose>
+								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
+									<a class="heart"><i class="fa fa-heart" num="${dto.num}"></i></a>
+								</c:when>
+								<c:otherwise>
+									<a class="heart"><i class="fa fa-heart-o" num="${dto.num}"></i></a>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+
+						<c:if test="${loginok eq null}">
+							<a class="heart"><i class="fa fa-heart-o" id="${dto.num}"></i></a>
+						</c:if>
+
+						<span id="heart">${cdto.class_heart}</span>
 					</div>
-					<div class="col-lg-12">
-						<div class="product__details__tab">
-							<ul class="nav nav-tabs" role="tablist">
-								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#tabs-1" role="tab"
-									aria-selected="true">클래스 소개</a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tabs-2" role="tab" aria-selected="false">진행과정</a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tabs-3" role="tab" aria-selected="false">수강 후기<span>(1)</span></a>
-								</li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tabs-4" role="tab" aria-selected="false">환불정책</a></li>
-							</ul>
-							<div class="tab-content">
-								<div class="tab-pane active" id="tabs-1" role="tabpanel">
-									<div class="product__details__tab__desc">
-										<p>클래스 진행과정 내용출력(이미지+내용 전부 출력)</p>
-									</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="product__details__tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item"><a class="nav-link active"
+								data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">클래스
+									소개</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab"
+								href="#tabs-2" role="tab" aria-selected="false">진행과정</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab"
+								href="#tabs-3" role="tab" aria-selected="false">수강 후기<span>(1)</span></a>
+							</li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab"
+								href="#tabs-4" role="tab" aria-selected="false">환불정책</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tabs-1" role="tabpanel">
+								<div class="product__details__tab__desc">
+									<p>클래스 진행과정 내용출력(이미지+내용 전부 출력)</p>
 								</div>
-								<div class="tab-pane" id="tabs-2" role="tabpanel">
-									<div class="product__details__tab__desc">
-										<p>진행과정 영상 리스트 출력(폼 만들어야함)</p>
-									</div>
+							</div>
+							<div class="tab-pane" id="tabs-2" role="tabpanel">
+								<div class="product__details__tab__desc">
+									<p>진행과정 영상 리스트 출력(폼 만들어야함)</p>
 								</div>
-								<div class="tab-pane" id="tabs-3" role="tabpanel">
-									<div class="product__details__tab__desc">
-										<p>수강 후기 폼 작성(폼 만들어야함-작품(리뷰)와 동일한 폼!)</p>
-									</div>
+							</div>
+							<div class="tab-pane" id="tabs-3" role="tabpanel">
+								<div class="product__details__tab__desc">
+									<p>수강 후기 폼 작성(폼 만들어야함-작품(리뷰)와 동일한 폼!)</p>
 								</div>
-								<div class="tab-pane" id="tabs-4" role="tabpanel">
-									<div class="product__details__tab__desc">
-										<p>환불정책 내용출력 (이미지+내용 전부 출력)</p>
-									</div>
+							</div>
+							<div class="tab-pane" id="tabs-4" role="tabpanel">
+								<div class="product__details__tab__desc">
+									<p>환불정책 내용출력 (이미지+내용 전부 출력)</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					</c:if>
+				</div>
+			</c:if>
 
 
-<c:if test="${InterCount==0}">
-					<div class="col-lg-6 col-md-6">
-						<div class="product__details__text">
-							<a href="#"> <span><img src="${root}/img/pro2.jpg">달콩작가의
-									그림작업실<i class="fa fa-angle-right"></i></span>
-							</a>
-							<h3>바퀴달린집2 출연진이 배운, 달콩이의 아이패드 드로잉</h3>
-							<div class="count-box">
-								<b style="color: #ffa500">관심있어요 ??명</b>
-							</div>
-							<br>
-							<p>2021년의 수능 합격 기원을 위한 수제카라멜 선물세트로 공부하는 수험생들에게 힘을 주기 위한 선물세트
-								입니다. 건강에도 좋은 성분으로 만든 카라멜을 직접 만들어서 선물해보세요!!!</p>
-
-							<div class="class_view_text_1">
-								<dl>
-									<dt>수강시작일</dt>
-									<dd>미정</dd>
-								</dl>
-								<dl>
-									<dt>난이도</dt>
-									<dd>쉬움</dd>
-								</dl>
-								<dl>
-									<dt>준비물</dt>
-									<dd>없음</dd>
-								</dl>
-							</div>
-
-							<div class="class_view_text_2">
-								※ 150명의 관심이 모이면 제작이 진행됩니다.<br> ※ 관심 등록시, 진행과정 소식을 보내드려요.<br>
-							</div>
-
-							<c:if test="${loginok eq 'yes'}">
-								<c:choose>
-									<c:when test="${fn:contains(interTrue, sessionScope.id)}">
-										<button type="button" class="primary-btn-off" num="${dto.num}"
-											style="width: 100%;">관심없어요</button>
-									</c:when>
-									<c:otherwise>
-										<button type="button" class="primary-btn-on" num="${dto.num}"
-											style="width: 100%;">관심있어요</button>
-									</c:otherwise>
-								</c:choose>
-							</c:if>
-
-							<c:if test="${loginok eq null}">
-								<button type="button" class="primary-btn-on" onclick="#"
-									style="width: 100%;">관심있어요</button>
-							</c:if>
+			<c:if test="${InterCount==0}">
+				<div class="col-lg-6 col-md-6">
+					<div class="product__details__text">
+						<a href="#"> <span><img src="${root}/img/pro2.jpg">달콩작가의
+								그림작업실<i class="fa fa-angle-right"></i></span>
+						</a>
+						<h3>바퀴달린집2 출연진이 배운, 달콩이의 아이패드 드로잉</h3>
+						<div class="count-box">
+							<b style="color: #ffa500">관심있어요 ??명</b>
 						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="product__details__tab">
-							<ul class="nav nav-tabs" role="tablist">
-								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#tabs-1" role="tab"
-									aria-selected="true">클래스 소개</a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tabs-2" role="tab" aria-selected="false">댓글</a></li>
-							</ul>
+						<br>
+						<p>2021년의 수능 합격 기원을 위한 수제카라멜 선물세트로 공부하는 수험생들에게 힘을 주기 위한 선물세트
+							입니다. 건강에도 좋은 성분으로 만든 카라멜을 직접 만들어서 선물해보세요!!!</p>
+
+						<div class="class_view_text_1">
+							<dl>
+								<dt>수강시작일</dt>
+								<dd>미정</dd>
+							</dl>
+							<dl>
+								<dt>난이도</dt>
+								<dd>쉬움</dd>
+							</dl>
+							<dl>
+								<dt>준비물</dt>
+								<dd>없음</dd>
+							</dl>
 						</div>
+
+						<div class="class_view_text_2">
+							※ 150명의 관심이 모이면 제작이 진행됩니다.<br> ※ 관심 등록시, 진행과정 소식을 보내드려요.<br>
+						</div>
+
+						<c:if test="${loginok eq 'yes'}">
+							<c:choose>
+								<c:when test="${fn:contains(interTrue, sessionScope.id)}">
+									<button type="button" class="primary-btn-off" num="${dto.num}"
+										style="width: 100%;">관심없어요</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" class="primary-btn-on" num="${dto.num}"
+										style="width: 100%;">관심있어요</button>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+
+						<c:if test="${loginok eq null}">
+							<button type="button" class="primary-btn-on" onclick="#"
+								style="width: 100%;">관심있어요</button>
+						</c:if>
 					</div>
-					</c:if>
+				</div>
+				<div class="col-lg-12">
+					<div class="product__details__tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item"><a class="nav-link active"
+								data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">클래스
+									소개</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="tab"
+								href="#tabs-2" role="tab" aria-selected="false">댓글</a></li>
+						</ul>
+					</div>
+				</div>
+			</c:if>
 
 
 		</div>

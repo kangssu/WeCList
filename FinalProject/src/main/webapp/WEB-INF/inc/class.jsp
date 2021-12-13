@@ -124,7 +124,7 @@
 
 <!-- Banner Begin -->
 <div class="banner">
-	<div class="set-bg main_banner_1" data-setbg="img/hero/banner.png">
+	<div class="set-bg main_banner_1" data-setbg="img/classbanner.png">
 	</div>
 </div>
 <!-- Banner End -->
