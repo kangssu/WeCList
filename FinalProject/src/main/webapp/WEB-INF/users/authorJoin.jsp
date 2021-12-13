@@ -37,63 +37,37 @@ $(function(){
 		
 		var i = $("#id").val();
 		
-		if($("#id").val().length == 0) {
-			alert("아이디를 입력해주세요");
-	        return false;
-	    } 
-		
 		// 아이디 유효성 검사
 		var pattern1 = /[a-zA-Z]/;
 	    var pattern2 = /[0-9]/;
 	    var pattern3 = /[`~!@#$%^&*()/?-_=+]/;
 		
 	    if(!pattern1.test(i) || i.length<6  || pattern3.test(i) || !pattern1.test(i) && !pattern2.test(i) && i.length<6) {
-	    	alert("아이디는 영문 또는 영문+숫자 조합으로 6자리 이상 입력해주세요.");
+	    	$("#id-val-text").html("<font color='red'>6자 이상의 영문 또는 영문과 숫자를 조합</font>");
 	    	return false;
 	    } else {
-	    	alert("아이디 중복확인을 진행해주세요.");
+	    	$("#id-val-text").html("<font color='green'>6자 이상의 영문 또는 영문과 숫자를 조합</font>");
 	    }
-	    
-	});
-	
-	
-	// 아이디 중복확인
-	$("#idCheck").click(function(){
-		//alert("아이디 중복확인");
-		var id = $("#id").val();
-		
+
 		$.ajax({
             type:"get",
             dataType:"json",
-            data:{"id":id},
+            data:{"id":i},
             url:"/users/idcheck",
             success:function(data){
                if(data.check!=0){
-            	  alert("이미 등록된 아이디입니다.");
-                  $("#id").val("");
-                  //$("#id").focus();
+            	  $("#id-compare-text").html(": <font color='red'>중복된 아이디입니다.</font>");
+            	  return false;
                }else{
-            	  alert("사용가능한 아이디 입니다!");
+            	   $("#id-compare-text").html(": <font color='green'>사용 가능한 아이디입니다.</font>");
                }
             }
-         });
+         }); 
 	});
+
 	
 	// 닉네임 확인요청
 	$("#nickname").blur(function(){
-
-		if($("#nickname").val().length == 0) {
-			alert("닉네임을 입력해주세요");
-	        return false;
-	    } 
-		
-		alert("닉네임 중복확인을 진행해주세요.");
-	    
-	});
-	
-	// 닉네임 중복확인
-	$("#nickCheck").click(function(){
-		//alert("닉네임 중복확인");
 		var nickname = $("#nickname").val();
 		
 		$.ajax({
@@ -103,13 +77,13 @@ $(function(){
             url:"/users/nickcheck",
             success:function(data){
                if(data.nickCheck!=0){
-            	  alert("이미 사용중인 닉네임입니다.");
-                  $("#nickname").val("");
+            	  $("#nick-compare-text").html(": <font color='red'>중복된 닉네임입니다.</font>");
+                  return false;
                }else{
-            	  alert("사용가능한 닉네임입니다!");
+            	  $("#nick-compare-text").html(": <font color='green'>사용 가능한 닉네임입니다.</font>");
                }
             }
-         });
+         });    
 	});
 	
 	
@@ -124,9 +98,10 @@ $(function(){
 	    }
 
 		if(pw1.indexOf($("#id").val()) > -1) {
-            alert("비밀번호는 ID를 포함할 수 없습니다.");
-            $("#pass1").val('');
+			$("#pass-ck1-text").html(": <font color='red'>포함</font>");
             return false;
+        } else {
+        	$("#pass-ck1-text").html(": <font color='green'>미포함</font>");
         }
 		
 		var pattern1 = /[a-zA-Z]/;
@@ -134,14 +109,13 @@ $(function(){
 	    var pattern3 = /[~!@#$%^&*()?]/;
 		
 	    if(!pattern1.test(pw1) || !pattern2.test(pw1) || !pattern3.test(pw1) || pw1.length<8) {
-	    	alert("비밀번호는 영문+숫자+특수문자 조합으로 8자리 이상 입력해주세요.");
-	    	$("#pass1").val('');
+	    	$("#pass-ck2-text").html(": <font color='red'>X</font>");
 	    	return false;
-	    }
+	    } else {
+        	$("#pass-ck2-text").html(": <font color='green'>O</font>");
+        }
 	    
 	    var SamePass_0 = 0; //동일문자 카운트
-	    var SamePass_1 = 0; //연속성(+) 카운드
-	    var SamePass_2 = 0; //연속성(-) 카운드
 
 	    for(var i=0; i < pw1.length; i++) {
             var chr_pass_0;
@@ -160,36 +134,14 @@ $(function(){
                 } else {
                 	SamePass_0 = 0; // 동일문자 0 
                 }
-
-                //연속성(+) 카운트
-                if(chr_pass_0 - chr_pass_1 == 1 && chr_pass_1 - chr_pass_2 == 1) {
-               		// 오름차순 연속성: 현재글자와 이전 글자의 차이가 1일때(연속된 글자이면 코드값 1 차이 나니까)
-                    SamePass_1++; // 연속성 1
-                } else {
-                	SamePass_1 = 0; // 연속성 0
-                }
-
-                //연속성(-) 카운트
-                if(chr_pass_0 - chr_pass_1 == -1 && chr_pass_1 - chr_pass_2 == -1) {
-               	// 내림차순 연속성: 현재글자와 이전 글자의 차이가 -1일때(연속된 글자이면 코드값 1 차이 나니까)
-                    SamePass_2++; // 연속성 1 
-                } else {
-                	SamePass_2 = 0; // 연속성 0
-                }  
-
            }     
 
            if(SamePass_0 > 0) { // 동일문자 카운트 1일 때
-              alert("동일문자를 3자 이상 연속 입력할 수 없습니다.");
-              $("#pass1").val('');
+        	  $("#pass-ck3-text").html(": <font color='red'>O</font>");
               pw_passed=false; // 유효성검사 false
+           } else {
+           	  $("#pass-ck3-text").html(": <font color='green'>X</font>");
            }
-
-           if(SamePass_1 > 0 || SamePass_2 > 0 ) { // 오름차순 또는 내림차순 연속성 0일 때
-        	  alert("영문, 숫자는 순서대로 입력할 수 없습니다. 예: 123 또는 abc (허용X)");
-        	  $("#pass1").val('');
-              pw_passed=false; // 유효성검사 false
-           } 
 
            if(!pw_passed) { // 유효성검사 false이면 넘어가지 않음            
                  return false;
@@ -201,78 +153,59 @@ $(function(){
 	
 	// 비밀번호 확인 요청
 	$("#pass2").blur(function(){
-		if($("#pass2").val().length > 0) {
-			alert("비밀번호 확인을 진행해주세요.");	
+		if($("#pass1").val() != $("#pass2").val()) {
+			$("#pass-compare-text").html(": <font color='red'>X</font>");
+			return false;
+		} else {
+			$("#pass-compare-text").html(": <font color='green'>O</font>");
 		}
 	});
 	
-	// 비밀번호 확인
-	$("#passCheck").click(function(){
-
-		if($("#pass1").val() != $("#pass2").val()) {
-			 alert("비밀번호가 일치하지 않습니다.");
-	    	 $("#pass2").val('');
-	         $("#pass2").focus();
-		} else {
-			alert("비밀번호가 일치합니다.");
-		}
-	});
 	
 	
 	// 핸드폰번호 숫자만 입력, '-' 입력받지 않음
-	$("#hp").keyup(function(){
+	$("#hp").blur(function(){
+		var hp_pattern =  /^\d{3}\d{3,4}\d{4}$/;
+		// /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 		var h = $("#hp").val();
-		var h2;
-		if(h.match("-")) {
-			//h2 = h.replace("-", "");
-			alert("숫자로만 입력해주세요.");
-			//h = h2;
+
+		if(!hp_pattern.test(h)) {
+			$("#hp-ck-text").html(": <font color='red'>X</font>");
 	        return false;
+	    } else {
+	    	$("#hp-ck-text").html(": <font color='green'>O</font>");
 	    }
 	});
 	
 	
 	// 이메일 유효성 검사
 	$("#email").blur(function(){
-		var pattern1 = /[a-zA-Z]/;
-	    var pattern2 = /[@]/;
-	    var pattern3 = /[.]/;
+	    var pattern1 = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	    var e = $("#email").val();
-	    
 
-		if($("#email").val().length == 0) {
-			alert("이메일 주소를 입력해주세요.");	
-		} 
-		
-	    if(!pattern1.test(e) || !pattern2.test(e) || !pattern3.test(e) || e.length<8) {
-	    	alert("이메일 형식으로 입력해주세요.");
+	    if(!pattern1.test(e) || e.length==0) {
+	    	$("#email-ck-text").html(": <font color='red'>X</font>");
 	    	return false;
 	    } else {
-	    	alert("이메일 중복확인을 진행해주세요.");
+	    	$("#email-ck-text").html(": <font color='green'>O</font>");
 	    }
-	});
-	
-	
-	// 이메일 중복확인
-	$("#emailCheck").click(function(){
-		//alert("이메일 중복확인");
-		var email = $("#email").val();
-		
-		$.ajax({
+	    
+	    $.ajax({
             type:"get",
             dataType:"json",
-            data:{"email":email},
+            data:{"email":e},
             url:"/users/emailcheck",
             success:function(data){
                if(data.emailCheck!=0){
-            	  alert("이미 사용중인 이메일입니다.");
-                  $("#email").val("");
+            	  $("#email-compare-text").html(": <font color='red'>중복된 이메일입니다.</font>");
+            	  return false;
                }else{
-            	  alert("사용가능한 이메일입니다!");
+            	  $("#email-compare-text").html(": <font color='green'>사용 가능한 이메일입니다.</font>");
                }
             }
          });
 	});
+
 	
 	// 인증메일 전송 버튼
 	$("#sendMail").click(function() {
@@ -293,10 +226,10 @@ $(function(){
 		isCertification=true; //추후 인증 여부를 알기위한 값
 		$("#compare").on("propertychange change keyup paste input", function() {
 			if ($("#compare").val() == key) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
-				$("#compare-text").html("<font color='green'>인증코드가 일치합니다.</font>");
+				$("#i-compare-text").html(": <font color='green'>일치</font>");
 				isCertification = true;  //인증 성공여부 check
 			} else {
-				$("#compare-text").html("<font color='red'>인증코드가 일치하지 않습니다.</font>");
+				$("#i-compare-text").html(": <font color='red'>불일치</font>");
 				isCertification = false; //인증 실패
 			}
 		});
@@ -355,10 +288,6 @@ function check(f) {
 		alert("만 14세 이상만 가입하실 수 있습니다.");
 		return false;
 	}
-	if(f.profilename.value == "") {
-		alert("작가 프로필 사진을 등록해주세요.");
-		return false;
-	}
 	if(isCertification==false){
 		alert("메일 인증이 완료되지 않았습니다.");
 		return false;
@@ -398,39 +327,42 @@ function check(f) {
 							<input type="hidden" name="category" id="category" value="2">
 							<input type="text" name="id" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" 
 							 class="checkout__input__add" required="required">
-							<button type="button" id="idCheck" class="addr-btn_rev" onclick="">중복확인</button><br>
 							<p id="id_check">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">6자 이상의 영문 또는 영문과 숫자를 조합</span><br>
+								<span style="font-size:13px; color:#6f6f6f" id="id-val-text">6자 이상의 영문 또는 영문과 숫자를 조합</span><br>
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">아이디 중복확인</span>
+								<span style="font-size:13px; color:#6f6f6f">아이디 중복 여부 </span>
+								<span style="font-size:13px; color:#6f6f6f" id="id-compare-text"></span>
 							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>비밀번호</td>
 						<td>
-							<input type="password" name="pass1" id="pass1" placeholder="비밀번호를 입력해주세요." 
-							 class="checkout__input__add" required="required">
+							<input type="password" name="pass1" id="pass1" required="required"
+							 placeholder="비밀번호를 입력해주세요." class="checkout__input__add" required="required">
 							<p id="pw_check1">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">8자 이상 입력</span><br>
+								<span style="font-size:13px; color:#6f6f6f">비밀번호에 아이디 포함 여부</span>
+								<span style="font-size:13px; color:#6f6f6f" id="pass-ck1-text"></span><br>
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">영문+숫자+특수문자(공백 제외) 조합</span><br>
+								<span style="font-size:13px; color:#6f6f6f">영문+숫자+특수문자(공백 제외) 조합으로 8자 이상 입력</span>
+								<span style="font-size:13px; color:#6f6f6f" id="pass-ck2-text"></span><br>
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">동일한 숫자 3개 이상 연속 사용 불가</span>
+								<span style="font-size:13px; color:#6f6f6f">동일한 숫자 3번 연속입력(불가능) 여부</span>
+								<span style="font-size:13px; color:#6f6f6f" id="pass-ck3-text"></span>
 							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>비밀번호 확인</td>
 						<td>
-							<input type="password" name="pass2" id="pass2" placeholder="비밀번호를 한번 더 입력해주세요." 
-							 class="checkout__input__add" required="required">
-							<button type="button" id="passCheck" class="addr-btn_rev" onclick="pw_check()">일치확인</button><br>
+							<input type="password" name="pass2" id="pass2" required="required"
+							 placeholder="비밀번호를 한번 더 입력해주세요." class="checkout__input__add">
 							<p id="pw_check2">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">동일한 비밀번호를 입력해주세요.</span><br>
+								<span style="font-size:13px; color:#6f6f6f">비밀번호 일치 여부</span>
+								<span style="font-size:13px; color:#6f6f6f" id="pass-compare-text"></span>
 							</p>
 						</td>
 					</tr>
@@ -446,36 +378,50 @@ function check(f) {
 						<td>
 							<input type="text" name="nickname" id="nickname" placeholder="사용할 닉네임을 입력해주세요." 
 							 class="checkout__input__add" required="required">
-							<button type="button" id="nickCheck" class="addr-btn_rev" onclick="">중복확인</button>
+							<p id="nick_check">
+								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
+								<span style="font-size:13px; color:#6f6f6f">닉네임 중복 여부 </span>
+								<span style="font-size:13px; color:#6f6f6f" id="nick-compare-text"></span>
+							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>이메일</td>
 						<td>
-							<input type="text" name="email" id="email" placeholder="본인 이메일을 작성해주세요. 예: weclist@weclist.com" 
-							 class="checkout__input__add" required="required">
-							<button type="button" id="emailCheck" class="addr-btn_rev" onclick="">중복확인</button>
+							<input type="text" name="email" id="email" required="required"
+							 placeholder="본인 이메일을 작성해주세요. 예: weclist@weclist.com" class="checkout__input__add">
+							<p id="email_check">
+								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
+								<span style="font-size:13px; color:#6f6f6f">이메일 형식 여부 </span>
+								<span style="font-size:13px; color:#6f6f6f" id="email-ck-text"></span><br>
+								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
+								<span style="font-size:13px; color:#6f6f6f">이메일 중복 여부 </span>
+								<span style="font-size:13px; color:#6f6f6f" id="email-compare-text"></span>
+							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>이메일 인증</td>
 						<td>
 							<input type="text" class="txtfriends2" id="compare" placeholder="인증메일전송 버튼을 누르시고 전송된 인증번호를 입력해주세요.">
-							<button type="button" class="addr-btn_rev" id="sendMail" style="font-size: 15px">인증메일전송</button>
-							<br>
-						</td>
-					</tr>
-					<tr class="checkout__input">
-						<td></td>
-						<td>
-							<b id="compare-text" class="msg">&nbsp;</b>
+							<button type="button" class="addr-btn" id="sendMail" style="font-size: 15px; margin:10px">인증메일전송</button><br>
+							<p id="email_compare">
+								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
+								<span style="font-size:13px; color:#6f6f6f">인증문구 일치 여부</span>
+								<span style="font-size:13px; color:#6f6f6f" id="i-compare-text"></span>
+							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">
 						<td><span style="color:red">※</span>휴대폰</td>
 						<td>
-							<input type="text" name="hp" id="hp" placeholder="숫자만 입력해주세요." 
-							 class="checkout__input__add" required="required">
+							<input type="text" name="hp" id="hp" required="required"
+							 placeholder="본인 휴대폰 번호를 작성해주세요. 예: 01012345678" class="checkout__input__add">
+							 <p id="hp_check">
+								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
+								<span style="font-size:13px; color:#6f6f6f">숫자로만 휴대폰번호 10자리 또는 11자리 입력 </span>
+								<span style="font-size:13px; color:#6f6f6f" id="hp-ck-text"></span><br>
+							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">
@@ -483,7 +429,7 @@ function check(f) {
 						<td>
 							<input type="text" name="addr1" id="addr1" placeholder="택배를 받을 주소를 입력해주세요." 
 							 class="checkout__input__add" required="required">
-							<button type="button" name="addrSearch" id="addrSearch" class="addr-btn_rev" onclick="">주소찾기</button>
+							<button type="button" name="addrSearch" id="addrSearch" class="addr-btn" onclick="">주소찾기</button>
 						</td>
 					</tr>
 					<tr class="checkout__input">
@@ -500,7 +446,7 @@ function check(f) {
 							 class="checkout__input__add" value="">
 							<input type="file" name="file" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value">
-							<button type="button" class="addr-btn_rev" onclick="jQuery('#profileimg').click()">사진선택</button>
+							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>
 						</td>
 					</tr>
 				</table>

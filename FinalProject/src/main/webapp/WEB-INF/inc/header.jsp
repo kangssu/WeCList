@@ -66,7 +66,7 @@ $(document).ready(function (){
 					</c:if>
 					<c:if test="${sessionScope.loginok==null }">
 						<a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
-						<a href="/users/join">회원가입</a><span class="header_login_1">|</span>
+						<a href="${root}/users/join">회원가입</a><span class="header_login_1">|</span>
 					</c:if>
 					<a href="/customer/notice">고객센터</a>
 				</div>
@@ -108,13 +108,13 @@ $(document).ready(function (){
 							<c:when test="${sessionScope.loginok!=null}">
 								<c:choose>
 									<c:when test="${sessionScope.category == 2}">
-										<a href="/mypage/shop/list" class="login_check">
+										<a href="${root}/mypage/shop/list" class="login_check">
 											<i class="fa fa-user" aria-hidden="true"></i>
 											<p>마이페이지</p>
 										</a>
 									</c:when>
 									<c:otherwise>
-										<a href="/mypage/order/list" class="login_check">
+										<a href="${root}/mypage/order/list" class="login_check">
 											<i class="fa fa-user" aria-hidden="true"></i>
 											<p>마이페이지</p>
 										</a>

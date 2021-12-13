@@ -34,12 +34,15 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="filter__item" style="margin-left: 300px;">
-		<div class="cate">
-			<b>Category>세부>세부</b>
+	
+	<div class="filter__item">
+		<div class="row">
+			<div class="filter__found">
+				<h6> <span class="shop_option_category">${class_op_cate}</span> 작품</h6>
+			</div>
 		</div>
 	</div>
+	
 	<div class="row" style="margin-left: 250px;">
 		<c:forEach var="idto" items="${inter}">
 			<c:forEach var="cdto" items="${listcate}">
