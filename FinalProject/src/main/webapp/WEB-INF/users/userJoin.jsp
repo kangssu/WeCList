@@ -116,17 +116,17 @@ $(function(){
 	    var SamePass_0 = 0; //동일문자 카운트
 
 	    for(var i=0; i < pw1.length; i++) {
-            //var chr_pass_0;
+            var chr_pass_0;
             var chr_pass_1;
             var chr_pass_2;
 
             if(i >= 2) {
-                //chr_pass_0 = pw1.charCodeAt(i-2); // 현재 글자 앞 두자리
+                chr_pass_0 = pw1.charCodeAt(i-2); // 현재 글자 앞 두자리
                 chr_pass_1 = pw1.charCodeAt(i-1); // 현재 글자 바로 앞자리
                 chr_pass_2 = pw1.charCodeAt(i); // 현재 글자
 
                  //동일문자 카운트
-                if((chr_pass_1 == chr_pass_2)) {
+                if((chr_pass_0 == chr_pass_1) && (chr_pass_1 == chr_pass_2)) {
                		// 현재글자와 앞글자가 같은 경우 - 두번 반복될 경우
                		SamePass_0++; // 동일문자 1
                 } else {
@@ -347,7 +347,7 @@ function check(f) {
 								<span style="font-size:13px; color:#6f6f6f">영문+숫자+특수문자(공백 제외) 조합으로 8자 이상 입력</span>
 								<span style="font-size:13px; color:#6f6f6f" id="pass-ck2-text"></span><br>
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f">동일한 숫자 연속입력(불가능) 여부</span>
+								<span style="font-size:13px; color:#6f6f6f">동일한 숫자 3번 연속입력(불가능) 여부</span>
 								<span style="font-size:13px; color:#6f6f6f" id="pass-ck3-text"></span>
 							</p>
 						</td>
@@ -441,7 +441,7 @@ function check(f) {
 						<td>프로필 사진</td>
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
-							 class="checkout__input__add" value="">
+							 class="checkout__input__add">
 							<input type="file" name="file" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value">
 							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>

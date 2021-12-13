@@ -12,6 +12,7 @@ import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.ShopBoardDto;
 import data.dto.StoryDto;
+import data.dto.UserDto;
 import data.mapper.MainMapper;
 import data.mapper.ShopBoardMapper;
 import data.mapper.UserMapper;
@@ -40,9 +41,12 @@ public class MainController {
   public ModelAndView mainlist(@RequestParam(defaultValue = "1") int currentPage,
       HttpSession session, Model model) {
     String id = (String) session.getAttribute("id"); // 세션값 얻어오기
+    
     String nickname = umapper.getNickName(id);
-    // System.out.println(nickname);
     model.addAttribute("nickname", nickname);
+    
+    String profileimg = umapper.getImg(id);
+    model.addAttribute("profileimg", profileimg);
 
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> listpopul = shmapper.getPopular();
