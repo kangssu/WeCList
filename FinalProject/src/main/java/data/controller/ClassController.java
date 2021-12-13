@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import data.dto.AuthorDto;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.HeartDto;
 import data.dto.InterDto;
+import data.dto.ShopHeartDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
 
@@ -30,31 +30,90 @@ public class ClassController {
 
 	@Autowired
 	ClassBoardService service;
-	
+
 	@Autowired
 	ClassBoardMapper mapper;
 
 	@GetMapping("/class/list")
-	public ModelAndView getAlllist()
+	public ModelAndView getAlllist(@RequestParam(defaultValue = "1") int currentPage)
 	{
 		ModelAndView mview=new ModelAndView();
+
+		int perPage = 4;
+		int totalCount = service.getTotalCount();
+		int totalPage;
+		int IdPage;
+		int start;
+		int perBlock = 5;
+		int startPage;
+		int endPage;
+
+		totalCount = service.getTotalCount();
+
+		totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+
+		startPage = (currentPage - 1) / perBlock * perBlock + 1;
+
+		endPage = startPage + perBlock - 1;
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		start = (currentPage - 1) * perPage;
+
 		List<ClassBoardDto> list=mapper.getAlllist();
-		
+		List<InterDto> inter=mapper.getInter();
+
+		int no = totalCount - (currentPage - 1) * perPage;
+		mview.addObject("totalCount", totalCount);
+		mview.addObject("startPage", startPage);
+		mview.addObject("endPage", endPage);
+		mview.addObject("totalPage", totalPage);
+		mview.addObject("no", no);
+		mview.addObject("currentPage", currentPage); 
 		mview.addObject("list", list);
-		//mview.setViewName("shoplist");
+		mview.addObject("inter", inter);
 		mview.setViewName("/2/class/class_list");
 		return mview;
 	}
-	
+
 	@GetMapping("/class/category")
-	public ModelAndView getCategory(@RequestParam (value="class_op_cate" , required = false) String class_op_cate)
+	public ModelAndView getCategory(@RequestParam (value="class_op_cate" , required = false) String class_op_cate,
+			@RequestParam(defaultValue = "1") int currentPage,
+			@RequestParam(required = false) String key)
 	{
 		ModelAndView mview=new ModelAndView();
-		List<ClassBoardDto> listcate=mapper.getCategory(class_op_cate);
-		
-		mview.addObject("listcate", listcate);
-		//mview.setViewName("shoplist");
-		mview.setViewName("/2/class/class_category");//tiles 는 /폴더명/파일명 구조이다
+		int perPage = 4;
+		int totalCount = service.getCaCount(class_op_cate);
+		int totalPage;
+		int start;
+		int perBlock = 5;
+		int startPage;
+		int endPage;
+		totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+		startPage = (currentPage - 1) / perBlock * perBlock + 1;
+		endPage = startPage + perBlock - 1;
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		start = (currentPage - 1) * perPage;
+		int no = totalCount - (currentPage - 1) * perPage;
+
+		List<InterDto> inter=mapper.getInter();
+		List<ClassBoardDto> listcate=service.getCategory(class_op_cate,start, perPage);
+
+		mview.addObject("listcate", listcate);        
+		mview.addObject("totalCount", totalCount);
+		mview.addObject("startPage", startPage);
+		mview.addObject("endPage", endPage);
+		mview.addObject("totalPage", totalPage);
+		mview.addObject("no", no);
+
+		mview.addObject("class_op_cate", class_op_cate);
+		mview.addObject("currentPage", currentPage);
+		mview.addObject("inter", inter);
+		mview.setViewName("/class/class_category");
 		return mview;
 	}
 
@@ -62,15 +121,17 @@ public class ClassController {
 	public ModelAndView view(@RequestParam String num, HttpSession session)
 	{
 		ModelAndView mview=new ModelAndView();
-		
+
 		String userid = (String)session.getAttribute("id");
-		
+		String InterCount = service.getInterCount(num);
+		System.out.println(InterCount);
+
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
 
 		List<HeartDto> heartTrue= service.getTrue(num);
 		List<InterDto> interTrue= service.getTrueInter(num);
- 	
+
 		int dotLoc=dto.getUploadfile().lastIndexOf(".");
 		String ext=dto.getUploadfile().substring(dotLoc+1);
 
@@ -84,20 +145,23 @@ public class ClassController {
 		mview.addObject("dto", dto);
 		mview.addObject("heartTrue",heartTrue);
 		mview.addObject("interTrue",interTrue);
-		
+		mview.addObject("InterCount",InterCount);
+
 		mview.setViewName("/2/class/class_view");
 		return mview;
 	}
-	
+
 	@GetMapping("/class/news")
 	public ModelAndView getAllnewlist()
 	{
 		ModelAndView mview=new ModelAndView();
-		List<ClassNewBoardDto> listnews=mapper.getAllnewlist();
-		List<ClassNewBoardDto> listseven=mapper.getSevendays();
+		List<ClassBoardDto> list=mapper.getAlllist();
+		List<ClassBoardDto> listseven=mapper.getSevendays();
+		List<InterDto> inter=mapper.getInter();
 		
-		mview.addObject("listnews", listnews);
+		mview.addObject("list", list);
 		mview.addObject("listseven", listseven);
+		mview.addObject("inter", inter);
 		//mview.addObject("listnewsunder", listnewsunder);
 		mview.setViewName("/2/class/class_news");//tiles 는 /폴더명/파일명 구조이다
 		return mview;
@@ -109,32 +173,24 @@ public class ClassController {
 		ModelAndView mview=new ModelAndView();
 		List<HeartDto> HotClass = mapper.getHotClass();
 		List<ClassBoardDto> listpopul=mapper.getPopular();
-		
+		List<InterDto> inter=mapper.getInter();
+
 		mview.addObject("HotClass", HotClass);
 		mview.addObject("listpopul", listpopul);
+		mview.addObject("inter", inter);
 		mview.setViewName("/2/class/class_popular");
-		
+
 		return mview;
 	}
 
-//	@GetMapping("/class/news")
-//	public String news() {
-//		return "/2/class/class_news";
-//	}
+	//	@GetMapping("/class/news")
+	//	public String news() {
+	//		return "/2/class/class_news";
+	//	}
 
-	@GetMapping("/class/addnewform")
-	public String addnewform() {
-		return "/2/class/class_addnewform";
-	}
-	
 	@GetMapping("/class/addform")
 	public String addform() {
 		return "/2/class/m_class_write_form";
-	}
-
-	@GetMapping("/class/view_news")
-	public String view_news() {
-		return "/2/class/class_view_news";
 	}
 
 	@PostMapping("/class/insert")
@@ -157,7 +213,7 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-		
+
 		if(cdto.getUpload1().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
@@ -171,7 +227,7 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-		
+
 		if(cdto.getUpload2().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
@@ -185,7 +241,7 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-		
+
 		if(cdto.getUpload3().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
@@ -199,7 +255,7 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-		
+
 		if(cdto.getUpload4().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
@@ -213,7 +269,7 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-		
+
 		if(cdto.getUpload5().getOriginalFilename().equals("")) {
 			cdto.setUploadfile("no");
 		}else {
@@ -227,14 +283,14 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-	
+
 		String myid = (String) session.getAttribute("myid");
 		cdto.setMyid(myid);
 
 		service.insertBoard(cdto);
 		return "redirect:/class/addform";
 	}
-	
+
 	@PostMapping("/class/insertnew")
 	public String insertnew(@ModelAttribute ClassNewBoardDto cndto, HttpSession session) {
 
@@ -255,14 +311,14 @@ public class ClassController {
 				e.printStackTrace();
 			}
 		}
-	
+
 		String myid = (String) session.getAttribute("myid");
 		cndto.setMyid(myid);
 
 		service.insertNewBoard(cndto);
 		return "redirect:/class/addnewform";
 	}
-	
+
 }
 
 

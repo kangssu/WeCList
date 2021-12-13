@@ -3,9 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
-<fmt:formatDate var="date" value="${now}" pattern="yyyy-MM-dd"/>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
@@ -36,24 +35,26 @@
 		</div>
 		<div class="row">
 			<div class="categories__slider owl-carousel">
-				<c:forEach var="cndto" items="${listnews}">
-					<c:if test="${cndto.classheart>=150}">
-						<div style="float: left;">
-							<div class="product__item">
-								<a href="${root}/class/view_news?num=${cndto.num}">
-									<div class="product__item__pic set-bg">
-										<img src="../photo/${cndto.uploadfile}"
-											style="width: 300px; height: 300px;">
-									</div>
-									<div class="product__item__text">
-										<h6>${cndto.title}</h6>
-										<h6>${cndto.class_op_cate}</h6>
-										<h5>${cndto.classprice}원</h5>
-									</div>
-								</a>
+				<c:forEach var="idto" items="${inter}">
+					<c:forEach var="cdto" items="${list}">
+						<c:if test="${idto.inter_cnt>=1 and idto.num==cdto.num}">
+							<div style="float: left;">
+								<div class="product__item">
+									<a href="${root}/class/view?num=${cdto.num}">
+										<div class="product__item__pic set-bg">
+											<img src="../photo/${cdto.uploadfile}"
+												style="width: 300px; height: 300px;">
+										</div>
+										<div class="product__item__text">
+											<h6>${cdto.title}</h6>
+											<h6>${cdto.class_op_cate}</h6>
+											<h5>${cdto.classprice}원</h5>
+										</div>
+									</a>
+								</div>
 							</div>
-						</div>
-					</c:if>
+						</c:if>
+					</c:forEach>
 				</c:forEach>
 
 			</div>
@@ -76,23 +77,25 @@
 		</div>
 		<div class="row">
 			<div class="categories__slider owl-carousel">
+			<c:forEach var="idto" items="${inter}">
 				<c:forEach var="cdto" items="${listseven}">
-						<div style="float: left;">
-							<div class="product__item">
-								<a href="${root}/class/view_news?num=${cdto.num}">
-									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
-											style="width: 300px; height: 300px;">
-									</div>
-									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
-										<h6>${cdto.class_op_cate}</h6>
-										<h5>${cdto.classprice}원</h5>
-									</div>
-								</a>
-							</div>
+					<div style="float: left;">
+						<div class="product__item">
+							<a href="${root}/class/view_news?num=${cdto.num}">
+								<div class="product__item__pic set-bg">
+									<img src="../photo/${cdto.uploadfile}"
+										style="width: 300px; height: 300px;">
+								</div>
+								<div class="product__item__text">
+									<h6>${cdto.title}</h6>
+									<h6>${cdto.class_op_cate}</h6>
+									<h5>${cdto.classprice}원</h5>
+								</div>
+							</a>
 						</div>
+					</div>
 				</c:forEach>
+			</c:forEach>
 
 			</div>
 		</div>
@@ -115,26 +118,27 @@
 		</div>
 		<div class="row">
 			<div class="categories__slider owl-carousel">
-				<c:forEach var="cndto" items="${listnews}">
-					<c:if test="${cndto.classheart<150}">
-						<div style="float: left;">
-							<div class="product__item">
-								<a href="${root}/class/view_news?num=${cndto.num}">
-									<div class="product__item__pic set-bg">
-										<img src="../photo/${cndto.uploadfile}"
-											style="width: 300px; height: 300px;">
-									</div>
-									<div class="product__item__text">
-										<h6>${cndto.title}</h6>
-										<h6>${cndto.class_op_cate}</h6>
-										<h5>${cndto.classprice}원</h5>
-									</div>
-								</a>
+				<c:forEach var="idto" items="${inter}">
+					<c:forEach var="cdto" items="${list}">
+						<c:if test="${idto.inter_cnt<5 and idto.num==cdto.num}">
+							<div style="float: left;">
+								<div class="product__item">
+									<a href="${root}/class/view?num=${cdto.num}">
+										<div class="product__item__pic set-bg">
+											<img src="../photo/${cdto.uploadfile}"
+												style="width: 300px; height: 300px;">
+										</div>
+										<div class="product__item__text">
+											<h6>${cdto.title}</h6>
+											<h6>${cdto.class_op_cate}</h6>
+											<h5>${cdto.classprice}원</h5>
+										</div>
+									</a>
+								</div>
 							</div>
-						</div>
-					</c:if>
+						</c:if>
+					</c:forEach>
 				</c:forEach>
-
 			</div>
 		</div>
 

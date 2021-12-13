@@ -168,7 +168,7 @@ public class AuthorClassController {
 			}
 		}
 	
-		String myid = (String) session.getAttribute("myid");
+		String myid = (String) session.getAttribute("id");
 		cdto.setMyid(myid);
 
 		service.insertBoard(cdto);
