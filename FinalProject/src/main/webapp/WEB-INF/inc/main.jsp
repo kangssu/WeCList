@@ -61,16 +61,16 @@
 			<div class="col-lg-9 col-md-7">
 				<div class="col-lg-12 section-title_top">
 					<div class="section-title">
-						<h2>TOP 15 인기 작품</h2>
+						<h2>TOP 12 인기 작품</h2>
 						<span class="fa fa-angle-right"></span>
 					</div>
 				</div>
 
 				<div class="row">
-					<c:forEach var="a" items="${listpopul}" varStatus="status" begin="0" end="14">
+					<c:forEach var="a" items="${listpopul}" varStatus="status" begin="0" end="11">
 						<div class="col-lg-4 col-md-6 col-sm-6 shop_box_all">
 							<div class="featured__item">
-								<a href="/shop/	content?num=${a.num}">
+								<a href="/shop/	content?num=${a.num}" class="shop_test_test">
 									<div class="featured__item__pic set-bg">
 										<img src="../photo/${a.uploadfile1}" alt=""> 
 										<span class="shop_r	ank_number_${status.count}">${status.count}</span>
@@ -111,7 +111,7 @@
 				</div>
 				<div class="row">
 
-					<c:forEach var="a" items="${list}">
+					<c:forEach var="a" items="${list}" begin="0" end="7">
 						<div class="col-lg-4 col-md-6 col-sm-6">
 
 							<div class="featured__item">
