@@ -39,38 +39,34 @@ public class MainController {
   @GetMapping("/")
   public ModelAndView mainlist(@RequestParam(defaultValue = "1") int currentPage,
       HttpSession session, Model model) {
-    String id = (String) session.getAttribute("id"); // ì„¸ì…˜ê°’ ì–»ì–´ì˜¤ê¸°
+    String id = (String) session.getAttribute("id");
     String nickname = umapper.getNickName(id);
-    // System.out.println(nickname);
     model.addAttribute("nickname", nickname);
 
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> listpopul = shmapper.getPopular();
-    int perPage = 15;// í•œí˜ì´ì§€ì— ë³´ì—¬ì§ˆ ê¸€ì˜ ê°¯ìˆ˜
+    int perPage = 15;
     int totalCount = shservice.getTotalCount();
 
-    int totalPage;// ì´í˜ì´ì§€
-    int start;// ê°í˜ì´ì ±ì„œ ë¶ˆëŸ¬ì˜¬ ì‹œì‘ ë²ˆí˜¸
-    int perBlock = 5;// ëª‡ê°œì˜ í˜ì´ì§€ ë²ˆí˜¸ì”© í‘œí˜„í• ê²ƒì¸ê°€
-    int startPage;// ê°ë¸”ëŸ­ì— í‘œì‹œí•  ì‹œì‘í˜ì´ì§€
-    int endPage;// ê°ë¸”ëŸ­ì— í‘œì‹œí•  ë§ˆì§€ë§‰í˜ì´ì§€
-
-    // ì´ ê°¯ìˆ˜
+    int totalPage;
+    int start;
+    int perBlock = 5;
+    int startPage;
+    int endPage;
 
     totalCount = shservice.getTotalCount();
-    // í˜„ì¬ í˜ì´ì§€ ë²ˆí˜¸ ì½ê¸°(ë‹¨ null ì¼ ê²½ìš° 1í˜ì´ì§€ë¡œ ì„¤ì •)
 
     totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
-    // ê° ë¸”ëŸ­ì˜ ì‹œì‘í˜ì´ì§€
+
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
 
     endPage = startPage + perBlock - 1;
     if (endPage > totalPage) {
       endPage = totalPage;
     }
-    // ê° í˜ì´ì§€ì—ì„œ ë¶ˆëŸ¬ì˜¬ ì‹œì‘ë²ˆí˜¸
+
     start = (currentPage - 1) * perPage;
-    // ê°í˜ì´ì§€ì—ì„œ í•„ìš”í•œ ê²Œì‹œê¸€ ê°€ì ¸ì˜¤ê¸°
+
     List<ShopBoardDto> list = shservice.getList(start, perPage);
 
     System.out.println(list.size());
@@ -90,7 +86,6 @@ public class MainController {
     mview.addObject("Newlist", list);
     mview.setViewName("/inc/main");
 
-    // ìŠ¤í† ë¦¬ ë©”ì¸ì¶œë ¥
     List<StoryDto> MainStoryList = service.getMainStoryList();
     int StorytotalCount = service.getStoryTotalCount();
 
@@ -104,7 +99,7 @@ public class MainController {
   public ModelAndView getMain() {
     ModelAndView mview = new ModelAndView();
     List<ClassBoardDto> listMain = mapper.getAlllist();
-    List<ClassNewBoardDto> listnewsMain = mapper.getAllnewlist();
+    List<ClassBoardDto> listnewsMain = mapper.getAllnewlist();
     List<ClassBoardDto> listpopulMain = mapper.getPopular();
 
     mview.addObject("listMain", listMain);
@@ -118,4 +113,69 @@ public class MainController {
   public String list() {
     return "/inc/offline_inf";
   }
+  
+  @GetMapping("/search")
+  public ModelAndView shopSearch(
+      @RequestParam(defaultValue = "1") int currentPage,
+      @RequestParam(value = "keyword", required = false) String keyword, HttpSession session) {
+
+    session.setAttribute("keyword", keyword);
+    ModelAndView mview = new ModelAndView();
+
+    // ÆäÀÌÂ¡ Ã³¸®¿¡ ÇÊ¿äÇÑ º¯¼ö¼±¾ğ
+    int perPage = 9;// ÇÑÆäÀÌÁö¿¡ º¸¿©Áú ±ÛÀÇ °¹¼ö
+    int totalPage;// ÃÑ ÆäÀÌÁö¼ö
+    int start;// °¢ÆäÀÌÁö¿¡¼­ ºÒ·¯¿Ã dbÀÇ ½ÃÀÛ¹øÈ£
+    int perBlock = 5;// ¸î°³ÀÇ ÆäÀÌÁö¹øÈ£¾¿ Ç¥ÇöÇÒ°ÍÀÎ°¡
+    int startPage;// °¢ ºí·°¿¡ Ç¥½ÃÇÒ ½ÃÀÛÆäÀÌÁö
+    int endPage;// °¢ ºí·°¿¡ Ç¥½ÃÇÒ ¸¶Áö¸·ÆäÀÌÁö
+
+    int totalCount=service.getSearchTotal();
+	// ÃÑ ÆäÀÌÁö °¹¼ö ±¸ÇÏ±â
+    totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
+    // °¢ ºí·°ÀÇ ½ÃÀÛÆäÀÌÁö
+    startPage = (currentPage - 1) / perBlock * perBlock + 1;
+    endPage = startPage + perBlock - 1;
+    if (endPage > totalPage)
+      endPage = totalPage;
+    // °¢ ÆäÀÌÁö¿¡¼­ ºÒ·¯¿Ã ½ÃÀÛ¹øÈ£
+    start = (currentPage - 1) * perPage;
+    List<ClassBoardDto> Search = service.getSearch(keyword, start, perPage);
+
+    int no = totalCount - (currentPage - 1) * perPage;
+    mview.addObject("Search", Search);
+    mview.addObject("startPage", startPage);
+    mview.addObject("endPage", endPage);
+    mview.addObject("totalPage", totalPage);
+    mview.addObject("no", no);
+    mview.addObject("currentPage", currentPage);
+    mview.addObject("totalCount", totalCount);
+    mview.setViewName("/search");
+    return mview;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -41,7 +41,29 @@
 	<select id="getStoryTotalCount" resultType="int">
 		select count(*) from author_story
 	</select>
+	
 	<select id="getCartCount" parameterType="String" resultType="int">
 		SELECT COUNT(*) as CartCount from cart c inner join usersjoin u on c.user_idx = u.idx WHERE u.id = #{user_id};
 	</select>
+	
+	
+	<!-- 검색 기능 -->
+	<select id="getSearchCount" resultType="int">
+		select count(*) from classboarder where title like concat('%',#{keyword},'%')
+	</select>
+	<select id="getSearch" parameterType="HashMap" resultType="cdto">
+		select * from classboarder where title like concat('%',#{keyword},'%') order by num desc limit #{start},#{perpage}
+	</select>
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
