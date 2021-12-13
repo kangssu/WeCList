@@ -5,9 +5,6 @@
     INSERT INTO bit_final.cart (user_idx,shop_num,shop_option,shop_qty,shop_price)
      VALUES((select idx from usersjoin where id = #{user_id}), #{shop_num}, #{shop_option}, #{shop_qty}, #{shop_price})
   </insert>
-  <select id="countCart" parameterType="String" resultType="int">
-    select count(*) from cart c inner join usersjoin u on c.users_idx = u.idx where user_idx =
-  </select>
   <select id="listCart" parameterType="String" resultType="cartdto">
     SELECT
            c.shop_num,
@@ -27,4 +24,7 @@
   <delete id="deleteAllCart" parameterType="int">
     DELETE FROM bit_final.cart WHERE user_idx = #{user_idx};
   </delete>
+  <select id="countCart" parameterType="String" resultType="int">
+    select count(*) from cart c inner join usersjoin u on c.users_idx = u.idx where user_idx =
+  </select>
 </mapper>

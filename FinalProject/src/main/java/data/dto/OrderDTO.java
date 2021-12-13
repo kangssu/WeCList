@@ -9,6 +9,7 @@ public class OrderDTO {
  private Date order_day;
  private  int shipping_cost;
 // usersjoin table
+ private String user_id;
  private  int user_idx;
  private String dlvr_name;
  private String dlvr_phone;
@@ -19,7 +20,7 @@ public class OrderDTO {
   // shop table
  private int shop_num;
  private String shop_option;
- private String stop_qty;
+ private String shop_qty;
  private int shop_price;
 
  @Override
@@ -29,6 +30,7 @@ public class OrderDTO {
       ", order_day=" + order_day +
       ", shipping_cost=" + shipping_cost +
       ", user_idx=" + user_idx +
+      ", user_id=" + user_id +
       ", dlvr_name='" + dlvr_name + '\'' +
       ", dlvr_phone='" + dlvr_phone + '\'' +
       ", dlvr_email='" + dlvr_email + '\'' +
@@ -37,9 +39,17 @@ public class OrderDTO {
       ", dlvr_status=" + dlvr_status +
       ", shop_num=" + shop_num +
       ", shop_option='" + shop_option + '\'' +
-      ", stop_qty='" + stop_qty + '\'' +
+      ", shop_qty='" + shop_qty + '\'' +
       ", shop_price=" + shop_price +
       '}' + "\n";
+ }
+
+ public String getUser_id() {
+  return user_id;
+ }
+
+ public void setUser_id(String user_id) {
+  this.user_id = user_id;
  }
 
  public long getOrder_num() {
@@ -138,12 +148,12 @@ public class OrderDTO {
   this.shop_option = shop_option;
  }
 
- public String getStop_qty() {
-  return stop_qty;
+ public String getShop_qty() {
+  return shop_qty;
  }
 
- public void setStop_qty(String stop_qty) {
-  this.stop_qty = stop_qty;
+ public void setShop_qty(String shop_qty) {
+  this.shop_qty = shop_qty;
  }
 
  public int getShop_price() {
