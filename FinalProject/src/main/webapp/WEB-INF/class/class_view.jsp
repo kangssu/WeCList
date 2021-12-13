@@ -130,15 +130,17 @@ $(".primary-btn-off").click(function(){
 							src="../photo/${dto.uploadfile}" alt="">
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
-						<img data-imgbigurl="img/product/details/product-details-2.jpg"
+						<img data-imgbigurl="../photo/${dto.uploadfile}"
+							src="../photo/${dto.uploadfile}" alt=""> <img
+							data-imgbigurl="../photo/${dto.uploadfile1}"
 							src="../photo/${dto.uploadfile1}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-3.jpg"
+							data-imgbigurl="../photo/${dto.uploadfile2}"
 							src="../photo/${dto.uploadfile2}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-5.jpg"
+							data-imgbigurl="../photo/${dto.uploadfile3}"
 							src="../photo/${dto.uploadfile3}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-4.jpg"
+							data-imgbigurl="../photo/${dto.uploadfile4}"
 							src="../photo/${dto.uploadfile4}" alt=""> <img
-							data-imgbigurl="img/product/details/product-details-4.jpg"
+							data-imgbigurl="../photo/${dto.uploadfile5}"
 							src="../photo/${dto.uploadfile5}" alt="">
 					</div>
 				</div>
@@ -188,16 +190,16 @@ $(".primary-btn-off").click(function(){
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-									<a class="heart"><i class="fa fa-heart" num="${dto.num}"></i></a>
+									<a class="heart"><i class="fa fa-heart"></i></a>
 								</c:when>
 								<c:otherwise>
-									<a class="heart"><i class="fa fa-heart-o" num="${dto.num}"></i></a>
+									<a class="heart"><i class="fa fa-heart-o"></i></a>
 								</c:otherwise>
 							</c:choose>
 						</c:if>
 
 						<c:if test="${loginok eq null}">
-							<a class="heart"><i class="fa fa-heart-o" id="${dto.num}"></i></a>
+							<a class="heart"><i class="fa fa-heart-o"></i></a>
 						</c:if>
 
 						<span id="heart">${cdto.class_heart}</span>
@@ -220,7 +222,7 @@ $(".primary-btn-off").click(function(){
 						<div class="tab-content">
 							<div class="tab-pane active" id="tabs-1" role="tabpanel">
 								<div class="product__details__tab__desc">
-									<p>클래스 진행과정 내용출력(이미지+내용 전부 출력)</p>
+									<p>${dto.classinfo}</p>
 								</div>
 							</div>
 							<div class="tab-pane" id="tabs-2" role="tabpanel">
@@ -328,28 +330,31 @@ $(".primary-btn-off").click(function(){
 		</div>
 
 		<div class="row">
-			<div class="categories__slider owl-carousel">
-				<c:forEach var="cdto" items="${classlist}">
-					<div style="float: left;">
-						<div class="product__item">
-							<a href="${root}/class/view_news?num=${cdto.num}">
-								<div class="product__item__pic set-bg">
-									<img src="../photo/${cdto.uploadfile}"
-										style="width: 300px; height: 300px;">
-								</div>
-								<div class="product__item__text">
-									<h6>${cdto.title}</h6>
-									<h6>${cdto.class_op_cate}</h6>
-									<h5>${cdto.classprice}원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
-				</c:forEach>
 
+			<div class="categories__slider owl-carousel">
+				<c:forEach var="idto" items="${inter}">
+					<c:forEach var="cdto" items="${classlist}">
+						<c:if test="${idto.inter_cnt>=1 and idto.num==cdto.num}">
+							<div style="float: left;">
+								<div class="product__item">
+									<a href="${root}/class/view?num=${cdto.num}">
+										<div class="product__item__pic set-bg">
+											<img src="../photo/${cdto.uploadfile}"
+												style="width: 300px; height: 300px;">
+										</div>
+										<div class="product__item__text">
+											<h6>${cdto.title}</h6>
+											<h6>${cdto.class_op_cate}</h6>
+											<h5>${cdto.classprice}원</h5>
+										</div>
+									</a>
+								</div>
+							</div>
+						</c:if>
+					</c:forEach>
+				</c:forEach>
 			</div>
 		</div>
-	</div>
 	</div>
 </section>
 <!-- Related Product Section End -->

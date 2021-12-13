@@ -30,6 +30,10 @@ public class AuthorHomeService {
   public int getSangCount(String aid) {
     return mapper.getSangCount(aid);
   };
+  
+  public int getClassCount(String aid) {
+	    return mapper.getClassCount(aid);
+  };
 
   public List<ShopBoardDto> getSangList(String aid, int start, int perpage) {
     HashMap<String, Object> map = new HashMap<String, Object>();
@@ -39,8 +43,13 @@ public class AuthorHomeService {
     return mapper.getSangList(map);
   }
 
-  public List<ClassBoardDto> getClasslist(String aid) {
-    return mapper.getClasslist(aid);
-  }
+
+  public List<ClassBoardDto> getClassList(String aid, int start, int perPage) {
+	HashMap<String, Object> map = new HashMap<String, Object>();
+	map.put("aid", aid);
+	map.put("start", start);
+	map.put("perPage", perPage);
+	return mapper.getClassList(map);
+}
 
 }

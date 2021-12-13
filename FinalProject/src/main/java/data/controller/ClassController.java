@@ -48,8 +48,6 @@ public class ClassController {
 		int startPage;
 		int endPage;
 
-		totalCount = service.getTotalCount();
-
 		totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
 
 		startPage = (currentPage - 1) / perBlock * perBlock + 1;
@@ -125,6 +123,8 @@ public class ClassController {
 		String userid = (String)session.getAttribute("id");
 		String InterCount = service.getInterCount(num);
 		System.out.println(InterCount);
+		
+		List<InterDto> inter=mapper.getInter();
 
 		List<ClassBoardDto> classlist=mapper.getAlllist();
 		ClassBoardDto dto=service.getData(num);
@@ -146,6 +146,7 @@ public class ClassController {
 		mview.addObject("heartTrue",heartTrue);
 		mview.addObject("interTrue",interTrue);
 		mview.addObject("InterCount",InterCount);
+		mview.addObject("inter",inter);
 
 		mview.setViewName("/2/class/class_view");
 		return mview;

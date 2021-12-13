@@ -3,8 +3,7 @@
 
 <mapper namespace="data.mapper.ClassBoardMapper">
 	<select id="getTotalCount" resultType="int">
-		select count(*) from
-		classboarder
+		select count(*) from classboarder c inner join classInter ci on c.num = ci.num where ci.inter_cnt > 15 ;
 	</select>
 	<select id="getData" parameterType="String" resultType="cdto">
 		select *
@@ -73,6 +72,9 @@
 	<select id="getInter" parameterType="String" resultType="idto">
 		select
 		Distinct num,inter_cnt from classInter
+	</select>
+	<select id="getIdCount" resultType="int">
+		select count(*) from classboarder where myid = #{myid}
 	</select>
 
 

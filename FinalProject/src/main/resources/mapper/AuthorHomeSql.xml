@@ -43,7 +43,11 @@
 		select count(*) from shopboarder where myid = #{myid}
 	</select>
 	
-	<select id="getClasslist" resultType="cdto">
-		select * from classboarder where myid=#{aid} order by num desc
+	<select id="getClassCount" resultType="int">
+		select count(*) from classboarder where myid = #{myid}
+	</select>
+	
+	<select id="getClassList" parameterType="HashMap" resultType="cdto">
+		select * from classboarder where myid=#{aid} order by num desc limit #{start},#{perPage}
 	</select>
 </mapper>

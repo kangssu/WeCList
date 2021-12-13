@@ -16,9 +16,11 @@ public interface AuthorHomeMapper {
   public List<StoryDto> getHSList(HashMap<String, Object> map);
 
   public int getSangCount(String aid);
+  
+  public int getClassCount(String aid);
 
   public List<ShopBoardDto> getSangList(HashMap<String, Object> map);
 
-  public List<ClassBoardDto> getClasslist(String aid);
+  public List<ClassBoardDto> getClassList(HashMap<String, Object> map);
 
 }

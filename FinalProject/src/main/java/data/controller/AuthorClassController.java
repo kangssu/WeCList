@@ -78,21 +78,21 @@ public class AuthorClassController {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 
     if (cdto.getUpload().getOriginalFilename().equals("")) {
-      cdto.setUploadfile("no");
-    } else {
-      String uploadfile = "f" + sdf.format(new Date()) + cdto.getUpload().getOriginalFilename();
-      cdto.setUploadfile(uploadfile);
+        cdto.setUploadfile("no");
+      } else {
+        String uploadfile = "f" + sdf.format(new Date()) + cdto.getUpload().getOriginalFilename();
+        cdto.setUploadfile(uploadfile);
 
-      try {
-        cdto.getUpload().transferTo(new File(path + "\\" + uploadfile));
-      } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
-        e.printStackTrace();
+        try {
+          cdto.getUpload().transferTo(new File(path + "\\" + uploadfile));
+        } catch (IllegalStateException | IOException e) {
+          // TODO: handle exception
+          e.printStackTrace();
+        }
       }
-    }
 
     if (cdto.getUpload1().getOriginalFilename().equals("")) {
-      cdto.setUploadfile("no");
+      cdto.setUploadfile1("no");
     } else {
       String uploadfile1 = "f" + sdf.format(new Date()) + cdto.getUpload1().getOriginalFilename();
       cdto.setUploadfile1(uploadfile1);
@@ -106,7 +106,7 @@ public class AuthorClassController {
     }
 
     if (cdto.getUpload2().getOriginalFilename().equals("")) {
-      cdto.setUploadfile("no");
+      cdto.setUploadfile2("no");
     } else {
       String uploadfile2 = "f" + sdf.format(new Date()) + cdto.getUpload2().getOriginalFilename();
       cdto.setUploadfile2(uploadfile2);
@@ -120,7 +120,7 @@ public class AuthorClassController {
     }
 
     if (cdto.getUpload3().getOriginalFilename().equals("")) {
-      cdto.setUploadfile("no");
+      cdto.setUploadfile3("no");
     } else {
       String uploadfile3 = "f" + sdf.format(new Date()) + cdto.getUpload3().getOriginalFilename();
       cdto.setUploadfile3(uploadfile3);
@@ -134,7 +134,7 @@ public class AuthorClassController {
     }
 
     if (cdto.getUpload4().getOriginalFilename().equals("")) {
-      cdto.setUploadfile("no");
+      cdto.setUploadfile4("no");
     } else {
       String uploadfile4 = "f" + sdf.format(new Date()) + cdto.getUpload4().getOriginalFilename();
       cdto.setUploadfile4(uploadfile4);
@@ -148,7 +148,7 @@ public class AuthorClassController {
     }
 
     if (cdto.getUpload5().getOriginalFilename().equals("")) {
-      cdto.setUploadfile("no");
+      cdto.setUploadfile5("no");
     } else {
       String uploadfile5 = "f" + sdf.format(new Date()) + cdto.getUpload5().getOriginalFilename();
       cdto.setUploadfile5(uploadfile5);

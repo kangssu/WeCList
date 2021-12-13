@@ -81,7 +81,7 @@
 				<c:forEach var="cdto" items="${listseven}">
 					<div style="float: left;">
 						<div class="product__item">
-							<a href="${root}/class/view_news?num=${cdto.num}">
+							<a href="${root}/class/view?num=${cdto.num}">
 								<div class="product__item__pic set-bg">
 									<img src="../photo/${cdto.uploadfile}"
 										style="width: 300px; height: 300px;">
