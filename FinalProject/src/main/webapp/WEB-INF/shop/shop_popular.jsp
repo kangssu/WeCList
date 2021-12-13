@@ -8,40 +8,25 @@
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="breadcrumb__text">
-					<h2>온라인 클래스</h2>
+					<h2>인기 작품</h2>
 					<div class="breadcrumb__option">
-						<a href="./index.html">Home</a> <span>인기 클래스</span>
+						<a href="./index.html">Home</a> <span>인기 작품</span>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
-
-<!-- Featured Section Begin -->
 <section class="featured spad">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 section-title_top">
-				<div class="section-title">
-					<h2>TOP 12 온라인 클래스</h2>
-					<span class="fa fa-angle-right"></span>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-				
-		<c:forEach var="a" items="${listpopul}" varStatus="status">
-				
-			<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-			
+		<div class="row hot_list_all_box">
+			<c:forEach var="a" items="${listpopul}" varStatus="status" begin="0" end="11">
+ 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="featured__item">
 						<a href="/shop/	content?num=${a.num}"  >
 							<div class="featured__item__pic set-bg">
-							<img src="../photo/${a.uploadfile1}" alt="" >
-							
-								<span class="shop_rank_number first">${status.count}</span>
+								<img src="../photo/${a.uploadfile1}" alt="" >
+								<span class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 							</div>
 							<div class="featured__item__text">
 								<h6>${a.name}</h6>
@@ -50,12 +35,8 @@
 							</div>
 						</a>
 					</div>
-			</div>
-				</c:forEach>
+				</div>
+			</c:forEach>
 		</div>
-
 	</div>
 </section>
-<!-- Featured Section End -->
-
-

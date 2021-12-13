@@ -48,7 +48,8 @@
 			<c:if test="${totalCount>0}">
 				<c:forEach var="sdto" items="${list}" varStatus="i">
 				<tr>
-					<td align="center">${i.count}</td>
+					<td align="center">${no}</td>
+					<c:set var="no" value="${no-1}" />
 					<td><img src="/photo/${sdto.thumbnail_file}"></td>
 					<td>
 						<a href="/mypage/story/view?num=${sdto.num}&currentPage=${currentPage}&key=list" style="color:black;">

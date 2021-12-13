@@ -5,103 +5,96 @@ import org.apache.ibatis.type.Alias;
 @Alias("cartdto")
 public class CartDTO {
 
-    // cart Table
-    private int user_idx;
-    private int shop_num;
-    private String shop_option;
-    private int shop_qty;
-    // shopBoarder Table
-    private String name;    // shop name
-    private String title;   // item title
-    private int shop_price;
-    private String itemImage;
-    // usersjoin Table
-    private String user_id; // id
+  // cart Table
+  private int user_idx;
+  private int shop_num;
+  private String shop_option;
+  private int shop_qty;
+  // shopBoarder Table
+  private String name; // shop name
+  private String title; // item title
+  private int shop_price;
+  private String uploadfile;
+  // usersjoin Table
+  private String user_id; // id
 
-    @Override
-    public String toString() {
-        return "CartDTO{" +
-            "user_idx=" + user_idx +
-            ", shop_num=" + shop_num +
-            ", shop_option='" + shop_option + '\'' +
-            ", shop_qty=" + shop_qty +
-            ", shop_name='" + name + '\'' +
-            ", title='" + title + '\'' +
-            ", shop_price=" + shop_price +
-            ", itemImage='" + itemImage + '\'' +
-            ", user_id='" + user_id + '\'' +
-            '}' + '\n';
-    }
+  @Override
+  public String toString() {
+    return "CartDTO [user_idx=" + user_idx + ", shop_num=" + shop_num + ", shop_option="
+        + shop_option + ", shop_qty=" + shop_qty + ", name=" + name + ", title=" + title
+        + ", shop_price=" + shop_price + ", uploadfile=" + uploadfile + ", user_id=" + user_id
+        + "]";
+  }
 
-    public int getUser_idx() {
-        return user_idx;
-    }
+  public String getUploadfile() {
+    return uploadfile;
+  }
 
-    public void setUser_idx(int user_idx) {
-        this.user_idx = user_idx;
-    }
+  public void setUploadfile(String uploadfile) {
+    this.uploadfile = uploadfile;
+  }
 
-    public int getShop_num() {
-        return shop_num;
-    }
+  public int getUser_idx() {
+    return user_idx;
+  }
 
-    public void setShop_num(int shop_num) {
-        this.shop_num = shop_num;
-    }
+  public void setUser_idx(int user_idx) {
+    this.user_idx = user_idx;
+  }
 
-    public String getShop_option() {
-        return shop_option;
-    }
+  public int getShop_num() {
+    return shop_num;
+  }
 
-    public void setShop_option(String shop_option) {
-        this.shop_option = shop_option;
-    }
+  public void setShop_num(int shop_num) {
+    this.shop_num = shop_num;
+  }
 
-    public int getShop_qty() {
-        return shop_qty;
-    }
+  public String getShop_option() {
+    return shop_option;
+  }
 
-    public void setShop_qty(int shop_qty) {
-        this.shop_qty = shop_qty;
-    }
+  public void setShop_option(String shop_option) {
+    this.shop_option = shop_option;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public int getShop_qty() {
+    return shop_qty;
+  }
 
-    public void setName(String shop_name) {
-        this.name = shop_name;
-    }
+  public void setShop_qty(int shop_qty) {
+    this.shop_qty = shop_qty;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setName(String shop_name) {
+    this.name = shop_name;
+  }
 
-    public int getShop_price() {
-        return shop_price;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setShop_price(int shop_price) {
-        this.shop_price = shop_price;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public String getItemImage() {
-        return itemImage;
-    }
+  public int getShop_price() {
+    return shop_price;
+  }
 
-    public void setItemImage(String itemImage) {
-        this.itemImage = itemImage;
-    }
+  public void setShop_price(int shop_price) {
+    this.shop_price = shop_price;
+  }
 
-    public String getUser_id() {
-        return user_id;
-    }
+  public String getUser_id() {
+    return user_id;
+  }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
+  public void setUser_id(String user_id) {
+    this.user_id = user_id;
+  }
 }
