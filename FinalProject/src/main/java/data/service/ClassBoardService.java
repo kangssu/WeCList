@@ -101,4 +101,8 @@ public class ClassBoardService {
 	{
 		return mapper.getInter();
 	}
+	
+	public int getIdCount(String myid) {
+	    return mapper.getIdCount(myid);
+	}
 }

@@ -58,7 +58,7 @@
 						<c:set var="Idno" value="${Idno-1}" />
 						<td><a
 							href="${root}/class/view?num=${cdto.num}"><img
-								src="/photo/${cdto.uploadfile1}"></a></td>
+								src="/photo/${cdto.uploadfile}"></a></td>
 						<td><a
 							href="${root}/class/view?num=${cdto.num}">${cdto.title}</a></td>
 						<td><fmt:formatDate value="${cdto.writeday}"

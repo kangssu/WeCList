@@ -32,7 +32,7 @@ public class ShopController {
       @RequestParam(defaultValue = "1") int currentPage,
       @RequestParam(required = false) String key) {
     ModelAndView mview = new ModelAndView();
-    int perPage = 4;
+    int perPage = 12;
     int totalCount = service.getCaCount(shopop);
     int totalPage;
     int start;
@@ -146,7 +146,6 @@ public class ShopController {
     return "/shop/shop_buy";
   }
 
-
   @GetMapping("/shop/hotlist")
   public String hotlist() {
     return "/shop/shop_hot_list";
@@ -154,7 +153,7 @@ public class ShopController {
 
   @GetMapping("/mypage/shop/writeform")
   public String writform() {
-    return "/1/author_mypage/shop_write_form";
+    return "/author_mypage/shop_write_form";
   }
 
 
@@ -343,6 +342,4 @@ public class ShopController {
     mview.setViewName("/5/shop/shop_new_list");
     return mview;
   }
-
-
 }

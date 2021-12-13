@@ -10,7 +10,7 @@
 				<div class="row">
 					<div class="grade_user">
 						<div class="profile_img">
-							<img src="/img/pro.jpg">
+							<img src="/photo/${profileimg}">
 							<span>${id }님
 							<c:choose>
 								<c:when test="${sessionScope.category == 2}">
