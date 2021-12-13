@@ -1276,16 +1276,16 @@ li {
 }
 
 .hero__mypage span{
+	display: flex;
 	position:absolute;
-	background-color:#ff7b27;
-	width:17px;
-	height:17px;
+	align-items: center;
+	justify-content: center;
+	width:20px;
+	height:20px;
+	font-size:20px;
 	border-radius:50px;
 	color:white;
-	text-align:center;
-	line-height:18px;
-	font-size:5px;
-	top:0;
+	background-color:#ff7b27;
 	right:-3px;
 }
 
