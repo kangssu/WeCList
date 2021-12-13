@@ -44,6 +44,15 @@
 		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
 	</definition>
 	
+	<definition name="layout5" template="/WEB-INF/shop_inc/layout5.jsp">
+		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
+		<put-attribute name="sub_header" value="/WEB-INF/inc/sub_header_shop.jsp"/>
+		<put-attribute name="body_top" value="/WEB-INF/shop_inc/shop_sub_top.jsp"/>
+		<put-attribute name="body_left" value="/WEB-INF/shop_inc/shop_menu.jsp"/>
+		<put-attribute name="body_right" value="/WEB-INF/shop/shop_list.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+	</definition>
+	
 	<!-- wild card -->
 	<definition name="/*/*" extends="layout">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
@@ -69,5 +78,9 @@
 	
 	<definition name="/4/*/*" extends="layout4">
 		<put-attribute name="body_content" value="/WEB-INF/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="/5/*/*" extends="layout5">
+		<put-attribute name="body_right" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 </tiles-definitions>

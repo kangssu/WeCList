@@ -1713,7 +1713,7 @@ li {
 }
 
 .product__item img{
-	height:200px;
+	height:270px;
 }
 
 .latest-product__item__pic {
@@ -2184,8 +2184,46 @@ li {
 }
 
 .filter__item {
-	padding-top: 45px;
-	padding-bottom: 20px;
+	padding-top: 55px;
+}
+
+.shop_all_count_box{
+	border:1px solid #b2b2b2;
+	width:955px;
+	height:40px;
+	border-radius:5px;
+	margin-top:20px;
+	padding:15px 20px 35px 20px;
+	margin-bottom:20px;
+	background-color:#f5f5f5;
+}
+
+.all_count_shop{
+	display:inline-block;
+}
+
+.shop_right_box{
+	margin-left:10px;
+}
+
+.shop_all_list_box_1 .col-lg-4{
+	padding:5px;
+}
+
+.shop_box_list_2{
+	margin-top:20px;
+}
+
+.all_count_shop b{
+	color:#ff7b27;
+}
+
+.shop_all_count_box span{
+	float:right;
+}
+
+.shop_all_count_box .all_count_shop{
+	color:#1c1c1c;
 }
 
 .filter__sort {
@@ -2250,7 +2288,6 @@ li {
 
 .filter__found {
 	text-align: left;
-	margin-bottom: 15px;
 }
 
 .filter__found h6 {
@@ -2262,6 +2299,18 @@ li {
 	color: #1c1c1c;
 	font-weight: 700;
 	margin-right: 5px;
+}
+
+.filter__found .shop_option_category{
+	font-size:28px;
+	font-weight:500;
+	margin-left:5px;
+}
+
+.filter__found .shop_option_category_all{
+	font-size:28px;
+	font-weight:500;
+	margin-left:5px;
 }
 
 .filter__option {
@@ -2291,6 +2340,7 @@ li {
 
 .product__item {
 	margin-bottom: 50px;
+	border:1px solid #f5f5f5;
 }
 
 .product__item:hover .product__item__pic .product__item__pic__hover {
@@ -2364,7 +2414,7 @@ li {
 }
 
 .product__item__text {
-	padding-top: 15px;
+	padding: 15px;
 }
 
 .product__item__text h6:nth-child(1){font-size:12px; color:#999999;}
@@ -5739,6 +5789,41 @@ li {
 -----------------------*/
 
 /*---------------------
+  서브 메뉴
+-----------------------*/
+.sub_menu_category{
+	margin-top:50px;
+	width:200px;
+	float:left;
+	border:1px solid #f5f5f5;
+	margin-right:20px;
+}
+
+.sub_menu_category a{
+	color:#1c1c1c;
+}
+
+.sub_menu_category li{
+	padding:14px 0 16px 20px;
+	border-bottom:1px solid #f5f5f5;
+}
+
+.sub_menu_category li:nth-child(4){border-bottom:none;}
+
+.sub_menu_category li:hover{
+	background-color:#ff7b27;
+}
+
+.sub_menu_category li a:hover{
+	color:white;
+	font-weight:500;
+	display:block;
+}
+/*---------------------
+  서브 메뉴
+-----------------------*/
+
+/*---------------------
   장바구니 리스트
 -----------------------*/
 .cart_table_list{
@@ -5799,6 +5884,8 @@ li {
 	line-height:22px;
 	background-color:white;
 }
+
+
 /*---------------------
   장바구니 리스트
 -----------------------*/
