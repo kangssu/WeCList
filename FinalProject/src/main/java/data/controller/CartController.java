@@ -9,9 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner.Mode;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,21 +28,24 @@ public class CartController {
     private final Logger LOGGER = LoggerFactory.getLogger(CartController.class);
 
     @PostMapping("/cart/insert")
-    public String insertCart(@ModelAttribute CartDTO cartDTO, HttpSession session) {
-        // TODO: 로그인 하지 않았을 경우 처리
-        String userId = "kwon";
-        if ((String) session.getAttribute("id") != null) {
-            userId = (String) session.getAttribute("id");
-        }
+    public String insertCart(@RequestBody CartDTO cartDTO) {
         cartService.insertCart(cartDTO);
-        LOGGER.info("POST:/cart/insert w/" + userId);
+        LOGGER.info("POST:/cart/insert ");
         return "redirect:/cart/list";
+    }
+
+
+    @PostMapping("/cart/insert2")
+    public String insertCart2(@ModelAttribute CartDTO cartDTO) {
+        cartService.insertCart(cartDTO);
+        LOGGER.info("POST:/cart/insert2 ");
+        return "redirect:/cart/buy";
     }
 
     @GetMapping("/cart/list")
     public ModelAndView list(HttpSession session, ModelAndView mv) {
         // TODO: 로그인, 비로그인 처리
-        String userId = "kwon";
+        String userId = "noid";
         if ((String) session.getAttribute("id") != null) {
             userId = (String) session.getAttribute("id");
         }
@@ -55,7 +62,7 @@ public class CartController {
     @GetMapping("/cart/buy")
     public ModelAndView buy(HttpSession session, ModelAndView mv) {
         // TODO: 로그인, 비로그인 처리
-        String userId = "kwon";
+        String userId = "noid";
         if ((String) session.getAttribute("id") != null) {
             userId = (String) session.getAttribute("id");
         }
@@ -69,9 +76,6 @@ public class CartController {
         return mv;
     }
 
-    @GetMapping("/cart/delete")
-    public String delete(@ModelAttribute CartDTO cartDTO) {
-        cartService.deleteCart(cartDTO);
-        return "";
-    }
+    @PostMapping("/cart/delete")
+    public void delete(String user_id, int shop_num, String shop_option ) { cartService.deleteCart(user_id, shop_num, shop_option);  }
 }

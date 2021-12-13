@@ -16,7 +16,7 @@
 			placeholder="비밀번호를 입력해주세요.">
 		</div>
 		<div class="login_find_all">
-			<a href="/users/search/id" style="font-size: 13px">아이디 찾기</a> <span> | </span> 
+			<a href="/users/search/id" style="font-size: 13px">아이디 찾기</a> <span> | </span>
 			<a href="/users/search/pass" style="font-size: 13px">비밀번호 찾기</a>
 		</div>
 		<div class="login_btn_success">

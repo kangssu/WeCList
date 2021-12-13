@@ -1,13 +1,20 @@
 package data.controller;
 
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.ShopBoardDto;
@@ -35,6 +42,8 @@ public class MainController {
 
   @Autowired
   UserMapper umapper;
+
+  private final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
   @GetMapping("/")
   public ModelAndView mainlist(@RequestParam(defaultValue = "1") int currentPage,
@@ -66,7 +75,7 @@ public class MainController {
 
     endPage = startPage + perBlock - 1;
     if (endPage > totalPage) {
-      endPage = totalPage;
+        endPage = totalPage;
     }
     // 각 페이지에서 불러올 시작번호
     start = (currentPage - 1) * perPage;
@@ -112,5 +121,13 @@ public class MainController {
     mview.addObject("listpopulMain", listpopulMain);
     mview.setViewName("/2/inc/class");
     return mview;
+  }
+
+  @ResponseBody
+  @PostMapping("/main/getCartCount")
+  public int getCartCount(@RequestParam String user_id){
+    LOGGER.info("id = " + user_id);
+    LOGGER.info("getCartCound = " + service.getCartCount(user_id));
+    return service.getCartCount(user_id);
   }
 }

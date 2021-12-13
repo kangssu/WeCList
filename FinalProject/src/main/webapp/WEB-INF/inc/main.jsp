@@ -72,7 +72,7 @@
 							<div class="featured__item">
 								<a href="/shop/	content?num=${a.num}">
 									<div class="featured__item__pic set-bg">
-										<img src="../photo/${a.uploadfile1}" alt=""> 
+										<img src="../photo/${a.uploadfile1}" alt="">
 										<span class="shop_rank_number_${status.count}">${status.count}</span>
 									</div>
 									<div class="featured__item__text">
@@ -87,6 +87,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </section>
 <!-- Featured Section End -->
 

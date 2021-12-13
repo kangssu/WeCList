@@ -9,16 +9,12 @@ import data.dto.StoryDto;
 @Mapper
 public interface MainMapper {
   public int getTotalCount();
-
   public ClassBoardDto getData(String num);
-
   public int getMaxNum();
-
   public List<ClassBoardDto> getAlllist();
-
   public List<ClassNewBoardDto> getAllnewlist();
-
   public List<ClassBoardDto> getPopular();
+  public int getCartCount(String user_id);
 
   public List<StoryDto> getMainStoryList();
 

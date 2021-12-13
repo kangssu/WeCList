@@ -2,6 +2,7 @@ package data.service;
 
 import data.dto.CartDTO;
 import data.mapper.CartMapper;
+import java.util.HashMap;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,14 +29,18 @@ public class CartService {
     }
 
     // 카트 하나만 삭제
-   public void deleteCart(CartDTO cartDTO) {
+   public void deleteCart(String user_id, int shop_num, String shop_option) {
        LOGGER.info("service-deleteCart");
-        mapper.deleteCart(cartDTO);
+     HashMap<String, Object> map = new HashMap<>();
+     map.put("user_id",user_id);
+     map.put("shop_num",shop_num);
+     map.put("shop_option",shop_option);
+        mapper.deleteCart(map);
     }
 
     // 카트 모두 삭제
-    public void deleteAllCart(int userIdx) {
+    public void deleteAllCart(String userId) {
         LOGGER.info("service-deleteAllCart");
-        mapper.deleteAllCart(userIdx);
+        mapper.deleteAllCart(userId);
     }
 }
