@@ -24,6 +24,7 @@ public interface UserMapper {
 	
 	public String getNickName(String id);
 	public String getCategory(String id);
+	public String getImg(String id);
 	public String getEmailId(String email);
 	
 	public int login(HashMap<String, String> map);

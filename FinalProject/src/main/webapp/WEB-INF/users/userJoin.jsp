@@ -41,11 +41,10 @@ $(function(){
 	    var pattern3 = /[`~!@#$%^&*()/?-_=+]/;
 		
 	    if(!pattern1.test(i) || i.length<6  || pattern3.test(i) || !pattern1.test(i) && !pattern2.test(i) && i.length<6) {
-	    	//alert("아이디는 영문 또는 영문+숫자 조합으로 6자리 이상 입력해주세요.");
-	    	$("#id-val-text").html("<font color='red'>6자 이상의 영문 혹은 영문과 숫자를 조합</font>");
+	    	$("#id-val-text").html("<font color='red'>6자 이상의 영문 또는 영문과 숫자를 조합</font>");
 	    	return false;
 	    } else {
-	    	$("#id-val-text").html("<font color='green'>6자 이상의 영문 혹은 영문과 숫자를 조합</font>");
+	    	$("#id-val-text").html("<font color='green'>6자 이상의 영문 또는 영문과 숫자를 조합</font>");
 	    }
 
 		$.ajax({
@@ -56,8 +55,6 @@ $(function(){
             success:function(data){
                if(data.check!=0){
             	  $("#id-compare-text").html(": <font color='red'>중복된 아이디입니다.</font>");
-                  //$("#id").val("");
-                  //$("#id").focus();
             	  return false;
                }else{
             	   $("#id-compare-text").html(": <font color='green'>사용 가능한 아이디입니다.</font>");
@@ -100,7 +97,6 @@ $(function(){
 
 		if(pw1.indexOf($("#id").val()) > -1) {
 			$("#pass-ck1-text").html(": <font color='red'>포함</font>");
-            $("#pass1").val('');
             return false;
         } else {
         	$("#pass-ck1-text").html(": <font color='green'>미포함</font>");
@@ -112,7 +108,6 @@ $(function(){
 		
 	    if(!pattern1.test(pw1) || !pattern2.test(pw1) || !pattern3.test(pw1) || pw1.length<8) {
 	    	$("#pass-ck2-text").html(": <font color='red'>X</font>");
-	    	$("#pass1").val('');
 	    	return false;
 	    } else {
         	$("#pass-ck2-text").html(": <font color='green'>O</font>");
@@ -141,7 +136,6 @@ $(function(){
 
            if(SamePass_0 > 0) { // 동일문자 카운트 1일 때
         	  $("#pass-ck3-text").html(": <font color='red'>O</font>");
-              $("#pass1").val('');
               pw_passed=false; // 유효성검사 false
            } else {
            	  $("#pass-ck3-text").html(": <font color='green'>X</font>");
@@ -159,8 +153,7 @@ $(function(){
 	$("#pass2").blur(function(){
 		if($("#pass1").val() != $("#pass2").val()) {
 			$("#pass-compare-text").html(": <font color='red'>X</font>");
-	    	 $("#pass2").val('');
-	         $("#pass2").focus();
+			return false;
 		} else {
 			$("#pass-compare-text").html(": <font color='green'>O</font>");
 		}
@@ -169,60 +162,48 @@ $(function(){
 	
 	
 	// 핸드폰번호 숫자만 입력, '-' 입력받지 않음
-	$("#hp").keyup(function(){
+	$("#hp").blur(function(){
+		var hp_pattern =  /^\d{3}\d{3,4}\d{4}$/;
+		// /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 		var h = $("#hp").val();
-		var h2;
-		if(h.match("-")) {
-			//h2 = h.replace("-", "");
-			alert("숫자로만 입력해주세요.");
-			//h = h2;
+
+		if(!hp_pattern.test(h)) {
+			$("#hp-ck-text").html(": <font color='red'>X</font>");
 	        return false;
+	    } else {
+	    	$("#hp-ck-text").html(": <font color='green'>O</font>");
 	    }
 	});
 	
 	
 	// 이메일 유효성 검사
 	$("#email").blur(function(){
-		var pattern1 = /[a-zA-Z]/;
-	    var pattern2 = /[@]/;
-	    var pattern3 = /[.]/;
-	    var pattern4 = /[`~!#$%^&*()-_=+/?]/;
+	    var pattern1 = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	    var e = $("#email").val();
-	    
 
-		if($("#email").val().length == 0) {
-			alert("이메일 주소를 입력해주세요.");	
-		} 
-		
-	    if(!pattern1.test(e) || !pattern2.test(e) || !pattern3.test(e) || pattern4.test(e) || e.length<8) {
+	    if(!pattern1.test(e) || e.length==0) {
 	    	$("#email-ck-text").html(": <font color='red'>X</font>");
 	    	return false;
 	    } else {
 	    	$("#email-ck-text").html(": <font color='green'>O</font>");
 	    }
-	});
-	
-
-	// 이메일 중복확인
-	$("#emailCheck").click(function(){
-		//alert("이메일 중복확인");
-		var email = $("#email").val();
-		
-		$.ajax({
+	    
+	    $.ajax({
             type:"get",
             dataType:"json",
-            data:{"email":email},
+            data:{"email":e},
             url:"/users/emailcheck",
             success:function(data){
                if(data.emailCheck!=0){
-            	  alert("이미 사용중인 이메일입니다.");
-                  $("#email").val("");
+            	  $("#email-compare-text").html(": <font color='red'>중복된 이메일입니다.</font>");
+            	  return false;
                }else{
-            	  alert("사용가능한 이메일입니다!");
+            	  $("#email-compare-text").html(": <font color='green'>사용 가능한 이메일입니다.</font>");
                }
             }
          });
 	});
+
 	
 	// 인증메일 전송 버튼
 	$("#sendMail").click(function() {
@@ -407,7 +388,6 @@ function check(f) {
 						<td>
 							<input type="text" name="email" id="email" required="required"
 							 placeholder="본인 이메일을 작성해주세요. 예: weclist@weclist.com" class="checkout__input__add">
-							<button type="button" id="emailCheck" class="addr-btn" onclick="">중복확인</button>
 							<p id="email_check">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
 								<span style="font-size:13px; color:#6f6f6f">이메일 형식 여부 </span>
@@ -422,8 +402,8 @@ function check(f) {
 						<td><span style="color:red">※</span>이메일 인증</td>
 						<td>
 							<input type="text" class="txtfriends2" id="compare" placeholder="인증메일전송 버튼을 누르시고 전송된 인증번호를 입력해주세요.">
-							<button type="button" class="addr-btn" id="sendMail" style="font-size: 15px">인증메일전송</button><br>
-							<p id="email_check">
+							<button type="button" class="addr-btn" id="sendMail" style="font-size: 15px; margin:10px">인증메일전송</button><br>
+							<p id="email_compare">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
 								<span style="font-size:13px; color:#6f6f6f">인증문구 일치 여부</span>
 								<span style="font-size:13px; color:#6f6f6f" id="i-compare-text"></span>
@@ -434,7 +414,12 @@ function check(f) {
 						<td><span style="color:red">※</span>휴대폰</td>
 						<td>
 							<input type="text" name="hp" id="hp" required="required"
-							 placeholder="숫자만 입력해주세요." class="checkout__input__add">
+							 placeholder="본인 휴대폰 번호를 작성해주세요. 예: 01012345678" class="checkout__input__add">
+							 <p id="hp_check">
+								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
+								<span style="font-size:13px; color:#6f6f6f">숫자로만 휴대폰번호 10자리 또는 11자리 입력 </span>
+								<span style="font-size:13px; color:#6f6f6f" id="hp-ck-text"></span><br>
+							</p>
 						</td>
 					</tr>
 					<tr class="checkout__input">

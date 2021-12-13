@@ -121,7 +121,7 @@ public class MailController {
 
 		  return "/users/search_pass_passsuccess";
 	  } else {
-		  return "/users/search_pass_passfail";
+		  return "/users/search_password_passfail";
 	  }
   	}					
 
