@@ -68,7 +68,7 @@ function autoFill(){
 			</div>
 		</div>
 		<div class="checkout__form">
-			<form action="#">
+			<form action="/order/checkout">
 				<h4>주문자 정보</h4><span><input type="button" value="사용자정보로 주문하기" onclick="autoFill()"></span>
 				<table class="view_buy_form_1">
 					<tr class="checkout__input">
