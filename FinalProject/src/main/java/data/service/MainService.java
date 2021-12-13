@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.HeartDto;
+import data.dto.InterDto;
 import data.dto.StoryDto;
 import data.mapper.MainMapper;
 
@@ -33,6 +35,15 @@ public class MainService {
 
 	public List<ClassBoardDto> getAllnewlist() {
 		return mapper.getAllnewlist();
+	}
+	
+	public List<InterDto> getInter()
+	{
+		return mapper.getInter();
+	}
+	
+	public List<HeartDto> getHotClass() {
+		return mapper.getHotClass();
 	}
 
 	public List<StoryDto> getMainStoryList() {
