@@ -48,6 +48,10 @@ public class LoginController {
 		System.out.println(category);
 		model.addAttribute("category", category);
 		
+		profileimg = mapper.getImg(id);
+		//System.out.println(profileimg);
+		model.addAttribute("profileimg", profileimg);
+		
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pass1", pass1);
@@ -67,8 +71,8 @@ public class LoginController {
 			session.setAttribute("category", category);
 			session.setAttribute("loginok", "yes");
 			
-			System.out.println("로그인 성공");
-			System.out.println("카테고리 구분: " + category);
+			//System.out.println("로그인 성공");
+			//System.out.println("카테고리 구분: " + category);
 			return "/users/login_success";
 		} else {
 			//System.out.println(check);

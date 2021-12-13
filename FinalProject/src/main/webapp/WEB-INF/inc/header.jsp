@@ -16,17 +16,20 @@ $(document).ready(function (){
 			alert("로그인 후 이용가능합니다!");
 		}
 	});
-	
-	$(".login_check_2").click(function(){
-		if(loginok==""){
-			alert("로그인 후 이용가능합니다!");
+
+	$.ajax({
+		type: "POST",
+		url: "/main/getCartCount",
+		data: {"user_id": "${sessionScope.id}"},
+		success: function (data){
+			document.getElementById('cart-count').innerText = data;
 		}
 	});
-	
+
 	$("#btn_item_page").click(function(){
 		$(this).closest("li").addClass("active");
 	});
-	
+
  });
  </script>
 <!-- Header Section Begin -->
@@ -118,15 +121,15 @@ $(document).ready(function (){
 					<div class="hero__mypage__2">
 						<c:choose>
 							<c:when test="${sessionScope.loginok==null}">
-								<a href="${root}/users/login" class="login_check_2">
-									<span>0</span>
+								<a href="${root}/users/login" class="login_check">
+									<span class="cart-count">0</span>
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<p>장바구니</p>
 								</a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" class="login_check_2">
-									<span>0</span>
+								<a href="${root}/cart/list" class="login_check">
+									<span id="cart-count" class="cart-count">0</span>
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<p>장바구니</p>
 								</a>

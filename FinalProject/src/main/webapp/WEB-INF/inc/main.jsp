@@ -67,13 +67,13 @@
 				</div>
 
 				<div class="row">
-					<c:forEach var="a" items="${listpopul}" varStatus="status">
+					<c:forEach var="a" items="${listpopul}" varStatus="status" begin="0" end="14">
 						<div class="col-lg-4 col-md-6 col-sm-6 shop_box_all">
 							<div class="featured__item">
 								<a href="/shop/	content?num=${a.num}">
 									<div class="featured__item__pic set-bg">
 										<img src="../photo/${a.uploadfile1}" alt=""> 
-										<span class="shop_rank_number_${status.count}">${status.count}</span>
+										<span class="shop_r	ank_number_${status.count}">${status.count}</span>
 									</div>
 									<div class="featured__item__text">
 										<h6>${a.shopop}</h6>

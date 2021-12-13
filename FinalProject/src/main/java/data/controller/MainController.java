@@ -46,7 +46,7 @@ public class MainController {
 
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> listpopul = shmapper.getPopular();
-    int perPage = 4;// 한페이지에 보여질 글의 갯수
+    int perPage = 15;// 한페이지에 보여질 글의 갯수
     int totalCount = shservice.getTotalCount();
 
     int totalPage;// 총페이지
@@ -112,5 +112,10 @@ public class MainController {
     mview.addObject("listpopulMain", listpopulMain);
     mview.setViewName("/2/inc/class");
     return mview;
+  }
+  
+  @GetMapping("/off/info")
+  public String list() {
+    return "/inc/offline_inf";
   }
 }

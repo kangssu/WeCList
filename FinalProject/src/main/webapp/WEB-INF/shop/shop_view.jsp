@@ -4,7 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <!-- Breadcrumb Section Begin -->
-
+<style>
+.heart {
+	cursor: pointer;
+}
+</style>
 <script type="text/javascript">
 $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
@@ -163,21 +167,21 @@ $(".fa-heart").click(function(){
 						<button type="button" class="list-btn"
 							onclick="location.href='list'">목록보기</button>
 
-
 						<c:if test="${loginok eq 'yes'}">
-					<c:choose>
-						<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-							<a class="heart"><i class="fa fa-heart" num="${sdto.num}">${sdto.num}</i></a>
-						</c:when>
-						<c:otherwise>
-							<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}">${sdto.num}</i></a>
-						</c:otherwise>
-					</c:choose>
-					</c:if>
-					
-					<c:if test="${loginok eq null}">
-						<a class="heart"><i class="fa fa-heart-o" id="${sdto.num}">${sdto.num}</i></a>	
-					</c:if>
+							<c:choose>
+								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
+									<a class="heart"><i class="fa fa-heart" num="${sdto.num}"></i></a>
+								</c:when>
+								<c:otherwise>
+									<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}"></i></a>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+
+						<c:if test="${loginok eq null}">
+							<a class="heart"><i class="fa fa-heart-o" id="${sdto.num}"></i></a>
+						</c:if>
+
 
 					<span id="heart">${sdto.shop_heart}</span>
 					</form>
@@ -276,27 +280,4 @@ $(".fa-heart").click(function(){
     
   });
 
-  <%--function insertCart(){--%>
-  <%--  if(${sessionScope.id == null}){--%>
-  <%--    alert("로그인하지않았습니다")--%>
-  <%--    // location.href="/login";--%>
-  <%--  }else{--%>
-  <%--    if(confirm("장바구니에 추가?")){--%>
-  <%--      $.ajax({--%>
-  <%--        type:"post",--%>
-  <%--        url:"/cart/insert",--%>
-  <%--        data:{--%>
-  <%--          user_idx: ${sessionScope.id},--%>
-  <%--          shop_num: ${sdto.num},--%>
-  <%--          shop_option: "",--%>
-  <%--          shop_qty: "#subnum.value",--%>
-  <%--          shop_price: ""--%>
-  <%--        },--%>
-  <%--        success: function (data) {--%>
-  <%--          --%>
-  <%--        }--%>
-  <%--      })--%>
-  <%--    }--%>
-  <%--  }--%>
-  <%--}--%>
 </script>

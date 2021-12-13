@@ -30,7 +30,18 @@ public class AuthorShopController {
   
   @Autowired
   UserMapper mapper;
+  @GetMapping("/mypage/shop/updateform")
+  public ModelAndView updateForm(String num, String currentPage) {
 
+    ModelAndView mview = new ModelAndView();
+
+    ShopBoardDto dto = service.getData(num);
+
+    mview.addObject("dto", dto);
+    mview.addObject("currentPage", currentPage);
+    mview.setViewName("/1/author_mypage/shop_update_form");
+    return mview;
+  }
   @GetMapping("/mypage/shop/content")
   public ModelAndView content(@RequestParam String num,
                               @RequestParam(defaultValue = "1") int currentPage,
@@ -117,8 +128,8 @@ public class AuthorShopController {
     String from_id = (String) session.getAttribute("id");
 
     String id = (String)session.getAttribute("id"); // 세션값 얻어오기
-	String nickname = mapper.getNickName(id);
-	model.addAttribute("nickname", nickname);
+    String nickname = mapper.getNickName(id);
+    model.addAttribute("nickname", nickname);
     
     int perPage = 8;//�븳�럹�씠吏��뿉 蹂댁뿬吏� 湲��쓽 媛��닔
     int IdCount = service.getIdCount(from_id);

@@ -37,6 +37,9 @@
 	<select id="getCategory" parameterType="String" resultType="String">
 		select category from usersjoin where id=#{id}
 	</select>
+	<select id="getImg" parameterType="String" resultType="String">
+		select profileimg from usersjoin where id=#{id}
+	</select>
 	<select id="getEmailId" parameterType="String" resultType="String">
 		select id from usersjoin where email=#{email}
 	</select>
