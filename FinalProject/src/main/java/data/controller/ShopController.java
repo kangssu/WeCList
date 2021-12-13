@@ -161,7 +161,7 @@ public class ShopController {
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
     ModelAndView mview = new ModelAndView();
 
-    int perPage = 4;
+    int perPage = 12;
     int totalCount = service.getTotalCount();
     int totalPage;
     int IdPage;
@@ -304,7 +304,7 @@ public class ShopController {
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> newlist = mapper.getPopular();
 
-    int perPage = 4;
+    int perPage = 12;
     int totalCount = service.getTotalCount();
 
     int totalPage;

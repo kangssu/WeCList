@@ -578,7 +578,7 @@ li {
 
 .section-title h2 {
 	color: #1c1c1c;
-	font-weight: 700;
+	font-weight: 500;
 	position: relative;
 	margin-bottom:10px;
 	font-size:30px;
@@ -2809,10 +2809,17 @@ li {
 
 .related-product {
 	padding-bottom: 30px;
+	background-color:#f5f5f5;
 }
 
 .related__product__title {
-	margin-bottom: 50px;
+	margin-top:50px;
+	margin-bottom: 20px;
+}
+
+.shop_view_list_box{
+	border:1px solid #b2b2b2;
+	background-color:white;
 }
 
 /*---------------------
@@ -5888,6 +5895,41 @@ li {
 
 /*---------------------
   장바구니 리스트
+-----------------------*/
+
+/*---------------------
+  WeCList 정보
+-----------------------*/
+.info_page_table_list{
+	width:1190px;
+	margin-top:30px;
+	border:1px solid #b2b2b2;
+}
+
+.info_page_table_list th{
+	height:50px;
+	background-color:#f5f5f5;
+	text-align:center;
+	font-weight:400;
+	border-bottom:1px solid #b2b2b2;
+	width:400px;
+	font-size:18px;
+}
+
+.info_page_table_list td{
+	height:50px;
+	padding-left:30px;
+	border-bottom:1px solid #b2b2b2;
+}
+
+#map{
+	width:1190px;
+	height:500px;
+	margin-top:50px;
+}
+
+/*---------------------
+  WeCList 정보
 -----------------------*/
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
