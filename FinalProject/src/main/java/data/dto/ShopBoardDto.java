@@ -38,10 +38,19 @@ public class ShopBoardDto {
   private String uploadfile5;
   private MultipartFile upload5;
   private int readcount;
+  private int shopheart;
   private String shop_heart;
   private Timestamp writeday;
 
   
+  public int getShopheart() {
+    return shopheart;
+  }
+
+  public void setShopheart(int shopheart) {
+    this.shopheart = shopheart;
+  }
+
   public String getSubprice1() {
     return subprice1;
   }

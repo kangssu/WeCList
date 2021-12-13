@@ -46,6 +46,7 @@
 		<form action="insert" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${dto.num}">
 			<input type="hidden" name="myid" value="${sessionScope.id}">
+			<input type="text" name="shopheart" value=0>
 			<table class="story__table__form">
 				<tr>
 					<th>옵 션</th>
