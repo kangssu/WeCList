@@ -32,7 +32,7 @@ $(".fa-heart-o").click(function(){
 			url:"/class/hinsert",
 			data:{"class_heart":class_heart,"num":num},
 			success:function(data){
-			alert("조아요!!");
+			alert("좋아요 되었습니다!");
 			location.reload();
            	}
         });
@@ -51,7 +51,7 @@ $(".fa-heart").click(function(){
 			url:"/class/hdelete",
 			data:{"class_heart":class_heart,"num":num},
 			success:function(data){
-			alert("조아요 왜 취소함???");
+			alert("좋아요 취소되었습니다!");
 			location.reload();
        		}
         });
