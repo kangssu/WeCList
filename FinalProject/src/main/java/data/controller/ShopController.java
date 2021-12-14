@@ -169,7 +169,7 @@ public class ShopController {
       @RequestParam(required = false) String num) {
     ModelAndView mview = new ModelAndView();
 
-    int perPage = 4;
+    int perPage = 12;
     int totalCount = service.getTotalCount();
     int totalPage;
     int IdPage;

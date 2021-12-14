@@ -22,8 +22,7 @@
 <!-- Featured Section Begin -->
 <section class="featured spad">
 	<div class="container">
-		
-		<div class="row">
+		<div class="row new_list_all_box">
 						<c:forEach var="a" items="${list}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
