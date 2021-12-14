@@ -199,7 +199,7 @@ public class ClassController {
       cdto.setUploadfile(uploadfile);
 
       try {
-        cdto.getUpload().transferTo(new File(path + "\\" + uploadfile));
+        cdto.getUpload().transferTo(new File(path + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -213,7 +213,7 @@ public class ClassController {
       cdto.setUploadfile1(uploadfile1);
 
       try {
-        cdto.getUpload1().transferTo(new File(path + "\\" + uploadfile1));
+        cdto.getUpload1().transferTo(new File(path + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -227,7 +227,7 @@ public class ClassController {
       cdto.setUploadfile2(uploadfile2);
 
       try {
-        cdto.getUpload2().transferTo(new File(path + "\\" + uploadfile2));
+        cdto.getUpload2().transferTo(new File(path + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -241,7 +241,7 @@ public class ClassController {
       cdto.setUploadfile3(uploadfile3);
 
       try {
-        cdto.getUpload3().transferTo(new File(path + "\\" + uploadfile3));
+        cdto.getUpload3().transferTo(new File(path + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -255,7 +255,7 @@ public class ClassController {
       cdto.setUploadfile4(uploadfile4);
 
       try {
-        cdto.getUpload4().transferTo(new File(path + "\\" + uploadfile4));
+        cdto.getUpload4().transferTo(new File(path + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -269,7 +269,7 @@ public class ClassController {
       cdto.setUploadfile5(uploadfile5);
 
       try {
-        cdto.getUpload5().transferTo(new File(path + "\\" + uploadfile5));
+        cdto.getUpload5().transferTo(new File(path + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -297,7 +297,7 @@ public class ClassController {
       cndto.setUploadfile(uploadfile);
 
       try {
-        cndto.getUpload().transferTo(new File(path + "\\" + uploadfile));
+        cndto.getUpload().transferTo(new File(path + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
