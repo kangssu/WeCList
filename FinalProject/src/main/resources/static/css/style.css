@@ -2474,9 +2474,10 @@ li {
 .product__item__text h6:nth-child(1){font-size:12px; color:#999999;}
 
 .product__item__text h6 {
-	text-overflow: ellipsis; 
-	white-space: nowrap; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	overflow: hidden;
+	width:180px;
 	margin-bottom: 10px;
 }
 

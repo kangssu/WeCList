@@ -111,8 +111,12 @@ $(".fa-heart").click(function(){
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__text">
 
-					<a onclick="location.href='/author/home?id=${sdto.myid}'"> <span><img src="${root}/photo/${udto.profileimg}"><i
-							class="fa fa-angle-right">${udto.nickname}</i></span>
+					<a onclick="location.href='/author/home?id=${sdto.myid}'">
+                  <span>
+                     <img src="${root}/photo/${udto.profileimg}">
+					  ${udto.nickname}<i class="fa fa-angle-right"></i>
+                  </span>
+					</a>
 					</a>
 					<h3>${sdto.title}</h3>
 
