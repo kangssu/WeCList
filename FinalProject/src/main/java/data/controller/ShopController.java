@@ -60,7 +60,7 @@ public class ShopController {
 
     mview.addObject("shopop", shopop);
     mview.addObject("currentPage", currentPage);
-    mview.setViewName("/shop/shop_category");
+    mview.setViewName("/5/shop/shop_category");
     return mview;
   }
 
@@ -165,7 +165,7 @@ public class ShopController {
 
   @GetMapping(value = {"/shop/list"})
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
-      @RequestParam String num) {
+      @RequestParam(required = false) String num) {
     ModelAndView mview = new ModelAndView();
 
     int perPage = 4;
@@ -207,7 +207,7 @@ public class ShopController {
     mview.addObject("no", no);
     mview.addObject("heartTrue", heartTrue);
     mview.addObject("currentPage", currentPage);
-    mview.setViewName("/shop/shop_list");
+    mview.setViewName("/5/shop/shop_list");
 
     return mview;
   }
