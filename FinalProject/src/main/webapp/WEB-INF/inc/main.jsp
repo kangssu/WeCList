@@ -72,8 +72,8 @@
 							<div class="featured__item">
 								<a href="/shop/	content?num=${a.num}" class="shop_test_test">
 									<div class="featured__item__pic set-bg">
-										<img src="../photo/${a.uploadfile1}" alt=""> 
-										<span class="shop_rank_number_${status.count}">${status.count}</span>
+										<img src="/photo/${a.uploadfile1}" alt="">
+										<span class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 									</div>
 									<div class="featured__item__text">
 										<h6>${a.shopop}</h6>
@@ -118,7 +118,7 @@
 							<div class="featured__item">
 								<a href="/shop/	content?num=${a.num}">
 									<div class="featured__item__pic set-bg">
-										<img src="../photo/${a.uploadfile1}" alt="">
+										<img src="/photo/${a.uploadfile1}" alt="">
 									</div>
 									<div class="featured__item__text">
 										<h6>${a.shopop}</h6>

@@ -22,14 +22,13 @@
 <!-- Featured Section Begin -->
 <section class="featured spad">
 	<div class="container">
-		
-		<div class="row">
+		<div class="row new_list_all_box">
 						<c:forEach var="a" items="${list}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
 										<div class="featured__item__pic set-bg">
-										<img src="../photo/${a.uploadfile1}" alt="" >
+										<img src="/photo/${a.uploadfile1}" alt="" >
 										</div>
 										<div class="product__item__text">
 										<h6>${a.name}</h6>
