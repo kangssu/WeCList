@@ -16,7 +16,7 @@
 		$("#btn_story_del").click(function(){
 			//alert("1"); //1 제대로 나옴!
 			var num=$("#delnum").val();
-			location.href="/mypage/sdelete?num="+num;
+			location.href="/mypage/shopdelete?num="+num;
 		});
 	}
 	
@@ -71,7 +71,7 @@
 							<button type="button" class="story_mod_btn"
 								onclick="location.href='/mypage/shop/updateform?num=${a.num}'">수정</button>
 							<button type="button" class="story_del_btn"
-								onclick="location.href='/mypage/shopdelete?num=${a.num}'">삭제</button>
+								onclick="showDelPopup(${a.num})">삭제</button>
 						</td>
 					</tr>
 					</c:if>
