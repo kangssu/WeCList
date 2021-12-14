@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="breadcrumb__text">
-					<h2>온라인 클래스</h2>
+					<h2>최신 작품</h2>
 					<div class="breadcrumb__option">
 						<a href="./index.html">Home</a> <span>최신 작품</span>
 					</div>

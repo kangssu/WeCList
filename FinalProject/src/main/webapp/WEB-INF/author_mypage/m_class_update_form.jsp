@@ -78,11 +78,11 @@
 					<th>옵 션</th>
 					<td colspan="3"><select style="width: 500px"
 						class="class_op_select" name="class_op_cate">
-							<option>디저트</option>
-							<option>음료</option>
-							<option>악세사리</option>
-							<option>시계</option>
-							<option>의류</option>
+							<option>공예</option>
+							<option>요리</option>
+							<option>미술</option>
+							<option>플라워</option>
+							<option>뷰티</option>
 					</select></td>
 				</tr>
 				<tr>

@@ -8,7 +8,7 @@ function getCartList(){
 	let cartList = "";
 }
 $(document).ready(function (){
-	$(".btn-delete").click(function (){
+	$(".cart_buy_del_btn").click(function (){
 		let user_id = "${sessionScope.id}";
 		let shop_num = $(this).parent().siblings().eq(1).attr('itemid');
 		let shop_option = $(this).parent().siblings().eq(2).text();
@@ -46,29 +46,33 @@ $(document).ready(function (){
 </section>
 <!-- Breadcrumb Section End -->
 <section class="table-responsive">
-	<table class="table table-hover">
-		<thead>
-		<tr>
-			<th><input title="전체선택" type="checkbox"><span>&nbsp;스토어</span></th>
-			<th>썸네일</th>
-			<th>작품명</th>
-			<th>옵션</th>
-			<th>갯수</th>
-			<th>가격</th>
-		</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="item" items="${list}">
-			<tr>
-				<th><input title="${item.name} 선택" type="checkbox" value=""> &nbsp;&nbsp; ${item.name}<button class="btn btn-warning btn-delete">삭제</button></th>
-				<td>${item.itemImage}</td>
-				<td class="cart-item-title" itemid="${item.shop_num}"><a href="${root}/shop/content?num=${item.shop_num}">${item.title}</a></td>
-				<td class="cart-item-option" itemid="${item.shop_option}">${item.shop_option}</td>
-				<td>${item.shop_qty} 개</td>
-				<td><fmt:formatNumber value="${item.shop_price}" pattern="#,###,###"/> 원</td>
-			</tr>
-		</c:forEach>
-		</tbody>
-	</table>
-	<input type="button" class="primary-btn btn_buy" onclick="location.href='buy'" value="구매하기">
+	<div class="container">
+		<table class="cart_table_list">
+			<thead>
+				<tr>
+					<th><input title="전체선택" type="checkbox"><span>&nbsp;스토어</span></th>
+					<th>상품 이미지</th>
+					<th>작품명</th>
+					<th>옵션</th>
+					<th>갯수</th>
+					<th>가격</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="item" items="${list}">
+				<tr>
+					<td><input title="${item.name} 선택" type="checkbox" value=""> &nbsp;&nbsp; ${item.name}<button class="cart_buy_del_btn">삭제</button></td>
+					<td><img src="../photo/${item.uploadfile}"></td>
+					<td class="cart-item-title" itemid="${item.shop_num}"><a href="${root}/shop/content?num=${item.shop_num}">${item.title}</a></td>
+					<td class="cart-item-option" itemid="${item.shop_option}">${item.shop_option}</td>
+					<td>${item.shop_qty} 개</td>
+					<td><fmt:formatNumber value="${item.shop_price}" pattern="#,###,###"/> 원</td>
+				</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+		<div class="buy_btn_all">
+			<button type="button" class="cart_buy_btn" onclick="location.href='buy'">구매하기</button>
+		</div>
+	</div>
 </section>
