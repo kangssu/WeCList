@@ -14,7 +14,7 @@ public class CartDTO {
   private String name; // shop name
   private String title; // item title
   private int shop_price;
-  private String uploadfile;
+  private String itemImage;
   // usersjoin Table
   private String user_id; // id
 
@@ -22,16 +22,16 @@ public class CartDTO {
   public String toString() {
     return "CartDTO [user_idx=" + user_idx + ", shop_num=" + shop_num + ", shop_option="
         + shop_option + ", shop_qty=" + shop_qty + ", name=" + name + ", title=" + title
-        + ", shop_price=" + shop_price + ", uploadfile=" + uploadfile + ", user_id=" + user_id
+        + ", shop_price=" + shop_price + ", itemImage=" + itemImage + ", user_id=" + user_id
         + "]";
   }
 
-  public String getUploadfile() {
-    return uploadfile;
+  public String getItemImage() {
+    return itemImage;
   }
 
-  public void setUploadfile(String uploadfile) {
-    this.uploadfile = uploadfile;
+  public void setItemImage(String itemImage) {
+    this.itemImage = itemImage;
   }
 
   public int getUser_idx() {

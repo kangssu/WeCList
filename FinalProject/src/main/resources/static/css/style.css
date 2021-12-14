@@ -4305,10 +4305,29 @@ li {
 	font-size:13px;
 }
 
-.profile_text_mypage_1 p{
-	margin-top:-15px;
-	margin-left:20px;
+.profile_text_mypage_1{
+	float:left;
 }
+
+.profile_text_mypage_1 .mypage__name__top{
+	color:#1c1c1c;
+	font-size:22px;
+	margin-top:-12px;
+	margin-left:22px;
+}
+
+.profile_text_mypage_2{
+	background-color:#f5f5f5;
+	margin-top:120px;
+	height:45px;
+	padding:10px;
+	line-height:-10px;
+}
+
+.profile_text_mypage_2 .mypage__nickname__top{
+	color:#1c1c1c;
+}
+
 
 .profile_btn button{
 	border:1px solid #f5f5f5;
@@ -5934,7 +5953,7 @@ li {
 .cart_table_list td:nth-child(1){text-align:left; padding-left:20px;}
 
 .buy_btn_all{
-	text-align:center;	
+	text-align:center;
 }
 
 .cart_buy_btn{

@@ -27,6 +27,7 @@ function closePopup2() {
 
 $(function(){    
 	var pw_passed = true; // 유효성검사 확인처리용 변수  
+	var isCertification=true;
 	var pw1;
 	var pw2;
     
@@ -41,10 +42,11 @@ $(function(){
 	    var pattern3 = /[`~!@#$%^&*()/?-_=+]/;
 		
 	    if(!pattern1.test(i) || i.length<6  || pattern3.test(i) || !pattern1.test(i) && !pattern2.test(i) && i.length<6) {
-	    	$("#id-val-text").html("<font color='red'>6자 이상의 영문 또는 영문과 숫자를 조합</font>");
-	    	return false;
+	    	$("#id-ck-text").html(": <font color='red'>X</font>");
+	    	isCertification = false;
 	    } else {
-	    	$("#id-val-text").html("<font color='green'>6자 이상의 영문 또는 영문과 숫자를 조합</font>");
+	    	$("#id-ck-text").html(": <font color='green'>O</font>");
+	    	isCertification = true;
 	    }
 
 		$.ajax({
@@ -55,9 +57,10 @@ $(function(){
             success:function(data){
                if(data.check!=0){
             	  $("#id-compare-text").html(": <font color='red'>중복된 아이디입니다.</font>");
-            	  return false;
+            	  isCertification = false;
                }else{
             	   $("#id-compare-text").html(": <font color='green'>사용 가능한 아이디입니다.</font>");
+            	   isCertification = true;
                }
             }
          }); 
@@ -76,9 +79,10 @@ $(function(){
             success:function(data){
                if(data.nickCheck!=0){
             	  $("#nick-compare-text").html(": <font color='red'>중복된 닉네임입니다.</font>");
-                  return false;
+            	  isCertification = false;
                }else{
             	  $("#nick-compare-text").html(": <font color='green'>사용 가능한 닉네임입니다.</font>");
+            	  isCertification = true;
                }
             }
          });    
@@ -87,19 +91,15 @@ $(function(){
 	
 	// 비밀번호 유효성 검사
 	$("#pass1").blur(function(){
-		pw_passed = true;
+		//pw_passed = true;
 		pw1 = $("#pass1").val(); //비밀번호
 		
-		if(pw1.length == 0) {
-			alert("비밀번호를 입력해주세요.");
-	        return false;
-	    }
-
 		if(pw1.indexOf($("#id").val()) > -1) {
 			$("#pass-ck1-text").html(": <font color='red'>포함</font>");
-            return false;
+			isCertification = false;
         } else {
         	$("#pass-ck1-text").html(": <font color='green'>미포함</font>");
+        	isCertification = true;
         }
 		
 		var pattern1 = /[a-zA-Z]/;
@@ -108,9 +108,10 @@ $(function(){
 		
 	    if(!pattern1.test(pw1) || !pattern2.test(pw1) || !pattern3.test(pw1) || pw1.length<8) {
 	    	$("#pass-ck2-text").html(": <font color='red'>X</font>");
-	    	return false;
+	    	isCertification = false;
 	    } else {
         	$("#pass-ck2-text").html(": <font color='green'>O</font>");
+        	isCertification = true;
         }
 	    
 	    var SamePass_0 = 0; //동일문자 카운트
@@ -136,14 +137,10 @@ $(function(){
 
            if(SamePass_0 > 0) { // 동일문자 카운트 1일 때
         	  $("#pass-ck3-text").html(": <font color='red'>O</font>");
-              pw_passed=false; // 유효성검사 false
+        	  isCertification = false;
            } else {
            	  $("#pass-ck3-text").html(": <font color='green'>X</font>");
-           }
-
-           if(!pw_passed) { // 유효성검사 false이면 넘어가지 않음            
-                 return false;
-                 //break;
+           	  isCertification = true;
            }
 	    }
 	});
@@ -153,9 +150,10 @@ $(function(){
 	$("#pass2").blur(function(){
 		if($("#pass1").val() != $("#pass2").val()) {
 			$("#pass-compare-text").html(": <font color='red'>X</font>");
-			return false;
+			isCertification = false;
 		} else {
 			$("#pass-compare-text").html(": <font color='green'>O</font>");
+			isCertification = true;
 		}
 	});
 	
@@ -169,9 +167,10 @@ $(function(){
 
 		if(!hp_pattern.test(h)) {
 			$("#hp-ck-text").html(": <font color='red'>X</font>");
-	        return false;
+			isCertification = false;
 	    } else {
 	    	$("#hp-ck-text").html(": <font color='green'>O</font>");
+	    	isCertification = true;
 	    }
 	});
 	
@@ -183,9 +182,10 @@ $(function(){
 
 	    if(!pattern1.test(e) || e.length==0) {
 	    	$("#email-ck-text").html(": <font color='red'>X</font>");
-	    	return false;
+	    	isCertification = false;
 	    } else {
 	    	$("#email-ck-text").html(": <font color='green'>O</font>");
+	    	isCertification = true;
 	    }
 	    
 	    $.ajax({
@@ -196,9 +196,10 @@ $(function(){
             success:function(data){
                if(data.emailCheck!=0){
             	  $("#email-compare-text").html(": <font color='red'>중복된 이메일입니다.</font>");
-            	  return false;
+            	  //isCertification = false;
                }else{
             	  $("#email-compare-text").html(": <font color='green'>사용 가능한 이메일입니다.</font>");
+            	  isCertification = true;
                }
             }
          });
@@ -215,20 +216,19 @@ $(function(){
 			url : '/users/CheckMail',
 			data : {"mail":mail},
 			success:function(data){
-				console.log(email);
+				//console.log(email);
 				key = data;
 				alert("입력하신 메일로 인증번호가 전송되었습니다."); 
 			}
 		});
 		
-		isCertification=true; //추후 인증 여부를 알기위한 값
 		$("#compare").on("propertychange change keyup paste input", function() {
 			if ($("#compare").val() == key) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
 				$("#i-compare-text").html(": <font color='green'>일치</font>");
-				isCertification = true;  //인증 성공여부 check
+				isCertification = true;
 			} else {
 				$("#i-compare-text").html(": <font color='red'>불일치</font>");
-				isCertification = false; //인증 실패
+				isCertification = false;
 			}
 		});
 	});
@@ -242,6 +242,7 @@ $(function(){
 		    }
 		 }).open();
 	});
+	
 	
 	//약관 전체동의
 	$("#agreeAll").click(function() {
@@ -264,32 +265,35 @@ $(function(){
 		}
 	});
 	
+	$("#joinbtn").click(function() {
+		if(isCertification == false) {
+			alert("가입 조건을 다시 한번 확인해주세요!");
+			return false;
+		}
+	});
 	
+
 });
 
-function check(f) {
-	if(f.id.value.length == 0) {
-		alert("아이디를 입력해주세요.");
-		return false; //action이 호출되지 않음
-	}
-	if(f.pass1.value != f.pass2.value) {
-		alert("비밀번호가 서로 다릅니다");
-		f.pass1.value = "";
-		f.pass2.value = "";
-		return false;//action이 호출되지 않는다
-	}
-	if(f.useterms.checked == false) {
+
+function check(obj) {
+	var fileCheck = document.getElementById("fileimg").value;
+	var utCheck = document.getElementById("useterms");
+	var atCheck = document.getElementById("ageterms");
+	
+/*     if(!fileCheck){
+        alert("프로필 사진을 첨부해 주세요");
+        return false;
+    } */
+    if(utCheck.checked == false) {
 		alert("이용약관에 동의해주세요.");
 		return false;
 	}
-	if(f.ageterms.checked == false) {
+	if(atCheck.checked == false) {
 		alert("만 14세 이상만 가입하실 수 있습니다.");
 		return false;
 	}
-	if(isCertification==false){
-		alert("메일 인증이 완료되지 않았습니다.");
-		return false;
-	}
+	
 	return true;
 }
 </script>
@@ -327,7 +331,8 @@ function check(f) {
 							 class="checkout__input__add" required="required">
 							<p id="id_check">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f" id="id-val-text">6자 이상의 영문 또는 영문과 숫자를 조합</span><br>
+								<span style="font-size:13px; color:#6f6f6f" id="id-val-text">6자 이상의 영문 또는 영문과 숫자를 조합</span>
+								<span style="font-size:13px; color:#6f6f6f" id="id-ck-text"></span><br>
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
 								<span style="font-size:13px; color:#6f6f6f">아이디 중복 여부 </span>
 								<span style="font-size:13px; color:#6f6f6f" id="id-compare-text"></span>
@@ -440,11 +445,11 @@ function check(f) {
 					<tr class="checkout__input">
 						<td>프로필 사진</td>
 						<td>
-							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
+							<input type="text" readonly="readonly" id="filename" placeholder="프로필 사진을 등록해주세요." 
 							 class="checkout__input__add">
-							<input type="file" name="file" id="profileimg" style="display: none;" 
-							 onchange="javascript:document.getElementById('profilename').value=this.value">
-							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>
+							<input type="file" name="file" id="fileimg" style="display: none;" 
+							 onchange="javascript:document.getElementById('filename').value=this.value">
+							<button type="button" class="addr-btn" onclick="jQuery('#fileimg').click()">사진선택</button>
 						</td>
 					</tr>
 				</table>
@@ -469,7 +474,7 @@ function check(f) {
 				</div>
 
 				<div class="view_order_btn">
-					<button type="submit" class="buy-btn" onclick="">가입하기</button>
+					<button type="submit" class="buy-btn" onclick="" id="joinbtn">가입하기</button>
 				</div>
 			</form>
 		</div>

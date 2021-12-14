@@ -90,7 +90,7 @@ public class UsersController {
 		String nickname = (String)session.getAttribute("nickname");
 		String category = (String)session.getAttribute("category");
 		
-		// 카테고리 세션값 1: 일반회원(레이아웃 1), 2: 작가(레이아웃 1_2)
+		// 카테고리 세션값 1: 일반회원(레이아웃 1_2), 2: 작가(레이아웃 1)
 		if(category.equals("2")) {
 			return "/1/user_mypage/user_updatepassform";
 		} else {
@@ -104,7 +104,7 @@ public class UsersController {
 			@RequestParam String id,
 			@RequestParam String pass1,
 			HttpSession session) {
-		
+
 		String category = (String)session.getAttribute("category");
 		//System.out.println(category);
 		
@@ -123,9 +123,9 @@ public class UsersController {
 			
 			mview.addObject("dto",dto);
 			
-			// 카테고리 세션값 1: 일반회원(레이아웃 1), 2: 작가(레이아웃 1_2)
+			// 카테고리 세션값 1: 일반회원(레이아웃 1_2), 2: 작가(레이아웃 1)
 			if(category.equals("2")) {
-				mview.setViewName("/1/user_mypage/user_update");
+				mview.setViewName("/1/user_mypage/author_update");
 			} else {
 				mview.setViewName("/1_2/user_mypage/user_update");
 			}
@@ -140,19 +140,19 @@ public class UsersController {
 	
 	// 정보수정 비밀번호 올바르게 입력 시 정보수정 폼으로 넘어간 뒤 수정하기 누르면 DB로 전송
 	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
-	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, HttpSession session) {	
+	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, HttpSession session) {
 		String nickname = (String)session.getAttribute("nickname");
 		String profileimg = (String)session.getAttribute("profileimg");
-		
+
 		// 업로드 경로 구하기
 	    String path = session.getServletContext().getRealPath("/photo");
-	    
+
 	    // 사진명 구해서 넣기
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 	    String photoname = "f" + sdf.format(new Date()) + "_" + file.getOriginalFilename();
-	    
+
 	    String searchImgNum = photoname.substring(photoname.indexOf("_")+1, photoname.length());
-	    
+
 	    if(searchImgNum.length() == 0) {
 	    	udto.setProfileimg("default_img.jpg");
 	    } else {
@@ -169,7 +169,7 @@ public class UsersController {
 	    }
 		
 		mapper.updateUsers(udto);
-		
+
 		return "/user_mypage/user_success";
 	}
 
