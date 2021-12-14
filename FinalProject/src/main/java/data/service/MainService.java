@@ -58,7 +58,7 @@ public class MainService {
 		return mapper.getCartCount(user_id);
 	}
 
-	//°Ë»ö ±â´É
+	//ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½
 	public int getSearchTotal() {
 		return mapper.getSearchTotal();
 	}

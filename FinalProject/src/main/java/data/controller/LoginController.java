@@ -23,7 +23,7 @@ public class LoginController {
 	@Autowired
 	UserMapper mapper;	
 	
-	
+
 	@RequestMapping(value = "/login/loginprocess", method = {RequestMethod.POST, RequestMethod.GET})
 	public String loginprocess(
 			// login.jsp 파일의 아이디, 패스워드 값 받아오기
@@ -48,7 +48,7 @@ public class LoginController {
 		
 		profileimg = mapper.getImg(id);
 		model.addAttribute("profileimg", profileimg);
-		
+
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pass1", pass1);

@@ -24,7 +24,7 @@ public interface MainMapper {
 	public List<StoryDto> getMainStoryList();
 	public int getStoryTotalCount();
 
-	//°Ë»ö ±â´É
+	//ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½
 	public List<ClassBoardDto> getSearch(HashMap<String, Object> map);
 	public int getSearchTotal();
 }

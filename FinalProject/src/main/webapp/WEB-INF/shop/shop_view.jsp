@@ -14,7 +14,7 @@ $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
 loginid="${sessionScope.id}"; //로그인 아이디 가져옴
 
-alert(loginok+","+loginid); //확인됨
+//alert(loginok+","+loginid); //확인됨
 
 //좋아요 이벤트!(추가)
 $(".fa-heart-o").click(function(){
@@ -116,9 +116,9 @@ $(".fa-heart").click(function(){
 					</a>
 					<h3>${sdto.title}</h3>
 
-					<div class="product__details__price">${sdto.shopprice}</div>
+					<div class="product__details__price">${sdto.shopprice}원</div>
 					<p>${sdto.shopsub}</p>
-					<form method="post" action="${root}/cart/insert">
+					<form id="cart_form" method="post" action="/cart/insert2">
 						<input type="hidden" name="shop_num" value="${sdto.num}">
 						<input type="hidden" name="user_id" value="${sessionScope.id}">
 						<ul class="view_option_select">
@@ -126,46 +126,42 @@ $(".fa-heart").click(function(){
 									제작</span></li>
 							<li><b>배송비</b> <span>2,500원 <samp>(모든 지역 동일)</samp></span></li>
 							<li><b>배송시작</b> <span>평균 1일, 최대 30일 이내</span></li>
-							<li><b>옵션선택</b> <select id="selectoption" name="shop_price"
-								onchange="NumChange(this.value)">
-									<option>--선택안함--</option>
+							<li><b>옵션선택</b> <select id="selectoption" name="shop_price">
+									<option>--옵션선택--</option>
 									<option value="${sdto.subprice1}">${sdto.suboption1}</option>
 									<option value="${sdto.subprice2}">${sdto.suboption2}</option>
 									<option value="${sdto.subprice3}">${sdto.suboption3}</option>
 									<option value="${sdto.subprice4}">${sdto.suboption4}</option>
 									<option value="${sdto.subprice5}">${sdto.suboption5}</option>
 							</select></li>
-							<input type="hidden" name="shop_option" value="">
+							<input type="hidden" id="shop_option" name="shop_option" value="">
 						</ul>
 						<div class="product__details__text__option__list">
 							<p id="result">옵션</p>
 							<div class="product__details__quantity">
 								<div class="quantity">
 									<div class="pro-qty">
-										<span class="dec qtybtn">-</span> <input type="text"
-											name="shop_qty" id="subnum" value="1"> <span
-											class="inc qtybtn">+</span>
+										<span class="dec qtybtn">-</span>
+										<input type="text" name="shop_qty" id="subnum" value="1">
+										<span class="inc qtybtn">+</span>
 									</div>
 								</div>
 							</div>
 							<div class="product__details__quantity">
 								<div class="quantity-del">
-									<span id="quantity-del-dan"></span>
+									<span id="quantity-del-dan"></span>	
 									<button>X</button>
 								</div>
 							</div>
 						</div>
 						<div class="product__details__price__total">
 							<p>총 작품금액 :</p>
-							<span> </span>
+							<span id="total_price"></span>
 						</div>
 						<%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
-						<button type="submit" class="primary-btn btn_buy"
-							onclick="location.href='buy'">구매하기</button>
-						<button type="button" class="heart-btn btn_cart"
-							onclick="location.href='${root}/cart/list'">장바구니</button>
-						<button type="button" class="list-btn"
-							onclick="location.href='list'">목록보기</button>
+						<button type="button" class="primary-btn btn_buy" onclick="buyItem()">구매하기</button>
+						<button type="button" class="heart-btn btn_cart"	onclick="insertCart()">장바구니</button>
+						<button type="button" class="list-btn"	onclick="location.href='list'">목록보기</button>
 
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
@@ -197,9 +193,6 @@ $(".fa-heart").click(function(){
 								상세정보</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
 							href="#tabs-2" role="tab" aria-selected="false"> 배송/교환/환불정보</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#tabs-3" role="tab" aria-selected="false"> 리뷰 <span>(1)</span></a>
-						</li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -211,11 +204,6 @@ $(".fa-heart").click(function(){
 						<div class="tab-pane" id="tabs-2" role="tabpanel">
 							<div class="product__details__tab__desc">
 								<p>${sdto.shopdelivery}</p>
-							</div>
-						</div>
-						<div class="tab-pane" id="tabs-3" role="tabpanel">
-							<div class="product__details__tab__desc">
-								<p>리뷰 폼 출력(폼 만들어야함)</p>
 							</div>
 						</div>
 					</div>
@@ -233,20 +221,16 @@ $(".fa-heart").click(function(){
 			<div class="col-lg-12">
 				<div class="section-title related__product__title">
 					<h2>다른 작품 구경하기</h2>
-					<span>다양한 작품을 구경해보세요!</span>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-
 			<c:forEach var="a" items="${list}">
-
 				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="product__item">
+					<div class="product__item shop_view_list_box">
 						<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
 							<div class="product__item__pic">
-								<img style="width: 220px; height: 270px;"
-									src="../photo/${a.uploadfile1}" alt="">
+								<img src="../photo/${a.uploadfile1}" alt="">
 							</div>
 							<div class="product__item__text">
 								<h6>${a.name}</h6>
@@ -257,7 +241,6 @@ $(".fa-heart").click(function(){
 					</div>
 				</div>
 			</c:forEach>
-
 		</div>
 	</div>
 </section>
@@ -265,19 +248,63 @@ $(".fa-heart").click(function(){
 <script type="text/javascript">
   $(function () {
     $("#selectoption").change(function () {
-      var v = $("#selectoption option:selected").text();
-      document.getElementById("result").innerText = "상품 종류  : " + v;
-      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $(
-          "#selectoption").val();
-
+      let txt = $("#selectoption option:selected").text();
+      let v = $("#selectoption option:selected").val();
+	  $("#shop_option").val(txt);
+      document.getElementById("result").innerText = "상품 종류  : " + txt + " (+" + v + "원)";
+      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $("#selectoption").val();
     });
 
     // 막무가내 리스너 붙이기
     $(".pro-qty").on("change keyup paste input click", function () {
-      document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $(
-          "#selectoption").val();
+    	let total =  $("#subnum").val() * (parseInt($("#selectoption").val()) + parseInt(${sdto.shopprice}));
+      document.getElementById("quantity-del-dan").innerText =total;
+      document.getElementById("total_price").innerText =total;
     });
-    
   });
 
+  // 구매하기 onclick
+  function buyItem(){
+	  let v = $("#selectoption option:selected").val();
+	  if(v == '--옵션선택--'){
+		  alert("옵션을 선택해야합니다");
+		  return false;
+	  }else{
+		$("#cart_form").submit();
+	  }
+  }
+
+  // 장바구니 onclick
+  function insertCart() {
+	  let option = $("#selectoption option:selected");
+	  if (${sessionScope.id == null}) {
+      alert("로그인이 필요합니다");
+      return false;
+    } else if(option.val() == '--옵션선택--'){
+		  alert("옵션을 선택해야합니다");
+		  return false;
+	}else{
+      if (confirm("장바구니에 추가?")) {
+        let u_id = "${sessionScope.id}";
+        let s_num = ${sdto.num};
+        let s_option = option.text();
+        let s_qty = $("#subnum").val();
+        let s_price = $("#selectoption").val();
+
+        let data = {"user_id": u_id, "shop_num": s_num, "shop_option": s_option, "shop_qty": s_qty, "shop_price": s_price};
+
+        $.ajax({
+          type: "POST",
+          url: "/cart/insert",
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          success: function (data) {
+            if(confirm("장바구니확인?")){
+              location.href = "/cart/list"
+            }
+          }
+        }); // ajax
+      } // if(confirm())
+    }   // else
+  } // function insertCart()
 </script>
