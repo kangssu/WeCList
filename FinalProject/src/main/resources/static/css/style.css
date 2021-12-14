@@ -4292,6 +4292,24 @@ li {
 	font-weight:500;
 }
 
+.profile_text_mypage_1 span{
+	display:block;
+	width:80px;
+	height:30px;
+	border:1px solid #f5f5f5;
+	margin-left:20px;
+	background-color:#f5f5f5;
+	border-radius:100px;
+	text-align:center;
+	line-height:30px;
+	font-size:13px;
+}
+
+.profile_text_mypage_1 p{
+	margin-top:-15px;
+	margin-left:20px;
+}
+
 .profile_btn button{
 	border:1px solid #f5f5f5;
 	background-color:#f5f5f5;
@@ -5997,6 +6015,13 @@ li {
 /*---------------------
   최신,인기작품
 -----------------------*/
+
+/* 하트 버튼 스타일(상세) */
+.heart i{
+	color:#ff7b27;
+	margin-left:20px;
+	font-size:22px;
+}
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
