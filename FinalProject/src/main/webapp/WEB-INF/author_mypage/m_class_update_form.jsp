@@ -30,6 +30,13 @@
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
 		});
+		
+		$('#summernote3').summernote({
+			placeholder : 'Write contents',
+			height : 400,
+			minHeight : null, // set minimum height of editor
+			maxHeight : null, // set maximum height of editor
+		});
 
 		//에디터에서 p를 br로 바꾸기 위함!
 		$("#summernote1").on("summernote.enter", function(we, e) {
@@ -39,6 +46,12 @@
 
 		//에디터에서 p를 br로 바꾸기 위함!
 		$("#summernote2").on("summernote.enter", function(we, e) {
+			$(this).summernote("pasteHTML", "<br><br>");
+			e.preventDefault();
+		});
+		
+		//에디터에서 p를 br로 바꾸기 위함!
+		$("#summernote3").on("summernote.enter", function(we, e) {
 			$(this).summernote("pasteHTML", "<br><br>");
 			e.preventDefault();
 		});

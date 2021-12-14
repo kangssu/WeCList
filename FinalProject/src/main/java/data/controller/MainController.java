@@ -109,13 +109,11 @@ public class MainController {
     List<ClassBoardDto> listMain = mapper.getAlllist();
     List<ClassBoardDto> listnewsMain = mapper.getAllnewlist();
     List<ClassBoardDto> listpopulMain = mapper.getPopular();
-    List<InterDto> inter=mapper.getInter();
     List<ClassBoardDto> listseven=mapper.getSevendays();
 
     mview.addObject("listMain", listMain);
     mview.addObject("listnewsMain", listnewsMain);
     mview.addObject("listpopulMain", listpopulMain);
-    mview.addObject("inter", inter);
     mview.addObject("listseven", listseven);
     mview.setViewName("/2/inc/class");
     return mview;

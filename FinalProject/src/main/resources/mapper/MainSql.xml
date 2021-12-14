@@ -21,9 +21,8 @@
 		SELECT DISTINCT num, MAX(like_cnt) FROM classHeart GROUP BY
 		num ORDER BY MAX(like_cnt) desc
 	</select>
-	<select id="getInter" parameterType="String" resultType="idto">
-		select
-		Distinct num,inter_cnt from classInter
+	<select id="getInter" parameterType="String" resultType="cdto">
+		select num,inter from classInter
 	</select>
 	<select id="getSevendays" resultType="cdto">
 		select * from

@@ -16,7 +16,7 @@ public interface MainMapper {
 	public List<ClassBoardDto> getAlllist();
 	public List<ClassBoardDto> getAllnewlist();
 	public List<ClassBoardDto> getPopular();
-	public List<InterDto> getInter();
+	public List<ClassBoardDto> getInter();
 	public List<HeartDto> getHotClass();
 	public List<ClassBoardDto> getSevendays();
 	public int getCartCount(String user_id);
@@ -24,7 +24,6 @@ public interface MainMapper {
 	public List<StoryDto> getMainStoryList();
 	public int getStoryTotalCount();
 
-	//�˻� ���
 	public List<ClassBoardDto> getSearch(HashMap<String, Object> map);
 	public int getSearchTotal();
 }

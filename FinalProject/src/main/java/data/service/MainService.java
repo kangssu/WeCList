@@ -37,7 +37,7 @@ public class MainService {
 		return mapper.getAllnewlist();
 	}
 	
-	public List<InterDto> getInter()
+	public List<ClassBoardDto> getInter()
 	{
 		return mapper.getInter();
 	}
@@ -58,7 +58,6 @@ public class MainService {
 		return mapper.getCartCount(user_id);
 	}
 
-	//�˻� ���
 	public int getSearchTotal() {
 		return mapper.getSearchTotal();
 	}
