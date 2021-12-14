@@ -129,7 +129,10 @@ public class AuthorShopController {
 
     String id = (String)session.getAttribute("id"); // 세션값 얻어오기
     String nickname = mapper.getNickName(id);
+    String profileimg = mapper.getImg(id);
+    
     model.addAttribute("nickname", nickname);
+    model.addAttribute("profileimg", profileimg);
     
     int perPage = 8;//�븳�럹�씠吏��뿉 蹂댁뿬吏� 湲��쓽 媛��닔
     int IdCount = service.getIdCount(from_id);

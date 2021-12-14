@@ -86,9 +86,17 @@ public class UsersController {
 	
 	// 정보 수정하기 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
 	@GetMapping("/users/mypage/updatepass")
-	public String updateMyInfo(HttpSession session) {
-		String nickname = (String)session.getAttribute("nickname");
+	public String updateMyInfo(HttpSession session, Model model) {
+		//String nickname = (String)session.getAttribute("nickname");
 		String category = (String)session.getAttribute("category");
+		
+		ModelAndView mview = new ModelAndView();
+	    String id = (String)session.getAttribute("id"); // 세션값 얻어오기
+	    String nickname = mapper.getNickName(id);
+	    model.addAttribute("nickname", nickname);
+	    
+	    String profileimg = mapper.getImg(id);
+	    model.addAttribute("profileimg", profileimg);
 		
 		// 카테고리 세션값 1: 일반회원(레이아웃 1_2), 2: 작가(레이아웃 1)
 		if(category.equals("2")) {
@@ -103,12 +111,16 @@ public class UsersController {
 	public ModelAndView updatepass(
 			@RequestParam String id,
 			@RequestParam String pass1,
-			HttpSession session) {
+			HttpSession session, Model model) {
 
 		String category = (String)session.getAttribute("category");
-		//System.out.println(category);
 		
 		ModelAndView mview = new ModelAndView();
+	    String nickname = mapper.getNickName(id);
+	    model.addAttribute("nickname", nickname);
+	    
+	    String profileimg = mapper.getImg(id);
+	    model.addAttribute("profileimg", profileimg);
 		
 		// DB로부터 비번 맞는지 체크
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -140,10 +152,18 @@ public class UsersController {
 	
 	// 정보수정 비밀번호 올바르게 입력 시 정보수정 폼으로 넘어간 뒤 수정하기 누르면 DB로 전송
 	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
-	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, HttpSession session) {
-		String nickname = (String)session.getAttribute("nickname");
-		String profileimg = (String)session.getAttribute("profileimg");
-
+	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, 
+			@RequestParam String id, HttpSession session, Model model) {
+		//String nickname = (String)session.getAttribute("nickname");
+		//String profileimg = (String)session.getAttribute("profileimg");
+		
+		ModelAndView mview = new ModelAndView();
+	    String nickname = mapper.getNickName(id);
+	    model.addAttribute("nickname", nickname);
+	    
+	    String profileimg = mapper.getImg(id);
+	    model.addAttribute("profileimg", profileimg);
+	    
 		// 업로드 경로 구하기
 	    String path = session.getServletContext().getRealPath("/photo");
 
@@ -176,10 +196,17 @@ public class UsersController {
 	
 	// 회원 탈퇴 메뉴 눌렀을 때 비밀번호 입력 폼 연결경로
 	@GetMapping("/users/mypage/deletepass")
-	public String deleteMyInfo(HttpSession session) {
-		String nickname = (String) session.getAttribute("nickname");
+	public String deleteMyInfo(HttpSession session, Model model) {
+		//String nickname = (String) session.getAttribute("nickname");
 		String category = (String)session.getAttribute("category");
-		
+		ModelAndView mview = new ModelAndView();
+	    String id = (String)session.getAttribute("id"); // 세션값 얻어오기
+	    String nickname = mapper.getNickName(id);
+	    String profileimg = mapper.getImg(id);
+	    
+	    model.addAttribute("nickname", nickname);
+	    model.addAttribute("profileimg", profileimg);
+	    
 		// 카테고리 세션값 얻어와서 1이면 일반회원, 2면 작가 페이지레이아웃 다르게 보이게
 		if(category.equals("2")) {
 			return "/1/user_mypage/user_deletepassform";

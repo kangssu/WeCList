@@ -330,7 +330,8 @@ function check(obj) {
 							 class="checkout__input__add" required="required">
 							<p id="id_check">
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
-								<span style="font-size:13px; color:#6f6f6f" id="id-val-text">6자 이상의 영문 또는 영문과 숫자를 조합</span><br>
+								<span style="font-size:13px; color:#6f6f6f" id="id-val-text">6자 이상의 영문 또는 영문과 숫자를 조합</span>
+								<span style="font-size:13px; color:#6f6f6f" id="id-ck-text"></span><br>
 								<i class="fa fa-hand-o-right" aria-hidden="true" style="font-size:13px; margin-right:5px"></i>
 								<span style="font-size:13px; color:#6f6f6f">아이디 중복 여부 </span>
 								<span style="font-size:13px; color:#6f6f6f" id="id-compare-text"></span>
