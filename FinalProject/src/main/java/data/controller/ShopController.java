@@ -233,7 +233,7 @@ public class ShopController {
       sdto.setUploadfile1(uploadfile1);
 
       try {
-        sdto.getUpload1().transferTo(new File(path + "\\" + uploadfile1));
+        sdto.getUpload1().transferTo(new File(path + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -247,7 +247,7 @@ public class ShopController {
       sdto.setUploadfile2(uploadfile2);
 
       try {
-        sdto.getUpload2().transferTo(new File(path + "\\" + uploadfile2));
+        sdto.getUpload2().transferTo(new File(path + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -261,7 +261,7 @@ public class ShopController {
       sdto.setUploadfile3(uploadfile3);
 
       try {
-        sdto.getUpload3().transferTo(new File(path + "\\" + uploadfile3));
+        sdto.getUpload3().transferTo(new File(path + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -275,7 +275,7 @@ public class ShopController {
       sdto.setUploadfile4(uploadfile4);
 
       try {
-        sdto.getUpload4().transferTo(new File(path + "\\" + uploadfile4));
+        sdto.getUpload4().transferTo(new File(path + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -289,7 +289,7 @@ public class ShopController {
       sdto.setUploadfile5(uploadfile5);
 
       try {
-        sdto.getUpload5().transferTo(new File(path + "\\" + uploadfile5));
+        sdto.getUpload5().transferTo(new File(path + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
