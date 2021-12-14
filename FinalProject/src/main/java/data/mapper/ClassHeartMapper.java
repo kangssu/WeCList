@@ -9,6 +9,8 @@ import data.dto.HeartDto;
 public interface ClassHeartMapper {
 
 	public void insertHeart(HeartDto dto);
-	public int getMaxLikeCnt(String num);
+	public int getMaxLikeCnt(int num);
 	public void deleteHeart(HashMap<String, Object> map);
+	public void updateHeart(int num);
+    public void downdateHeart(int num);
 }
