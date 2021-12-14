@@ -92,10 +92,10 @@ $(function(){
 		pw_passed = true;
 		pw1 = $("#pass1").val(); //비밀번호
 		
-		if(pw1.length == 0) {
+/* 		if(pw1.length == 0) {
 			alert("비밀번호를 입력해주세요.");
 	        return false;
-	    }
+	    } */
 
 		if(pw1.indexOf($("#id").val()) > -1) {
 			$("#pass-ck1-text").html(": <font color='red'>포함</font>");
@@ -198,7 +198,6 @@ $(function(){
             success:function(data){
                if(data.emailCheck!=0){
             	  $("#email-compare-text").html(": <font color='red'>중복된 이메일입니다.</font>");
-            	  return false;
                }else{
             	  $("#email-compare-text").html(": <font color='green'>사용 가능한 이메일입니다.</font>");
                }
@@ -274,8 +273,8 @@ function check(f) {
 		alert("아이디를 입력해주세요.");
 		return false; //action이 호출되지 않음
 	}
-	if(f.pass1.value != f.pass2.value) {
-		alert("비밀번호가 서로 다릅니다");
+	if((f.pass1.value != f.pass2.value) || pw_passed == false) {
+		alert("비밀번호를 다시 한번 확인해주세요.");
 		f.pass1.value = "";
 		f.pass2.value = "";
 		return false;//action이 호출되지 않는다
@@ -292,6 +291,11 @@ function check(f) {
 		alert("메일 인증이 완료되지 않았습니다.");
 		return false;
 	}
+	if(f.file.value.length == 0){
+		alert("프로필 사진을 등록해주세요.");
+		return false;
+	}
+	
 	return true;
 }
 </script>
@@ -443,9 +447,9 @@ function check(f) {
 						<td><span style="color:red">※</span>프로필 사진</td>
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
-							 class="checkout__input__add" value="">
+							 class="checkout__input__add" value="" required="required">
 							<input type="file" name="file" id="profileimg" style="display: none;" 
-							 onchange="javascript:document.getElementById('profilename').value=this.value">
+							 onchange="javascript:document.getElementById('profilename').value=this.value" required="required">
 							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>
 						</td>
 					</tr>
