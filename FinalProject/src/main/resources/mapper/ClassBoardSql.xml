@@ -37,16 +37,16 @@
 	</select>
 	<insert id="insertBoard" parameterType="cdto">
 		insert into classboarder
-		(myid,title,classsub,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
+		(myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
 		values
-		(#{myid},#{title},#{classsub},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
+		(#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	<insert id="insertNewBoard" parameterType="cndto">
 		insert into
 		classnewboarder
-		(myid,title,classsub,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
+		(myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,writeday)
 		values
-		(#{myid},#{title},#{classsub},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
+		(#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},now())
 	</insert>
 	<delete id="deleteBoard" parameterType="String">
 		delete from classboarder
@@ -69,8 +69,7 @@
 		resultType="String">
 		select count(*) from classInter where num=#{num}
 	</select>
-	<select id="getInter" parameterType="String" resultType="idto">
-		select
-		Distinct num,inter_cnt from classInter
+	<select id="getInter" parameterType="String" resultType="cdto">
+		select num,inter from classInter
 	</select>
 </mapper>

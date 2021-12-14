@@ -9,6 +9,8 @@ import data.dto.InterDto;
 public interface ClassInterMapper {
 
 	public void insertInter(InterDto dto);
-	public int getMaxInterCnt(String num);
+	public int getMaxInterCnt(int num);
 	public void deleteInter(HashMap<String, Object> map);
+	public void updateInter(int num);
+	public void downdateInter(int num);
 }

@@ -11,7 +11,6 @@ public class ClassBoardDto {
 	private String name;
 	private String myid;
 	private String title;
-	private String classsub;
 	private String class_op_cate;
 	private String class_op_detail;
 	private String classprice;
@@ -31,9 +30,15 @@ public class ClassBoardDto {
   	private MultipartFile upload5;
 	private String classheart;
 	private Timestamp writeday;
+	private String inter;
+	public String getInter() {
+		return inter;
+	}
+	public void setInter(String inter) {
+		this.inter = inter;
+	}
 	private String class_heart;
 	private String idx;
-	
 	
 	
 	@Override
@@ -77,12 +82,6 @@ public class ClassBoardDto {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getClasssub() {
-		return classsub;
-	}
-	public void setClasssub(String classsub) {
-		this.classsub = classsub;
 	}
 	public String getClass_op_cate() {
 		return class_op_cate;

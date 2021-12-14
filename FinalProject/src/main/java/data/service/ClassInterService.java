@@ -21,8 +21,16 @@ public class ClassInterService {
 		mapper.deleteInter(map);
 	}
 	
-	public int getMaxInterCnt(String num) {
+	public int getMaxInterCnt(int num) {
 	    return mapper.getMaxInterCnt(num);
 	  }
+	
+	public void updateInter(int num) {
+		mapper.updateInter(num);
+	}
+
+	public void downdateInter(int num) {
+		mapper.downdateInter(num);
+	}
 
 }

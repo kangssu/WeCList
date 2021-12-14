@@ -126,7 +126,6 @@ public class AuthorShopController {
       service.updateBoard(sdto);
       return "redirect:content?num=" + service.getMaxNum();
   }
-  
   @GetMapping("/mypage/shop/content")
   public ModelAndView content(@RequestParam String num,
                               @RequestParam(defaultValue = "1") int currentPage,
@@ -252,7 +251,6 @@ public class AuthorShopController {
 
     return mview;
 }
-  
   
   
   @GetMapping("/mypage/shopdelete")

@@ -338,7 +338,7 @@ function check(obj) {
 						<td><span style="color:red">※</span>프로필 사진</td>
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
-							 class="checkout__input__add" >
+							 class="checkout__input__add" value="${dto.profileimg}">
 							<input type="file" name="file" id="profileimg" style="display: none;" 
 							 onchange="javascript:document.getElementById('profilename').value=this.value" value="${dto.profileimg}">
 							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>

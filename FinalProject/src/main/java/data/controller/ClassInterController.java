@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.dto.InterDto;
@@ -18,13 +19,11 @@ public class ClassInterController {
 	ClassInterMapper service;
 
 	@PostMapping("/class/iinsert")
-	public void insert(@ModelAttribute InterDto dto, HttpSession session) {
+	public void insert(@ModelAttribute InterDto dto, @RequestParam String class_inter,@RequestParam(required=false) int num, HttpSession session) {
 		// insert
 
 		String idx = dto.getIdx();
 		int inter_cnt = dto.getInter_cnt();
-		String num = dto.getNum();
-		System.out.println(num);
 
 		inter_cnt = service.getMaxInterCnt(num)+1;
 
@@ -33,14 +32,16 @@ public class ClassInterController {
 		dto.setInter_cnt(inter_cnt);
 
 		service.insertInter(dto);
+		service.updateInter(num);
 	}
 
 	@PostMapping("/class/idelete")
-	public void delete(String class_inter, String num, HttpSession session) {
+	public void delete(String class_inter,@RequestParam(required=false) int num, HttpSession session) {
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("class_inter", class_inter);
 		map.put("num", num);
 		service.deleteInter(map);
+		service.downdateInter(num);
 	}
 
 }

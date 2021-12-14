@@ -19,25 +19,23 @@
 				</div>
 			</div>
 			<div class="row shop_all_list_box_1">
-				<c:forEach var="idto" items="${inter}">
-					<c:forEach var="cdto" items="${list}">
-						<c:if test="${idto.inter_cnt>=15 and idto.num==cdto.num}">
-							<div class="col-lg-4">
-								<div class="product__item">
-									<a href="${root}/class/view?num=${cdto.num}">
-										<div class="featured__item__pic set-bg">
-											<img src="/photo/${cdto.uploadfile}">
-										</div>
-										<div class="product__item__text">
-											<h6>${cdto.class_op_cate}</h6>
-											<h6>${cdto.title}</h6>
-											<h5>${cdto.classprice}원</h5>
-										</div>
-									</a>
-								</div>
+				<c:forEach var="cdto" items="${list}">
+					<c:if test="${cdto.inter>=15}">
+						<div class="col-lg-4">
+							<div class="product__item">
+								<a href="${root}/class/view?num=${cdto.num}">
+									<div class="featured__item__pic set-bg">
+										<img src="../photo/${cdto.uploadfile}">
+									</div>
+									<div class="product__item__text">
+										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
+										<h5>${cdto.classprice}원</h5>
+									</div>
+								</a>
 							</div>
-						</c:if>
-					</c:forEach>
+						</div>
+					</c:if>
 				</c:forEach>
 			</div>
 			<div class="product__pagination">

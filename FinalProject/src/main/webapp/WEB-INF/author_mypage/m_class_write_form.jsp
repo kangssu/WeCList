@@ -74,11 +74,6 @@
 						placeholder="※ 클래스에 대한 제목을 입력해주세요."></input></td>
 				</tr>
 				<tr>
-					<th>클래스 설명</th>
-					<td colspan="3"><input type="text" name="classsub"
-						placeholder="※ 간단한 클래스 소개"></input></td>
-				</tr>
-				<tr>
 					<th>옵 션</th>
 					<td colspan="3"><select style="width: 500px"
 						class="class_op_select" name="class_op_cate">

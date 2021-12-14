@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.ShopBoardDto;
 import data.dto.ShopHeartDto;
+import data.dto.UserDto;
 import data.mapper.ShopBoardMapper;
 import data.service.ShopBoardService;
+import data.service.UserProfileService;
 
 @Controller
 public class ShopController {
@@ -27,6 +29,8 @@ public class ShopController {
   @Autowired
   ShopBoardMapper mapper;
 
+  @Autowired
+  UserProfileService uservice;
   @GetMapping("/shop/category")
   public ModelAndView getCategory(@RequestParam(value = "shopop", required = false) String shopop,
       @RequestParam(defaultValue = "1") int currentPage,
@@ -66,8 +70,10 @@ public class ShopController {
 
 
 
+
   @GetMapping("/shop/content")
   public ModelAndView content(@RequestParam String num,
+      @RequestParam(required=false) String myid,
       @RequestParam(defaultValue = "1") int currentPage,
       @RequestParam(required = false) String key) {
     ModelAndView mview = new ModelAndView();
@@ -77,12 +83,7 @@ public class ShopController {
     }
 
     ShopBoardDto sdto = service.getData(num);
-
-    System.out.println(sdto.getMyid());
-
-    String name = "as";
-    sdto.setName(name);
-
+    UserDto udto = uservice.GetIdData(sdto.getMyid());
     int dotLoc = sdto.getUploadfile1().lastIndexOf('.');
     String ext = sdto.getUploadfile1().substring(dotLoc + 1);
     if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif") || ext.equalsIgnoreCase("png")) {
@@ -141,6 +142,7 @@ public class ShopController {
     /////////////////////////////////////////////////////
 
     mview.addObject("sdto", sdto);
+    mview.addObject("udto", udto);
     mview.addObject("currentPage", currentPage);
     mview.setViewName("/shop/shop_view");
     return mview;
@@ -211,6 +213,7 @@ public class ShopController {
 
     return mview;
   }
+
 
 
 

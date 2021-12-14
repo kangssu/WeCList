@@ -335,7 +335,7 @@ $(function(){
 						</td>
 					</tr>
 					<tr class="checkout__input">
-						<td><span style="color:red">※</span>프로필 사진</td>
+						<td>프로필 사진</td>
 						<td>
 							<input type="text" readonly="readonly" id="profilename" placeholder="프로필 사진을 등록해주세요." 
 							 class="checkout__input__add" >

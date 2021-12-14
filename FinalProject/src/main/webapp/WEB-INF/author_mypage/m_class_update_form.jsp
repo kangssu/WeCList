@@ -75,11 +75,6 @@
 					<td colspan="3"><input type="text" name="title" value="${dto.title}"></input></td>
 				</tr>
 				<tr>
-					<th>클래스 설명</th>
-					<td colspan="3"><input type="text" name="classsub"
-						value="${dto.classsub}"></input></td>
-				</tr>
-				<tr>
 					<th>옵 션</th>
 					<td colspan="3"><select style="width: 500px"
 						class="class_op_select" name="class_op_cate">
