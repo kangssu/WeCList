@@ -10,13 +10,10 @@
 				<div class="row">
 					<div class="filter__found">
 						<h6>${cdto.class_op_cate}</h6>
-						<h6>
-							<span class="shop_option_category_all">전체보기</span> 클래스
-						</h6>
+						<h6><span class="shop_option_category_all">전체보기</span> 클래스</h6>
 						<div class="shop_all_count_box">
 							<h6 class="all_count_shop">WeCList의 다양한 클래스를 만나보세요!</h6>
-							<span class="all_count_shop">총 <b>${totalCount}</b>개의 작품
-							</span>
+							<span class="all_count_shop">총 <b>${totalCount}</b>개의 작품</span>
 						</div>
 					</div>
 				</div>
@@ -47,8 +44,7 @@
 				</c:if>
 				<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 					<c:if test="${currentPage==pp}">
-						<li class="select"><a class="select2"
-							href="list?currentPage=${pp}">${pp}</a></li>
+						<li class="select"><a class="select2" href="list?currentPage=${pp}">${pp}</a></li>
 					</c:if>
 					<c:if test="${currentPage!=pp}">
 						<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
