@@ -90,7 +90,7 @@ public class UsersController {
 		String nickname = (String)session.getAttribute("nickname");
 		String category = (String)session.getAttribute("category");
 		
-		// 카테고리 세션값 1: 일반회원(레이아웃 1), 2: 작가(레이아웃 1_2)
+		// 카테고리 세션값 1: 일반회원(레이아웃 1_2), 2: 작가(레이아웃 1)
 		if(category.equals("2")) {
 			return "/1/user_mypage/user_updatepassform";
 		} else {
@@ -123,9 +123,9 @@ public class UsersController {
 			
 			mview.addObject("dto",dto);
 			
-			// 카테고리 세션값 1: 일반회원(레이아웃 1), 2: 작가(레이아웃 1_2)
+			// 카테고리 세션값 1: 일반회원(레이아웃 1_2), 2: 작가(레이아웃 1)
 			if(category.equals("2")) {
-				mview.setViewName("/1/user_mypage/user_update");
+				mview.setViewName("/1/user_mypage/author_update");
 			} else {
 				mview.setViewName("/1_2/user_mypage/user_update");
 			}

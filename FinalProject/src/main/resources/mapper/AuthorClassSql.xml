@@ -18,8 +18,8 @@
 	</select>
 	
 	<insert id="insertBoard" parameterType="cdto">
-		insert into classboarder (myid,title,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
-		values (#{myid},#{title},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
+		insert into classboarder (myid,title,classsub,class_op_cate,class_op_detail,classprice,classinfo,class_process,uploadfile,uploadfile1,uploadfile2,uploadfile3,uploadfile4,uploadfile5,writeday)
+		values (#{myid},#{title},#{classsub},#{class_op_cate},#{class_op_detail},#{classprice},#{classinfo},#{class_process},#{uploadfile},#{uploadfile1},#{uploadfile2},#{uploadfile3},#{uploadfile4},#{uploadfile5},now())
 	</insert>
 	
 	<select id="getList" parameterType="HashMap" resultType="cdto">
@@ -27,7 +27,7 @@
 	</select>
 	
 	<update id="updateBoard" parameterType="cdto">
-		update classboarder set title=#{title},class_op_cate=#{class_op_cate},class_op_detail=#{class_op_detail},classprice=#{classprice},classinfo=#{classinfo},class_process=#{class_process},
+		update classboarder set title=#{title},classsub=#{classsub},class_op_cate=#{class_op_cate},class_op_detail=#{class_op_detail},classprice=#{classprice},classinfo=#{classinfo},class_process=#{class_process},
 		uploadfile=#{uploadfile},uploadfile1=#{uploadfile1},uploadfile2=#{uploadfile2},uploadfile3=#{uploadfile3},uploadfile4=#{uploadfile4},uploadfile5=#{uploadfile5}
 		where num=#{num}
 	</update>
