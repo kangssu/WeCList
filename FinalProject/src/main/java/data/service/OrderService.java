@@ -3,6 +3,7 @@ package data.service;
 import data.dto.OrderDTO;
 import data.mapper.OrderMapper;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class OrderService {
   OrderMapper mapper;
 
   public void insertOrder(OrderDTO orderDTO) { mapper.insertOrder(orderDTO); }
-  public void insertOrderDetails(List<OrderDTO> orderDTO){ mapper.insertOrderDetails(orderDTO);}
+  public void insertOrderDetails(Map<String, Object> map){ mapper.insertOrderDetails(map);}
   public void insetOrderDelivery(OrderDTO orderDTO){ mapper.insetOrderDelivery(orderDTO);}
   public int countOrder(String user_idx){ return mapper.countOrder(user_idx);}
   public List<OrderDTO> listOrder(int order_num){ return mapper.listOrder(order_num);}

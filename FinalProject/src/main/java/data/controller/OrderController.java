@@ -3,7 +3,9 @@ package data.controller;
 import data.dto.OrderDTO;
 import data.service.OrderService;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +33,20 @@ public class OrderController {
     LOGGER.info("POST: /checkout:insertOrder");
 
     // order_details 테이블
-    List<OrderDTO> orderDTOList = new ArrayList<>();
-    service.insertOrderDetails(orderDTOList);
+    List<OrderDTO> list = new ArrayList<>();
+    Map<String, Object> map = new HashMap<>();
+    for(OrderDTO dto : list){
+      dto.setOrder_num(orderNum);
+      dto.setShop_num(orderDTO.getShop_num());
+      dto.setShop_option(orderDTO.getShop_option());
+      dto.setShop_qty(orderDTO.getShop_qty());
+      dto.setShop_price(orderDTO.getShop_price());
+
+      list.add(dto);
+    }
+    map.put("list", list);
+
+    service.insertOrderDetails(map);
     LOGGER.info("POST: /checkout:insertOrderDetails");
 
     // order_delivery 테이블

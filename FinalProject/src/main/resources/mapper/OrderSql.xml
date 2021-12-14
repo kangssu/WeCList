@@ -5,12 +5,11 @@
     INSERT INTO orders (order_num, user_idx, shipping_cost)
     VALUES (#{order_num}, (select idx from usersjoin where id = #{user_id}), #{shipping_cost});
   </insert>
-  <insert id="insertOrderDetails" parameterType="orderdto">
-    INSERT INTO order_details(order_num, shop_num, shop_option, shop_qty, shop_price)
-    VALUES
-           <foreach collection="list" item="item" index=",">
-           (#{order_num}, #{shop_num}, #{shop_option}, #{shop_qty}, #{shop_price});
-           </foreach>
+  <insert id="insertOrderDetails" parameterType="java.util.Map">
+    INSERT INTO order_details (order_num, shop_num, shop_option, shop_qty, shop_price) VALUES
+    <foreach collection="list" item="item" separator=" , " >
+           (#{item.order_num}, #{item.shop_num}, #{item.shop_option}, #{item.shop_qty}, #{item.shop_price})
+    </foreach>
   </insert>
   <select id="insetOrderDelivery" parameterType="orderdto">
   INSERT into order_delivery (order_num , dlvr_name, dlvr_phone, dlvr_email, dlvr_addr1, dlvr_addr2)
