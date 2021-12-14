@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
@@ -123,6 +125,10 @@ public class MainController {
   public String list() {
     return "/inc/offline_inf";
   }
+
+  @ResponseBody
+  @PostMapping("/main/getCartCount")
+  public int getCartCount(@RequestParam String user_id){return service.getCartCount(user_id);  }
   
   
 }
