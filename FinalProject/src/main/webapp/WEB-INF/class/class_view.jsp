@@ -285,14 +285,9 @@ $(".primary-btn-off").click(function(){
 						</c:if>
 
 						<c:if test="${loginok eq null}">
-<<<<<<< HEAD
-							<button type="button" class="primary-btn-on" onclick="#">관심있어요</button>
-							<button type="button" class="list-btn-inter"
-								onclick="location.href='list'">목록보기</button>
-=======
+
 							<button type="button" class="primary-btn-on" >관심있어요</button>
 							<button type="button" class="list-btn-inter" onclick="location.href='list'">목록보기</button>
->>>>>>> branch 'main' of https://github.com/chominsub/WeCList.git
 						</c:if>
 					</div>
 				</div>
@@ -301,7 +296,7 @@ $(".primary-btn-off").click(function(){
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item"><a class="nav-link active"
 								data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">소개</a></li>
-							
+
 						</ul>
 						<div class="tab-content">
 						<div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -309,7 +304,7 @@ $(".primary-btn-off").click(function(){
 								<p>${dto.classinfo}</p>
 							</div>
 						</div>
-						
+
 					</div>
 					</div>
 				</div>

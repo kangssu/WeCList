@@ -25,7 +25,7 @@
 						<div class="product__item">
 							<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
 								<div class="featured__item__pic set-bg">
-									<img src="../photo/${a.uploadfile1}" alt="" >
+									<img src="/photo/${a.uploadfile1}" alt="" >
 								</div>
 								<div class="product__item__text">
 									<h6>${a.shopop}</h6>
