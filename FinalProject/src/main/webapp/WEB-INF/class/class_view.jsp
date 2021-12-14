@@ -145,7 +145,7 @@ $(".primary-btn-off").click(function(){
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=1}">
+			<c:if test="${InterCount>=15}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
