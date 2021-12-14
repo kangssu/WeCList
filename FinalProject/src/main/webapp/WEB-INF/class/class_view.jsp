@@ -145,7 +145,7 @@ $(".primary-btn-off").click(function(){
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=1}">
+			<c:if test="${InterCount>=15}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -253,7 +253,7 @@ $(".primary-btn-off").click(function(){
 						</a>
 						<h3>바퀴달린집2 출연진이 배운, 달콩이의 아이패드 드로잉</h3>
 						<div class="count-box">
-							<b style="color: #ffa500">관심있어요 ??명</b>
+							<b style="color: #ffa500">관심있어요 ${idto.inter_cnt}명</b>
 						</div>
 						<br>
 						<p>2021년의 수능 합격 기원을 위한 수제카라멜 선물세트로 공부하는 수험생들에게 힘을 주기 위한 선물세트
