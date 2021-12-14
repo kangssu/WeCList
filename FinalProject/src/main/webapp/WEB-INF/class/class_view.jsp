@@ -294,7 +294,7 @@ $(".primary-btn-off").click(function(){
 						</c:if>
 
 						<c:if test="${loginok eq null}">
-							<button type="button" class="primary-btn-on" onclick="#">관심있어요</button>
+							<button type="button" class="primary-btn-on" >관심있어요</button>
 							<button type="button" class="list-btn-inter" onclick="location.href='list'">목록보기</button>
 						</c:if>
 					</div>
