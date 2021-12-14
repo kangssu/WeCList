@@ -46,7 +46,7 @@
 		<form action="insert" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${dto.num}">
 			<input type="hidden" name="myid" value="${sessionScope.id}">
-			<input type="text" name="shopheart" value=0>
+			<input type="hidden" name="shopheart" value=0>
 			<table class="story__table__form">
 				<tr>
 					<th>옵 션</th>
@@ -94,19 +94,19 @@
 					<th>3번 이름과 가격</th>
 					<td><input type="text" name="suboption3"
 						placeholder="※ 3번 제품에 대한 이름."> 
-						<input type="text" name="subprice3"></td>
+						<input type="text" name="subprice3" placeholder="※ 3번 제품에 대한 가격."></td>
 				</tr>
 				<tr>
 					<th>4번 이름과 가격</th>
 					<td><input type="text" name="suboption4"
 						placeholder="※ 4번 제품에 대한 이름."> 
-						<input type="text" name="subprice4" ></td>
+						<input type="text" name="subprice4" placeholder="※ 4번 제품에 대한 가격."></td>
 				</tr>
 				<tr>
 					<th>5번 이름과 가격</th>
 					<td><input type="text" name="suboption5"
 						placeholder="※ 5번 제품에 대한 이름."> 
-						<input type="text" name="subprice5"></td>
+						<input type="text" name="subprice5" placeholder="※ 5번 제품에 대한 가격."></td>
 				</tr>
 				<tr>
 					<th colspan="3">상품 설명</th>
