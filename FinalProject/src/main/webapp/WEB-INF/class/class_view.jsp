@@ -10,96 +10,107 @@
 }
 </style>
 <script type="text/javascript">
-$(function(){
-loginok="${sessionScope.loginok}"; //로그인 여부
-loginid="${sessionScope.id}"; //로그인 아이디 가져옴
+	$(function() {
+		loginok = "${sessionScope.loginok}"; //로그인 여부
+		loginid = "${sessionScope.id}"; //로그인 아이디 가져옴
 
-//alert(loginok+","+loginid); //확인됨
-           		
-//좋아요 이벤트!(추가)
-$(".fa-heart-o").click(function(){
-	var class_heart=loginid;
-	var num=$(this).attr("num");
-           			
-	//로그인 한 이후에 팔로우 가능!
-	if(loginok==""){
-		alert("회원만 가능합니다!");
-		location.href ="/users/login";
-	}else{
-		$.ajax({
-			type:"post",
-			dataType:"text",
-			url:"/class/hinsert",
-			data:{"class_heart":class_heart,"num":num},
-			success:function(data){
-			alert("좋아요 되었습니다!");
-			location.reload();
-           	}
-        });
-    }
-});
-           		
-//좋아요 이벤트!(취소)
-$(".fa-heart").click(function(){
-	var class_heart=loginid;
-	var num=$(this).attr("num");
-           			
-	//팔로우!
-		$.ajax({
-			type:"post",
-			dataType:"text",
-			url:"/class/hdelete",
-			data:{"class_heart":class_heart,"num":num},
-			success:function(data){
-			alert("좋아요 취소되었습니다!");
-			location.reload();
-       		}
-        });
-   	});
-   	
-//관심 이벤트!(추가)
-$(".primary-btn-on").click(function(){
-	var class_inter=loginid;
-	var num=$(this).attr("num");
-	//alert(id); //아이디 불러옴
-	
-	//로그인 한 이후에 팔로우 가능!
-	if(loginok==""){
-		alert("회원만 가능합니다!");
-		location.href ="/users/login";
-	}else{
-		$.ajax({
-			type:"post",
-			dataType:"text",
-			url:"/class/iinsert",
-			data:{"class_inter":class_inter,"num":num},
-			success:function(data){
-				location.reload();
+		//alert(loginok+","+loginid); //확인됨
+
+		//좋아요 이벤트!(추가)
+		$(".fa-heart-o").click(function() {
+			var class_heart = loginid;
+			var num = $(this).attr("num");
+
+			//로그인 한 이후에 팔로우 가능!
+			if (loginok == "") {
+				alert("회원만 가능합니다!");
+				location.href = "/users/login";
+			} else {
+				$.ajax({
+					type : "post",
+					dataType : "text",
+					url : "/class/hinsert",
+					data : {
+						"class_heart" : class_heart,
+						"num" : num
+					},
+					success : function(data) {
+						alert("좋아요 되었습니다!");
+						location.reload();
+					}
+				});
 			}
 		});
-	}
-});   
 
-//관심 이벤트(취소)
-$(".primary-btn-off").click(function(){
-	var class_inter=loginid;
-	var num=$(this).attr("num");
-	//alert(to_id);
-	
-	//팔로우!
-	$.ajax({
-		type:"post",
-		dataType:"text",
-		url:"/class/idelete",
-		data:{"class_inter":class_inter,"num":num},
-		success:function(data){
-			location.reload();
-		}
+		//좋아요 이벤트!(취소)
+		$(".fa-heart").click(function() {
+			var class_heart = loginid;
+			var num = $(this).attr("num");
+
+			//팔로우!
+			$.ajax({
+				type : "post",
+				dataType : "text",
+				url : "/class/hdelete",
+				data : {
+					"class_heart" : class_heart,
+					"num" : num
+				},
+				success : function(data) {
+					alert("좋아요 취소되었습니다!");
+					location.reload();
+				}
+			});
+		});
+
+		//관심 이벤트!(추가)
+		$(".primary-btn-on").click(function() {
+			var class_inter = loginid;
+			var num = $(this).attr("num");
+			//alert(id); //아이디 불러옴
+
+			//로그인 한 이후에 팔로우 가능!
+			if (loginok == "") {
+				alert("회원만 가능합니다!");
+				location.href = "/users/login";
+			} else {
+				$.ajax({
+					type : "post",
+					dataType : "text",
+					url : "/class/iinsert",
+					data : {
+						"class_inter" : class_inter,
+						"num" : num
+					},
+					success : function(data) {
+						location.reload();
+					}
+				});
+			}
+		});
+
+		//관심 이벤트(취소)
+		$(".primary-btn-off").click(function() {
+			var class_inter = loginid;
+			var num = $(this).attr("num");
+			//alert(to_id);
+
+			//팔로우!
+			$.ajax({
+				type : "post",
+				dataType : "text",
+				url : "/class/idelete",
+				data : {
+					"class_inter" : class_inter,
+					"num" : num
+				},
+				success : function(data) {
+					location.reload();
+				}
+			});
+		});
+
 	});
-});
-   	
-   
-});
 </script>
 
 <section class="breadcrumb-section">
@@ -145,7 +156,7 @@ $(".primary-btn-off").click(function(){
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=5}">
+			<c:if test="${InterCount>=15}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -232,7 +243,7 @@ $(".primary-btn-off").click(function(){
 			</c:if>
 
 
-			<c:if test="${InterCount<5}">
+			<c:if test="${InterCount<15}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a href="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -286,8 +297,9 @@ $(".primary-btn-off").click(function(){
 
 						<c:if test="${loginok eq null}">
 
-							<button type="button" class="primary-btn-on" >관심있어요</button>
-							<button type="button" class="list-btn-inter" onclick="location.href='list'">목록보기</button>
+							<button type="button" class="primary-btn-on">관심있어요</button>
+							<button type="button" class="list-btn-inter"
+								onclick="location.href='list'">목록보기</button>
 						</c:if>
 					</div>
 				</div>
@@ -299,13 +311,13 @@ $(".primary-btn-off").click(function(){
 
 						</ul>
 						<div class="tab-content">
-						<div class="tab-pane active" id="tabs-1" role="tabpanel">
-							<div class="product__details__tab__desc">
-								<p>${dto.classinfo}</p>
+							<div class="tab-pane active" id="tabs-1" role="tabpanel">
+								<div class="product__details__tab__desc">
+									<p>${dto.classinfo}</p>
+								</div>
 							</div>
-						</div>
 
-					</div>
+						</div>
 					</div>
 				</div>
 			</c:if>

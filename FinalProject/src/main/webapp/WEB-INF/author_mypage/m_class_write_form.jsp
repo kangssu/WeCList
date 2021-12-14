@@ -89,7 +89,7 @@
 				<tr>
 					<th>간략 소개</th>
 					<td colspan="3"><input type="text" name="classsub"
-										   placeholder="※ 클래스에 대해 간략소개 해주세요"></input></td>
+						placeholder="※ 클래스에 대해 간략소개 해주세요"></input></td>
 				</tr>
 				<tr>
 					<th>옵 션</th>
