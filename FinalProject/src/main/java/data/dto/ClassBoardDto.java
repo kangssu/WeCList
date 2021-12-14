@@ -30,7 +30,21 @@ public class ClassBoardDto {
   	private MultipartFile upload5;
 	private String classheart;
 	private Timestamp writeday;
+	private String class_refund;
 	private String inter;
+	public String getClass_refund() {
+		return class_refund;
+	}
+	public void setClass_refund(String class_refund) {
+		this.class_refund = class_refund;
+	}
+	private String classsub;
+	public String getClasssub() {
+		return classsub;
+	}
+	public void setClasssub(String classsub) {
+		this.classsub = classsub;
+	}
 	public String getInter() {
 		return inter;
 	}

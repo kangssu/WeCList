@@ -15,7 +15,7 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 <!--summernote :E -->
 <script type="text/javascript">
-   $(document).ready(function() {
+	$(document).ready(function() {
 
 		$('#summernote1').summernote({
 			placeholder : 'Write contents',
@@ -23,55 +23,72 @@
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
 		});
-		
+
 		$('#summernote2').summernote({
 			placeholder : 'Write contents',
 			height : 400,
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
 		});
-      
+		
+		$('#summernote3').summernote({
+			placeholder : 'Write contents',
+			height : 200,
+			minHeight : null, // set minimum height of editor
+			maxHeight : null, // set maximum height of editor
+		});
+
 		//에디터에서 p를 br로 바꾸기 위함!
 		$("#summernote1").on("summernote.enter", function(we, e) {
-    	     $(this).summernote("pasteHTML", "<br><br>");
-    	     e.preventDefault();
+			$(this).summernote("pasteHTML", "<br><br>");
+			e.preventDefault();
+		});
+
+		//에디터에서 p를 br로 바꾸기 위함!
+		$("#summernote2").on("summernote.enter", function(we, e) {
+			$(this).summernote("pasteHTML", "<br><br>");
+			e.preventDefault();
 		});
 		
-		//에디터에서 p를 br로 바꾸기 위함!
-	    $("#summernote2").on("summernote.enter", function(we, e) {
-	         $(this).summernote("pasteHTML", "<br><br>");
-	         e.preventDefault();
-	    });
-      
+		$("#summernote3").on("summernote.enter", function(we, e) {
+			$(this).summernote("pasteHTML", "<br><br>");
+			e.preventDefault();
+		});
+
 		//이미지 한개 미리보기!
 		function readURL(input) {
 			if (input.files && input.files[0]) {
-			var reader = new FileReader();
-    	   
-			reader.onload = function (e) {
-				$('#image_section').attr('src', e.target.result);  
-			}
-    	   
-			reader.readAsDataURL(input.files[0]);
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#image_section').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
 			}
 		}
-    	  
-		$("#imgInput").change(function(){
-    	    readURL(this);
-    	 });
-   });
+
+		$("#imgInput").change(function() {
+			readURL(this);
+		});
+	});
 </script>
 <!-- 스토리 리스트 -->
 <div class="mypage__story">
 	<h2>클래스 등록하기</h2>
 	<div class="mypage__story__form">
-		<form action="/mypage/class/insert" method="post" enctype="multipart/form-data">
+		<form action="/mypage/class/insert" method="post"
+			enctype="multipart/form-data">
 			<input type="hidden" name="myid" value="${sessionScope.id}" />
 			<table class="story__table__form">
 				<tr>
 					<th>제목</th>
 					<td colspan="3"><input type="text" name="title"
 						placeholder="※ 클래스에 대한 제목을 입력해주세요."></input></td>
+				</tr>
+				<tr>
+					<th>간략 소개</th>
+					<td colspan="3"><input type="text" name="classsub"></input></td>
 				</tr>
 				<tr>
 					<th>옵 션</th>
@@ -104,40 +121,47 @@
 				</tr>
 				<tr>
 					<th>진행 과정</th>
-					<td colspan="3"><textarea id="summernote2" name="class_process"></textarea></td>
+					<td colspan="3"><textarea id="summernote2"
+							name="class_process"></textarea></td>
 				</tr>
 				<tr>
 					<th>사진</th>
-					<td colspan="3"><input type="file" name="upload" class="form-control"
-						multiple></td>
+					<td colspan="3"><input type="file" name="upload"
+						class="form-control" multiple></td>
 				</tr>
 				<tr>
 					<th>사진1</th>
-					<td colspan="3"><input type="file" name="upload1" class="form-control"
-						multiple></td>
+					<td colspan="3"><input type="file" name="upload1"
+						class="form-control" multiple></td>
 				</tr>
 				<tr>
 					<th>사진2</th>
-					<td colspan="3"><input type="file" name="upload2" class="form-control"
-						multiple></td>
+					<td colspan="3"><input type="file" name="upload2"
+						class="form-control" multiple></td>
 				</tr>
 				<tr>
 					<th>사진3</th>
-					<td colspan="3"><input type="file" name="upload3" class="form-control"
-						multiple></td>
+					<td colspan="3"><input type="file" name="upload3"
+						class="form-control" multiple></td>
 				</tr>
 				<tr>
 					<th>사진4</th>
-					<td colspan="3"><input type="file" name="upload4" class="form-control"
-						multiple></td>
+					<td colspan="3"><input type="file" name="upload4"
+						class="form-control" multiple></td>
 				</tr>
 				<tr>
 					<th>사진5</th>
-					<td colspan="3"><input type="file" name="upload5" class="form-control"
-						multiple></td>
+					<td colspan="3"><input type="file" name="upload5"
+						class="form-control" multiple></td>
 				</tr>
-				
-				
+				<tr>
+					<th>환불 정책</th>
+					<td colspan="3"><textarea id="summernote3"
+							name="class_refund"></textarea></td>
+				</tr>
+
+
+
 			</table>
 			<div class="story_write_form_btn_all">
 				<button type="button" class="story_list_btn"

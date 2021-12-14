@@ -17,8 +17,10 @@ import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
 import data.dto.HeartDto;
 import data.dto.InterDto;
+import data.dto.UserDto;
 import data.mapper.ClassBoardMapper;
 import data.service.ClassBoardService;
+import data.service.UserProfileService;
 
 @Controller
 public class ClassController {
@@ -28,6 +30,9 @@ public class ClassController {
 
   @Autowired
   ClassBoardMapper mapper;
+  
+  @Autowired
+  UserProfileService uservice;
 
   @GetMapping("/class/list")
   public ModelAndView getAlllist(@RequestParam(defaultValue = "1") int currentPage) {
@@ -118,6 +123,8 @@ public class ClassController {
 
     List<HeartDto> heartTrue = service.getTrue(num);
     List<InterDto> interTrue = service.getTrueInter(num);
+    
+    UserDto udto = uservice.GetIdData(dto.getMyid());
 
     int dotLoc = dto.getUploadfile().lastIndexOf(".");
     String ext = dto.getUploadfile().substring(dotLoc + 1);
@@ -133,7 +140,8 @@ public class ClassController {
     mview.addObject("heartTrue", heartTrue);
     mview.addObject("interTrue", interTrue);
     mview.addObject("InterCount", InterCount);
-
+    mview.addObject("udto", udto);
+    
     mview.setViewName("/2/class/class_view");
     return mview;
   }

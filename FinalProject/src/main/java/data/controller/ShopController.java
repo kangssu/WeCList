@@ -73,7 +73,6 @@ public class ShopController {
 
   @GetMapping("/shop/content")
   public ModelAndView content(@RequestParam String num,
-      @RequestParam(required=false) String myid,
       @RequestParam(defaultValue = "1") int currentPage,
       @RequestParam(required = false) String key) {
     ModelAndView mview = new ModelAndView();
