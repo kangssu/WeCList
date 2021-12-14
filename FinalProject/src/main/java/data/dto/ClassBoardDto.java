@@ -30,6 +30,13 @@ public class ClassBoardDto {
   	private MultipartFile upload5;
 	private String classheart;
 	private Timestamp writeday;
+	private String inter;
+	public String getInter() {
+		return inter;
+	}
+	public void setInter(String inter) {
+		this.inter = inter;
+	}
 	private String class_heart;
 	private String idx;
 	

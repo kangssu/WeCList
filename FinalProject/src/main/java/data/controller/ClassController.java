@@ -54,7 +54,6 @@ public class ClassController {
     start = (currentPage - 1) * perPage;
 
     List<ClassBoardDto> list = mapper.getAlllist();
-    List<InterDto> inter = mapper.getInter();
 
     int no = totalCount - (currentPage - 1) * perPage;
     mview.addObject("totalCount", totalCount);
@@ -64,7 +63,6 @@ public class ClassController {
     mview.addObject("no", no);
     mview.addObject("currentPage", currentPage);
     mview.addObject("list", list);
-    mview.addObject("inter", inter);
     mview.setViewName("/6/class/class_list");
     return mview;
   }
@@ -92,7 +90,6 @@ public class ClassController {
     start = (currentPage - 1) * perPage;
     int no = totalCount - (currentPage - 1) * perPage;
 
-    List<InterDto> inter = mapper.getInter();
     List<ClassBoardDto> listcate = service.getCategory(class_op_cate, start, perPage);
 
     mview.addObject("listcate", listcate);
@@ -104,7 +101,6 @@ public class ClassController {
 
     mview.addObject("class_op_cate", class_op_cate);
     mview.addObject("currentPage", currentPage);
-    mview.addObject("inter", inter);
     mview.setViewName("/6/class/class_category");
     return mview;
   }
@@ -116,8 +112,6 @@ public class ClassController {
     String userid = (String) session.getAttribute("id");
     String InterCount = service.getInterCount(num);
     System.out.println(InterCount);
-
-    List<InterDto> inter = mapper.getInter();
 
     List<ClassBoardDto> classlist = mapper.getAlllist();
     ClassBoardDto dto = service.getData(num);
@@ -139,7 +133,6 @@ public class ClassController {
     mview.addObject("heartTrue", heartTrue);
     mview.addObject("interTrue", interTrue);
     mview.addObject("InterCount", InterCount);
-    mview.addObject("inter", inter);
 
     mview.setViewName("/2/class/class_view");
     return mview;
@@ -150,11 +143,9 @@ public class ClassController {
     ModelAndView mview = new ModelAndView();
     List<ClassBoardDto> list = mapper.getAlllist();
     List<ClassBoardDto> listseven = mapper.getSevendays();
-    List<InterDto> inter = mapper.getInter();
 
     mview.addObject("list", list);
     mview.addObject("listseven", listseven);
-    mview.addObject("inter", inter);
     // mview.addObject("listnewsunder", listnewsunder);
     mview.setViewName("/2/class/class_news");// tiles �� /������/���ϸ� �����̴�
     return mview;
@@ -165,11 +156,9 @@ public class ClassController {
     ModelAndView mview = new ModelAndView();
     List<HeartDto> HotClass = mapper.getHotClass();
     List<ClassBoardDto> listpopul = mapper.getPopular();
-    List<InterDto> inter = mapper.getInter();
 
     mview.addObject("HotClass", HotClass);
     mview.addObject("listpopul", listpopul);
-    mview.addObject("inter", inter);
     mview.setViewName("/2/class/class_popular");
 
     return mview;

@@ -69,8 +69,7 @@
 		resultType="String">
 		select count(*) from classInter where num=#{num}
 	</select>
-	<select id="getInter" parameterType="String" resultType="idto">
-		select
-		Distinct num,inter_cnt from classInter
+	<select id="getInter" parameterType="String" resultType="cdto">
+		select num,inter from classInter
 	</select>
 </mapper>

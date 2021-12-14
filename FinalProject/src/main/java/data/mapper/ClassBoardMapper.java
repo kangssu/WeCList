@@ -31,6 +31,6 @@ public interface ClassBoardMapper {
   
   public List<InterDto> getTrueInter(String num);
   public String getInterCount(String num);
-  public List<InterDto> getInter();
+  public List<ClassBoardDto> getInter();
   public int getIdCount(String myid);
 }

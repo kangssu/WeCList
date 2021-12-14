@@ -97,7 +97,7 @@ public class ClassBoardService {
 		return mapper.getInterCount(num);
 	}
 
-	public List<InterDto> getInter()
+	public List<ClassBoardDto> getInter()
 	{
 		return mapper.getInter();
 	}

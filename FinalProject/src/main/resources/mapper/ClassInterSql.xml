@@ -11,4 +11,10 @@
 	<select id="getMaxInterCnt" resultType="int">
 		select ifnull(max(inter_cnt),0) from classInter where num=#{num}
 	</select>
+	<update id="updateInter" parameterType="int">
+		update classboarder set inter = inter + 1 where num = #{num}
+	</update>
+	<update id="downdateInter" parameterType="int">
+		update classboarder set inter = inter - 1 where num = #{num}
+	</update>
 </mapper>
