@@ -42,6 +42,91 @@ public class AuthorShopController {
     mview.setViewName("/1/author_mypage/shop_update_form");
     return mview;
   }
+  
+  @PostMapping("/mypage/shop/update")
+  public String update(HttpSession session, String currentPage, @ModelAttribute ShopBoardDto sdto) {
+
+      //�뾽濡쒕뱶�븷 �뤃�뜑 ���옣
+      String path = session.getServletContext().getRealPath("/photo");
+      //�뾽濡쒕뱶�븷 �뙆�씪  紐�
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+    
+      if (sdto.getUpload1().getOriginalFilename().equals("")) {
+          sdto.setUploadfile1("no");
+      } else {
+          String uploadfile1 = "f" + sdf.format(new Date()) + sdto.getUpload1().getOriginalFilename();
+          sdto.setUploadfile1(uploadfile1);
+
+          try {
+              sdto.getUpload1().transferTo(new File(path + "\\" + uploadfile1));
+          } catch (IllegalStateException | IOException e) {
+              // TODO: handle exception
+              e.printStackTrace();
+          }
+      }
+
+      if (sdto.getUpload2().getOriginalFilename().equals("")) {
+          sdto.setUploadfile2("no");
+      } else {
+          String uploadfile2 = "f" + sdf.format(new Date()) + sdto.getUpload2().getOriginalFilename();
+          sdto.setUploadfile2(uploadfile2);
+
+          try {
+              sdto.getUpload2().transferTo(new File(path + "\\" + uploadfile2));
+          } catch (IllegalStateException | IOException e) {
+              // TODO: handle exception
+              e.printStackTrace();
+          }
+      }
+
+      if (sdto.getUpload3().getOriginalFilename().equals("")) {
+          sdto.setUploadfile3("no");
+      } else {
+          String uploadfile3 = "f" + sdf.format(new Date()) + sdto.getUpload3().getOriginalFilename();
+          sdto.setUploadfile3(uploadfile3);
+
+          try {
+              sdto.getUpload3().transferTo(new File(path + "\\" + uploadfile3));
+          } catch (IllegalStateException | IOException e) {
+              // TODO: handle exception
+              e.printStackTrace();
+          }
+      }
+
+      if (sdto.getUpload4().getOriginalFilename().equals("")) {
+          sdto.setUploadfile4("no");
+      } else {
+          String uploadfile4 = "f" + sdf.format(new Date()) + sdto.getUpload4().getOriginalFilename();
+          sdto.setUploadfile4(uploadfile4);
+
+          try {
+              sdto.getUpload4().transferTo(new File(path + "\\" + uploadfile4));
+          } catch (IllegalStateException | IOException e) {
+              // TODO: handle exception
+              e.printStackTrace();
+          }
+      }
+
+      if (sdto.getUpload5().getOriginalFilename().equals("")) {
+          sdto.setUploadfile5("no");
+      } else {
+          String uploadfile5 = "f" + sdf.format(new Date()) + sdto.getUpload5().getOriginalFilename();
+          sdto.setUploadfile5(uploadfile5);
+
+          try {
+              sdto.getUpload5().transferTo(new File(path + "\\" + uploadfile5));
+          } catch (IllegalStateException | IOException e) {
+              // TODO: handle exception
+              e.printStackTrace();
+          }
+      }
+      //�꽭�뀡�뿉�꽌 �븘�씠�뵒瑜� �뼸�뼱�꽌 dto�뿉 ���옣
+     
+      service.updateBoard(sdto);
+      return "redirect:content?num=" + service.getMaxNum();
+  }
+  
   @GetMapping("/mypage/shop/content")
   public ModelAndView content(@RequestParam String num,
                               @RequestParam(defaultValue = "1") int currentPage,
@@ -171,7 +256,8 @@ public class AuthorShopController {
   
   
   @GetMapping("/mypage/shopdelete")
-  public String delete(@RequestParam(required = false) String num, String currentPage,
+  public String delete(@RequestParam(required = false) String num, 
+      @RequestParam(defaultValue = "1") int currentPage,
       HttpSession session) {
 
     String path = session.getServletContext().getRealPath("/photo");
