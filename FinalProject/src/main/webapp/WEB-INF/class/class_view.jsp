@@ -126,21 +126,21 @@ $(".primary-btn-off").click(function(){
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
-							src="../photo/${dto.uploadfile}" alt="">
+							src="/photo/${dto.uploadfile}" alt="">
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
-						<img data-imgbigurl="../photo/${dto.uploadfile}"
-							src="../photo/${dto.uploadfile}" alt=""> <img
-							data-imgbigurl="../photo/${dto.uploadfile1}"
-							src="../photo/${dto.uploadfile1}" alt=""> <img
-							data-imgbigurl="../photo/${dto.uploadfile2}"
-							src="../photo/${dto.uploadfile2}" alt=""> <img
-							data-imgbigurl="../photo/${dto.uploadfile3}"
-							src="../photo/${dto.uploadfile3}" alt=""> <img
-							data-imgbigurl="../photo/${dto.uploadfile4}"
-							src="../photo/${dto.uploadfile4}" alt=""> <img
-							data-imgbigurl="../photo/${dto.uploadfile5}"
-							src="../photo/${dto.uploadfile5}" alt="">
+						<img data-imgbigurl="/photo/${dto.uploadfile}"
+							src="/photo/${dto.uploadfile}" alt=""> <img
+							data-imgbigurl="/photo/${dto.uploadfile1}"
+							src="/photo/${dto.uploadfile1}" alt=""> <img
+							data-imgbigurl="/photo/${dto.uploadfile2}"
+							src="/photo/${dto.uploadfile2}" alt=""> <img
+							data-imgbigurl="/photo/${dto.uploadfile3}"
+							src="/photo/${dto.uploadfile3}" alt=""> <img
+							data-imgbigurl="/photo/${dto.uploadfile4}"
+							src="/photo/${dto.uploadfile4}" alt=""> <img
+							data-imgbigurl="/photo/${dto.uploadfile5}"
+							src="/photo/${dto.uploadfile5}" alt="">
 					</div>
 				</div>
 			</div>
@@ -340,7 +340,7 @@ $(".primary-btn-off").click(function(){
 								<div class="product__item">
 									<a href="${root}/class/view?num=${cdto.num}">
 										<div class="product__item__pic set-bg">
-											<img src="../photo/${cdto.uploadfile}"
+											<img src="/photo/${cdto.uploadfile}"
 												style="width: 300px; height: 300px;">
 										</div>
 										<div class="product__item__text">

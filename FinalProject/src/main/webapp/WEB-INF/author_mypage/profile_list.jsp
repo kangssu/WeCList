@@ -22,7 +22,7 @@
 				<p>${dto.history}</p>
 				<c:if test="${dto.history_file!='no'}">
 					<c:forTokens var="pp" items="${dto.history_file}" delims=",">
-						<img src="../photo/${pp}">
+						<img src="/photo/${pp}">
 					</c:forTokens>
 				</c:if>
 			</c:when>
@@ -38,7 +38,7 @@
 				<p>${dto.idea}</p>
 				<c:if test="${dto.idea_file!='no'}">
 					<c:forTokens var="pp" items="${dto.idea_file}" delims=",">
-						<img src="../photo/${pp}">
+						<img src="/photo/${pp}">
 					</c:forTokens>
 				</c:if>
 			</c:when>
@@ -54,7 +54,7 @@
 				<p>${dto.identity}</p>
 				<c:if test="${dto.identity_file!='no'}">
 					<c:forTokens var="pp" items="${dto.identity_file}" delims=",">
-						<img src="../photo/${pp}">
+						<img src="/photo/${pp}">
 					</c:forTokens>
 				</c:if>
 			</c:when>
