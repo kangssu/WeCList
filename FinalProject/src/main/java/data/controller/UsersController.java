@@ -154,8 +154,6 @@ public class UsersController {
 	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
 	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, 
 			@RequestParam String id, HttpSession session, Model model) {
-		//String nickname = (String)session.getAttribute("nickname");
-		//String profileimg = (String)session.getAttribute("profileimg");
 		
 		ModelAndView mview = new ModelAndView();
 	    String nickname = mapper.getNickName(id);
@@ -170,14 +168,17 @@ public class UsersController {
 	    // 사진명 구해서 넣기
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 	    String photoname = "f" + sdf.format(new Date()) + "_" + file.getOriginalFilename();
-
 	    String searchImgNum = photoname.substring(photoname.indexOf("_")+1, photoname.length());
-
-	    if(searchImgNum.length() == 0) {
-	    	udto.setProfileimg("default_img.jpg");
-	    } else {
+	    
+	    //System.out.println("profileimg: " + profileimg);
+	    
+	    if(!profileimg.equals("default_img.jpg")) {
+	    	udto.setProfileimg(profileimg);
+	    }
+	    else {
 	    	udto.setProfileimg(photoname);
 	    }
+
 
 	    // 실제 업로드
 	    try {
