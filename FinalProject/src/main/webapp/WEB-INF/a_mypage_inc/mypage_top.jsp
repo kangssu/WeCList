@@ -9,24 +9,27 @@
 			<div class="mypage__top__user">
 				<div class="row">
 					<div class="grade_user">
-						<div class="profile_img">
+						<div class="profile_img" style="float:left;">
 							<img src="/photo/${profileimg}">
-							<span>${id }님
+						</div>
+						<div class="profile_text_mypage_1" style="float:left;">
 							<c:choose>
 								<c:when test="${sessionScope.category == 2}">
-									(작가)</span>
+									<span>작가</span><br>
 								</c:when>
 								<c:otherwise>
-									(일반회원)</span>
+									<span>일반회원</span><br>
 								</c:otherwise>
 							</c:choose>
-							<br><br>
+							<p class="mypage__name__top">${id }님</p>
+						</div>
+						<div class="profile_text_mypage_2">
 							<c:choose>
 								<c:when test="${sessionScope.nickname eq null}">
-									<span><i class="fa fa-id-badge" aria-hidden="true"></i> 닉네임 설정이 필요합니다.</span>
+									<p class="mypage__nickname__top"><i class="fa fa-id-badge" aria-hidden="true"></i>&nbsp;&nbsp;닉네임 설정이 필요합니다.</p>
 								</c:when>
 								<c:otherwise>
-									<span><i class="fa fa-id-badge" aria-hidden="true"></i> 닉네임: ${nickname }</span>
+									<p class="mypage__nickname__top"><i class="fa fa-id-badge" aria-hidden="true"></i>&nbsp;&nbsp;닉네임&nbsp;&nbsp;:&nbsp;&nbsp;${nickname }</p>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -37,7 +40,7 @@
 					</div>
 					<div class="grade_shopbox">
 						<span>총 등록한 작품</span>
-						<p class="shop_box_text">${sessionScope.ttcount} 개</p>
+						<p class="shop_box_text">${sessionScope.ttcount}개</p>
 					</div>
 					<div class="grade_shopbox">
 						<span>총 등록한 클래스</span>

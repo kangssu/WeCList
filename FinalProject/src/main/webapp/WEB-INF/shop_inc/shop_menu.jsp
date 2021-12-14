@@ -6,9 +6,11 @@
 	<div class="sub_menu_category">
 		<ul>
 			<li><a href="/shop/list">전체보기</a></li>
+			<li><a href="category?shopop=수제먹거리">수제먹거리</a></li>
 			<li><a href="category?shopop=디저트">디저트</a></li>
-			<li><a href="category?shopop=음료">음료</a></li>
-			<li><a href="category?shopop=악세사리">악세서리</a></li>
+			<li><a href="category?shopop=패션잡화">패션잡화</a></li>
+			<li><a href="category?shopop=액세서리">액세서리</a></li>
+			<li><a href="category?shopop=파인아트">파인아트</a></li>
 		</ul>
 	</div>
 </div>

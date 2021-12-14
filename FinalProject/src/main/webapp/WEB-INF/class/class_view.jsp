@@ -13,7 +13,6 @@
 $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
 loginid="${sessionScope.id}"; //로그인 아이디 가져옴
-num=$(this).attr("num");
 
 //alert(loginok+","+loginid); //확인됨
            		
@@ -33,7 +32,7 @@ $(".fa-heart-o").click(function(){
 			url:"/class/hinsert",
 			data:{"class_heart":class_heart,"num":num},
 			success:function(data){
-			alert("조아요!!");
+			alert("좋아요 되었습니다!");
 			location.reload();
            	}
         });
@@ -52,7 +51,7 @@ $(".fa-heart").click(function(){
 			url:"/class/hdelete",
 			data:{"class_heart":class_heart,"num":num},
 			success:function(data){
-			alert("조아요 왜 취소함???");
+			alert("좋아요 취소되었습니다!");
 			location.reload();
        		}
         });
@@ -146,7 +145,7 @@ $(".primary-btn-off").click(function(){
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=1}">
+			<c:if test="${InterCount>=15}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -190,10 +189,10 @@ $(".primary-btn-off").click(function(){
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-									<a class="heart"><i class="fa fa-heart"></i></a>
+									<a class="heart"><i class="fa fa-heart" num="${dto.num}">${cdto.classheart}</i></a>
 								</c:when>
 								<c:otherwise>
-									<a class="heart"><i class="fa fa-heart-o"></i></a>
+									<a class="heart"><i class="fa fa-heart-o" num="${dto.num}">${cdto.classheart}</i></a>
 								</c:otherwise>
 							</c:choose>
 						</c:if>
@@ -202,7 +201,7 @@ $(".primary-btn-off").click(function(){
 							<a class="heart"><i class="fa fa-heart-o"></i></a>
 						</c:if>
 
-						<span id="heart">${cdto.class_heart}</span>
+						<span id="heart">${dto.classheart}</span>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -246,7 +245,7 @@ $(".primary-btn-off").click(function(){
 			</c:if>
 
 
-			<c:if test="${InterCount==0}">
+			<c:if test="${InterCount<15}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a href="#"> <span><img src="${root}/img/pro2.jpg">달콩작가의
@@ -282,19 +281,21 @@ $(".primary-btn-off").click(function(){
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(interTrue, sessionScope.id)}">
-									<button type="button" class="primary-btn-off" num="${dto.num}"
-										style="width: 100%;">관심없어요</button>
+									<button type="button" class="primary-btn-off" num="${dto.num}">
+										<i class="fa fa-check" aria-hidden="true"></i>관심 가지는중
+									</button>
+									<button type="button" class="list-btn-inter" onclick="location.href='list'">목록보기</button>
 								</c:when>
 								<c:otherwise>
-									<button type="button" class="primary-btn-on" num="${dto.num}"
-										style="width: 100%;">관심있어요</button>
+									<button type="button" class="primary-btn-on" num="${dto.num}"><i class='fa fa-plus' aria-hidden='true'></i>관심있어요</button>
+									<button type="button" class="list-btn-inter" onclick="location.href='list'">목록보기</button>
 								</c:otherwise>
 							</c:choose>
 						</c:if>
 
 						<c:if test="${loginok eq null}">
-							<button type="button" class="primary-btn-on" onclick="#"
-								style="width: 100%;">관심있어요</button>
+							<button type="button" class="primary-btn-on" onclick="#">관심있어요</button>
+							<button type="button" class="list-btn-inter" onclick="location.href='list'">목록보기</button>
 						</c:if>
 					</div>
 				</div>

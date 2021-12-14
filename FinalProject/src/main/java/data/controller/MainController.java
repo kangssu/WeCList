@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.InterDto;
 import data.dto.ShopBoardDto;
 import data.dto.StoryDto;
 import data.dto.UserDto;
@@ -40,8 +41,8 @@ public class MainController {
   @GetMapping("/")
   public ModelAndView mainlist(@RequestParam(defaultValue = "1") int currentPage,
       HttpSession session, Model model) {
-    String id = (String) session.getAttribute("id"); // 세션값 얻어오기
-    
+
+    String id = (String) session.getAttribute("id");
     String nickname = umapper.getNickName(id);
     model.addAttribute("nickname", nickname);
     
@@ -50,31 +51,28 @@ public class MainController {
 
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> listpopul = shmapper.getPopular();
-    int perPage = 15;// 한페이지에 보여질 글의 갯수
+    int perPage = 15;
     int totalCount = shservice.getTotalCount();
 
-    int totalPage;// 총페이지
-    int start;// 각페이젱서 불러올 시작 번호
-    int perBlock = 5;// 몇개의 페이지 번호씩 표현할것인가
-    int startPage;// 각블럭에 표시할 시작페이지
-    int endPage;// 각블럭에 표시할 마지막페이지
-
-    // 총 갯수
+    int totalPage;
+    int start;
+    int perBlock = 5;
+    int startPage;
+    int endPage;
 
     totalCount = shservice.getTotalCount();
-    // 현재 페이지 번호 읽기(단 null 일 경우 1페이지로 설정)
 
     totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
-    // 각 블럭의 시작페이지
+
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
 
     endPage = startPage + perBlock - 1;
     if (endPage > totalPage) {
       endPage = totalPage;
     }
-    // 각 페이지에서 불러올 시작번호
+
     start = (currentPage - 1) * perPage;
-    // 각페이지에서 필요한 게시글 가져오기
+
     List<ShopBoardDto> list = shservice.getList(start, perPage);
 
     System.out.println(list.size());
@@ -94,7 +92,6 @@ public class MainController {
     mview.addObject("Newlist", list);
     mview.setViewName("/inc/main");
 
-    // 스토리 메인출력
     List<StoryDto> MainStoryList = service.getMainStoryList();
     int StorytotalCount = service.getStoryTotalCount();
 
@@ -108,12 +105,16 @@ public class MainController {
   public ModelAndView getMain() {
     ModelAndView mview = new ModelAndView();
     List<ClassBoardDto> listMain = mapper.getAlllist();
-    List<ClassNewBoardDto> listnewsMain = mapper.getAllnewlist();
+    List<ClassBoardDto> listnewsMain = mapper.getAllnewlist();
     List<ClassBoardDto> listpopulMain = mapper.getPopular();
+    List<InterDto> inter=mapper.getInter();
+    List<ClassBoardDto> listseven=mapper.getSevendays();
 
     mview.addObject("listMain", listMain);
     mview.addObject("listnewsMain", listnewsMain);
     mview.addObject("listpopulMain", listpopulMain);
+    mview.addObject("inter", inter);
+    mview.addObject("listseven", listseven);
     mview.setViewName("/2/inc/class");
     return mview;
   }
@@ -122,4 +123,6 @@ public class MainController {
   public String list() {
     return "/inc/offline_inf";
   }
+  
+  
 }

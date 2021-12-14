@@ -104,7 +104,7 @@ public class UsersController {
 			@RequestParam String id,
 			@RequestParam String pass1,
 			HttpSession session) {
-		
+
 		String category = (String)session.getAttribute("category");
 		//System.out.println(category);
 		
@@ -140,19 +140,19 @@ public class UsersController {
 	
 	// 정보수정 비밀번호 올바르게 입력 시 정보수정 폼으로 넘어간 뒤 수정하기 누르면 DB로 전송
 	@RequestMapping(value = "/users/update", method = {RequestMethod.POST, RequestMethod.GET})
-	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, HttpSession session) {	
+	public String update(@ModelAttribute UserDto udto, @RequestParam MultipartFile file, HttpSession session) {
 		String nickname = (String)session.getAttribute("nickname");
 		String profileimg = (String)session.getAttribute("profileimg");
-		
+
 		// 업로드 경로 구하기
 	    String path = session.getServletContext().getRealPath("/photo");
-	    
+
 	    // 사진명 구해서 넣기
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 	    String photoname = "f" + sdf.format(new Date()) + "_" + file.getOriginalFilename();
-	    
+
 	    String searchImgNum = photoname.substring(photoname.indexOf("_")+1, photoname.length());
-	    
+
 	    if(searchImgNum.length() == 0) {
 	    	udto.setProfileimg("default_img.jpg");
 	    } else {
@@ -169,7 +169,7 @@ public class UsersController {
 	    }
 		
 		mapper.updateUsers(udto);
-		
+
 		return "/user_mypage/user_success";
 	}
 

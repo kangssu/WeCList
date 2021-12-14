@@ -8,6 +8,8 @@ import data.dto.ShopHeartDto;
 public interface ShopHeartMapper {
 
 	public void insertHeart(ShopHeartDto dto);
-    public int getMaxLikeCnt(String num);
+    public int getMaxLikeCnt(int num);
 	public void deleteHeart(HashMap<String, Object> map);
+    public void updateHeart(int num);
+    public void downdateHeart(int num);
 }

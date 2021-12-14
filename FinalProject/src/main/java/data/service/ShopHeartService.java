@@ -16,13 +16,21 @@ public class ShopHeartService {
         mapper.insertHeart(dto);
     }
 
-    public void deleteHeart(String shop_heart, String num) {
+    public void deleteHeart(String shop_heart, int num) {
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("shop_heart", shop_heart);
         map.put("num", num);
         mapper.deleteHeart(map);
     }
-    public int getMaxLikeCnt(String num) {
+    public int getMaxLikeCnt(int num) {
       return mapper.getMaxLikeCnt(num);
+    }
+    
+
+    public void updateHeart(int num) {
+      mapper.updateHeart(num);
+    }
+    public void downdateHeart(int num) {
+      mapper.downdateHeart(num);
     }
 }

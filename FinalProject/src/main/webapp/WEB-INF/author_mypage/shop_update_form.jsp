@@ -51,11 +51,11 @@
 					<th>옵 션</th>
 					<td colspan="3"><select style="width: 500px" name="shopop"
 						class="shop_op_select">
+							<option>수제먹거리</option>
 							<option>디저트</option>
-							<option>음료</option>
-							<option>악세사리</option>
-							<option>시계</option>
-							<option>의류</option>
+							<option>패션잡화</option>
+							<option>액세서리</option>
+							<option>파인아트</option>
 					</select></td>
 				</tr>
 				<tr>

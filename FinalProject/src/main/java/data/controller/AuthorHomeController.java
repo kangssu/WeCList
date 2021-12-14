@@ -223,8 +223,8 @@ public class AuthorHomeController {
   }
 
   @GetMapping("/author/class")
-  public ModelAndView getAlllist(@RequestParam(defaultValue = "1") int currentPage, HttpSession session,
-	      Model model) {
+  public ModelAndView getAlllist(@RequestParam(defaultValue = "1") int currentPage,
+      HttpSession session, Model model) {
     ModelAndView mview = new ModelAndView();
 
     String aid = (String) session.getAttribute("aid");
@@ -232,7 +232,7 @@ public class AuthorHomeController {
 
     String from_id = (String) session.getAttribute("id");
     List<FollowDto> followTrue = aservice.getTrue(from_id);
-    
+
     int perPage = 8;
     int IdCount = service.getClassCount(aid);
     int IdPage;
@@ -241,7 +241,7 @@ public class AuthorHomeController {
     int startPage;
     int endPage;
 
-    IdCount = service.getSangCount(aid);
+    IdCount = service.getClassCount(aid);
 
     IdPage = IdCount / perPage + (IdCount % perPage == 0 ? 0 : 1);
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
@@ -253,10 +253,16 @@ public class AuthorHomeController {
     start = (currentPage - 1) * perPage;
     List<ClassBoardDto> list = service.getClassList(aid, start, perPage);
 
+    int Idno = IdCount - (currentPage - 1) * perPage;
     mview.addObject("IdCount", IdCount);
     mview.addObject("list", list);
     mview.addObject("ahdto", ahdto);
+    mview.addObject("startPage", startPage);
+    mview.addObject("endPage", endPage);
+    mview.addObject("IdPage", IdPage);
+    mview.addObject("Idno", Idno);
     mview.addObject("followTrue", followTrue);
+    mview.addObject("currentPage", currentPage);
     mview.setViewName("/4/author_home/home_class");
     return mview;
   }

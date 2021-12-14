@@ -5,10 +5,12 @@
 <div class="sidebar">
 	<div class="sub_menu_category">
 		<ul>
-			<li><a href="/shop/list">전체보기</a></li>
-			<li><a href="category?shopop=디저트">디저트</a></li>
-			<li><a href="category?shopop=음료">음료</a></li>
-			<li><a href="category?shopop=악세사리">악세서리</a></li>
+			<li><a href="/class/list">전체보기</a></li>
+			<li><a href="category?class_op_cate=공예">공예</a></li>
+			<li><a href="category?class_op_cate=요리">요리</a></li>
+			<li><a href="category?class_op_cate=미술">미술</a></li>
+			<li><a href="category?class_op_cate=플라워">플라워</a></li>
+			<li><a href="category?class_op_cate=뷰티">뷰티</a></li>
 		</ul>
 	</div>
 </div>

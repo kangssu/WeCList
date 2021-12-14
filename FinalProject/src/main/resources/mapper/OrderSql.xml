@@ -2,29 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.OrderMapper">
   <insert id="insertOrder" parameterType="orderdto">
-    INSERT INTO bit_final.cart (user_idx,shop_num,shop_option,shop_qty,shop_price)
-     VALUES((select idx from usersjoin where id = #{user_id}), #{shop_num}, #{shop_option}, #{shop_qty}, #{shop_price})
+    INSERT INTO orders (order_num, user_idx, shipping_cost)
+    VALUES (#{order_num}, (select idx from usersjoin where id = #{user_id}), #{shipping_cost});
   </insert>
+  <insert id="insertOrderDetails" parameterType="java.util.Map">
+    INSERT INTO order_details (order_num, shop_num, shop_option, shop_qty, shop_price) VALUES
+    <foreach collection="list" item="item" separator=" , " >
+           (#{item.order_num}, #{item.shop_num}, #{item.shop_option}, #{item.shop_qty}, #{item.shop_price})
+    </foreach>
+  </insert>
+  <select id="insetOrderDelivery" parameterType="orderdto">
+  INSERT into order_delivery (order_num , dlvr_name, dlvr_phone, dlvr_email, dlvr_addr1, dlvr_addr2)
+  values (#{order_num}, #{dlvr_name}, #{dlvr_phone}, #{dlvr_email}, #{dlvr_addr1}, #{dlvr_addr2});
+</select>
   <select id="countOrder" parameterType="String" resultType="int">
-    select count(*) from cart c inner join usersjoin u on c.users_idx = u.idx where user_idx =
+    select count(*)
+    from orders o
+           inner join usersjoin u on o.user_idx = u.idx
+    where user_idx =
   </select>
-  <select id="listOrder" parameterType="String" resultType="orderdto">
-    SELECT
-           c.shop_num,
-           s.title,
-           s.uploadfile,
-           s.name,
-           c.shop_option ,
-           c.shop_qty ,
-           c.shop_price
-    from cart c inner join usersjoin u on c.user_idx = u.idx
-                inner join shopboarder s on c.shop_num = s.num
-    where user_idx = (SELECT idx from usersjoin where id = #{user_id});
+  <select id="listOrder" parameterType="int" resultType="orderdto">
+    select o.order_num,
+           s.name ,
+           s.title ,
+           od.shop_option,
+           od.shop_price,
+           od.shop_qty,
+           o.order_day
+    from orders o
+           left join order_details od on o.order_num = od.order_num
+           inner join shopboarder s on s.num = od.shop_num
+    WHERE o.order_num = #{order_num};
   </select>
-  <delete id="deleteCart" parameterType="HashMap">
-    DELETE FROM cart WHERE user_idx = (select idx from usersjoin  WHERE id = #{user_id}) AND shop_num = #{shop_num} AND shop_option = #{shop_option};
+  <delete id="deleteOrder" parameterType="HashMap">
+    DELETE
+    FROM cart
+    WHERE user_idx = (select idx from usersjoin WHERE id = #{user_id})
+      AND shop_num = #{shop_num}
+      AND shop_option = #{shop_option};
   </delete>
-  <delete id="deleteAllCart" parameterType="int">
-    DELETE FROM bit_final.cart WHERE user_idx = #{user_idx};
+  <delete id="deleteAllOrder" parameterType="int">
+    DELETE
+    FROM bit_final.cart
+    WHERE user_idx = #{user_idx};
   </delete>
 </mapper>

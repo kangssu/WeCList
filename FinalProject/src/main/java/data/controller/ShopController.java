@@ -117,7 +117,11 @@ public class ShopController {
 
     start = (currentPage - 1) * perPage;
 
+
     List<ShopBoardDto> list = service.getList(start, perPage);
+    ShopBoardDto dto = service.getData(num);
+
+    List<ShopHeartDto> heartTrue = service.getTrue(num);
 
 
     int no = totalCount - (currentPage - 1) * perPage;
@@ -128,6 +132,7 @@ public class ShopController {
     mview.addObject("totalPage", totalPage);
     mview.addObject("no", no);
 
+    mview.addObject("heartTrue", heartTrue);
 
     /////////////////////////////////////////////////////
     /////////////////////////////////////////////////////
@@ -146,6 +151,7 @@ public class ShopController {
     return "/shop/shop_buy";
   }
 
+
   @GetMapping("/shop/hotlist")
   public String hotlist() {
     return "/shop/shop_hot_list";
@@ -153,15 +159,16 @@ public class ShopController {
 
   @GetMapping("/mypage/shop/writeform")
   public String writform() {
-    return "/author_mypage/shop_write_form";
+    return "/1/author_mypage/shop_write_form";
   }
 
 
   @GetMapping(value = {"/shop/list"})
-  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
+  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
+      @RequestParam(required = false) String num) {
     ModelAndView mview = new ModelAndView();
 
-    int perPage = 12;
+    int perPage = 4;
     int totalCount = service.getTotalCount();
     int totalPage;
     int IdPage;
@@ -182,7 +189,13 @@ public class ShopController {
     }
 
     start = (currentPage - 1) * perPage;
+    //
+    ShopBoardDto dto = service.getData(num);
 
+    List<ShopHeartDto> heartTrue = service.getTrue(num);
+
+
+    //
     List<ShopBoardDto> list = service.getList(start, perPage);
 
     int no = totalCount - (currentPage - 1) * perPage;
@@ -192,6 +205,7 @@ public class ShopController {
     mview.addObject("endPage", endPage);
     mview.addObject("totalPage", totalPage);
     mview.addObject("no", no);
+    mview.addObject("heartTrue", heartTrue);
     mview.addObject("currentPage", currentPage);
     mview.setViewName("/5/shop/shop_list");
 
@@ -304,7 +318,7 @@ public class ShopController {
     ModelAndView mview = new ModelAndView();
     List<ShopBoardDto> newlist = mapper.getPopular();
 
-    int perPage = 12;
+    int perPage = 4;
     int totalCount = service.getTotalCount();
 
     int totalPage;
@@ -325,7 +339,6 @@ public class ShopController {
 
     List<ShopBoardDto> list = service.getList(start, perPage);
 
-    System.out.println(list.size());
     for (ShopBoardDto d : list) {
       String name = "col";
       d.setName(name);
@@ -342,4 +355,6 @@ public class ShopController {
     mview.setViewName("/shop/shop_new_list");
     return mview;
   }
+
+
 }

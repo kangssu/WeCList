@@ -61,27 +61,34 @@
 			</div>
 		</div>
 		<div class="row featured__filter">
-			<c:forEach var="cdto" items="${listpopulMain}" begin="0" end="11">
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="featured__item">
-						<a href="${root}/class/view?num=${cdto.num}">
-							<div class="product__item__pic set-bg">
-								<img src="../photo/${cdto.uploadfile}">
+			<c:forEach var="idto" items="${inter}">
+				<c:forEach var="hdto" items="${HotClass}">
+					<c:if test="${hdto.num==idto.num && idto.inter_cnt>=15}"></c:if>
+					<c:forEach var="cdto" items="${listpopulMain}" begin="0" end="11">
+						<c:if test="${idto.inter_cnt>=15 and idto.num==cdto.num}">
+							<div class="col-lg-4 col-md-6 col-sm-6">
+								<div class="featured__item">
+									<a href="${root}/class/view?num=${cdto.num}">
+										<div class="product__item__pic set-bg">
+											<img src="../photo/${cdto.uploadfile}">
+										</div>
+										<div class="product__discount__item__text">
+											<span>${cdto.title}</span>
+											<h5>${cdto.class_op_cate}</h5>
+											<div class="product__item__price">${cdto.classprice}원</div>
+										</div>
+									</a>
+								</div>
 							</div>
-							<div class="product__discount__item__text">
-								<span>${cdto.title}</span>
-								<h5>${cdto.class_op_cate}</h5>
-								<div class="product__item__price">${cdto.classprice}원</div>
-							</div>
-						</a>
-					</div>
-				</div>
+						</c:if>
+					</c:forEach>
+				</c:forEach>
 			</c:forEach>
 			<button type="button" class="main__hot__shop__1"
 				onclick="location.href='class/popul'">인기 온라인 클래스 더보기</button>
 		</div>
 	</div>
-	
+
 </section>
 <!-- Featured Section End -->
 
@@ -98,24 +105,27 @@
 		</div>
 		<div class="row">
 			<div class="categories__slider owl-carousel">
-				<c:forEach var="cdto" items="${listnewsMain}">
-					<div style="float: left;">
-						<div class="product__item">
-							<a href="${root}/class/view_news?num=${cdto.num}">
-								<div class="product__item__pic set-bg">
-									<img src="../photo/${cdto.uploadfile}"
-										style="width: 300px; height: 300px;">
+				<c:forEach var="idto" items="${inter}">
+					<c:forEach var="cdto" items="${listnewsMain}">
+						<c:if test="${idto.inter_cnt<15 and idto.num==cdto.num}">
+							<div style="float: left;">
+								<div class="product__item">
+									<a href="${root}/class/view?num=${cdto.num}">
+										<div class="product__item__pic set-bg">
+											<img src="../photo/${cdto.uploadfile}"
+												style="width: 300px; height: 300px;">
+										</div>
+										<div class="product__item__text">
+											<h6>${cdto.title}</h6>
+											<h6>${cdto.class_op_cate}</h6>
+											<h5>${cdto.classprice}원</h5>
+										</div>
+									</a>
 								</div>
-								<div class="product__item__text">
-									<h6>${cdto.title}</h6>
-									<h6>${cdto.class_op_cate}</h6>
-									<h5>${cdto.classprice}원</h5>
-								</div>
-							</a>
-						</div>
-					</div>
+							</div>
+						</c:if>
+					</c:forEach>
 				</c:forEach>
-
 			</div>
 		</div>
 	</div>
@@ -143,24 +153,25 @@
 		<div class="featured__filter">
 			<div class="row">
 				<div class="categories__slider owl-carousel">
-					<c:forEach var="cdto" items="${listnewsMain}">
-						<div style="float: left;">
-							<div class="product__item">
-								<a href="${root}/class/view_news?num=${cdto.num}">
-									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
-											style="width: 300px; height: 300px;">
-									</div>
-									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
-										<h6>${cdto.class_op_cate}</h6>
-										<h5>${cdto.classprice}원</h5>
-									</div>
-								</a>
+					<c:forEach var="idto" items="${inter}">
+						<c:forEach var="cdto" items="${listseven}">
+							<div style="float: left;">
+								<div class="product__item">
+									<a href="${root}/class/view?num=${cdto.num}">
+										<div class="product__item__pic set-bg">
+											<img src="../photo/${cdto.uploadfile}"
+												style="width: 300px; height: 300px;">
+										</div>
+										<div class="product__item__text">
+											<h6>${cdto.title}</h6>
+											<h6>${cdto.class_op_cate}</h6>
+											<h5>${cdto.classprice}원</h5>
+										</div>
+									</a>
+								</div>
 							</div>
-						</div>
+						</c:forEach>
 					</c:forEach>
-
 				</div>
 			</div>
 			<button type="button" class="main__hot__shop__1"
