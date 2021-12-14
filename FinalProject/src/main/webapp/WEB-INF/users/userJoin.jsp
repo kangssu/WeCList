@@ -281,10 +281,10 @@ function check(obj) {
 	var utCheck = document.getElementById("useterms");
 	var atCheck = document.getElementById("ageterms");
 	
-    if(!fileCheck){
-        alert("파일을 첨부해 주세요");
+/*     if(!fileCheck){
+        alert("프로필 사진을 첨부해 주세요");
         return false;
-    }
+    } */
     if(utCheck.checked == false) {
 		alert("이용약관에 동의해주세요.");
 		return false;

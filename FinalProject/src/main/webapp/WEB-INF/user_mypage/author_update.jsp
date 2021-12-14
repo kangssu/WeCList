@@ -197,7 +197,7 @@ $(function(){
 
 
 
-/* function check(obj) {
+function check(obj) {
 	var fileCheck = document.getElementById("fileimg").value;
 
     if(!fileCheck){
@@ -206,7 +206,7 @@ $(function(){
     }
 	
 	return true;
-} */
+}
 </script>
 
 
