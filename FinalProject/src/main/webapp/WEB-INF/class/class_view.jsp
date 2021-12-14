@@ -13,7 +13,6 @@
 $(function(){
 loginok="${sessionScope.loginok}"; //로그인 여부
 loginid="${sessionScope.id}"; //로그인 아이디 가져옴
-num=$(this).attr("num");
 
 //alert(loginok+","+loginid); //확인됨
            		
@@ -146,7 +145,7 @@ $(".primary-btn-off").click(function(){
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=15}">
+			<c:if test="${InterCount>=1}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -190,10 +189,10 @@ $(".primary-btn-off").click(function(){
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
-									<a class="heart"><i class="fa fa-heart"></i></a>
+									<a class="heart"><i class="fa fa-heart" num="${dto.num}">${cdto.classheart}</i></a>
 								</c:when>
 								<c:otherwise>
-									<a class="heart"><i class="fa fa-heart-o"></i></a>
+									<a class="heart"><i class="fa fa-heart-o" num="${dto.num}">${cdto.classheart}</i></a>
 								</c:otherwise>
 							</c:choose>
 						</c:if>
@@ -202,7 +201,7 @@ $(".primary-btn-off").click(function(){
 							<a class="heart"><i class="fa fa-heart-o"></i></a>
 						</c:if>
 
-						<span id="heart">${cdto.class_heart}</span>
+						<span id="heart">${dto.classheart}</span>
 					</div>
 				</div>
 				<div class="col-lg-12">
