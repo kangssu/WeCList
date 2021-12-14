@@ -46,6 +46,7 @@ $(function(){
 	    	isCertification = false;
 	    } else {
 	    	$("#id-ck-text").html(": <font color='green'>O</font>");
+	    	isCertification = true;
 	    }
 
 		$.ajax({
@@ -59,6 +60,7 @@ $(function(){
             	  isCertification = false;
                }else{
             	   $("#id-compare-text").html(": <font color='green'>사용 가능한 아이디입니다.</font>");
+            	   isCertification = true;
                }
             }
          }); 
@@ -80,6 +82,7 @@ $(function(){
             	  isCertification = false;
                }else{
             	  $("#nick-compare-text").html(": <font color='green'>사용 가능한 닉네임입니다.</font>");
+            	  isCertification = true;
                }
             }
          });    
@@ -96,6 +99,7 @@ $(function(){
 			isCertification = false;
         } else {
         	$("#pass-ck1-text").html(": <font color='green'>미포함</font>");
+        	isCertification = true;
         }
 		
 		var pattern1 = /[a-zA-Z]/;
@@ -107,6 +111,7 @@ $(function(){
 	    	isCertification = false;
 	    } else {
         	$("#pass-ck2-text").html(": <font color='green'>O</font>");
+        	isCertification = true;
         }
 	    
 	    var SamePass_0 = 0; //동일문자 카운트
@@ -135,12 +140,8 @@ $(function(){
         	  isCertification = false;
            } else {
            	  $("#pass-ck3-text").html(": <font color='green'>X</font>");
+           	  isCertification = true;
            }
-
-/*            if(!pw_passed) { // 유효성검사 false이면 넘어가지 않음            
-                 return false;
-                 //break;
-           } */
 	    }
 	});
 	
@@ -152,6 +153,7 @@ $(function(){
 			isCertification = false;
 		} else {
 			$("#pass-compare-text").html(": <font color='green'>O</font>");
+			isCertification = true;
 		}
 	});
 	
@@ -168,6 +170,7 @@ $(function(){
 			isCertification = false;
 	    } else {
 	    	$("#hp-ck-text").html(": <font color='green'>O</font>");
+	    	isCertification = true;
 	    }
 	});
 	
@@ -182,6 +185,7 @@ $(function(){
 	    	isCertification = false;
 	    } else {
 	    	$("#email-ck-text").html(": <font color='green'>O</font>");
+	    	isCertification = true;
 	    }
 	    
 	    $.ajax({
@@ -195,6 +199,7 @@ $(function(){
             	  //isCertification = false;
                }else{
             	  $("#email-compare-text").html(": <font color='green'>사용 가능한 이메일입니다.</font>");
+            	  isCertification = true;
                }
             }
          });
@@ -220,6 +225,7 @@ $(function(){
 		$("#compare").on("propertychange change keyup paste input", function() {
 			if ($("#compare").val() == key) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
 				$("#i-compare-text").html(": <font color='green'>일치</font>");
+				isCertification = true;
 			} else {
 				$("#i-compare-text").html(": <font color='red'>불일치</font>");
 				isCertification = false;
@@ -259,7 +265,14 @@ $(function(){
 		}
 	});
 	
+	$("#joinbtn").click(function() {
+		if(isCertification == false) {
+			alert("가입 조건을 다시 한번 확인해주세요!");
+			return false;
+		}
+	});
 	
+
 });
 
 
@@ -280,41 +293,9 @@ function check(obj) {
 		alert("만 14세 이상만 가입하실 수 있습니다.");
 		return false;
 	}
-	if(isCertification = false) {
-		alert("가입 조건을 다시 한번 확인해주세요!");
-		return false;
-	}
 	
 	return true;
 }
-	
-	
-/* function check(f) {
-/* 	if(f.pass1.value != f.pass2.value) {
-		alert("비밀번호를 다시 한번 확인해주세요.");
-		f.pass1.value = "";
-		f.pass2.value = "";
-		return false;//action이 호출되지 않는다
-	}
- 	if(!f.fileimg.value || !f.filename.value){
-        alert("파일을 첨부해 주세요");
-    }
-	if(f.useterms.checked == false) {
-		alert("이용약관에 동의해주세요.");
-		return false;
-	}
-	if(f.ageterms.checked == false) {
-		alert("만 14세 이상만 가입하실 수 있습니다.");
-		return false;
-	}
-	if(isCertification==false){
-		alert("가입 조건을 다시 한번 확인해주세요!");
-		return false;
-	}
-
-	return true;
-} 
-*/
 </script>
 
 <!-- Breadcrumb Section Begin -->
@@ -493,7 +474,7 @@ function check(obj) {
 				</div>
 
 				<div class="view_order_btn">
-					<button type="submit" class="buy-btn" onclick="">가입하기</button>
+					<button type="submit" class="buy-btn" onclick="" id="joinbtn">가입하기</button>
 				</div>
 			</form>
 		</div>
