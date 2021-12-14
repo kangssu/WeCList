@@ -26,7 +26,7 @@
 								<div class="product__item">
 									<a href="${root}/class/view?num=${cdto.num}">
 										<div class="featured__item__pic set-bg">
-											<img src="../photo/${cdto.uploadfile}">
+											<img src="/photo/${cdto.uploadfile}">
 										</div>
 										<div class="product__item__text">
 											<h6>${cdto.class_op_cate}</h6>
