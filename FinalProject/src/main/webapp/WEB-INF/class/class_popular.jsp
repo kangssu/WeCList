@@ -27,7 +27,7 @@
 						<div class="product__item">
 							<a href="${root}/class/view?num=${cdto.num}">
 								<div class="product__item__pic set-bg">
-									<img src="../photo/${cdto.uploadfile}"
+									<img src="/photo/${cdto.uploadfile}"
 										style="width: 300px; height: 300px;"> <span
 										class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 								</div>

@@ -41,7 +41,7 @@
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
+										<img src="/photo/${cdto.uploadfile}"
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
@@ -81,7 +81,7 @@
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
+										<img src="/photo/${cdto.uploadfile}"
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
@@ -122,7 +122,7 @@
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
+										<img src="/photo/${cdto.uploadfile}"
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">

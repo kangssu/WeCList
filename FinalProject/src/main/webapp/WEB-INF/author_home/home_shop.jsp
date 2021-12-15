@@ -23,7 +23,7 @@
 							<div class="shop__box">
 								<a href="/author/shop/content?num=${a.num}&currentPage=${currentPage}&key=list">
 									<div class="shop__box__1 set-bg">
-										<img src="../photo/${a.uploadfile1}" alt="" >
+										<img src="/photo/${a.uploadfile1}" alt="" >
 									</div>
 									<div class="shop__box__text">
 										<h6>${a.shopop}</h6>
