@@ -18,7 +18,7 @@ public class SearchService {
 	@Autowired
 	SearchMapper mapper;
 
-	//°Ë»ö ±â´É
+	//ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½
 	public int getSearchCount(String keyword) {
 		return mapper.getSearchCount(keyword);
 	}

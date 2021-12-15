@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <title>We C List</title>
 	<script src="/js/jquery-3.3.1.min.js"></script>
 	<!-- 네이버 에디터 -->
