@@ -11,8 +11,8 @@
 	<select id="getAlllist" resultType="cdto">
 		select * from classboarder order by num asc
 	</select>
-	<select id="getAllnewlist" resultType="cndto">
-	select * from classnewboarder order by num asc
+	<select id="getAllnewlist" resultType="cdto">
+	select * from classboarder order by num asc
 	</select>
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder
