@@ -8,7 +8,7 @@ $(document).ready(function (){
 		$(this).removeClass("color_f");
 		$(this).addClass("on");
 	}); */
-	
+
 	loginok="${sessionScope.loginok}";
 	
 	$(".login_check").click(function(){
@@ -22,7 +22,7 @@ $(document).ready(function (){
 		url: "/main/getCartCount",
 		data: {"user_id": "${sessionScope.id}"},
 		success: function (data){
-			document.getElementById('cart-count').innerText = data;
+			document.querySelector(".cart-count").innerText = data;
 		}
 	});
 

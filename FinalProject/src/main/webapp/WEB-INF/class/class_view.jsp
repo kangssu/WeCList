@@ -156,7 +156,7 @@
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=15}">
+			<c:if test="${InterCount>=10 }">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -243,7 +243,7 @@
 			</c:if>
 
 
-			<c:if test="${InterCount<15}">
+			<c:if test="${InterCount<10 }">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a href="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -273,7 +273,7 @@
 						</div>
 
 						<div class="class_view_text_2">
-							※ 15명의 관심이 모이면 제작이 진행됩니다.<br> ※ 관심 등록시, 진행과정 소식을 보내드려요.<br>
+							※ 10 명의 관심이 모이면 제작이 진행됩니다.<br> ※ 관심 등록시, 진행과정 소식을 보내드려요.<br>
 						</div>
 
 						<c:if test="${loginok eq 'yes'}">

@@ -80,7 +80,7 @@ public class LoginController {
 	@GetMapping("/login/logoutprocess") // logoutform.jsp 파일
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginok");
-		
-		return "/";
+		session.removeAttribute("id");
+		return "redirect:/";
 	}
 }

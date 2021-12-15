@@ -14,7 +14,7 @@
 			</div>
 			<div class="row shop_all_list_box_1">
 				<c:forEach var="cdto" items="${listcate}">
-					<c:if test="${cdto.inter>=15}">
+					<c:if test="${cdto.inter>=10 }">
 						<div class="col-lg-4">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
