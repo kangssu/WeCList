@@ -46,7 +46,7 @@ function getCartList(){
 				<ul class="list-group">
 				<c:forEach var="item" items="${list}">
 					<li>
-						${item.title} , ${item.itemImage}, ${item.name}, ${item.shop_option}, ${item.shop_qty}, ${item.shop_price}
+						${item.title} , ${item.uploadfile}, ${item.name}, ${item.shop_option}, ${item.shop_qty}, ${item.shop_price}
 <%--						<img src="${root}/img/featured/${row.itemImage}">--%>
 <%--						<span>${row.name}</span>--%>
 <%--						<span class="buy_su">${row.shop_qty}</span>--%>
