@@ -63,7 +63,7 @@
 		<div class="row featured__filter">
 			<c:forEach var="hdto" items="${HotClass}">
 				<c:forEach var="cdto" items="${listpopulMain}" begin="0" end="11">
-					<c:if test="${cdto.inter>=10}">
+					<c:if test="${cdto.inter>=10 and cdto.num==hdto.num}">
 						<div class="col-lg-4 col-md-6 col-sm-6">
 							<div class="featured__item">
 								<a href="${root}/class/view?num=${cdto.num}">

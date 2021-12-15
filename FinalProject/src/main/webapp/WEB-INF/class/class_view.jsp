@@ -156,7 +156,7 @@
 				</div>
 			</div>
 
-			<c:if test="${InterCount>=15}">
+			<c:if test="${InterCount>=10}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a onclick="location.href='/author/home?id=${dto.myid}'"> <span><img
@@ -243,7 +243,7 @@
 			</c:if>
 
 
-			<c:if test="${InterCount<15}">
+			<c:if test="${InterCount<10}">
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<a href="location.href='/author/home?id=${dto.myid}'"> <span><img

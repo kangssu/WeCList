@@ -18,7 +18,7 @@
 		order by num asc
 	</select>
 	<select id="getPopular" resultType="cdto">
-		select * from classboarder
+		select * from classboarder order by classheart desc
 	</select>
 	<select id="getHotClass" parameterType="String"
 		resultType="hdto">

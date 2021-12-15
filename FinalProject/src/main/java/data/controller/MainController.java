@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.HeartDto;
 import data.dto.InterDto;
 import data.dto.ShopBoardDto;
 import data.dto.StoryDto;
@@ -110,11 +111,13 @@ public class MainController {
     List<ClassBoardDto> listnewsMain = mapper.getAllnewlist();
     List<ClassBoardDto> listpopulMain = mapper.getPopular();
     List<ClassBoardDto> listseven=mapper.getSevendays();
+    List<HeartDto> HotClass=mapper.getHotClass();
 
     mview.addObject("listMain", listMain);
     mview.addObject("listnewsMain", listnewsMain);
     mview.addObject("listpopulMain", listpopulMain);
     mview.addObject("listseven", listseven);
+    mview.addObject("HotClass", HotClass);
     mview.setViewName("/2/inc/class");
     return mview;
   }

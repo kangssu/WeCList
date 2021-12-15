@@ -36,7 +36,7 @@
 		<div class="row">
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="cdto" items="${list}">
-					<c:if test="${cdto.inter>=15}">
+					<c:if test="${cdto.inter>=10}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
@@ -76,7 +76,7 @@
 		<div class="row">
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="cdto" items="${listseven}">
-					<c:if test="${cdto.inter>=15}">
+					<c:if test="${cdto.inter>=10}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
@@ -117,7 +117,7 @@
 		<div class="row">
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="cdto" items="${list}">
-					<c:if test="${cdto.inter<15}">
+					<c:if test="${cdto.inter<10}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
