@@ -24,7 +24,7 @@
 							<div class="class__box" >
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="class__box__1 set-bg">
-										<img src="../photo/${cdto.uploadfile1}">
+										<img src="/photo/${cdto.uploadfile1}">
 									</div>
 									<div class="class__box__text">
 										<h6>${cdto.class_op_cate}</h6>
