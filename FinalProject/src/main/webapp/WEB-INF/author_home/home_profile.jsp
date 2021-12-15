@@ -28,7 +28,7 @@
 							<p>${apdto.history}</p>
 							<c:if test="${apdto.history_file!='no'}">
 								<c:forTokens var="pp" items="${apdto.history_file}" delims=",">
-									<img src="/photo/${pp}">
+									<img src="../photo/${pp}">
 								</c:forTokens>
 							</c:if>
 						</c:when>
@@ -44,7 +44,7 @@
 							<p>${apdto.idea}</p>
 							<c:if test="${apdto.idea_file!='no'}">
 								<c:forTokens var="pp" items="${apdto.idea_file}" delims=",">
-									<img src="/photo/${pp}">
+									<img src="../photo/${pp}">
 								</c:forTokens>
 							</c:if>
 						</c:when>
@@ -60,7 +60,7 @@
 							<p>${apdto.identity}</p>
 							<c:if test="${apdto.identity_file!='no'}">
 								<c:forTokens var="pp" items="${apdto.identity_file}" delims=",">
-									<img src="/photo/${pp}">
+									<img src="../photo/${pp}">
 								</c:forTokens>
 							</c:if>
 						</c:when>

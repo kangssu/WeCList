@@ -1605,7 +1605,6 @@ li {
 .featured__item__pic img{
 	height:270px;
 	object-fit:cover;
-	width:100%;
 }
 
 .featured__item__pic__hover {
@@ -1676,11 +1675,10 @@ li {
 .featured__item__text h6:nth-child(1){font-size:12px; color:#999999;}
 
 .featured__item__text h6 {
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
 	overflow: hidden;
 	margin-bottom: 10px;
-	width:180px;
 }
 
 .featured__item__text h6 a {
@@ -2474,10 +2472,9 @@ li {
 .product__item__text h6:nth-child(1){font-size:12px; color:#999999;}
 
 .product__item__text h6 {
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
 	overflow: hidden;
-	width:180px;
 	margin-bottom: 10px;
 }
 
@@ -5844,6 +5841,7 @@ li {
 
 .login_find_all{
 	margin-top:10px;
+	margin-left:240px;
 }
 
 .login_find_all a{

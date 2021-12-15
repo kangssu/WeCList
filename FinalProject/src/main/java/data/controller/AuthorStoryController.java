@@ -90,7 +90,7 @@ public class AuthorStoryController {
 
       // 실제 업로드
       try {
-        dto.getUpload().transferTo(new File(path + "/" + uploadfile));
+        dto.getUpload().transferTo(new File(path + "\\" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         e.printStackTrace();
       }
@@ -147,7 +147,7 @@ public class AuthorStoryController {
 
       // 실제 업로드
       try {
-        dto.getUpload().transferTo(new File(path + "/" + uploadfile));
+        dto.getUpload().transferTo(new File(path + "\\" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         e.printStackTrace();
       }
@@ -166,7 +166,7 @@ public class AuthorStoryController {
 
     String path = session.getServletContext().getRealPath("/photo");
     MultipartFile uploadfile = service.getData(num).getUpload();
-    File file = new File(path + "/" + uploadfile);
+    File file = new File(path + "\\" + uploadfile);
 
     // 파일삭제
     file.delete();

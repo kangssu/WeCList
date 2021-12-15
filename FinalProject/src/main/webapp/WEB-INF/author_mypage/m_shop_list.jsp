@@ -81,7 +81,7 @@
 			
 		</table>
 		<div class="story__insert__bottom">
-			<button onclick="location.href='/mypage/shop/writeform'">
+			<button>
 			<a href="/mypage/shop/writeform" style="color: white;">글쓰기</a></button>
 		</div>
 		

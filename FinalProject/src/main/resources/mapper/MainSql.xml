@@ -17,7 +17,8 @@
 	<select id="getPopular" resultType="cdto">
 		select * from classboarder order by classheart desc
 	</select>
-	<select id="getHotClass" parameterType="String" resultType="hdto">
+	<select id="getHotClass" parameterType="String"
+		resultType="hdto">
 		SELECT DISTINCT num, MAX(like_cnt) FROM classHeart GROUP BY
 		num ORDER BY MAX(like_cnt) desc
 	</select>

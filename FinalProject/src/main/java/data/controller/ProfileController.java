@@ -67,7 +67,7 @@ public class ProfileController {
 
         // 업로드!
         try {
-          f.transferTo(new File(path + "/" + fName));
+          f.transferTo(new File(path + "\\" + fName));
         } catch (IllegalStateException e) {
           e.printStackTrace();
         } catch (IOException e) {
@@ -88,7 +88,7 @@ public class ProfileController {
 
         // 업로드!
         try {
-          f.transferTo(new File(path + "/" + fName));
+          f.transferTo(new File(path + "\\" + fName));
         } catch (IllegalStateException e) {
           e.printStackTrace();
         } catch (IOException e) {
@@ -109,7 +109,7 @@ public class ProfileController {
 
         // 업로드!
         try {
-          f.transferTo(new File(path + "/" + fName));
+          f.transferTo(new File(path + "\\" + fName));
         } catch (IllegalStateException e) {
           e.printStackTrace();
         } catch (IOException e) {
@@ -167,7 +167,7 @@ public class ProfileController {
 
         // 업로드!
         try {
-          f.transferTo(new File(path + "/" + fName));
+          f.transferTo(new File(path + "\\" + fName));
         } catch (IllegalStateException e) {
           e.printStackTrace();
         } catch (IOException e) {
@@ -188,7 +188,7 @@ public class ProfileController {
 
         // 업로드!
         try {
-          f.transferTo(new File(path + "/" + fName));
+          f.transferTo(new File(path + "\\" + fName));
         } catch (IllegalStateException e) {
           e.printStackTrace();
         } catch (IOException e) {
@@ -209,7 +209,7 @@ public class ProfileController {
 
         // 업로드!
         try {
-          f.transferTo(new File(path + "/" + fName));
+          f.transferTo(new File(path + "\\" + fName));
         } catch (IllegalStateException e) {
           e.printStackTrace();
         } catch (IOException e) {
@@ -241,9 +241,9 @@ public class ProfileController {
     ArrayList<MultipartFile> uploadfile2 = service.GetIdData(myid).getUpload2();
     ArrayList<MultipartFile> uploadfile3 = service.GetIdData(myid).getUpload3();
 
-    File file1 = new File(path + "/" + uploadfile1);
-    File file2 = new File(path + "/" + uploadfile2);
-    File file3 = new File(path + "/" + uploadfile3);
+    File file1 = new File(path + "\\" + uploadfile1);
+    File file2 = new File(path + "\\" + uploadfile2);
+    File file3 = new File(path + "\\" + uploadfile3);
 
     // 파일삭제
     file1.delete();

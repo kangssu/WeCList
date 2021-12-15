@@ -110,7 +110,7 @@
 									<a onclick="location.href='/author/home?id=${adto.id}'">
 										<div class="author__box set-bg">
 											<p class="hot__author__count">top <b class="hot_number">${status.count}</b></p>
-											<img src="/photo/${adto.profileimg}" id="author_img_1">
+											<img src="/img/pro.jpg" id="author_img_1">
 											<h5>${adto.nickname}</h5>
 										</div>
 									</a>

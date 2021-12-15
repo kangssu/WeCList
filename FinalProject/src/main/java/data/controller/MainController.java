@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.ClassBoardDto;
 import data.dto.ClassNewBoardDto;
+import data.dto.HeartDto;
 import data.dto.InterDto;
 import data.dto.ShopBoardDto;
 import data.dto.StoryDto;

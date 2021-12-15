@@ -92,31 +92,27 @@ $(".fa-heart").click(function(){
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
-							src="/photo/${sdto.uploadfile1}" alt="">
+							src="../photo/${sdto.uploadfile1}" alt="">
 					</div>
 					<div class="product__details__pic__slider owl-carousel">
-						<img data-imgbigurl="/photo/${sdto.uploadfile1}"
-							src="/photo/${sdto.uploadfile1}" alt=""> <img
-							data-imgbigurl="/photo/${sdto.uploadfile2}"
-							src="/photo/${sdto.uploadfile2}" alt=""> <img
-							data-imgbigurl="/photo/${sdto.uploadfile3}"
-							src="/photo/${sdto.uploadfile3}" alt=""> <img
-							data-imgbigurl="/photo/${sdto.uploadfile4}"
-							src="/photo/${sdto.uploadfile4}" alt=""> <img
-							data-imgbigurl="/photo/${sdto.uploadfile5}"
-							src="/photo/${sdto.uploadfile5}" alt="">
+						<img data-imgbigurl="../photo/${sdto.uploadfile1}"
+							src="../photo/${sdto.uploadfile1}" alt=""> <img
+							data-imgbigurl="../photo/${sdto.uploadfile2}"
+							src="../photo/${sdto.uploadfile2}" alt=""> <img
+							data-imgbigurl="../photo/${sdto.uploadfile3}"
+							src="../photo/${sdto.uploadfile3}" alt=""> <img
+							data-imgbigurl="../photo/${sdto.uploadfile4}"
+							src="../photo/${sdto.uploadfile4}" alt=""> <img
+							data-imgbigurl="../photo/${sdto.uploadfile5}"
+							src="../photo/${sdto.uploadfile5}" alt="">
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__text">
 
-					<a onclick="location.href='/author/home?id=${sdto.myid}'">
-                  <span>
-                     <img src="${root}/photo/${udto.profileimg}">
-					  ${udto.nickname}<i class="fa fa-angle-right"></i>
-                  </span>
-					</a>
+					<a onclick="location.href='/author/home?id=${sdto.myid}'"> <span><img src="${root}/photo/${udto.profileimg}"><i
+							class="fa fa-angle-right">${udto.nickname}</i></span>
 					</a>
 					<h3>${sdto.title}</h3>
 
@@ -202,7 +198,7 @@ $(".fa-heart").click(function(){
 						<div class="tab-pane active" id="tabs-1" role="tabpanel">
 							<div class="product__details__tab__desc">
 								<p>${sdto.shopcontent}</p>
-								<img src="/photo/${sdto.uploadfile1}" alt="">
+								<img src="../photo/${sdto.uploadfile1}" alt="">
 							</div>
 						</div>
 						<div class="tab-pane" id="tabs-2" role="tabpanel">
@@ -234,7 +230,7 @@ $(".fa-heart").click(function(){
 					<div class="product__item shop_view_list_box">
 						<a href="content?num=${a.num}&currentPage=${currentPage}&key=list">
 							<div class="product__item__pic">
-								<img src="/photo/${a.uploadfile1}" alt="">
+								<img src="../photo/${a.uploadfile1}" alt="">
 							</div>
 							<div class="product__item__text">
 								<h6>${a.name}</h6>
