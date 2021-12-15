@@ -21,7 +21,7 @@
 		<div class="row hot_list_all_box">
 			<c:forEach var="hdto" items="${HotClass}">
 				<c:forEach var="cdto" items="${listpopul}" varStatus="status">
-					<c:if test="${cdto.inter>=10 }">
+					<c:if test="${cdto.inter>=10 and hdto.num == cdto.num}">
 						<div class="product__item">
 							<a href="${root}/class/view?num=${cdto.num}">
 								<div class="product__item__pic set-bg">

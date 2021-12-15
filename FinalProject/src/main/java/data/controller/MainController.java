@@ -1,5 +1,6 @@
 package data.controller;
 
+import data.dto.HeartDto;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,11 +111,13 @@ public class MainController {
     List<ClassBoardDto> listnewsMain = mapper.getAllnewlist();
     List<ClassBoardDto> listpopulMain = mapper.getPopular();
     List<ClassBoardDto> listseven=mapper.getSevendays();
+    List<HeartDto> HotClass=mapper.getHotClass();
 
     mview.addObject("listMain", listMain);
     mview.addObject("listnewsMain", listnewsMain);
     mview.addObject("listpopulMain", listpopulMain);
     mview.addObject("listseven", listseven);
+    mview.addObject("HotClass", HotClass);
     mview.setViewName("/2/inc/class");
     return mview;
   }
