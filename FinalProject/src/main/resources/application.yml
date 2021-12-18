@@ -52,4 +52,7 @@ mybatis:
 #image upload path
 file:
   upload:
-    image: '/home/ec2-user/backup/photo'
+#     권혁락 맥북 경로
+    image: '/Users/rk/Documents/photo'
+#     EC2 경로
+#    image: '/home/ec2-user/backup/photo'
