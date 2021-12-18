@@ -46,3 +46,8 @@ mybatis:
   type-aliases-package: data.mapper,data.dto
   mapper-locations:
   - /mapper/**/*.xml
+
+#image upload path
+custom:
+  path:
+    images: '/home/ec2-user/backup/photo'
