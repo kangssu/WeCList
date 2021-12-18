@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,6 +34,9 @@ public class ClassController {
   
   @Autowired
   UserProfileService uservice;
+
+  @Value("${file.upload.image}")
+  String imagePath;
 
   @GetMapping("/class/list")
   public ModelAndView getAlllist(@RequestParam(defaultValue = "1") int currentPage) {
@@ -196,7 +200,7 @@ public class ClassController {
       cdto.setUploadfile(uploadfile);
 
       try {
-        cdto.getUpload().transferTo(new File(path + "/" + uploadfile));
+        cdto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -210,7 +214,7 @@ public class ClassController {
       cdto.setUploadfile1(uploadfile1);
 
       try {
-        cdto.getUpload1().transferTo(new File(path + "/" + uploadfile1));
+        cdto.getUpload1().transferTo(new File(imagePath + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -224,7 +228,7 @@ public class ClassController {
       cdto.setUploadfile2(uploadfile2);
 
       try {
-        cdto.getUpload2().transferTo(new File(path + "/" + uploadfile2));
+        cdto.getUpload2().transferTo(new File(imagePath + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -238,7 +242,7 @@ public class ClassController {
       cdto.setUploadfile3(uploadfile3);
 
       try {
-        cdto.getUpload3().transferTo(new File(path + "/" + uploadfile3));
+        cdto.getUpload3().transferTo(new File(imagePath + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -252,7 +256,7 @@ public class ClassController {
       cdto.setUploadfile4(uploadfile4);
 
       try {
-        cdto.getUpload4().transferTo(new File(path + "/" + uploadfile4));
+        cdto.getUpload4().transferTo(new File(imagePath + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -266,7 +270,7 @@ public class ClassController {
       cdto.setUploadfile5(uploadfile5);
 
       try {
-        cdto.getUpload5().transferTo(new File(path + "/" + uploadfile5));
+        cdto.getUpload5().transferTo(new File(imagePath + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();
@@ -294,7 +298,7 @@ public class ClassController {
       cndto.setUploadfile(uploadfile);
 
       try {
-        cndto.getUpload().transferTo(new File(path + "/" + uploadfile));
+        cndto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         // TODO: handle exception
         e.printStackTrace();

@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,10 @@ public class AuthorShopController {
   
   @Autowired
   UserMapper mapper;
+
+    @Value("${file.upload.image}")
+    String imagePath;
+
   @GetMapping("/mypage/shop/updateform")
   public ModelAndView updateForm(String num, String currentPage) {
 
@@ -59,7 +64,7 @@ public class AuthorShopController {
           sdto.setUploadfile1(uploadfile1);
 
           try {
-              sdto.getUpload1().transferTo(new File(path + "/" + uploadfile1));
+              sdto.getUpload1().transferTo(new File(imagePath + "/" + uploadfile1));
           } catch (IllegalStateException | IOException e) {
               // TODO: handle exception
               e.printStackTrace();
@@ -73,7 +78,7 @@ public class AuthorShopController {
           sdto.setUploadfile2(uploadfile2);
 
           try {
-              sdto.getUpload2().transferTo(new File(path + "/" + uploadfile2));
+              sdto.getUpload2().transferTo(new File(imagePath + "/" + uploadfile2));
           } catch (IllegalStateException | IOException e) {
               // TODO: handle exception
               e.printStackTrace();
@@ -87,7 +92,7 @@ public class AuthorShopController {
           sdto.setUploadfile3(uploadfile3);
 
           try {
-              sdto.getUpload3().transferTo(new File(path + "/" + uploadfile3));
+              sdto.getUpload3().transferTo(new File(imagePath + "/" + uploadfile3));
           } catch (IllegalStateException | IOException e) {
               // TODO: handle exception
               e.printStackTrace();
@@ -101,7 +106,7 @@ public class AuthorShopController {
           sdto.setUploadfile4(uploadfile4);
 
           try {
-              sdto.getUpload4().transferTo(new File(path + "/" + uploadfile4));
+              sdto.getUpload4().transferTo(new File(imagePath + "/" + uploadfile4));
           } catch (IllegalStateException | IOException e) {
               // TODO: handle exception
               e.printStackTrace();
@@ -115,7 +120,7 @@ public class AuthorShopController {
           sdto.setUploadfile5(uploadfile5);
 
           try {
-              sdto.getUpload5().transferTo(new File(path + "/" + uploadfile5));
+              sdto.getUpload5().transferTo(new File(imagePath + "/" + uploadfile5));
           } catch (IllegalStateException | IOException e) {
               // TODO: handle exception
               e.printStackTrace();
@@ -260,19 +265,19 @@ public class AuthorShopController {
 
     String path = session.getServletContext().getRealPath("/photo");
     MultipartFile uploadfile1 = service.getData(num).getUpload1();
-    File file1 = new File(path + "/" + uploadfile1);
+    File file1 = new File(imagePath + "/" + uploadfile1);
 
     MultipartFile uploadfile2 = service.getData(num).getUpload2();
-    File file2 = new File(path + "/" + uploadfile2);
+    File file2 = new File(imagePath + "/" + uploadfile2);
 
     MultipartFile uploadfile3 = service.getData(num).getUpload3();
-    File file3 = new File(path + "/" + uploadfile3);
+    File file3 = new File(imagePath + "/" + uploadfile3);
 
     MultipartFile uploadfile4 = service.getData(num).getUpload4();
-    File file4 = new File(path + "/" + uploadfile4);
+    File file4 = new File(imagePath + "/" + uploadfile4);
 
     MultipartFile uploadfile5 = service.getData(num).getUpload5();
-    File file5 = new File(path + "/" + uploadfile5);
+    File file5 = new File(imagePath + "/" + uploadfile5);
 
     //사진 삭제
     file1.delete();

@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfiguration implements WebMvcConfigurer {
 
   private final String imagePath;
-  public MvcConfiguration(@Value("${custom.path.images}") String imagePath){
+  public MvcConfiguration(@Value("${file.upload.image}") String imagePath){
     this.imagePath = imagePath;
   }
 
@@ -29,6 +29,6 @@ public class MvcConfiguration implements WebMvcConfigurer {
         .setCachePeriod(60 * 60 * 24 * 365);
     /* '/photo/**' 로 호출하는 자원은 '~/backup/photo/' (리눅스)폴더 아래에서 찾는다. */
     registry.addResourceHandler("/photo/**").addResourceLocations("file:/home/ec2-user/backup/photo")
-        .setCachePeriod(3600);
+        .setCachePeriod(60 * 60 * 24 * 365);
   }
 }
