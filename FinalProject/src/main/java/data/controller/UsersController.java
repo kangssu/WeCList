@@ -72,7 +72,7 @@ public class UsersController {
 
 	    // 실제 업로드
 	    try {
-	    	file.transferTo(new File(path + "\\" + photoname));
+	    	file.transferTo(new File(path + "/" + photoname));
 	    } catch (IllegalStateException e) {
 	      e.printStackTrace();
 	    } catch (IOException e) {
@@ -182,7 +182,7 @@ public class UsersController {
 
 	    // 실제 업로드
 	    try {
-	    	file.transferTo(new File(path + "\\" + photoname));
+	    	file.transferTo(new File(path + "/" + photoname));
 	    } catch (IllegalStateException e) {
 	      e.printStackTrace();
 	    } catch (IOException e) {
