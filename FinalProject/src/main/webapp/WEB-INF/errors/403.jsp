@@ -5,6 +5,7 @@
         <h1>허가되지 않은 접근입니다</h1>
     </section>
 </div>
+<a href="javascript:history.back();">이전 페이지로..</a>
 <div class="errorPage">
     <span class="errorHead">Error!</span><br/>
     <p>request_uri : <c:out value="${requestScope['javax.servlet.error.request_uri']}"/></p>
