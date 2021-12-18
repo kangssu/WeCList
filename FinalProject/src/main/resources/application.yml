@@ -10,6 +10,8 @@ spring:
   devtools:
     livereload:
       enabled: true
+
+# smtp
   mail:
     host: smtp.gmail.com
     port: 587
@@ -48,6 +50,6 @@ mybatis:
   - /mapper/**/*.xml
 
 #image upload path
-custom:
-  path:
-    images: '/home/ec2-user/backup/photo'
+file:
+  upload:
+    image: '/home/ec2-user/backup/photo'

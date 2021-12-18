@@ -8,11 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfiguration implements WebMvcConfigurer {
 
-  private final String imagePath;
-  public MvcConfiguration(@Value("${file.upload.image}") String imagePath){
-    this.imagePath = imagePath;
-  }
-
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
     /* '/js/**'로 호출하는 자원은 '/static/js/' 폴더 아래에서 찾는다. */
