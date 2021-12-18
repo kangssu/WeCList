@@ -2,7 +2,6 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
-<!-- Product Section Begin -->
 <div class="container">
 	<div class="row">
 		<div class="col-lg-9 col-md-7 shop_right_box">
@@ -24,19 +23,17 @@
 								<div class="product__item__text">
 									<h6>${a.shopop}</h6>
 									<h6>${a.title}</h6>
-									<h5>${a.shopprice}</h5>
+									<h5>${a.shopprice}원</h5>
 								</div>
 							</a>
 						</div>
 					</div>
 				</c:forEach>
 			</div>
-			<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 			<div class="product__pagination">
 				<c:if test="${startPage>1}">
 					<a href="list?currentPage=${startPage-1}">이전</a>
 				</c:if>
-	
 				<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 					<c:if test="${currentPage==pp}">
 						<li class="select"><a class="select2" href="list?currentPage=${pp}">${pp}</a></li>
@@ -45,7 +42,6 @@
 						<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 					</c:if>
 				</c:forEach>
-				<!-- 다음 -->
 				<c:if test="${endPage<totalPage}">
 					<a href="list?currentPage=${endPage+1}">다음</a>
 				</c:if>
@@ -53,4 +49,3 @@
 		</div>
 	</div>
 </div>
-<!-- Product Section End -->
