@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,9 @@ public class UsersController {
 	
 	@Autowired
 	UserMapper mapper;
+
+	@Value("${file.upload.image}")
+	String imagePath;
 	
 	@GetMapping("/users/login")
 	public String login() {
@@ -72,7 +76,7 @@ public class UsersController {
 
 	    // 실제 업로드
 	    try {
-	    	file.transferTo(new File(path + "/" + photoname));
+	    	file.transferTo(new File(imagePath + "/" + photoname));
 	    } catch (IllegalStateException e) {
 	      e.printStackTrace();
 	    } catch (IOException e) {
@@ -182,7 +186,7 @@ public class UsersController {
 
 	    // 실제 업로드
 	    try {
-	    	file.transferTo(new File(path + "/" + photoname));
+	    	file.transferTo(new File(imagePath + "/" + photoname));
 	    } catch (IllegalStateException e) {
 	      e.printStackTrace();
 	    } catch (IOException e) {

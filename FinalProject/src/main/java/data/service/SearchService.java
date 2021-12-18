@@ -31,7 +31,4 @@ public class SearchService {
 		map.put("perpage", perpage);
 		return mapper.getSearch(map);
 	}
-
-
-
 }

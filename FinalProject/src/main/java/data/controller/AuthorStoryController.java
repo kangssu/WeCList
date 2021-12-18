@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +23,9 @@ public class AuthorStoryController {
 
   @Autowired
   AuthorStoryService service;
+
+  @Value("${file.upload.image}")
+  String imagePath;
 
   ///////////// 여기 아래는 마이페이지 스토리 매핑! /////////////
 
@@ -90,7 +94,7 @@ public class AuthorStoryController {
 
       // 실제 업로드
       try {
-        dto.getUpload().transferTo(new File(path + "/" + uploadfile));
+        dto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         e.printStackTrace();
       }
@@ -147,7 +151,7 @@ public class AuthorStoryController {
 
       // 실제 업로드
       try {
-        dto.getUpload().transferTo(new File(path + "/" + uploadfile));
+        dto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
         e.printStackTrace();
       }
@@ -166,7 +170,7 @@ public class AuthorStoryController {
 
     String path = session.getServletContext().getRealPath("/photo");
     MultipartFile uploadfile = service.getData(num).getUpload();
-    File file = new File(path + "/" + uploadfile);
+    File file = new File(imagePath + "/" + uploadfile);
 
     // 파일삭제
     file.delete();
