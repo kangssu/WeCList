@@ -8,10 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfiguration implements WebMvcConfigurer {
 
-  private final String imagePath;
-  public MvcConfiguration(@Value("${file.upload.image}") String imagePath){
-    this.imagePath = imagePath;
-  }
+  @Value("${file.upload.image}")
+  String imagePath;
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -28,7 +26,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     registry.addResourceHandler("/fonts/**").addResourceLocations("classpath:/static/fonts/")
         .setCachePeriod(60 * 60 * 24 * 365);
     /* '/photo/**' 로 호출하는 자원은 '~/backup/photo/' (리눅스)폴더 아래에서 찾는다. */
-    registry.addResourceHandler("/photo/**").addResourceLocations("file:/home/ec2-user/backup/photo")
+    registry.addResourceHandler("/photo/**").addResourceLocations("file:" + imagePath)
         .setCachePeriod(60 * 60 * 24 * 365);
   }
 }
