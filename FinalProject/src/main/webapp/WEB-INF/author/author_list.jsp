@@ -94,34 +94,6 @@
 <!-- Breadcrumb Section End -->
 <!-- 작가 리스트 -->
 <div class="author_list">
-	<section class="hot_author">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 section-title_top">
-					<div class="author_list_hot_title">
-						<h2>TOP 10 작가</h2>
-					</div>
-				</div>
-				<div class="categories__slider owl-carousel">
-					<c:forEach var="hdto" items="${Hotlist}" varStatus="status" begin="0" end="9">
-						<div class="col-lg-3 hot_author_list">
-							<c:forEach var="adto" items="${list}" begin="0" end="9">
-								<c:if test="${hdto.to_id==adto.id}">
-									<a onclick="location.href='/author/home?id=${adto.id}'">
-										<div class="author__box set-bg">
-											<p class="hot__author__count">top <b class="hot_number">${status.count}</b></p>
-											<img src="/img/pro.jpg" id="author_img_1">
-											<h5>${adto.nickname}</h5>
-										</div>
-									</a>
-								</c:if>
-							</c:forEach>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</div>
-	</section>
 	<div class="author_all_list">
 		<div class="container">
 			<div class="author_title">

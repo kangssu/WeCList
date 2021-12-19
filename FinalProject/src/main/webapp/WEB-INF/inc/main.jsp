@@ -3,28 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
-<!-- Hero Section Begin -->
-<script>
-	$(document).ready(function() {
-		$("#btn_item_page").closest("li").addClass("active");
-	})
-</script>
-
 <section class="hero">
 	<div class="main_container">
-		<!-- Start Banner Hero -->
 		<div class="banner-wrapper bg-light">
-
 			<div id="demo" class="carousel slide" data-ride="carousel">
-
-				<!-- Indicators -->
 				<ul class="carousel-indicators">
 					<li data-target="#demo" data-slide-to="033" class="active"></li>
 					<li data-target="#demo" data-slide-to="1"></li>
 					<li data-target="#demo" data-slide-to="2"></li>
 				</ul>
-
-				<!-- The slideshow -->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="img/hero/main2.jpg" alt="Los Angeles">
@@ -36,28 +23,18 @@
 						<img src="img/hero/main2.jpg" alt="New York">
 					</div>
 				</div>
-
-				<!-- Left and right controls -->
 				<a class="carousel-control-prev" href="#demo" data-slide="prev">
 					<span class="carousel-control-prev-icon"></span>
 				</a> <a class="carousel-control-next" href="#demo" data-slide="next">
 					<span class="carousel-control-next-icon"></span>
 				</a>
-
 			</div>
-
 		</div>
-		<!-- End Banner Hero -->
 	</div>
 </section>
-<!-- Hero Section End -->
-
-
-<!-- Featured Section Begin -->
 <section class="featured spad">
 	<div class="container">
 		<div class="row">
-
 			<div class="col-lg-9 col-md-7">
 				<div class="col-lg-12 section-title_top">
 					<div class="section-title">
@@ -65,7 +42,6 @@
 						<span class="fa fa-angle-right"></span>
 					</div>
 				</div>
-
 				<div class="row">
 					<c:forEach var="a" items="${listpopul}" varStatus="status" begin="0" end="11">
 						<div class="col-lg-4 col-md-6 col-sm-6 shop_box_all">
@@ -73,12 +49,12 @@
 								<a href="/shop/	content?num=${a.num}" class="shop_test_test">
 									<div class="featured__item__pic set-bg">
 										<img src="/photo/${a.uploadfile1}" alt="">
-										<span class="shop_rank_number_${status.count}">${status.count}</span>
+										<span class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 									</div>
 									<div class="featured__item__text">
 										<h6>${a.shopop}</h6>
 										<h6>${a.title}</h6>
-										<h5>${a.shopprice}</h5>
+										<h5>${a.shopprice}원</h5>
 									</div>
 								</a>
 							</div>
@@ -89,21 +65,14 @@
 		</div>
 	</div>
 </section>
-<!-- Featured Section End -->
-
-<!-- Banner Begin -->
 <div class="banner">
 	<div class="set-bg main_banner_1" data-setbg="img/mainbanner.png">
 	</div>
 </div>
-<!-- Banner End -->
-
-<!-- Featured Section Begin -->
 <section class="featured spad">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 col-md-7">
-
 				<div class="col-lg-12 section-title_top">
 					<div class="section-title">
 						<h2>최신 작품</h2>
@@ -111,10 +80,8 @@
 					</div>
 				</div>
 				<div class="row">
-
 					<c:forEach var="a" items="${list}" begin="0" end="7">
 						<div class="col-lg-4 col-md-6 col-sm-6">
-
 							<div class="featured__item">
 								<a href="/shop/	content?num=${a.num}">
 									<div class="featured__item__pic set-bg">
@@ -123,7 +90,7 @@
 									<div class="featured__item__text">
 										<h6>${a.shopop}</h6>
 										<h6>${a.title}</h6>
-										<h5>${a.shopprice}</h5>
+										<h5>${a.shopprice}원</h5>
 									</div>
 								</a>
 							</div>
@@ -132,12 +99,8 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </section>
-<!-- Featured Section End -->
-
-<!-- Blog Section Begin -->
 <section class="from-blog spad">
 	<div class="container">
 		<div class="row">
@@ -175,4 +138,3 @@
 		</div>
 	</div>
 </section>
-<!-- Blog Section End -->

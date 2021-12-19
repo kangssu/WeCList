@@ -1,11 +1,10 @@
 <%@page import="data.dto.ClassBoardDto"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+		 pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
-<!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
@@ -20,15 +19,12 @@
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
-<br>
-<!-- 커밍쑨 -->
 <section class="product spad">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 section-title_top">
-				<div class="section-title">
-					<h2>커밍 쑨!! 오픈 예정!!</h2>
+				<div class="section-title section-title__new__title">
+					<h2>오픈예정 클래스</h2>
 					<span class="fa fa-angle-right"></span>
 				</div>
 			</div>
@@ -45,8 +41,8 @@
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
 										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
 										<h5>${cdto.classprice}원</h5>
 									</div>
 								</a>
@@ -59,10 +55,6 @@
 		</div>
 	</div>
 </section>
-<!-- 커밍쑨 end -->
-
-
-<!-- Featured Section Begin -->
 <section class="featured spad">
 	<div class="container">
 		<div class="row">
@@ -85,8 +77,8 @@
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
 										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
 										<h5>${cdto.classprice}원</h5>
 									</div>
 								</a>
@@ -94,16 +86,10 @@
 						</div>
 					</c:if>
 				</c:forEach>
-
 			</div>
 		</div>
 	</div>
-
-
 </section>
-<!-- Featured Section End -->
-
-<!-- Product Section Begin -->
 <section class="product spad">
 	<div class="container">
 		<div class="row">
@@ -126,8 +112,8 @@
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
 										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
 										<h5>${cdto.classprice}원</h5>
 									</div>
 								</a>
@@ -137,9 +123,5 @@
 				</c:forEach>
 			</div>
 		</div>
-
 	</div>
 </section>
-<!-- Product Section End -->
-
-

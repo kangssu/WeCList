@@ -28,9 +28,9 @@
 								<span class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 							</div>
 							<div class="featured__item__text">
-								<h6>${a.name}</h6>
+								<h6>${a.shopop}</h6>
 								<h6>${a.title}</h6>
-								<h5>${a.shopprice}</h5>
+								<h5>${a.shopprice}원</h5>
 							</div>
 						</a>
 					</div>
