@@ -1,7 +1,7 @@
 <%@page import="data.dto.ClassBoardDto"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+		 pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
@@ -32,17 +32,17 @@
 		<div class="row">
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="cdto" items="${list}">
-					<c:if test="${cdto.inter>=15}">
+					<c:if test="${cdto.inter>=10}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
+										<img src="/photo/${cdto.uploadfile}"
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
 										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
 										<h5>${cdto.classprice}원</h5>
 									</div>
 								</a>
@@ -68,17 +68,17 @@
 		<div class="row">
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="cdto" items="${listseven}">
-					<c:if test="${cdto.inter>=15}">
+					<c:if test="${cdto.inter>=10}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
+										<img src="/photo/${cdto.uploadfile}"
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
 										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
 										<h5>${cdto.classprice}원</h5>
 									</div>
 								</a>
@@ -86,12 +86,9 @@
 						</div>
 					</c:if>
 				</c:forEach>
-
 			</div>
 		</div>
 	</div>
-
-
 </section>
 <section class="product spad">
 	<div class="container">
@@ -106,17 +103,17 @@
 		<div class="row">
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="cdto" items="${list}">
-					<c:if test="${cdto.inter<15}">
+					<c:if test="${cdto.inter<10}">
 						<div style="float: left;">
 							<div class="product__item">
 								<a href="${root}/class/view?num=${cdto.num}">
 									<div class="product__item__pic set-bg">
-										<img src="../photo/${cdto.uploadfile}"
+										<img src="/photo/${cdto.uploadfile}"
 											style="width: 300px; height: 300px;">
 									</div>
 									<div class="product__item__text">
-										<h6>${cdto.title}</h6>
 										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
 										<h5>${cdto.classprice}원</h5>
 									</div>
 								</a>
@@ -126,8 +123,5 @@
 				</c:forEach>
 			</div>
 		</div>
-
 	</div>
 </section>
-
-

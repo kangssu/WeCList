@@ -21,11 +21,11 @@
 		<div class="row hot_list_all_box">
 			<c:forEach var="hdto" items="${HotClass}">
 				<c:forEach var="cdto" items="${listpopul}" varStatus="status">
-					<c:if test="${cdto.inter>=15}">
+					<c:if test="${cdto.inter>=10 and cdto.num==hdto.num}">
 						<div class="product__item">
 							<a href="${root}/class/view?num=${cdto.num}">
 								<div class="product__item__pic set-bg">
-									<img src="../photo/${cdto.uploadfile}"
+									<img src="/photo/${cdto.uploadfile}"
 										style="width: 300px; height: 300px;"> <span
 										class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 								</div>
