@@ -9,13 +9,12 @@
     SELECT
            c.shop_num,
            s.title,
-           s.uploadfile,
+           s.uploadfile1,
            s.name,
            c.shop_option ,
            c.shop_qty ,
            c.shop_price
-    from cart c inner join usersjoin u on c.user_idx = u.idx
-                inner join shopboarder s on c.shop_num = s.num
+    from cart c inner join shopboarder s on c.shop_num = s.num
     where user_idx = (SELECT idx from usersjoin where id = #{user_id});
   </select>
   <delete id="deleteCart" parameterType="HashMap">
