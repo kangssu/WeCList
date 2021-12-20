@@ -10,7 +10,7 @@
 				<div class="row">
 					<div class="grade_user">
 						<div class="profile_img" style="float:left;">
-							<img src="/photo/${profileimg}">
+							<img src="/photo/${sessionScope.profileimg}">
 						</div>
 						<div class="profile_text_mypage_1" style="float:left;">
 							<c:choose>
@@ -33,10 +33,6 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-<%-- 						<div class="profile_btn">
-							<button type="button" onclick="location.href='/users/mypage/updatepass?id=${sessionScope.id}'">정보수정</button>
-							<button type="button" onclick="location.href='/login/logoutprocess'">로그아웃</button>
-						</div> --%>
 					</div>
 					<div class="grade_shopbox">
 						<span>총 등록한 작품</span>
