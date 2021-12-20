@@ -37,7 +37,6 @@
 				</div>
 			</c:if>
 		</div>
-		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 		<div class="product__pagination">
 			<c:if test="${startPage>1}">
 				<a href="list?currentPage=${startPage-1}">이전</a>
@@ -51,7 +50,6 @@
 					<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 				</c:if>
 			</c:forEach>
-			<!-- 다음 -->
 			<c:if test="${endPage<totalPage}">
 				<a href="list?currentPage=${endPage+1}">다음</a>
 			</c:if>

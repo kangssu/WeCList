@@ -73,9 +73,6 @@ public class ShopController {
     return mview;
   }
 
-
-
-
   @GetMapping("/shop/content")
   public ModelAndView content(@RequestParam String num,
       @RequestParam(defaultValue = "1") int currentPage,
@@ -96,14 +93,9 @@ public class ShopController {
       mview.addObject("bupload", false);
 
     }
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
 
     int perPage = 4;
     int totalCount = service.getTotalCount();
-
     int totalPage;
     int start;
     int perBlock = 5;
@@ -111,23 +103,20 @@ public class ShopController {
     int endPage;
 
     totalCount = service.getTotalCount();
-
     totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
-
     endPage = startPage + perBlock - 1;
+
     if (endPage > totalPage) {
       endPage = totalPage;
     }
 
     start = (currentPage - 1) * perPage;
 
-
     List<ShopBoardDto> list = service.getList(start, perPage);
     ShopBoardDto dto = service.getData(num);
 
     List<ShopHeartDto> heartTrue = service.getTrue(num);
-
 
     int no = totalCount - (currentPage - 1) * perPage;
     mview.addObject("totalCount", totalCount);
@@ -136,15 +125,7 @@ public class ShopController {
     mview.addObject("endPage", endPage);
     mview.addObject("totalPage", totalPage);
     mview.addObject("no", no);
-
     mview.addObject("heartTrue", heartTrue);
-
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
-
     mview.addObject("sdto", sdto);
     mview.addObject("udto", udto);
     mview.addObject("currentPage", currentPage);
@@ -157,7 +138,6 @@ public class ShopController {
     return "/shop/shop_buy";
   }
 
-
   @GetMapping("/shop/hotlist")
   public String hotlist() {
     return "/shop/shop_hot_list";
@@ -168,13 +148,12 @@ public class ShopController {
     return "/1/author_mypage/shop_write_form";
   }
 
-
   @GetMapping(value = {"/shop/list"})
   public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
       @RequestParam(required = false) String num) {
     ModelAndView mview = new ModelAndView();
 
-    int perPage = 4;
+    int perPage = 12;
     int totalCount = service.getTotalCount();
     int totalPage;
     int IdPage;
@@ -184,24 +163,18 @@ public class ShopController {
     int endPage;
 
     totalCount = service.getTotalCount();
-
     totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
-
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
-
     endPage = startPage + perBlock - 1;
+
     if (endPage > totalPage) {
       endPage = totalPage;
     }
 
     start = (currentPage - 1) * perPage;
-    //
     ShopBoardDto dto = service.getData(num);
 
     List<ShopHeartDto> heartTrue = service.getTrue(num);
-
-
-    //
     List<ShopBoardDto> list = service.getList(start, perPage);
 
     int no = totalCount - (currentPage - 1) * perPage;
@@ -218,18 +191,12 @@ public class ShopController {
     return mview;
   }
 
-
-
-
   @PostMapping("/mypage/shop/insert")
   public String insert(HttpSession session, @ModelAttribute ShopBoardDto sdto) {
-
-    System.out.println("myid=" + sdto.getMyid());
 
     String path = session.getServletContext().getRealPath("/photo");
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-
 
     if (sdto.getUpload1().getOriginalFilename().equals("")) {
       sdto.setUploadfile1("no");
@@ -240,7 +207,6 @@ public class ShopController {
       try {
         sdto.getUpload1().transferTo(new File(imagePath + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -254,7 +220,6 @@ public class ShopController {
       try {
         sdto.getUpload2().transferTo(new File(imagePath + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -268,7 +233,6 @@ public class ShopController {
       try {
         sdto.getUpload3().transferTo(new File(imagePath + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -282,7 +246,6 @@ public class ShopController {
       try {
         sdto.getUpload4().transferTo(new File(imagePath + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -296,16 +259,13 @@ public class ShopController {
       try {
         sdto.getUpload5().transferTo(new File(imagePath + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
 
-
     service.insertBoard(sdto);
     return "redirect:content?num=" + service.getMaxNum();
   }
-
 
   @GetMapping("/shop/popul")
   public ModelAndView getPopular() {
@@ -327,7 +287,6 @@ public class ShopController {
 
     int perPage = 4;
     int totalCount = service.getTotalCount();
-
     int totalPage;
     int start;
     int perBlock = 5;
@@ -336,8 +295,8 @@ public class ShopController {
     totalCount = service.getTotalCount();
     totalPage = totalCount / perPage + (totalCount % perPage == 0 ? 0 : 1);
     startPage = (currentPage - 1) / perBlock * perBlock + 1;
-
     endPage = startPage + perBlock - 1;
+
     if (endPage > totalPage) {
       endPage = totalPage;
     }
@@ -362,6 +321,4 @@ public class ShopController {
     mview.setViewName("/shop/shop_new_list");
     return mview;
   }
-
-
 }

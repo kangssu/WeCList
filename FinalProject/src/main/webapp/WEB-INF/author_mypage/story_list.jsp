@@ -36,7 +36,6 @@
 				<th>작성일</th>
 				<th>수정/삭제</th>
 			</tr>
-			
 			<c:if test="${totalCount==0}">
 			<tr>
 				<td colspan="5" align="center">
@@ -44,7 +43,6 @@
 				</td>
 			</tr>
 			</c:if>
-			
 			<c:if test="${totalCount>0}">
 				<c:forEach var="sdto" items="${list}" varStatus="i">
 				<tr>
@@ -71,8 +69,6 @@
 		<div class="story__insert__bottom">
 			<button type="submit" onclick="location.href='/mypage/story/form'">등록하기</button>
 		</div>
-		
-		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 		<div class="product__pagination">
 			<c:if test="${startPage>1}">
 				<a href="list?currentPage=${startPage-1}">이전</a>
@@ -86,7 +82,6 @@
 					<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 				</c:if>
 			</c:forEach>
-			<!-- 다음 -->
 			<c:if test="${endPage<totalPage}">
 				<a href="list?currentPage=${endPage+1}">다음</a>
 			</c:if>

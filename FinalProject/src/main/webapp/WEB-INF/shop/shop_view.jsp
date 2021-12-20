@@ -3,60 +3,55 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="root" value="<%=request.getContextPath()%>" />
-<!-- Breadcrumb Section Begin -->
 <style>
 .heart {
 	cursor: pointer;
 }
 </style>
 <script type="text/javascript">
-$(function(){
-loginok="${sessionScope.loginok}"; //로그인 여부
-loginid="${sessionScope.id}"; //로그인 아이디 가져옴
-
-//alert(loginok+","+loginid); //확인됨
-
-//좋아요 이벤트!(추가)
-$(".fa-heart-o").click(function(){
-	var shop_heart=loginid;
-	var num=$(this).attr("num");
-         			
-	//로그인 한 이후에 팔로우 가능!
-	if(loginok==""){
-		alert("회원만 가능합니다!");
-		location.href ="/users/login";
-	}else{
-		$.ajax({
-			type:"post",
-			dataType:"text",
-			url:"/shop/shinsert",
-			data:{"shop_heart":shop_heart,"num":num},
-			success:function(data){
-			alert("좋아요 되었습니다!");
-			location.reload();
-         	}
-      });
-  }
-});
-         		
-//좋아요 이벤트!(취소)
-$(".fa-heart").click(function(){
-	var shop_heart=loginid;
-	var num=$(this).attr("num");
-         			
-	//팔로우!
-		$.ajax({
-			type:"post",
-			dataType:"text",
-			url:"/shop/shdelete",
-			data:{"shop_heart":shop_heart,"num":num},
-			success:function(data){
-			alert("좋아요 취소되었습니다!");
-			location.reload();
-     		}
-      });
- 	});
-});
+	$(function(){
+		loginok="${sessionScope.loginok}"; //로그인 여부
+		loginid="${sessionScope.id}"; //로그인 아이디 가져옴
+		
+		//좋아요 이벤트!(추가)
+		$(".fa-heart-o").click(function(){
+			var shop_heart=loginid;
+			var num=$(this).attr("num");
+		         			
+			if(loginok==""){
+				alert("회원만 가능합니다!");
+				location.href ="/users/login";
+			}else{
+				$.ajax({
+					type:"post",
+					dataType:"text",
+					url:"/shop/shinsert",
+					data:{"shop_heart":shop_heart,"num":num},
+					success:function(data){
+					alert("좋아요 되었습니다!");
+					location.reload();
+		         	}
+		      });
+		  	}
+		});
+		         		
+		//좋아요 이벤트!(취소)
+		$(".fa-heart").click(function(){
+			var shop_heart=loginid;
+			var num=$(this).attr("num");
+		         			
+				$.ajax({
+					type:"post",
+					dataType:"text",
+					url:"/shop/shdelete",
+					data:{"shop_heart":shop_heart,"num":num},
+					success:function(data){
+					alert("좋아요 취소되었습니다!");
+					location.reload();
+		     		}
+		      });
+		 });
+	});
 </script>
 <section class="breadcrumb-section">
 	<div class="container">
@@ -72,7 +67,6 @@ $(".fa-heart").click(function(){
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
 <style type="text/css">
 .blind {
 	position: absolute;
@@ -83,8 +77,6 @@ $(".fa-heart").click(function(){
 	overflow: hidden;
 }
 </style>
-
-<!-- Product Details Section Begin -->
 <section class="product-details spad">
 	<div class="container">
 		<div class="row">
@@ -110,33 +102,33 @@ $(".fa-heart").click(function(){
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__text">
-
 					<a onclick="location.href='/author/home?id=${sdto.myid}'">
 						<span>
-                     <img src="${root}/photo/${udto.profileimg}">
-							${udto.nickname}<i class="fa fa-angle-right"></i>
-                  </span>
+							<img src="${root}/photo/${udto.profileimg}">${udto.nickname}
+							<i class="fa fa-angle-right"></i>
+                  		</span>
 					</a>
 					<h3>${sdto.title}</h3>
-
 					<div class="product__details__price">${sdto.shopprice}원</div>
 					<p>${sdto.shopsub}</p>
 					<form id="cart_form" method="post" action="/cart/insert2">
 						<input type="hidden" name="shop_num" value="${sdto.num}">
 						<input type="hidden" name="user_id" value="${sessionScope.id}">
 						<ul class="view_option_select">
-							<li class="view_option_select_su"><b>수량</b> <span>주문시
-									제작</span></li>
+							<li class="view_option_select_su"><b>수량</b> <span>주문시 제작</span></li>
 							<li><b>배송비</b> <span>2,500원 <samp>(모든 지역 동일)</samp></span></li>
 							<li><b>배송시작</b> <span>평균 1일, 최대 30일 이내</span></li>
-							<li><b>옵션선택</b> <select id="selectoption" name="shop_price">
+							<li>
+								<b>옵션선택</b> 
+								<select id="selectoption" name="shop_price">
 									<option>--옵션선택--</option>
 									<option value="${sdto.subprice1}">${sdto.suboption1}</option>
 									<option value="${sdto.subprice2}">${sdto.suboption2}</option>
 									<option value="${sdto.subprice3}">${sdto.suboption3}</option>
 									<option value="${sdto.subprice4}">${sdto.suboption4}</option>
 									<option value="${sdto.subprice5}">${sdto.suboption5}</option>
-							</select></li>
+								</select>
+							</li>
 							<input type="hidden" id="shop_option" name="shop_option" value="">
 						</ul>
 						<div class="product__details__text__option__list">
@@ -152,7 +144,7 @@ $(".fa-heart").click(function(){
 							</div>
 							<div class="product__details__quantity">
 								<div class="quantity-del">
-									<span id="quantity-del-dan"></span>	
+									<span id="quantity-del-dan"></span>
 									<button>X</button>
 								</div>
 							</div>
@@ -160,12 +152,12 @@ $(".fa-heart").click(function(){
 						<div class="product__details__price__total">
 							<p>총 작품금액 :</p>
 							<span id="total_price"></span>
+							<p>원</p>
 						</div>
 						<%-- TODO: 아무것도 선택하지 않고 구매하기 눌렀을 경우 price:--선택안함-- 예외발생   --%>
 						<button type="button" class="primary-btn btn_buy" onclick="buyItem()">구매하기</button>
 						<button type="button" class="heart-btn btn_cart"	onclick="insertCart()">장바구니</button>
 						<button type="button" class="list-btn"	onclick="location.href='list'">목록보기</button>
-
 						<c:if test="${loginok eq 'yes'}">
 							<c:choose>
 								<c:when test="${fn:contains(heartTrue, sessionScope.id)}">
@@ -176,16 +168,10 @@ $(".fa-heart").click(function(){
 								</c:otherwise>
 							</c:choose>
 						</c:if>
-
 						<c:if test="${loginok eq null}">
 							<a class="heart"><i class="fa fa-heart-o" num="${sdto.num}">${sdto.shopheart}</i></a>
 						</c:if>
-
-
-					<span id="heart">${sdto.shop_heart}</span>
 					</form>
-
-
 				</div>
 			</div>
 			<div class="col-lg-12">
@@ -215,9 +201,6 @@ $(".fa-heart").click(function(){
 		</div>
 	</div>
 </section>
-<!-- Product Details Section End -->
-
-<!-- Related Product Section Begin -->
 <section class="related-product">
 	<div class="container">
 		<div class="row">
@@ -236,7 +219,7 @@ $(".fa-heart").click(function(){
 								<img src="/photo/${a.uploadfile1}" alt="">
 							</div>
 							<div class="product__item__text">
-								<h6>${a.name}</h6>
+								<h6>${a.shopop}</h6>
 								<h6>${a.title}</h6>
 								<h5>${a.shopprice}</h5>
 							</div>
@@ -247,7 +230,6 @@ $(".fa-heart").click(function(){
 		</div>
 	</div>
 </section>
-<!-- Related Product Section End -->
 <script type="text/javascript">
   $(function () {
     $("#selectoption").change(function () {

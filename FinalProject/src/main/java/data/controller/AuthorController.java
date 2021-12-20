@@ -29,11 +29,9 @@ public class AuthorController {
     // 팔로우,팔로잉 버튼 출력을 위함
     String from_id = (String) session.getAttribute("id");
     List<FollowDto> followTrue = service.getTrue(from_id);
-    // System.out.println("지금테스트" + followTrue);
 
     // 인기 작가 10명 출력을 위함
     List<AuthorDto> Hotlist = service.getHotAuthor();
-    System.out.println("나" + Hotlist);
 
     int perPage = 10;
     int totalPage;
@@ -68,5 +66,4 @@ public class AuthorController {
 
     return mview;
   }
-
 }

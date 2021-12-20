@@ -43,9 +43,9 @@
 		<div class="row featured__filter">
 			<c:forEach var="idto" items="${inter}">
 				<c:forEach var="hdto" items="${HotClass}">
-					<c:if test="${hdto.num==idto.num && idto.inter_cnt>=15}"></c:if>
+					<c:if test="${hdto.num==idto.num && idto.inter_cnt>=10}"></c:if>
 					<c:forEach var="cdto" items="${listpopulMain}" varStatus="status" begin="0" end="11">
-						<c:if test="${idto.inter_cnt>=15 and idto.num==cdto.num}">
+						<c:if test="${idto.inter_cnt>=10 and idto.num==cdto.num}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="featured__item">
 									<a href="${root}/class/view?num=${cdto.num}">
@@ -84,7 +84,7 @@
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="idto" items="${inter}">
 					<c:forEach var="cdto" items="${listnewsMain}">
-						<c:if test="${idto.inter_cnt<15 and idto.num==cdto.num}">
+						<c:if test="${idto.inter_cnt<10 and idto.num==cdto.num}">
 							<div style="float: left;">
 								<div class="product__item">
 									<a href="${root}/class/view?num=${cdto.num}">
