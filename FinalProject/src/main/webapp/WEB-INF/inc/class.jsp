@@ -83,7 +83,7 @@
 			<div class="categories__slider owl-carousel">
 				<c:forEach var="idto" items="${inter}">
 					<c:forEach var="cdto" items="${listnewsMain}">
-						<c:if test="${cdto.inter<10}">
+						<c:if test="${cdto.inter<10 and idto.num==idto.num}">
 							<div style="float: left;">
 								<div class="product__item">
 									<a href="${root}/class/view?num=${cdto.num}">
@@ -125,7 +125,7 @@
 				<div class="categories__slider owl-carousel">
 					<c:forEach var="idto" items="${inter}" >
 						<c:forEach var="cdto" items="${listseven}">
-							<c:if test="${cdto.inter>=10}">
+							<c:if test="${cdto.inter>=10 and idto.num==idto.num}">
 								<div style="float: left;">
 									<div class="product__item">
 										<a href="${root}/class/view?num=${cdto.num}">
