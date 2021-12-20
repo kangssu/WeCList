@@ -2393,6 +2393,7 @@ li {
 .product__item__pic {
 	position: relative;
 	overflow: hidden;
+	height:270px;
 }
 
 .product__item__pic__hover {
@@ -5202,7 +5203,7 @@ li {
 	margin-top:50px;
 }
 
-.cart_img_view img{
+.cart_img_view{
 	width:150px;
 	padding:5px;
 }
