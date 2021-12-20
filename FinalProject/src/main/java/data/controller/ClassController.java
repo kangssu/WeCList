@@ -63,7 +63,6 @@ public class ClassController {
     start = (currentPage - 1) * perPage;
 
     List<ClassBoardDto> list = mapper.getAlllist();
-    System.out.println("토탈" + totalCount);
 
     int no = totalCount - (currentPage - 1) * perPage;
     mview.addObject("totalCount", totalCount);
