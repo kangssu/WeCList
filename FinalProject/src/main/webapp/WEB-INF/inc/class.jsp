@@ -40,7 +40,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter">
+		<div class="row">
 			<c:forEach var="hdto" items="${HotClass}">
 				<c:forEach var="cdto" items="${listpopulMain}" varStatus="status"
 					begin="0" end="11">
@@ -48,15 +48,14 @@
 						<div class="col-lg-4 col-md-6 col-sm-6">
 							<div class="featured__item">
 								<a href="${root}/class/view?num=${cdto.num}">
-									<div class="product__item__pic set-bg">
-										<img src="/photo/${cdto.uploadfile}"
-											style="width: 300px; height: 300px;"> <span
-											class="shop_rank_number ank_number_${status.count}">${status.count}</span>
+									<div class="featured__item__pic set-bg">
+										<img src="/photo/${cdto.uploadfile}"> 
+										<span class="shop_rank_number ank_number_${status.count}">${status.count}</span>
 									</div>
-									<div class="product__discount__item__text">
-										<span>${cdto.title}</span>
-										<h5>${cdto.class_op_cate}</h5>
-										<div class="product__item__price">${cdto.classprice}원</div>
+									<div class="featured__item__text">
+										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
+										<h5 class="product__item__price">${cdto.classprice}원</h5>
 									</div>
 								</a>
 							</div>

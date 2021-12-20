@@ -2172,7 +2172,11 @@ li {
 }
 
 .product__discount__item__text h5 {
-	margin-bottom: 6px;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+	margin-bottom: 10px;
+	width:270px;
 }
 
 .product__discount__item__text h5 a {
