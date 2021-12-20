@@ -23,7 +23,7 @@ public class ProfileController {
 
   @Autowired
   AuthorProfileService service;
-  
+
   @Value("${file.upload.image}")
   String imagePath;
 
@@ -55,7 +55,6 @@ public class ProfileController {
   public String insert(@ModelAttribute AuthorProfileDto apdto,
       @RequestParam(required = false) String myid, HttpSession session) {
     String path = session.getServletContext().getRealPath("/photo");
-    // System.out.println(path); // 제대로 나옴!
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 
     String photo = "";

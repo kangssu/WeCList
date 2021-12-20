@@ -6,14 +6,12 @@
 <script type="text/javascript">
 	/* 삭제하기 클릭시 팝업!!! */
 	function showDelPopup(num) {
-		//alert(num); //num값 제대로 가져옴!
 		$("#delnum").val(num);
 		
 		const popup2 = document.querySelector('#story_del_popup');
 		popup2.classList.remove('hide');
 		
 		$("#btn_story_del").click(function(){
-			//alert("1"); //1 제대로 나옴!
 			var num=$("#delnum").val();
 			location.href="/mypage/classdelete?num="+num;
 		});
@@ -24,9 +22,8 @@
 		popup2.classList.add('hide');
 	}
 </script>
-<!-- 스토리 리스트 -->
 <div class="mypage__story">
-<h2>작품/클래스 관리</h2>
+	<h2>작품/클래스 관리</h2>
 	<ul class="tab__manu">
 		<li><a href="/mypage/shop/list">작품 관리</a></li>
 		<li class="on"><a href="/mypage/class/list">클래스 관리</a></li>
@@ -40,36 +37,36 @@
 				<th>작성일</th>
 				<th>수정/삭제</th>
 			</tr>
-			
 			<c:if test="${IdCount==0}">
-			<tr>
-				<td colspan="5" align="center">
-					등록된 게시글이 없습니다.
-				</td>
-			</tr>
+				<tr>
+					<td colspan="5" align="center">
+						등록된 게시글이 없습니다.
+					</td>
+				</tr>
 			</c:if>
-			
 			<c:if test="${IdCount>0}">
 				<c:forEach var="cdto" items="${list}">
 					<c:if test="${sessionScope.loginok!=null and sessionScope.id==cdto.myid}">
-					
-					<tr>
-						<td align="center">${Idno}</td>
-						<c:set var="Idno" value="${Idno-1}" />
-						<td><a
-							href="${root}/class/view?num=${cdto.num}"><img
-								src="/photo/${cdto.uploadfile}"></a></td>
-						<td><a
-							href="${root}/class/view?num=${cdto.num}">${cdto.title}</a></td>
-						<td><fmt:formatDate value="${cdto.writeday}"
-								pattern="yyyy-MM-dd" /></td>
-						<td>
-							<button type="button" class="story_mod_btn"
+						<tr>
+							<td align="center">${Idno}</td>
+							<c:set var="Idno" value="${Idno-1}" />
+							<td>
+								<a href="${root}/class/view?num=${cdto.num}">
+								<img src="/photo/${cdto.uploadfile}"></a>
+							</td>
+							<td>
+								<a href="${root}/class/view?num=${cdto.num}">${cdto.title}</a>
+							</td>
+							<td>
+								<fmt:formatDate value="${cdto.writeday}" pattern="yyyy-MM-dd" />
+							</td>
+							<td>
+								<button type="button" class="story_mod_btn"
 								onclick="location.href='/mypage/class/updateform?num=${cdto.num}'">수정</button>
-							<button type="button" class="story_del_btn"
+								<button type="button" class="story_del_btn"
 								onclick="location.href='/mypage/classdelete?num=${cdto.num}'">삭제</button>
-						</td>
-					</tr>
+							</td>
+						</tr>
 					</c:if>
 				</c:forEach>
 			</c:if>
@@ -77,13 +74,10 @@
 		<div class="story__insert__bottom">
 			<button type="submit" onclick="location.href='/mypage/class/addform'">등록하기</button>
 		</div>
-		
-		<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 		<div class="product__pagination">
 			<c:if test="${startPage>1}">
 				<a href="list?currentPage=${startPage-1}">이전</a>
 			</c:if>
-
 			<c:forEach var="pp" begin="${startPage}" end="${endPage}">
 				<c:if test="${currentPage==pp}">
 					<li class="select"><a class="select2" href="list?currentPage=${pp}">${pp}</a></li>
@@ -92,7 +86,6 @@
 					<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 				</c:if>
 			</c:forEach>
-			<!-- 다음 -->
 			<c:if test="${endPage<totalPage}">
 				<a href="list?currentPage=${endPage+1}">다음</a>
 			</c:if>

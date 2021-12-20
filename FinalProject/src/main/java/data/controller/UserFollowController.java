@@ -29,8 +29,6 @@ public class UserFollowController {
     String from_id = (String) session.getAttribute("id");
     int FollowCount = service.getFollowCount(from_id);
     List<FollowDto> followTrue = service.getTrue(from_id);
-    // System.out.println("지금테스트" + followTrue);
-    System.out.println(FollowCount);
 
     int perPage = 10;
     int totalPage;

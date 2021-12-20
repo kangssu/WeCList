@@ -27,7 +27,6 @@ public class StoryController {
     ModelAndView mview = new ModelAndView();
 
     int atotalCount = service.getATotalCount();
-    // System.out.println(atotalCount);
 
     int perPage = 9;
     int totalPage;

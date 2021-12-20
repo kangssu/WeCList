@@ -82,18 +82,17 @@ public class AuthorClassController {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 
     if (cdto.getUpload().getOriginalFilename().equals("")) {
-        cdto.setUploadfile("no");
-      } else {
-        String uploadfile = "f" + sdf.format(new Date()) + cdto.getUpload().getOriginalFilename();
-        cdto.setUploadfile(uploadfile);
+      cdto.setUploadfile("no");
+    } else {
+      String uploadfile = "f" + sdf.format(new Date()) + cdto.getUpload().getOriginalFilename();
+      cdto.setUploadfile(uploadfile);
 
-        try {
-          cdto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
-        } catch (IllegalStateException | IOException e) {
-          // TODO: handle exception
-          e.printStackTrace();
-        }
+      try {
+        cdto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
+      } catch (IllegalStateException | IOException e) {
+        e.printStackTrace();
       }
+    }
 
     if (cdto.getUpload1().getOriginalFilename().equals("")) {
       cdto.setUploadfile1("no");
@@ -104,7 +103,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload1().transferTo(new File(imagePath + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -118,7 +116,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload2().transferTo(new File(imagePath + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -132,7 +129,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload3().transferTo(new File(imagePath + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -146,7 +142,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload4().transferTo(new File(imagePath + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -160,7 +155,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload5().transferTo(new File(imagePath + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -192,7 +186,6 @@ public class AuthorClassController {
     MultipartFile uploadfile5 = service.getData(num).getUpload5();
     File file5 = new File(imagePath + "/" + uploadfile5);
 
-    // ���� ��ü ����
     file1.delete();
     file2.delete();
     file3.delete();
@@ -232,7 +225,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -246,7 +238,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload1().transferTo(new File(imagePath + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -260,7 +251,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload2().transferTo(new File(imagePath + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -274,7 +264,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload3().transferTo(new File(imagePath + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -288,7 +277,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload4().transferTo(new File(imagePath + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -302,7 +290,6 @@ public class AuthorClassController {
       try {
         cdto.getUpload5().transferTo(new File(imagePath + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }

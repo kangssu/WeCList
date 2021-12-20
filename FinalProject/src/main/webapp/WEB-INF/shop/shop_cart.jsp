@@ -49,24 +49,27 @@ $(document).ready(function (){
 	<div class="container">
 		<table class="cart_table_list">
 			<thead>
-				<tr>
-					<th><input title="전체선택" type="checkbox"><span>&nbsp;스토어</span></th>
+				<tr class="cart_table_list_title">
+					<th><input title="전체선택" type="checkbox"><span>&nbsp;작가</span></th>
 					<th>상품 이미지</th>
 					<th>작품명</th>
 					<th>옵션</th>
 					<th>갯수</th>
 					<th>가격</th>
+					<th>비고</th>
 				</tr>
 			</thead>
 			<tbody>
 			<c:forEach var="item" items="${list}">
+				<tr class="cart_table_list_content">
+					<td><input title="${item.name} 선택" type="checkbox" value=""> &nbsp;&nbsp; ${item.name}</td>
+					<td class="cart_img_view"><img src="/photo/${item.uploadimage}"></td>
 				<tr>
-					<td><input title="${item.name} 선택" type="checkbox" value=""> &nbsp;&nbsp; ${item.name}<button class="cart_buy_del_btn">삭제</button></td>
-					<td><img src="/photo/${item.uploadfile1}"></td>
 					<td class="cart-item-title" itemid="${item.shop_num}"><a href="${root}/shop/content?num=${item.shop_num}">${item.title}</a></td>
 					<td class="cart-item-option" itemid="${item.shop_option}">${item.shop_option}</td>
 					<td>${item.shop_qty} 개</td>
 					<td><fmt:formatNumber value="${item.shop_price}" pattern="#,###,###"/> 원</td>
+					<td><button class="cart_buy_del_btn">삭제</button></td>
 				</tr>
 			</c:forEach>
 			</tbody>

@@ -45,7 +45,7 @@
 				<c:forEach var="hdto" items="${HotClass}">
 					<c:if test="${hdto.num==idto.num && idto.inter_cnt>=10}"></c:if>
 					<c:forEach var="cdto" items="${listpopulMain}" varStatus="status" begin="0" end="11">
-						<c:if test="${cdto.inter>=10 and cdto.num==hdto.num}">
+						<c:if test="${idto.inter_cnt>=10 and idto.num==cdto.num}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="featured__item">
 									<a href="${root}/class/view?num=${cdto.num}">

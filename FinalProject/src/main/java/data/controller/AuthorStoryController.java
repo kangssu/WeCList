@@ -27,8 +27,6 @@ public class AuthorStoryController {
   @Value("${file.upload.image}")
   String imagePath;
 
-  ///////////// 여기 아래는 마이페이지 스토리 매핑! /////////////
-
   // 게시판 전체 출력
   @GetMapping("/mypage/story/list")
   public ModelAndView slist(@RequestParam(defaultValue = "1") int currentPage,
@@ -38,7 +36,6 @@ public class AuthorStoryController {
 
     String myid = (String) session.getAttribute("id");
     int totalCount = service.getTotalCount(myid);
-    // System.out.println(totalCount); //제대로 넘어감!(3)
 
     int perPage = 10;
     int totalPage;
@@ -100,7 +97,6 @@ public class AuthorStoryController {
       }
     }
 
-    // insert
     service.insertStory(dto);
 
     return "redirect:/mypage/story/view?num=" + service.getMaxNum();
@@ -163,7 +159,7 @@ public class AuthorStoryController {
     return "redirect:/mypage/story/view?num=" + dto.getNum() + "&currentPage=" + currentPage;
   }
 
-  // 스토리 삭제! (자꾸 null이라고 나옴 ㅠ)
+  // 스토리 삭제!
   @GetMapping("/mypage/sdelete")
   public String delete(@RequestParam(required = false) String num, String currentPage,
       HttpSession session) {
@@ -172,7 +168,6 @@ public class AuthorStoryController {
     MultipartFile uploadfile = service.getData(num).getUpload();
     File file = new File(imagePath + "/" + uploadfile);
 
-    // 파일삭제
     file.delete();
 
     service.deleteStory(num);

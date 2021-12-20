@@ -31,7 +31,7 @@ public class ClassController {
 
   @Autowired
   ClassBoardMapper mapper;
-  
+
   @Autowired
   UserProfileService uservice;
 
@@ -63,6 +63,7 @@ public class ClassController {
     start = (currentPage - 1) * perPage;
 
     List<ClassBoardDto> list = mapper.getAlllist();
+    System.out.println("토탈" + totalCount);
 
     int no = totalCount - (currentPage - 1) * perPage;
     mview.addObject("totalCount", totalCount);
@@ -127,7 +128,7 @@ public class ClassController {
 
     List<HeartDto> heartTrue = service.getTrue(num);
     List<InterDto> interTrue = service.getTrueInter(num);
-    
+
     UserDto udto = uservice.GetIdData(dto.getMyid());
 
     int dotLoc = dto.getUploadfile().lastIndexOf(".");
@@ -145,7 +146,7 @@ public class ClassController {
     mview.addObject("interTrue", interTrue);
     mview.addObject("InterCount", InterCount);
     mview.addObject("udto", udto);
-    
+
     mview.setViewName("/2/class/class_view");
     return mview;
   }
@@ -158,8 +159,7 @@ public class ClassController {
 
     mview.addObject("list", list);
     mview.addObject("listseven", listseven);
-    // mview.addObject("listnewsunder", listnewsunder);
-    mview.setViewName("/2/class/class_news");// tiles �� /������/���ϸ� �����̴�
+    mview.setViewName("/2/class/class_news");
     return mview;
   }
 
@@ -175,11 +175,6 @@ public class ClassController {
 
     return mview;
   }
-
-  // @GetMapping("/class/news")
-  // public String news() {
-  // return "/2/class/class_news";
-  // }
 
   @GetMapping("/class/addform")
   public String addform() {
@@ -202,7 +197,6 @@ public class ClassController {
       try {
         cdto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -216,7 +210,6 @@ public class ClassController {
       try {
         cdto.getUpload1().transferTo(new File(imagePath + "/" + uploadfile1));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -230,7 +223,6 @@ public class ClassController {
       try {
         cdto.getUpload2().transferTo(new File(imagePath + "/" + uploadfile2));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -244,7 +236,6 @@ public class ClassController {
       try {
         cdto.getUpload3().transferTo(new File(imagePath + "/" + uploadfile3));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -258,7 +249,6 @@ public class ClassController {
       try {
         cdto.getUpload4().transferTo(new File(imagePath + "/" + uploadfile4));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -272,7 +262,6 @@ public class ClassController {
       try {
         cdto.getUpload5().transferTo(new File(imagePath + "/" + uploadfile5));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -300,7 +289,6 @@ public class ClassController {
       try {
         cndto.getUpload().transferTo(new File(imagePath + "/" + uploadfile));
       } catch (IllegalStateException | IOException e) {
-        // TODO: handle exception
         e.printStackTrace();
       }
     }
@@ -311,7 +299,6 @@ public class ClassController {
     service.insertNewBoard(cndto);
     return "redirect:/class/addnewform";
   }
-
 }
 
 
