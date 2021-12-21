@@ -18,27 +18,28 @@
 </section>
 <section class="featured spad">
    <div class="container">
-      <div class="row hot_list_all_box">
-         <c:forEach var="hdto" items="${HotClass}">
-            <c:forEach var="cdto" items="${listpopul}" varStatus="status">
-               <c:if test="${cdto.inter>=10 and cdto.num==hdto.num}">
-                  <div class="product__item">
-                     <a href="${root}/class/view?num=${cdto.num}">
-                        <div class="product__item__pic set-bg">
-                           <img src="../photo/${cdto.uploadfile}"
-                              style="width: 300px; height: 300px;"> <span
-                              class="shop_rank_number ank_number_${status.count}">${status.count}</span>
-                        </div>
-                        <div class="product__item__text">
-                           <h6>${cdto.class_op_cate}</h6>
-                           <h6>${cdto.title}</h6>
-                           <h5>${cdto.classprice}원</h5>
-                        </div>
-                     </a>
-                  </div>
-               </c:if>
-            </c:forEach>
-         </c:forEach>
-      </div>
-   </div>
+		<div class="row hot_list_all_box">
+			<c:forEach var="hdto" items="${HotClass}">
+				<c:forEach var="cdto" items="${listpopul}" varStatus="status">
+					<c:if test="${cdto.inter>=10 and cdto.num==hdto.num}">
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="featured__item">
+								<a href="${root}/class/view?num=${cdto.num}">
+									<div class="featured__item__pic set-bg">
+										<img src="../photo/${cdto.uploadfile}"> 
+										<span class="shop_rank_number ank_number_${status.count}">${status.count}</span>
+									</div>
+									<div class="featured__item__text">
+										<h6>${cdto.class_op_cate}</h6>
+										<h6>${cdto.title}</h6>
+										<h5>${cdto.classprice}원</h5>
+									</div>
+								</a>
+							</div>
+						</div>
+					</c:if>
+				</c:forEach>
+			</c:forEach>
+		</div>
+	</div>
 </section>

@@ -87,7 +87,7 @@
 				<c:forEach var="adto" items="${list}">
 					<c:if test="${fdto.to_id==adto.id}">
 						<div class="follow_box_1">
-							<img src="/img/pro.jpg" class="author_img_1">
+							<img src="/photo/${adto.profileimg}" class="author_img_1">
 							<h5>${adto.nickname}</h5>
 							<c:choose>
 								<c:when test="${fn:contains(followTrue, dto.id)}">

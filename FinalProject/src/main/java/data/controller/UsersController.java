@@ -164,10 +164,7 @@ public class UsersController {
     String photoname = "f" + sdf.format(new Date()) + "_" + file.getOriginalFilename();
     String searchImgNum = photoname.substring(photoname.indexOf("_") + 1, photoname.length());
 
-    System.out.println(profileimg);
-    System.out.println(photoname);
-
-    if (!profileimg.equals("default_img.jpg")) {
+    if (searchImgNum.length() == 0) {
       udto.setProfileimg(profileimg);
     } else {
       udto.setProfileimg(photoname);
