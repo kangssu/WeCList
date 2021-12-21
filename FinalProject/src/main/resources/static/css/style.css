@@ -3281,6 +3281,8 @@ li {
 	list-style: none;
 }
 
+.footer__about ul li:nth-child(3){color: #ff7b27; font-weight:500;}
+
 .footer__about__logo {
 	margin-bottom: 15px;
 }
