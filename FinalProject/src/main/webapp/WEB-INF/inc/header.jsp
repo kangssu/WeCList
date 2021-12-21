@@ -43,7 +43,6 @@ $(document).ready(function (){
 
  });
  </script>
-<!-- Header Section Begin -->
 <header class="header">
 	<a href="#">
 		<div class="header__high__top">
@@ -53,16 +52,12 @@ $(document).ready(function (){
 	<div class="header__top">
 		<div class="container">
 			<div class="header__top__right">
-				<!-- <span class="header_text1">WE C2 LIST의 다양한 작품과 클래스를 구경해보세요!</span>
-				<button type="button" class="header_btn1">GO</button> -->
 				<button type="button" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
 				<div class="header__top__right__auth">
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<c:if test="${sessionScope.loginok!=null }">
 						<span class="user__login__id">${sessionScope.id }님</span><span class="header_login_1">|</span>
 						<a href="${root}/login/logoutprocess">로그아웃</a><span class="header_login_1">|</span>
-						<%-- <button type="button" class="btn btn-danger" style="width: 100px"
-						 onclick="location.href='${root}/login/logoutprocess'">로그아웃</button> --%>
 					</c:if>
 					<c:if test="${sessionScope.loginok==null }">
 						<a href="${root}/users/login">로그인</a><span class="header_login_1">|</span>
@@ -96,9 +91,9 @@ $(document).ready(function (){
 				</div>
 				<div class="hero__search ">
 					<div class="hero__search__form">
-						<form action="search">
+						<form action="/search/list" method="post">
 							<input type="text" name="keyword" placeholder="검색어를 입력해주세요.">
-							<button type="submit" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<button type="button" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</form>
 					</div>
 				</div>
@@ -155,4 +150,3 @@ $(document).ready(function (){
 		<i class="fa fa-bars"></i>
 	</div>
 </header>
-<!-- Header Section End -->

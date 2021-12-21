@@ -155,8 +155,10 @@ public class UsersController {
     String nickname = mapper.getNickName(id);
     model.addAttribute("nickname", nickname);
 
+    /*
+     * String profileimg = mapper.getImg(id); model.addAttribute("profileimg", profileimg);
+     */
     String profileimg = mapper.getImg(id);
-    model.addAttribute("profileimg", profileimg);
 
     String path = session.getServletContext().getRealPath("/photo");
 
@@ -168,6 +170,7 @@ public class UsersController {
       udto.setProfileimg(profileimg);
     } else {
       udto.setProfileimg(photoname);
+      session.setAttribute("profileimg", photoname);
     }
 
     try {
