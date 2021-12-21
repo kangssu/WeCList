@@ -63,7 +63,7 @@ $(document).ready(function (){
 			<c:forEach var="item" items="${list}">
 				<tr class="cart_table_list_content">
 					<td><input title="${item.name} 선택" type="checkbox" value=""> &nbsp;&nbsp; ${item.name}</td>
-					<td class="cart_img_view"><img src="/photo/${item.uploadimage}"></td>
+					<td class="cart_img_view"><img src="/photo/${item.uploadfile1}"></td>
 				<tr>
 					<td class="cart-item-title" itemid="${item.shop_num}"><a href="${root}/shop/content?num=${item.shop_num}">${item.title}</a></td>
 					<td class="cart-item-option" itemid="${item.shop_option}">${item.shop_option}</td>
