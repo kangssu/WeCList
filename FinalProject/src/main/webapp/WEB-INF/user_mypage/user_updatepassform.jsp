@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!-- Checkout Section Begin -->
 <div class="mypage__story">
 	<h2>회원 정보수정</h2>
 	<form action="/users/updatepass" method="post">	
@@ -36,4 +35,3 @@
 		</div>
 	</form>
 </div>
-<!-- Checkout Section End -->

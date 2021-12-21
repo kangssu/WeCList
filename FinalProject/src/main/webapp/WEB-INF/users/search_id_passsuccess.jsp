@@ -3,5 +3,4 @@
 <script type="text/javascript">
 	alert("입력하신 메일주소로 아이디를 알려드렸어요!");
 	location.href="/";
-	//history.back();
 </script>

@@ -73,7 +73,6 @@
 		});
 	});
 </script>
-<!-- 스토리 리스트 -->
 <div class="mypage__story">
 	<h2>클래스 등록하기</h2>
 	<div class="mypage__story__form">

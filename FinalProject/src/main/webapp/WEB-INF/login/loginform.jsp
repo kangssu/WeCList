@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <div style="margin-lift: 130px;">
 	<form action="loginprocess" method="post" class="form-inline">
 		<table class="table table-bordered" style="width: 300px;">
@@ -42,5 +35,3 @@
 		</table>
 	</form>
 </div>
-</body>
-</html>

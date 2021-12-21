@@ -42,7 +42,6 @@
 <div class="mypage__story">
 	<h2>작품 등록하기</h2>
 	<div class="mypage__story__form">
-
 		<form action="insert" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${dto.num}">
 			<input type="hidden" name="myid" value="${sessionScope.id}">
@@ -50,117 +49,138 @@
 			<table class="story__table__form">
 				<tr>
 					<th>옵 션</th>
-					<td colspan="3"><select style="width: 500px" name="shopop"
-						class="shop_op_select">
+					<td colspan="3">
+						<select style="width: 500px" name="shopop" class="shop_op_select">
 							<option>수제먹거리</option>
 							<option>디저트</option>
 							<option>패션잡화</option>
 							<option>액세서리</option>
 							<option>파인아트</option>
-					</select></td>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<th>제 목</th>
-					<td colspan="3"><input type="text" name="title"
-						required="required" autofocus="autofocus"
-						placeholder="※ 작품에 대한 제목을 입력해주세요."></td>
+					<td colspan="3">
+						<input type="text" name="title" required="required" autofocus="autofocus"
+						placeholder="※ 작품에 대한 제목을 입력해주세요.">
+					</td>
 				</tr>
 				<tr>
 					<th>가 격</th>
-					<td colspan="3"><input type="text" name="shopprice"
-						required="required" autofocus="autofocus"
-						placeholder="※ 작품에 대한 가격을 입력해주세요"></td>
+					<td colspan="3">
+						<input type="text" name="shopprice" required="required" 
+						autofocus="autofocus" placeholder="※ 작품에 대한 가격을 입력해주세요">
+					</td>
 				</tr>
 				<tr>
 					<th>태 그</th>
-					<td colspan="3"><input type="text" name="shoptag"
-						placeholder="※ 작품에 관련된 태그를 입력해주세요"></td>
+					<td colspan="3">
+						<input type="text" name="shoptag"
+						placeholder="※ 작품에 관련된 태그를 입력해주세요">
+					</td>
 				</tr>
 				<tr>
 					<th>1번 이름과 가격</th>
-					<td ><input type="text" name="suboption1"
+					<td >
+						<input type="text" name="suboption1"
 						required="required" autofocus="autofocus"
 						placeholder="※ 1번 제품에 대한 이름."> 
 						<input type="text" name="subprice1" required="required" autofocus="autofocus"
-						placeholder="※ 1번 제품에 대한 가격."></td>
+						placeholder="※ 1번 제품에 대한 가격.">
+					</td>
 				</tr>
 				<tr>
 					<th>2번 이름과 가격</th>
-					<td><input type="text" name="suboption2"
+					<td>
+						<input type="text" name="suboption2"
 						placeholder="※ 2번 제품에 대한 이름."> 
-						<input type="text" name="subprice2" placeholder="※ 2번 제품에 대한 가격."></td>
+						<input type="text" name="subprice2" placeholder="※ 2번 제품에 대한 가격.">
+					</td>
 				</tr>
 				<tr>
 					<th>3번 이름과 가격</th>
-					<td><input type="text" name="suboption3"
+					<td>
+						<input type="text" name="suboption3"
 						placeholder="※ 3번 제품에 대한 이름."> 
-						<input type="text" name="subprice3" placeholder="※ 3번 제품에 대한 가격."></td>
+						<input type="text" name="subprice3" placeholder="※ 3번 제품에 대한 가격.">
+					</td>
 				</tr>
 				<tr>
 					<th>4번 이름과 가격</th>
-					<td><input type="text" name="suboption4"
+					<td>
+						<input type="text" name="suboption4"
 						placeholder="※ 4번 제품에 대한 이름."> 
-						<input type="text" name="subprice4" placeholder="※ 4번 제품에 대한 가격."></td>
+						<input type="text" name="subprice4" placeholder="※ 4번 제품에 대한 가격.">
+					</td>
 				</tr>
 				<tr>
 					<th>5번 이름과 가격</th>
-					<td><input type="text" name="suboption5"
+					<td>
+						<input type="text" name="suboption5"
 						placeholder="※ 5번 제품에 대한 이름."> 
-						<input type="text" name="subprice5" placeholder="※ 5번 제품에 대한 가격."></td>
+						<input type="text" name="subprice5" placeholder="※ 5번 제품에 대한 가격.">
+					</td>
 				</tr>
 				<tr>
 					<th colspan="3">상품 설명</th>
 				</tr>
 				<tr>
 					<td colspan="3">
-					<input type="text" name="shopsub"
-						required="required" placeholder="간략한 상품 소개"></input>
+						<input type="text" name="shopsub"
+							required="required" placeholder="간략한 상품 소개"></input>
 					</td>
 				</tr>
 				<tr>
 					<th colspan="3">제품 상세 정보</th>
 				</tr>
-
 				<tr>
-					<td colspan="3"><textarea class="form-control"
-							id="summernote" name="shopcontent" autofocus="autofocus"
-							required="required"></textarea></td>
+					<td colspan="3">
+						<textarea class="form-control"
+						id="summernote" name="shopcontent" autofocus="autofocus"
+						required="required"></textarea>
+					</td>
 				</tr>
 				<tr>
 					<th colspan="3">배송/교환/환불정보</th>
 				</tr>
 				<tr>
-					<td colspan="3"><textarea id="shopde" class="form-control"
-							style="height: 300px;" name="shopdelivery" autofocus="autofocus"
-							required="required">
-								</textarea></td>
+					<td colspan="3">
+						<textarea id="shopde" class="form-control"
+						style="height: 300px;" name="shopdelivery" autofocus="autofocus"
+						required="required"></textarea>
+					</td>
 				</tr>
-
 				<tr>
 					<th>섬네일사진</th>
-					<td colspan="3"><input type="file" name="upload1"
-						class="form-control" multiple autofocus="autofocus"
-						required="required"></td>
+					<td colspan="3">
+						<input type="file" name="upload1" class="form-control" 
+						multiple autofocus="autofocus" required="required">
+					</td>
 				</tr>
 				<tr>
 					<th>추가 사진</th>
-					<td colspan="3"><input type="file" name="upload2"
-						class="form-control" multiple></td>
+					<td colspan="3">
+						<input type="file" name="upload2" class="form-control" multiple>
+					</td>
 				</tr>
 				<tr>
 					<th>추가 사진 2</th>
-					<td colspan="3"><input type="file" name="upload3"
-						class="form-control" multiple></td>
+					<td colspan="3">
+						<input type="file" name="upload3" class="form-control" multiple>
+					</td>
 				</tr>
 				<tr>
 					<th>추가 사진 3</th>
-					<td colspan="3"><input type="file" name="upload4"
-						class="form-control" multiple></td>
+					<td colspan="3">
+						<input type="file" name="upload4" class="form-control" multiple>
+					</td>
 				</tr>
 				<tr>
 					<th>추가 사진 4</th>
-					<td colspan="3"><input type="file" name="upload5"
-						class="form-control" multiple></td>
+					<td colspan="3">
+						<input type="file" name="upload5" class="form-control" multiple>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">

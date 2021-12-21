@@ -2,11 +2,6 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
-<script type="text/javascript">
-$(function(){});
-</script>
-
-<!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
@@ -22,9 +17,6 @@ $(function(){});
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
-
-<!-- Checkout Section Begin -->
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2 user_choice">
@@ -37,4 +29,3 @@ $(function(){});
 		</div>
 	</div>
 </section>
-<!-- Checkout Section End -->

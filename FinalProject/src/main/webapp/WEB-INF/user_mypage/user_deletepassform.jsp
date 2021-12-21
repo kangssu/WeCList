@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!-- Checkout Section Begin -->
 <div class="mypage__story">
 	<h2>회원 탈퇴</h2>
 	<form action="/users/deletepass" method="post">	
-	<%-- <input type="hidden" name="id" value="${sessionScope.id}"> --%>
 		<div class="pass_check_middle_title">
 			<h5>비밀번호 재확인</h5>
 		</div>
@@ -37,4 +35,3 @@
 		</div>
 	</form>
 </div>
-<!-- Checkout Section End -->

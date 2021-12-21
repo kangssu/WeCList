@@ -43,7 +43,6 @@
 		});
 	});
 </script>
-<!-- 스토리 리스트 -->
 <div class="mypage__story">
 	<h2>스토리 수정하기</h2>
 	<div class="mypage__story__form">

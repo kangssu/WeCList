@@ -24,7 +24,6 @@
 		popup2.classList.add('hide');
 	}
 </script>
-<!-- 스토리 상세 -->
 <div class="mypage__story">
 	<h2>스토리 관리</h2>
 	<div class="mypage__story__view">

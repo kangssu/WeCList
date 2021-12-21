@@ -30,7 +30,6 @@ $(function(){
          });    
 	});
 	
-	
 	// 비밀번호 유효성 검사
 	$("#pass1").blur(function(){
 		//pw_passed = true;
@@ -87,7 +86,6 @@ $(function(){
 	    }
 	});
 	
-	
 	// 비밀번호 확인 요청
 	$("#pass2").blur(function(){
 		if($("#pass1").val() != $("#pass2").val()) {
@@ -98,8 +96,6 @@ $(function(){
 			isCertification = true;
 		}
 	});
-	
-	
 	
 	// 핸드폰번호 숫자만 입력, '-' 입력받지 않음
 	$("#hp").blur(function(){
@@ -115,7 +111,6 @@ $(function(){
 	    	isCertification = true;
 	    }
 	});
-	
 	
 	// 이메일 유효성 검사
 	$("#email").blur(function(){
@@ -146,7 +141,6 @@ $(function(){
             }
          });
 	});
-
 	
 	// 인증메일 전송 버튼
 	$("#sendMail").click(function() {
@@ -185,7 +179,6 @@ $(function(){
 		 }).open();
 	});
 	
-	
 	$("#updatebtn").click(function() {
 		if(isCertification == false) {
 			alert("수정 사항을 다시 한번 확인해주세요!");
@@ -194,8 +187,6 @@ $(function(){
 	});
 	
 });
-
-
 
 function check(obj) {
 	var fileCheck = document.getElementById("fileimg").value;
@@ -208,9 +199,6 @@ function check(obj) {
 	return true;
 }
 </script>
-
-
-<!-- Checkout Section Begin -->
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
@@ -344,7 +332,6 @@ function check(obj) {
 							<button type="button" class="addr-btn" onclick="jQuery('#profileimg').click()">사진선택</button>
 						</td>
 					</tr>
-				<%-- </c:forEach> --%>
 				</table>			
 				<div class="view_order_btn">
 					<button type="submit" class="buy-btn" onclick="" id="updatebtn">수정하기</button>
@@ -353,4 +340,3 @@ function check(obj) {
 		</div>
 	</div>
 </section>
-<!-- Checkout Section End -->

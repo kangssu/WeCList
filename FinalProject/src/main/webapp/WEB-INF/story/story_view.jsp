@@ -192,7 +192,6 @@
 	
 	
 </script>
-<!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
@@ -208,8 +207,6 @@
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
-<!-- 스토리 상세 -->
 <div class="story_view">
 	<div class="container">
 		<div class="story__view__page">
@@ -229,7 +226,6 @@
 				<p>${dto.content}</p>
 			</div>
 			<div class="story__view__comment__form">
-				<!-- 댓글 관련 input_hidden 아래 5줄! -->
 				<input type="hidden" name="writer" value="${nickname}"/>
 				<input type="hidden" name="num" id="num" value="${dto.num}">
 				<table class="comment__table__all">
