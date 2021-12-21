@@ -10,7 +10,7 @@
 				<div class="row">
 					<div class="grade_user">
 						<div class="profile_img" style="float:left;">
-							<img src="/photo/${sessionScope.profileimg}">
+							<img src="/photo/${profileimg}">
 						</div>
 						<div class="profile_text_mypage_1" style="float:left;">
 							<c:choose>
