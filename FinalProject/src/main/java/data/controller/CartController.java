@@ -76,6 +76,7 @@ public class CartController {
         return mv;
     }
 
-    @PostMapping("/cart/delete")
+    @ResponseBody
+    @DeleteMapping("/cart/delete")
     public void delete(String user_id, int shop_num, String shop_option ) { cartService.deleteCart(user_id, shop_num, shop_option);  }
 }
