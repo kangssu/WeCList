@@ -64,7 +64,6 @@ $(function(){
             }
          }); 
 	});
-
 	
 	// 닉네임 확인요청
 	$("#nickname").blur(function(){
@@ -86,7 +85,6 @@ $(function(){
             }
          });    
 	});
-	
 	
 	// 비밀번호 유효성 검사
 	$("#pass1").blur(function(){
@@ -144,7 +142,6 @@ $(function(){
 	    }
 	});
 	
-	
 	// 비밀번호 확인 요청
 	$("#pass2").blur(function(){
 		if($("#pass1").val() != $("#pass2").val()) {
@@ -155,8 +152,6 @@ $(function(){
 			isCertification = true;
 		}
 	});
-	
-	
 	
 	// 핸드폰번호 숫자만 입력, '-' 입력받지 않음
 	$("#hp").blur(function(){
@@ -172,7 +167,6 @@ $(function(){
 	    	isCertification = true;
 	    }
 	});
-	
 	
 	// 이메일 유효성 검사
 	$("#email").blur(function(){
@@ -203,7 +197,6 @@ $(function(){
             }
          });
 	});
-
 	
 	// 인증메일 전송 버튼
 	$("#sendMail").click(function() {
@@ -242,7 +235,6 @@ $(function(){
 		 }).open();
 	});
 	
-	
 	//약관 전체동의
 	$("#agreeAll").click(function() {
 		//체크 true
@@ -270,10 +262,7 @@ $(function(){
 			return false;
 		}
 	});
-	
-
 });
-
 
 function check(obj) {
 	var fileCheck = document.getElementById("fileimg").value;
@@ -296,8 +285,6 @@ function check(obj) {
 	return true;
 }
 </script>
-
-<!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
@@ -313,9 +300,6 @@ function check(obj) {
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
-
-<!-- Checkout Section Begin -->
 <section class="checkout spad">
 	<div class="container">
 		<div class="checkout__form2">
@@ -482,8 +466,6 @@ function check(obj) {
 		</div>
 	</div>
 </section>
-<!-- Checkout Section End -->
-
 <!-- 이용약관 동의 -->
 <div id="popup1" class="hide">
 	<div class="content">

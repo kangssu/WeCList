@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.StoryDto;
@@ -22,7 +23,8 @@ public class StoryController {
   UserMapper mapper;
 
   @GetMapping("/story/list")
-  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
+  public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage,
+      @ModelAttribute StoryDto dto) {
 
     ModelAndView mview = new ModelAndView();
 

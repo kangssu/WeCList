@@ -75,7 +75,6 @@
 		popup2.classList.remove('hide');
 	}
 </script>
-<!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section">
 	<div class="container">
 		<div class="row">
@@ -91,7 +90,6 @@
 		</div>
 	</div>
 </section>
-<!-- Breadcrumb Section End -->
 <!-- 작가 리스트 -->
 <div class="author_list">
 	<div class="author_all_list">
@@ -102,7 +100,6 @@
 			<c:if test="${totalCount>0}">
 				<c:forEach var="dto" items="${list}" varStatus="status">
 					<div class="author__box__all_list">
-						<%-- <input type="text" value="${status.count}"> --%>
 						<div class="author__box_all">
 							<img src="/photo/${dto.profileimg}" class="author_img_2">
 						</div>
@@ -139,7 +136,6 @@
 					</div>
 				</c:forEach>
 			</c:if>
-			<!-- 페이징 여기다가 아래 코드 지우고 넣기! class 동일하게줘야 css 먹음!!! -->
 			<div class="product__pagination">
 				<c:if test="${startPage>1}">
 					<a href="list?currentPage=${startPage-1}">이전</a>
@@ -153,7 +149,6 @@
 						<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
 					</c:if>
 				</c:forEach>
-				<!-- 다음 -->
 				<c:if test="${endPage<totalPage}">
 					<a href="list?currentPage=${endPage+1}">다음</a>
 				</c:if>

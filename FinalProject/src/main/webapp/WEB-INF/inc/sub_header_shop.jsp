@@ -1,7 +1,6 @@
  <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- Header Section Begin -->
 <header class="header">
 	<div class="header__bottom">
 		<div class="container">
@@ -24,4 +23,3 @@
 		<i class="fa fa-bars"></i>
 	</div>
 </header>
-<!-- Header Section End -->

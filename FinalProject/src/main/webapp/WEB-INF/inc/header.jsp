@@ -91,10 +91,12 @@ $(document).ready(function (){
 				</div>
 				<div class="hero__search ">
 					<div class="hero__search__form">
-						<form action="/search/list" method="post">
+						<div class="search__all__box">
+						<!-- <form action="/search/list" method="post"> -->
 							<input type="text" name="keyword" placeholder="검색어를 입력해주세요.">
-							<button type="button" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-						</form>
+							<button type="submit" class="site-btn" onclick="location.href='/search/list'"><i class="fa fa-search" aria-hidden="true"></i></button>
+						<!-- </form> -->
+						</div>
 					</div>
 				</div>
 				<div class="hero__mypage">

@@ -98,7 +98,7 @@
 	<div class="story_del_content">
 		<p class="del_popup_title">삭제 확인</p>
 		<span class="del_popup_text">
-			해당 스토리를 삭제하시겠습니까?<br>
+			해당 작품을 삭제하시겠습니까?<br>
 			삭제하시면 다시 원복하실 수 없습니다.<br>
 			<b>※ 신중히 생각하시고 진행부탁드립니다.</b>	
 		</span>

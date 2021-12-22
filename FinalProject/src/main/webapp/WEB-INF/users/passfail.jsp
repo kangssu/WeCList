@@ -3,5 +3,4 @@
 <script type="text/javascript">
 	alert("아이디 또는 비밀번호 오류입니다.");
 	location.href="/users/login";
-	//history.back();
 </script>

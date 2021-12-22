@@ -27,7 +27,7 @@ public class ProfileController {
   @Value("${file.upload.image}")
   String imagePath;
 
-  // 프로필을 id값 myid(angel)로 불러오기!
+  // 프로필을 id값으로 불러오기!
   @GetMapping("/mypage/profile")
   public ModelAndView content(HttpSession session) {
     ModelAndView mview = new ModelAndView();
