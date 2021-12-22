@@ -9,7 +9,7 @@
 				<div class="breadcrumb__text">
 					<h2>WeCList 정보</h2>
 					<div class="breadcrumb__option">
-						<a href="./index.html">Home</a> <span>WeCList 정보</span>
+						<a href="/">Home</a> <span>WeCList 정보</span>
 					</div>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 	</div>
 </section>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31ea2ab5f5bc2dbd7ef329d223a10003"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=45cf5dc51b00f628da64511fd7e0dddf"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 

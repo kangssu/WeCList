@@ -10,13 +10,13 @@ function getCartList(){
 $(document).ready(function (){
 	$(".cart_buy_del_btn").click(function (){
 		let user_id = "${sessionScope.id}";
-		let shop_num = $(this).parent().siblings().eq(1).attr('itemid');
-		let shop_option = $(this).parent().siblings().eq(2).text();
+		let shop_num = $(this).parent().siblings().eq(2).attr('itemid');
+		let shop_option = $(this).parent().siblings().eq(3).text();
 
-		//console.log(user_id + ":" + shop_num + ":" + shop_option);
+		console.log(user_id + ":" + shop_num + ":" + shop_option);
 
 		$.ajax({
-			type:"POST",
+			type:"DELETE",
 			url:"/cart/delete",
 			dayaType:"text",
 			data:{"user_id":user_id , "shop_num":shop_num , "shop_option":shop_option },
