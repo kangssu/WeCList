@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.SearchMapper">
+	<select id="getSearch" parameterType="HashMap" resultType="sdto">
+		select * from shopboarder where title like concat('%',#{keyword},'%') order by num desc
+	</select>
+	
+	<select id="getTotalCount" parameterType="String" resultType="int">
+		select count(*) from shopboarder where title like concat('%',#{keyword},'%') order by num desc
+	</select>
+	
+	<select id="getCSearch" parameterType="HashMap" resultType="cdto">
+		select * from classboarder where title like concat('%',#{keyword},'%') order by num desc
+	</select>
+	
+	<select id="getCTotalCount" parameterType="String" resultType="int">
+		select count(*) from classboarder where title like concat('%',#{keyword},'%') order by num desc
+	</select>
+</mapper> 

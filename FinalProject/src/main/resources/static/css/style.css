@@ -5372,7 +5372,16 @@ li {
 	color:#ff7b27;
 }
 
+.search__result{
+	text-align:center;
+	padding:50px;
+	margin-left:330px;
+	margin-bottom:80px;
+}
 
+.search__result h3{
+	font-size:25px;
+}
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 

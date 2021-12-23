@@ -12,13 +12,13 @@
 				</ul>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="img/hero/main3.jpg" alt="Los Angeles">
+						<img src="img/hero/main_class_new.png" alt="Los Angeles">
 					</div>
 					<div class="carousel-item">
-						<img src="img/hero/main3.jpg" alt="Chicago">
+						<img src="img/hero/main_class_new.png" alt="Chicago">
 					</div>
 					<div class="carousel-item">
-						<img src="img/hero/main3.jpg" alt="New York">
+						<img src="img/hero/main_class_new.png" alt="New York">
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#demo" data-slide="prev">

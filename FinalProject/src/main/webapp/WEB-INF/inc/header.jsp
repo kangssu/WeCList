@@ -52,7 +52,7 @@ $(document).ready(function (){
 	<div class="header__top">
 		<div class="container">
 			<div class="header__top__right">
-				<button type="button" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
+				<button type="button" onclick="location.href='/shop/popul'" class="header_btn1"><b>인기 작품</b> 바로보기<i class="fa fa-angle-right"></i></button>
 				<div class="header__top__right__auth">
 					<c:set var="root" value="<%=request.getContextPath()%>" />
 					<c:if test="${sessionScope.loginok!=null }">
@@ -92,10 +92,10 @@ $(document).ready(function (){
 				<div class="hero__search ">
 					<div class="hero__search__form">
 						<div class="search__all__box">
-						<!-- <form action="/search/list" method="post"> -->
+						<form action="/search/list" method="get">
 							<input type="text" name="keyword" placeholder="검색어를 입력해주세요.">
-							<button type="submit" class="site-btn" onclick="location.href='/search/list'"><i class="fa fa-search" aria-hidden="true"></i></button>
-						<!-- </form> -->
+							<button type="submit" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+						</form>
 						</div>
 					</div>
 				</div>
