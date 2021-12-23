@@ -26,18 +26,18 @@ spring:
 
 #mysql
   datasource:
-    url: jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
-    username: guest
-    password: 1234qwer
-    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
+#    username: guest
+#    password: 1234qwer
+#    driver-class-name: org.mariadb.jdbc.Driver
 #   driver-class-name: com.mysql.cj.jdbc.Driver
 #   url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul
 #   username: root
 #   password: 1234
-#    url: jdbc:log4jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
-#    username: guest
-#    password: 1234qwer
-#    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://maria-bit.cy2ifmxzl5mi.ap-northeast-2.rds.amazonaws.com:3306/bit_final
+    username: guest
+    password: 1234qwer
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
 
   servlet:
     multipart:
@@ -53,6 +53,6 @@ mybatis:
 file:
   upload:
 #     권혁락 맥북 경로
-#    image: '/Users/rk/Documents/photo'
+    image: '/Users/rk/Documents/photo'
 #     EC2 경로
-    image: '/home/ec2-user/backup/photo'
+#    image: '/home/ec2-user/backup/photo'

@@ -235,9 +235,12 @@
     $("#selectoption").change(function () {
       let txt = $("#selectoption option:selected").text();
       let v = $("#selectoption option:selected").val();
+	  let total =  $("#subnum").val() * (parseInt($("#selectoption").val()) + parseInt(${sdto.shopprice}));
 	  $("#shop_option").val(txt);
       document.getElementById("result").innerText = "상품 종류  : " + txt + " (+" + v + "원)";
       document.getElementById("quantity-del-dan").innerText = $("#subnum").val() * $("#selectoption").val();
+      document.getElementById("quantity-del-dan").innerText =total;
+      document.getElementById("total_price").innerText =total;
     });
 
     // 막무가내 리스너 붙이기
@@ -247,6 +250,8 @@
       document.getElementById("total_price").innerText =total;
     });
   });
+
+
 
   // 구매하기 onclick
   function buyItem(){
