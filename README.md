@@ -14,7 +14,7 @@
 * 작품 리스트(카테고리 구분), 상세 출력 및 해당 작품 좋아요 기능 구현
 * 작가 마이페이지에서 작품 등록, 수정, 삭제 기능 구현
  
-🙇‍♀️ **<code>Me</code> 강희수(조원) ([Kangssu](https://github.com/kangssu))** <code>Backend</code>
+🙇‍♀️ **<code>Me</code> 강희수(조원) ([kangssu](https://github.com/kangssu))** <code>Backend</code>
 * 웹사이트의 전체적인 **HTML, CSS** 담당
 * 위시리스트에 등록된 **작가들 리스트 출력** 및 회원들이 원하는 **작가 팔로우 + 팔로잉 기능 구현**
 * 회원들이 팔로우한 작가들의 리스트는 **마이페이지에 출력 + 팔로잉 기능** 가능
