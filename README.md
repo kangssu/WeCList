@@ -8,6 +8,8 @@
 * 위시리스트를 만들고 싶은 이유랑 가장 적합한 idus를 벤치하였습니다.
 <br/>
 
+![dockerContainers](https://github.com/kangssu/kangssu/assets/83870420/0ee8b781-8583-4f0a-ae5c-9c2c2388fde9)
+![dockerImages](https://github.com/kangssu/kangssu/assets/83870420/c7c05249-9fb9-4c68-88ed-68f4f96de2f0)
 ## 1. 팀원 소개
 🙇‍♂️ 조민섭(조장) ([chominsub](https://github.com/chominsub)) <code>Backend</code>
 * 작품 메인 화면 인기 작품, 최신 작품 각각 출력
